@@ -105,15 +105,15 @@ A continuación se presenta el cuadro consolidado de Epics y User Stories:
 
 **Impact Map Segmento 1**
 
-![im1](img/impactMapping/Impactmap-JoseRamirez.png)
+![im1](../img/impactMapping/Impactmap-JoseRamirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/i/FwgcL?tagId=nXgEG
 **Impact Map Segmento 2**
 
-![im2](img/impactMapping/Impactmap-AlessandraNova.png)
+![im2](../img/impactMapping/Impactmap-AlessandraNova.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/i/qVjTP?tagId=nXgEG
 **Impact Map Segmento 3**
 
-![im3](img/impactMapping/Impactmap-AlvaroToress.png)
+![im3](../img/impactMapping/Impactmap-AlvaroToress.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/i/P4jiN?tagId=nXgEG
 
 <a id="33-product-backlog"></a>
@@ -207,7 +207,7 @@ El Product Backlog se gestiona en **Trello**, conforme a las herramientas indica
 
 **https://trello.com/b/LnAD1sH3/fleetsafe-product-backlog**
 
-<img src="img/backlog/product-backlog-trello.png" alt="Tablero del Product Backlog de FleetSafe en Trello, con 44 User Stories en la lista Product Backlog" width="1000">
+<img src="../img/backlog/product-backlog-trello.png" alt="Tablero del Product Backlog de FleetSafe en Trello, con 44 User Stories en la lista Product Backlog" width="1000">
 
 El tablero se organiza en cuatro listas que reflejan el estado de avance de cada User Story:
 

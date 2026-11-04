@@ -307,7 +307,7 @@ Cada enunciado vincula un indicador cuantificable de éxito del negocio con un b
 <a id="1224-lean-ux-canvas"></a>
 #### <i>**1.2.2.4. Lean UX Canvas.**</i>
 
-![BMCANVAS](img/chapter1/BusinessModelCanvas.jpg)
+![BMCANVAS](../img/chapter1/BusinessModelCanvas.jpg)
 [Link del canvas](https://miro.com/app/board/uXjVEdPbI5Y=/?share_link_id=326777939411)
 <hr>
 
