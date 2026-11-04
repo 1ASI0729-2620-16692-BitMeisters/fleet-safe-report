@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="../img/UPC.png" alt="Logo UPC" width="120px">
+  <img src="img/UPC.png" alt="Logo UPC" width="120px">
 </p>
 
 <p align="center">
@@ -248,4 +248,4 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 ---
 
-[Capítulo I: Introducción →](capitulo-1.md)
+[Capítulo I: Introducción →](report/capitulo-1.md)

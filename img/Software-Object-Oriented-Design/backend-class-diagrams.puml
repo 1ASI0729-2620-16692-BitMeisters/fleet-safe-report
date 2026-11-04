@@ -1,0 +1,472 @@
+@startuml
+' FleetSafe - Backend RESTful API (Java) - Domain model per bounded context
+' The backend is not implemented yet: these diagrams are the design that the Web Services repository will follow.
+' Naming conventions applied (Java):
+'   - Classes, interfaces and enumerations: PascalCase; enumeration members: UPPER_SNAKE_CASE
+'   - Attributes and parameters: camelCase, private (shown with -)
+'   - Methods: camelCase, public (shown with +)
+'   - References that cross a bounded context are UUID attributes with the Id suffix (dashed relations at the end)
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam nodesep 25
+skinparam ranksep 40
+skinparam class {
+  BackgroundColor #ffffff
+  BorderColor #1d4ed8
+  ArrowColor #1e3a8a
+}
+skinparam package {
+  BackgroundColor #eff6ff
+  BorderColor #3b82f6
+}
+top to bottom direction
+
+' Full diagram. Members are hidden so that the whole image fits in 4096 px (the default size limit of PlantUML) and is not cropped.
+' Delete the next line to show attributes and methods (then render with -DPLANTUML_LIMIT_SIZE=16384); the diagrams per bounded context always show them.
+hide members
+scale max 4096x4096
+
+package "Identity and Access" {
+  class User <<Entity>> {
+      - id: UUID
+      - companyId: UUID
+      - email: String
+      - passwordHash: String
+      - firstName: String
+      - lastName: String
+      - role: UserRole
+      - isActive: boolean
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + getFullName(): String
+      + hasRole(role: UserRole): boolean
+      + changePassword(newHash: String): void
+      + activate(): void
+      + deactivate(): void
+  }
+  enum UserRole {
+      ADMINISTRATOR
+      FLEET_SUPERVISOR
+      DRIVER
+  }
+  interface UserRepository <<Repository>> {
+      + findById(id: UUID): Optional<User>
+      + findByEmail(email: String): Optional<User>
+      + findAllByCompanyId(companyId: UUID): List<User>
+      + save(user: User): User
+  }
+  class AuthenticationService <<Application Service>> {
+      - userRepository: UserRepository
+      - passwordEncoder: PasswordEncoder
+      + signIn(email: String, password: String): AuthenticatedUser
+      + issueToken(user: User): String
+      + verifyToken(token: String): AuthenticatedUser
+  }
+  User "1" --> "1" UserRole : has role
+  UserRepository ..> User : manages
+  AuthenticationService --> "1" UserRepository : uses
+}
+
+package "Fleet Management" {
+  class Company <<Aggregate Root>> {
+      - id: UUID
+      - name: String
+      - taxId: String
+      - address: String
+      - phone: String
+      - email: String
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + addFleet(fleet: Fleet): void
+      + getFleets(): List<Fleet>
+  }
+  class Fleet <<Entity>> {
+      - id: UUID
+      - companyId: UUID
+      - name: String
+      - description: String
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + addVehicle(vehicle: Vehicle): void
+      + getVehicles(): List<Vehicle>
+      + countByStatus(status: VehicleStatus): int
+  }
+  class Vehicle <<Entity>> {
+      - id: UUID
+      - fleetId: UUID
+      - plate: String
+      - brand: String
+      - model: String
+      - year: int
+      - type: String
+      - capacity: BigDecimal
+      - currentStatus: VehicleStatus
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + applyAuthorizationResult(status: VehicleStatus): void
+      + isOperational(): boolean
+      + getActiveAssignment(): Optional<VehicleAssignment>
+  }
+  class Driver <<Entity>> {
+      - id: UUID
+      - userId: UUID
+      - licenseNumber: String
+      - licenseExpirationDate: LocalDate
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + hasValidLicense(onDate: LocalDate): boolean
+      + getActiveAssignment(): Optional<VehicleAssignment>
+  }
+  class VehicleAssignment <<Entity>> {
+      - id: UUID
+      - vehicleId: UUID
+      - driverId: UUID
+      - assignedFrom: LocalDate
+      - assignedTo: LocalDate
+      - isActive: boolean
+      - createdAt: LocalDateTime
+      + isActiveOn(date: LocalDate): boolean
+      + close(endDate: LocalDate): void
+  }
+  enum VehicleStatus {
+      ENABLED
+      OBSERVED
+      NOT_ENABLED
+  }
+  class FleetService <<Application Service>> {
+      - fleetRepository: FleetRepository
+      + registerVehicle(fleetId: UUID, vehicle: Vehicle): Vehicle
+      + assignDriver(vehicleId: UUID, driverId: UUID, from: LocalDate): VehicleAssignment
+      + updateCurrentStatus(vehicleId: UUID, status: VehicleStatus): void
+      + findVehicleAssignedTo(driverId: UUID): Optional<Vehicle>
+  }
+  Company "1" *-- "0..*" Fleet : organizes
+  Fleet "1" *-- "0..*" Vehicle : groups
+  Vehicle "1" --> "0..*" VehicleAssignment : assigned in
+  Driver "1" --> "0..*" VehicleAssignment : receives
+  Vehicle "1" --> "1" VehicleStatus : has status
+  FleetService ..> Vehicle : manages
+  FleetService ..> VehicleAssignment : manages
+}
+
+package "Vehicle Documentation" {
+  class DocumentType <<Entity>> {
+      - id: UUID
+      - code: String
+      - name: String
+      - description: String
+      - isRequired: boolean
+      - isActive: boolean
+      + isMandatoryForOperation(): boolean
+  }
+  class VehicleDocument <<Entity>> {
+      - id: UUID
+      - vehicleId: UUID
+      - documentTypeId: UUID
+      - number: String
+      - issueDate: LocalDate
+      - expirationDate: LocalDate
+      - status: DocumentStatus
+      - fileUrl: String
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + recalculateStatus(today: LocalDate): DocumentStatus
+      + isExpired(today: LocalDate): boolean
+      + daysUntilExpiration(today: LocalDate): long
+  }
+  enum DocumentStatus {
+      VALID
+      EXPIRING
+      EXPIRED
+  }
+  class DocumentService <<Application Service>> {
+      - documentRepository: DocumentRepository
+      + registerDocument(vehicleId: UUID, document: VehicleDocument): VehicleDocument
+      + recalculateAll(today: LocalDate): int
+      + findExpiringSoon(vehicleId: UUID, days: int): List<VehicleDocument>
+  }
+  DocumentType "1" --> "0..*" VehicleDocument : classifies
+  VehicleDocument "1" --> "1" DocumentStatus : has status
+  DocumentService ..> VehicleDocument : manages
+}
+
+package "Pre-Operational Inspection" {
+  class InspectionItem <<Entity>> {
+      - id: UUID
+      - code: String
+      - name: String
+      - description: String
+      - category: ItemCategory
+      - isSafetyComponent: boolean
+      - requiresEvidence: boolean
+      - displayOrder: int
+      - isActive: boolean
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + demandsEvidence(): boolean
+      + deactivate(): void
+  }
+  class Inspection <<Aggregate Root>> {
+      - id: UUID
+      - vehicleId: UUID
+      - driverId: UUID
+      - status: InspectionStatus
+      - odometer: int
+      - startedAt: LocalDateTime
+      - completedAt: LocalDateTime
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + addResult(result: InspectionResultEntry): void
+      + complete(completedAt: LocalDateTime): void
+      + isComplete(): boolean
+      + getResults(): List<InspectionResultEntry>
+  }
+  class InspectionResultEntry <<Entity>> {
+      - id: UUID
+      - inspectionId: UUID
+      - inspectionItemId: UUID
+      - itemName: String
+      - itemCategory: String
+      - result: ResultValue
+      - createdAt: LocalDateTime
+      + addObservation(observation: Observation): void
+      + requiresObservation(): boolean
+  }
+  class Observation <<Entity>> {
+      - id: UUID
+      - inspectionResultId: UUID
+      - description: String
+      - createdBy: UUID
+      - createdAt: LocalDateTime
+      + addEvidence(evidence: Evidence): void
+      + hasEvidence(): boolean
+  }
+  class Evidence <<Entity>> {
+      - id: UUID
+      - observationId: UUID
+      - fileUrl: String
+      - mediaType: String
+      - uploadedAt: LocalDateTime
+  }
+  enum ItemCategory {
+      COMPONENT
+      SAFETY_COMPONENT
+      DOCUMENTATION
+  }
+  enum InspectionStatus {
+      IN_PROGRESS
+      COMPLETED
+  }
+  enum ResultValue {
+      OK
+      OBSERVED
+      FAIL
+  }
+  class InspectionService <<Application Service>> {
+      - inspectionRepository: InspectionRepository
+      + startInspection(driverId: UUID, odometer: int): Inspection
+      + registerResult(inspectionId: UUID, itemId: UUID, value: ResultValue): InspectionResultEntry
+      + completeInspection(inspectionId: UUID): Inspection
+  }
+  Inspection "1" *-- "1..*" InspectionResultEntry : contains
+  InspectionItem "1" --> "0..*" InspectionResultEntry : checked in
+  InspectionResultEntry "1" *-- "0..*" Observation : records
+  Observation "1" *-- "0..*" Evidence : backed by
+  InspectionItem "1" --> "1" ItemCategory : has category
+  Inspection "1" --> "1" InspectionStatus : has status
+  InspectionResultEntry "1" --> "1" ResultValue : has result
+  InspectionService ..> Inspection : manages
+}
+
+package "Evaluation and Authorization" {
+  class EvaluationRule <<Entity>> {
+      - id: UUID
+      - inspectionItemId: UUID
+      - name: String
+      - foundResult: ResultValue
+      - resultingImpact: RuleImpact
+      - description: String
+      - isActive: boolean
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + appliesTo(itemId: UUID, value: ResultValue): boolean
+      + getImpact(): RuleImpact
+  }
+  class Evaluation <<Aggregate Root>> {
+      - id: UUID
+      - inspectionId: UUID
+      - evaluatedAt: LocalDateTime
+      - evaluatedBy: UUID
+      - createdAt: LocalDateTime
+      + addDetail(detail: EvaluationDetail): void
+      + resolveMostRestrictiveImpact(): RuleImpact
+      + isAutomatic(): boolean
+  }
+  class EvaluationDetail <<Entity>> {
+      - id: UUID
+      - evaluationId: UUID
+      - inspectionResultId: UUID
+      - evaluationRuleId: UUID
+      - appliedImpact: RuleImpact
+  }
+  class OperationalAuthorization <<Entity>> {
+      - id: UUID
+      - evaluationId: UUID
+      - vehicleId: UUID
+      - status: AuthorizationStatus
+      - isOverride: boolean
+      - overrideReason: String
+      - authorizedBy: UUID
+      - authorizedAt: LocalDateTime
+      - validUntil: LocalDateTime
+      - createdAt: LocalDateTime
+      + isValidOn(moment: LocalDateTime): boolean
+      + liftsBlock(): boolean
+  }
+  enum RuleImpact {
+      NONE
+      OBSERVED
+      BLOCKING
+  }
+  enum AuthorizationStatus {
+      ENABLED
+      OBSERVED
+      NOT_ENABLED
+  }
+  class EvaluationEngine <<Domain Service>> {
+      - evaluationRepository: EvaluationRepository
+      + evaluate(inspectionId: UUID): Evaluation
+      + findApplicableRules(itemId: UUID, value: ResultValue): List<EvaluationRule>
+  }
+  class AuthorizationService <<Application Service>> {
+      - evaluationRepository: EvaluationRepository
+      + authorize(evaluation: Evaluation): OperationalAuthorization
+      + liftBlock(vehicleId: UUID, reason: String, authorizedBy: UUID): OperationalAuthorization
+      + findCurrentAuthorization(vehicleId: UUID): Optional<OperationalAuthorization>
+  }
+  Evaluation "1" *-- "1..*" EvaluationDetail : breaks into
+  EvaluationRule "1" --> "0..*" EvaluationDetail : applied in
+  Evaluation "1" --> "1" OperationalAuthorization : produces
+  EvaluationDetail "1" --> "1" RuleImpact : has impact
+  OperationalAuthorization "1" --> "1" AuthorizationStatus : has status
+  EvaluationEngine ..> Evaluation : produces
+  EvaluationEngine ..> AuthorizationService : requests
+  AuthorizationService ..> OperationalAuthorization : manages
+}
+
+package "Incident Management" {
+  class IncidentType <<Entity>> {
+      - id: UUID
+      - code: String
+      - name: String
+      - description: String
+      - isActive: boolean
+  }
+  class Incident <<Aggregate Root>> {
+      - id: UUID
+      - vehicleId: UUID
+      - incidentTypeId: UUID
+      - inspectionId: UUID
+      - origin: IncidentOrigin
+      - description: String
+      - severity: IncidentSeverity
+      - status: IncidentStatus
+      - reportedBy: UUID
+      - reportedAt: LocalDateTime
+      - resolutionType: String
+      - resolvedAt: LocalDateTime
+      - createdAt: LocalDateTime
+      - updatedAt: LocalDateTime
+      + addCorrectiveAction(action: CorrectiveAction): void
+      + addFollowUp(followUp: IncidentFollowUp): void
+      + resolve(resolutionType: String, moment: LocalDateTime): void
+      + isCritical(): boolean
+      + comesFromInspection(): boolean
+  }
+  class CorrectiveAction <<Entity>> {
+      - id: UUID
+      - incidentId: UUID
+      - description: String
+      - performedBy: UUID
+      - performedAt: LocalDateTime
+      - evidenceUrl: String
+  }
+  class Repair <<Entity>> {
+      - id: UUID
+      - incidentId: UUID
+      - workshop: String
+      - cost: BigDecimal
+      - startedAt: LocalDate
+      - finishedAt: LocalDate
+      - status: RepairStatus
+      + isFinished(): boolean
+      + durationInDays(): long
+  }
+  class IncidentFollowUp <<Entity>> {
+      - id: UUID
+      - incidentId: UUID
+      - note: String
+      - createdBy: UUID
+      - createdAt: LocalDateTime
+  }
+  enum IncidentOrigin {
+      INSPECTION
+      OPERATION
+  }
+  enum IncidentSeverity {
+      LOW
+      MEDIUM
+      HIGH
+      CRITICAL
+  }
+  enum IncidentStatus {
+      OPEN
+      IN_PROGRESS
+      RESOLVED
+      CLOSED
+  }
+  enum RepairStatus {
+      SCHEDULED
+      IN_PROGRESS
+      COMPLETED
+  }
+  class IncidentService <<Application Service>> {
+      - incidentRepository: IncidentRepository
+      + reportIncident(vehicleId: UUID, incident: Incident): Incident
+      + registerCorrectiveAction(incidentId: UUID, action: CorrectiveAction): CorrectiveAction
+      + scheduleRepair(incidentId: UUID, repair: Repair): Repair
+      + findOpenByVehicle(vehicleId: UUID): List<Incident>
+  }
+  IncidentType "1" --> "0..*" Incident : classifies
+  Incident "1" *-- "0..*" CorrectiveAction : handled by
+  Incident "1" *-- "0..*" Repair : requires
+  Incident "1" *-- "0..*" IncidentFollowUp : followed by
+  Incident "1" --> "1" IncidentOrigin : has origin
+  Incident "1" --> "1" IncidentSeverity : has severity
+  Incident "1" --> "1" IncidentStatus : has status
+  Repair "1" --> "1" RepairStatus : has status
+  IncidentService ..> Incident : manages
+}
+
+
+User "0..*" ..> "1" Company : belongs to (companyId)
+Driver "0..1" ..> "1" User : is (userId)
+VehicleDocument "0..*" ..> "1" Vehicle : documents (vehicleId)
+Inspection "0..*" ..> "1" Vehicle : inspects (vehicleId)
+Inspection "0..*" ..> "1" Driver : done by (driverId)
+Observation "0..*" ..> "1" User : created by (createdBy)
+EvaluationRule "0..*" ..> "1" InspectionItem : evaluates (inspectionItemId)
+Evaluation "0..1" ..> "1" Inspection : evaluates (inspectionId)
+Evaluation "0..*" ..> "0..1" User : done by (evaluatedBy)
+EvaluationDetail "0..*" ..> "1" InspectionResultEntry : refers to (inspectionResultId)
+OperationalAuthorization "0..*" ..> "1" Vehicle : enables (vehicleId)
+OperationalAuthorization "0..*" ..> "0..1" User : granted by (authorizedBy)
+Incident "0..*" ..> "1" Vehicle : reported on (vehicleId)
+Incident "0..*" ..> "0..1" Inspection : from (inspectionId)
+Incident "0..*" ..> "1" User : reported by (reportedBy)
+CorrectiveAction "0..*" ..> "1" User : done by (performedBy)
+IncidentFollowUp "0..*" ..> "1" User : created by (createdBy)
+
+@enduml

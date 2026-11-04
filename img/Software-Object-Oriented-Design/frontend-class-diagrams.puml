@@ -1,0 +1,1190 @@
+@startuml
+' FleetSafe - Single-Page Application (TypeScript / Angular)
+' Naming conventions applied (TypeScript):
+'   - Classes, interfaces and assemblers: PascalCase
+'   - Attributes and methods: camelCase
+'   - Enumerations: TypeScript enums, with their values in UPPER_SNAKE_CASE as in the code
+'   - Private attributes of the domain classes: prefixed with # in the code (e.g. #id), shown here with -
+'   - / before a name = getter (derived, read-only property)
+'   - <<Action Endpoint>> = non-CRUD endpoint that extends ErrorHandlingEnabledBaseType; <<Endpoint>> = CRUD endpoint that extends BaseApiEndpoint
+'   - <<Api>> = API facade of the context; it extends BaseApi, an abstract class with no members, so it is not drawn
+'   - Signal<T> = Angular signal (read-only); each one has a private writable signal that is not drawn
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam nodesep 25
+skinparam ranksep 40
+skinparam defaultFontName Arial
+skinparam class {
+  BackgroundColor #ffffff
+  BorderColor #1d4ed8
+  ArrowColor #1e3a8a
+}
+skinparam package {
+  BackgroundColor #eff6ff
+  BorderColor #3b82f6
+}
+left to right direction
+
+' Full diagram. Members are hidden so that the whole image fits in 4096 px (the default size limit of PlantUML) and is not cropped.
+' Delete the next line to show attributes and methods (then render with -DPLANTUML_LIMIT_SIZE=16384); the diagrams per bounded context always show them.
+hide members
+scale max 4096x4096
+
+package "Shared" {
+  interface BaseEntity {
+    + id: string
+  }
+  interface BaseResource {
+    + id: string
+  }
+  interface BaseResponse
+  interface "BaseAssembler<TEntity, TResource, TResponse>" as BaseAssembler {
+    + toEntityFromResource(resource: TResource): TEntity
+    + toResourceFromEntity(entity: TEntity): TResource
+    + toEntitiesFromResponse(response: TResponse): TEntity[]
+  }
+  abstract class "BaseApiEndpoint<TEntity, TResource, TResponse, TAssembler>" as BaseApiEndpoint {
+    # http: HttpClient
+    # endpointUrl: string
+    # assembler: TAssembler
+    + getAll(): Observable<TEntity[]>
+    + getById(id: string): Observable<TEntity>
+    + create(entity: TEntity): Observable<TEntity>
+    + update(entity: TEntity, id: string): Observable<TEntity>
+    + delete(id: string): Observable<void>
+    # handleError(operation: string): function
+  }
+  abstract class Notifier {
+    + {abstract} notify(severity: NotificationSeverity, messageKey: string, params: NotificationParams): void
+    + success(messageKey: string, params: NotificationParams): void
+    + info(messageKey: string, params: NotificationParams): void
+    + warning(messageKey: string, params: NotificationParams): void
+    + error(messageKey: string, params: NotificationParams): void
+  }
+  enum NotificationSeverity {
+    success
+    info
+    warning
+    error
+  }
+  BaseAssembler "1" ..> "1" BaseEntity : translates
+  BaseAssembler "1" ..> "1" BaseResource : translates
+  BaseAssembler "1" ..> "1" BaseResponse : reads
+  BaseApiEndpoint "1" --> "1" BaseAssembler : calls
+  Notifier ..> NotificationSeverity : uses
+}
+
+package "Identity and Access" {
+  class User <<Entity>> {
+      - id: string
+      - companyId: string
+      - email: string
+      - firstName: string
+      - lastName: string
+      - role: Role
+      - isActive: boolean
+      + /fullName: string
+      + hasRole(roles: Role[]): boolean
+  }
+  enum Role {
+      ADMINISTRATOR
+      FLEET_SUPERVISOR
+      DRIVER
+  }
+  class SignInCommand <<Command>> {
+      - email: string
+      - password: string
+  }
+  class RegisterUserCommand <<Command>> {
+      - email: string
+      - password: string
+      - firstName: string
+      - lastName: string
+      - role: Role
+  }
+  interface UsersQuery {
+      + role: Role | null
+      + isActive: boolean | null
+      + page: number
+      + size: number
+  }
+  interface UsersPage<T> {
+      + users: T[]
+      + totalUsers: number
+  }
+  class IamStore <<Store>> {
+      - iamApi: IamApi
+      - userAssembler: UserAssembler
+      + signingIn: Signal<boolean>
+      + error: Signal<string | null>
+      + users: Signal<User[]>
+      + totalUsers: Signal<number>
+      + usersQuery: Signal<UsersQuery>
+      + loadingUsers: Signal<boolean>
+      + usersError: Signal<string | null>
+      + savingUser: Signal<boolean>
+      + saveUserError: Signal<string | null>
+      + updatingUserId: Signal<string | null>
+      + isSignedIn: Signal<boolean>
+      + currentToken: Signal<string | null>
+      + currentUser: Signal<User | null>
+      + signIn(command: SignInCommand, router: Router, returnUrl: string): void
+      + signOut(router: Router): void
+      + loadUsers(query: Partial<UsersQuery>): void
+      + registerUser(command: RegisterUserCommand, done: function): void
+      + updateUser(id: string, changes: UpdateUserRequest, done: function): void
+      + hasRole(roles: Role[]): boolean
+      + clearSession(): void
+      + clearSaveUserError(): void
+      - saveSession(session: SignInResource): void
+      - restoreSession(): SignInResource | null
+      - errorKeyFor(error: HttpErrorResponse): string
+      - saveErrorFor(error: HttpErrorResponse): string
+  }
+  class IamApi <<Api>> {
+      - http: HttpClient
+      - signInEndpoint: SignInApiEndpoint
+      - usersEndpoint: UsersApiEndpoint
+      + signIn(command: SignInCommand): Observable<SignInResource>
+      + getUsers(query: UsersQuery): Observable<UsersPage<User>>
+      + registerUser(command: RegisterUserCommand): Observable<User>
+      + updateUser(id: string, changes: UpdateUserRequest): Observable<User>
+  }
+  class SignInApiEndpoint <<Endpoint>> {
+      - http: HttpClient
+      - assembler: SignInAssembler
+      + signIn(command: SignInCommand): Observable<SignInResource>
+  }
+  class UsersApiEndpoint <<Endpoint>> {
+      - http: HttpClient
+      - assembler: UserAssembler
+      + getPage(query: UsersQuery): Observable<UsersPage<User>>
+      + create(command: RegisterUserCommand): Observable<User>
+      + update(id: string, changes: UpdateUserRequest): Observable<User>
+  }
+  class SignInAssembler <<Assembler>> {
+      + toResourceFromResponse(response, now): SignInResource
+      + toRequestFromCommand(command: SignInCommand): SignInRequest
+  }
+  class UserAssembler <<Assembler>> {
+      + toEntityFromResource(resource: UserResource): User
+      + toRequestFromCommand(command): CreateUserRequest
+  }
+  interface SignInResource {
+      + token: string
+      + expiresAt: number
+      + user: UserResource
+  }
+  interface UpdateUserRequest {
+      + role?: string
+      + isActive?: boolean
+  }
+  class iamGuard <<function>> {
+      + iamGuard(route, state: RouterStateSnapshot): boolean | UrlTree
+  }
+  class administratorGuard <<function>> {
+      + administratorGuard(): boolean | UrlTree
+  }
+  class iamInterceptor <<function>> {
+      + iamInterceptor(request: HttpRequest, next: HttpHandlerFn): Observable<HttpEvent>
+  }
+  User "1" --> "1" Role : has role
+  RegisterUserCommand "1" --> "1" Role : assigns
+  UsersQuery "1" --> "0..1" Role : filters by
+  UsersPage "1" o-- "0..*" User : groups
+  IamStore "1" --> "1" IamApi : calls
+  IamStore "1" --> "0..1" SignInResource : keeps session
+  IamStore "1" --> "1" UsersQuery : filtered by
+  IamApi "1" *-- "1" SignInApiEndpoint : owns
+  IamApi "1" *-- "1" UsersApiEndpoint : owns
+  SignInApiEndpoint "1" --> "1" SignInAssembler : translates
+  UsersApiEndpoint "1" --> "1" UserAssembler : translates
+  SignInAssembler ..> SignInResource : produces
+  UserAssembler ..> User : creates
+  UserAssembler ..> RegisterUserCommand : converts
+  UsersApiEndpoint ..> UsersPage : returns
+  iamGuard ..> IamStore : reads
+  administratorGuard ..> IamStore : reads
+  iamInterceptor ..> IamStore : reads token
+  IamStore ..> SignInCommand : handles
+  IamApi ..> UpdateUserRequest : sends
+}
+
+package "Fleet Management" {
+  class Company <<Entity>> {
+      - id: string
+      - name: string
+      - taxId: string
+      - address: string
+      - phone: string
+      - email: string
+      - fleetIds: string[]
+      - createdAt?: string
+      - updatedAt?: string
+      + addFleet(fleetId: string): void
+      + getFleets(): string[]
+  }
+  class Fleet <<Entity>> {
+      - id: string
+      - companyId: string
+      - name: string
+      - description: string
+      - vehicleIds: string[]
+      - createdAt?: string
+      - updatedAt?: string
+      + addVehicle(vehicleId: string): void
+      + getVehicles(): string[]
+      + countVehicles(vehicles: Vehicle[]): number
+      + countByStatus(vehicles: Vehicle[], status: VehicleStatus): number
+  }
+  class Vehicle <<Entity>> {
+      - id: string
+      - fleetId: string
+      - plate: string
+      - brand: string
+      - model: string
+      - year: number
+      - type: VehicleType
+      - capacity: number
+      - currentStatus: VehicleStatus
+      - createdAt?: string
+      - updatedAt?: string
+      + {static} register(props): Vehicle
+      + toDetails(): VehicleDetails
+      + hasPlate(plate: string): boolean
+      + withDetails(details: VehicleDetails, updatedAt: string): Vehicle
+      + applyAuthorizationResult(status: VehicleStatus): void
+      + isOperational(): boolean
+      + getActiveAssignment(assignments, date): VehicleAssignment | null
+  }
+  class VehicleDetails <<Value Object>> {
+      - fleetId: string
+      - plate: string
+      - brand: string
+      - model: string
+      - year: number
+      - type: VehicleType
+      - capacity: number
+      + isValid(today: Date): boolean
+  }
+  class Driver <<Entity>> {
+      - id: string
+      - userId: string
+      - licenseNumber: string
+      - licenseExpirationDate: string
+      - createdAt?: string
+      - updatedAt?: string
+      + hasValidLicense(referenceDate: string): boolean
+      + getActiveAssignment(assignments, date): VehicleAssignment | null
+  }
+  class VehicleAssignment <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - driverId: string
+      - assignedFrom: string
+      - assignedTo: string | null
+      - isActive: boolean
+      - createdAt?: string
+      + {static} start(props): VehicleAssignment
+      + isActiveOn(date: Date): boolean
+      + close(endDate: string): void
+      + copy(): VehicleAssignment
+  }
+  class VehicleAssignmentPolicy <<Domain Service>> {
+      + {static} check(props): AssignmentViolation | null
+  }
+  class VehicleInspectionSummary <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - driverId: string
+      - status: string
+      - odometer: number
+      - startedAt: string
+  }
+  enum VehicleStatus {
+      ENABLED
+      OBSERVED
+      NOT_ENABLED
+  }
+  enum VehicleType {
+      THIN
+      MEDIUM
+      LARGE
+  }
+  enum AssignmentViolation {
+      VEHICLE_NOT_FOUND
+      DRIVER_NOT_FOUND
+      VEHICLE_NOT_ENABLED
+      VEHICLE_ALREADY_ASSIGNED
+      DRIVER_LICENSE_EXPIRED
+      DRIVER_ALREADY_ASSIGNED
+  }
+  class RegisterVehicleCommand <<Command>> {
+      - details: VehicleDetails
+  }
+  class UpdateVehicleCommand <<Command>> {
+      - vehicleId: string
+      - details: VehicleDetails
+  }
+  class AssignVehicleCommand <<Command>> {
+      - vehicleId: string
+      - driverId: string
+  }
+  class EndVehicleAssignmentCommand <<Command>> {
+      - assignmentId: string
+  }
+  class FleetStore <<Store>> {
+      - fleetApi: FleetApi
+      - notifier: Notifier
+      + companies: Signal<Company[]>
+      + fleets: Signal<Fleet[]>
+      + vehicles: Signal<Vehicle[]>
+      + drivers: Signal<Driver[]>
+      + vehicleAssignments: Signal<VehicleAssignment[]>
+      + vehicleInspections: Signal<Record>
+      + loading: Signal<boolean>
+      + loaded: Signal<boolean>
+      + saving: Signal<boolean>
+      + inspectionsLoading: Signal<boolean>
+      + error: Signal<string | null>
+      + actionError: Signal<string | null>
+      + inspectionsError: Signal<string | null>
+      + companiesById: Signal<Map>
+      + fleetsById: Signal<Map>
+      + vehiclesById: Signal<Map>
+      + driversById: Signal<Map>
+      + activeAssignments: Signal<VehicleAssignment[]>
+      + availableVehicles: Signal<Vehicle[]>
+      + availableDrivers: Signal<Driver[]>
+      + vehicleStatusSummary: Signal<Record>
+      + fleetOverviews: Signal<FleetOverview[]>
+      + getVehicleById(id: string): Signal<Vehicle | undefined>
+      + getDriverById(id: string): Signal<Driver | undefined>
+      + getFleetById(id: string): Signal<Fleet | undefined>
+      + load(): void
+      + loadVehicleInspections(vehicleId: string): void
+      + clearActionError(): void
+      + registerVehicle(command: RegisterVehicleCommand, done): void
+      + updateVehicle(command: UpdateVehicleCommand, done): void
+      + deleteVehicle(id: string, done): void
+      + assignVehicle(command: AssignVehicleCommand, done): void
+      + endAssignment(command: EndVehicleAssignmentCommand): void
+      - isPlateTaken(plate: string, exceptVehicleId: string): boolean
+      - reject(errorKey: string): void
+      - execute(request, failureKey: string, onSuccess): void
+  }
+  interface FleetOverview {
+      + fleet: Fleet
+      + company: Company | undefined
+      + vehicleCount: number
+      + enabledCount: number
+      + observedCount: number
+      + notEnabledCount: number
+  }
+  class FleetApi <<Api>> {
+      - http: HttpClient
+      - companiesEndpoint: CompaniesApiEndpoint
+      - fleetsEndpoint: FleetsApiEndpoint
+      - vehiclesEndpoint: VehiclesApiEndpoint
+      - driversEndpoint: DriversApiEndpoint
+      - assignmentsEndpoint: VehicleAssignmentsApiEndpoint
+      - vehicleInspectionsEndpoint: VehicleInspectionsApiEndpoint
+      + getCompanies(): Observable<Company[]>
+      + getFleets(): Observable<Fleet[]>
+      + getVehicles(): Observable<Vehicle[]>
+      + getVehicle(id: string): Observable<Vehicle>
+      + createVehicle(vehicle: Vehicle): Observable<Vehicle>
+      + updateVehicle(vehicle: Vehicle): Observable<Vehicle>
+      + deleteVehicle(id: string): Observable<void>
+      + getDrivers(): Observable<Driver[]>
+      + getVehicleAssignments(): Observable<VehicleAssignment[]>
+      + createVehicleAssignment(assignment): Observable<VehicleAssignment>
+      + updateVehicleAssignment(assignment): Observable<VehicleAssignment>
+      + getVehicleInspections(vehicleId): Observable<VehicleInspectionSummary[]>
+  }
+  class CompaniesApiEndpoint <<Endpoint>> {
+  }
+  class FleetsApiEndpoint <<Endpoint>> {
+  }
+  class VehiclesApiEndpoint <<Endpoint>> {
+  }
+  class DriversApiEndpoint <<Endpoint>> {
+  }
+  class VehicleAssignmentsApiEndpoint <<Endpoint>> {
+  }
+  class VehicleInspectionsApiEndpoint <<Endpoint>> {
+      + getByVehicleId(vehicleId: string): Observable<VehicleInspectionSummary[]>
+  }
+  class CompanyAssembler <<Assembler>> {
+      + toEntityFromResource(resource): Company
+      + toResourceFromEntity(entity): CompanyResource
+      + toEntitiesFromResponse(response): Company[]
+  }
+  class FleetAssembler <<Assembler>> {
+      + toEntityFromResource(resource): Fleet
+      + toResourceFromEntity(entity): FleetResource
+      + toEntitiesFromResponse(response): Fleet[]
+  }
+  class VehicleAssembler <<Assembler>> {
+      + toEntityFromResource(resource): Vehicle
+      + toResourceFromEntity(entity): VehicleResource
+      + toEntitiesFromResponse(response): Vehicle[]
+  }
+  class DriverAssembler <<Assembler>> {
+      + toEntityFromResource(resource): Driver
+      + toResourceFromEntity(entity): DriverResource
+      + toEntitiesFromResponse(response): Driver[]
+  }
+  class VehicleAssignmentAssembler <<Assembler>> {
+      + toEntityFromResource(resource): VehicleAssignment
+      + toResourceFromEntity(entity): VehicleAssignmentResource
+      + toEntitiesFromResponse(response): VehicleAssignment[]
+  }
+  class VehicleInspectionSummaryAssembler <<Assembler>> {
+      + toEntityFromResource(resource): VehicleInspectionSummary
+      + toResourceFromEntity(entity): VehicleInspectionResource
+      + toEntitiesFromResponse(response): VehicleInspectionSummary[]
+  }
+  Company "1" --> "0..*" Fleet : groups
+  Fleet "1" --> "0..*" Vehicle : contains
+  Vehicle "1" --> "1" VehicleStatus : has status
+  Vehicle "1" --> "1" VehicleType : has type
+  Vehicle "1" --> "1" VehicleDetails : described by
+  VehicleDetails "1" --> "1" VehicleType : has type
+  VehicleAssignment "0..*" --> "1" Vehicle : assigns
+  VehicleAssignment "0..*" --> "1" Driver : assigns to
+  VehicleInspectionSummary "0..*" --> "1" Vehicle : summarizes
+  Fleet ..> VehicleStatus : counts by
+  VehicleAssignmentPolicy ..> AssignmentViolation : returns
+  VehicleAssignmentPolicy ..> Vehicle : validates
+  VehicleAssignmentPolicy ..> Driver : validates
+  RegisterVehicleCommand "1" *-- "1" VehicleDetails : contains
+  UpdateVehicleCommand "1" *-- "1" VehicleDetails : contains
+  FleetStore "1" --> "1" FleetApi : calls
+  FleetStore ..> VehicleAssignmentPolicy : validates
+  FleetStore ..> Notifier : notifies
+  FleetStore ..> FleetOverview : computes
+  FleetOverview "1" --> "1" Fleet : summarizes
+  FleetOverview "1" --> "0..1" Company : belongs to
+  FleetApi "1" *-- "1" CompaniesApiEndpoint : owns
+  FleetApi "1" *-- "1" FleetsApiEndpoint : owns
+  FleetApi "1" *-- "1" VehiclesApiEndpoint : owns
+  FleetApi "1" *-- "1" DriversApiEndpoint : owns
+  FleetApi "1" *-- "1" VehicleAssignmentsApiEndpoint : owns
+  FleetApi "1" *-- "1" VehicleInspectionsApiEndpoint : owns
+  CompaniesApiEndpoint "1" --> "1" CompanyAssembler : translates
+  FleetsApiEndpoint "1" --> "1" FleetAssembler : translates
+  VehiclesApiEndpoint "1" --> "1" VehicleAssembler : translates
+  DriversApiEndpoint "1" --> "1" DriverAssembler : translates
+  VehicleAssignmentsApiEndpoint "1" --> "1" VehicleAssignmentAssembler : translates
+  VehicleInspectionsApiEndpoint "1" --> "1" VehicleInspectionSummaryAssembler : translates
+  FleetStore ..> AssignVehicleCommand : handles
+  FleetStore ..> EndVehicleAssignmentCommand : handles
+}
+
+package "Vehicle Documentation" {
+  class DocumentType <<Entity>> {
+      - id: string
+      - code: string
+      - name: string
+      - description: string
+      - isRequired: boolean
+      - isActive: boolean
+  }
+  class DocumentedVehicle <<Entity>> {
+      - id: string
+      - plate: string
+  }
+  class VehicleDocument <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - documentTypeId: string
+      - number: string
+      - issueDate: string
+      - expirationDate: string
+      - fileUrl: string
+      - createdAt: string
+      - updatedAt: string
+      + daysUntilExpiration(today: string): number
+      + recalculateStatus(today: string, alertDays: number): DocumentStatus
+      + isExpired(today: string): boolean
+  }
+  enum DocumentStatus {
+      VALID
+      EXPIRING
+      EXPIRED
+  }
+  interface VehicleDocumentInput {
+      + vehicleId: string
+      + documentTypeId: string
+      + number: string
+      + issueDate: string
+      + expirationDate: string
+      + fileUrl: string
+  }
+  class VehicleDocumentRules <<module>> {
+      + DOCUMENT_ALERT_DAYS: number
+      + localDate(today: Date): string
+      + validDate(value: string): boolean
+      + validateDocument(input: VehicleDocumentInput): boolean
+  }
+  class VehicleDocumentationStore <<Store>> {
+      - vehicleDocumentationApi: VehicleDocumentationApi
+      + types: Signal<DocumentType[]>
+      + vehicles: Signal<DocumentedVehicle[]>
+      + vehicleId: Signal<string>
+      + documents: Signal<VehicleDocument[]>
+      + loading: Signal<boolean>
+      + saving: Signal<boolean>
+      + error: Signal<string | null>
+      + load(): void
+      + selectVehicle(vehicleId: string): void
+      + save(input: VehicleDocumentInput, id: string | null, done): void
+      - formatError(error: unknown, fallback: string): string
+  }
+  class VehicleDocumentationApi <<Api>> {
+      - http: HttpClient
+      - vehicleDocumentsEndpoint: VehicleDocumentsApiEndpoint
+      - documentTypesEndpoint: DocumentTypesApiEndpoint
+      - documentedVehiclesEndpoint: DocumentedVehiclesApiEndpoint
+      + getVehicleDocuments(): Observable<VehicleDocument[]>
+      + registerVehicleDocument(document): Observable<VehicleDocument>
+      + updateVehicleDocument(document): Observable<VehicleDocument>
+      + getDocumentTypes(): Observable<DocumentType[]>
+      + getDocumentedVehicles(): Observable<DocumentedVehicle[]>
+  }
+  class VehicleDocumentsApiEndpoint <<Endpoint>> {
+  }
+  class DocumentTypesApiEndpoint <<Endpoint>> {
+  }
+  class DocumentedVehiclesApiEndpoint <<Endpoint>> {
+  }
+  class VehicleDocumentAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): VehicleDocument[]
+      + toEntityFromResource(resource): VehicleDocument
+      + toResourceFromEntity(entity): VehicleDocumentResource
+  }
+  class DocumentTypeAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): DocumentType[]
+      + toEntityFromResource(resource): DocumentType
+      + toResourceFromEntity(entity): DocumentTypeResource
+  }
+  class DocumentedVehicleAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): DocumentedVehicle[]
+      + toEntityFromResource(resource): DocumentedVehicle
+      + toResourceFromEntity(entity): DocumentedVehicleResource
+  }
+  VehicleDocument "0..*" --> "1" DocumentType : has type
+  VehicleDocument "0..*" --> "1" DocumentedVehicle : belongs to
+  VehicleDocument ..> DocumentStatus : computes
+  VehicleDocumentRules ..> VehicleDocumentInput : validates
+  VehicleDocumentationStore "1" --> "1" VehicleDocumentationApi : calls
+  VehicleDocumentationStore ..> VehicleDocumentRules : validates
+  VehicleDocumentationApi "1" *-- "1" VehicleDocumentsApiEndpoint : owns
+  VehicleDocumentationApi "1" *-- "1" DocumentTypesApiEndpoint : owns
+  VehicleDocumentationApi "1" *-- "1" DocumentedVehiclesApiEndpoint : owns
+  VehicleDocumentsApiEndpoint "1" --> "1" VehicleDocumentAssembler : translates
+  DocumentTypesApiEndpoint "1" --> "1" DocumentTypeAssembler : translates
+  DocumentedVehiclesApiEndpoint "1" --> "1" DocumentedVehicleAssembler : translates
+}
+
+package "Pre-Operational Inspection" {
+  class Inspection <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - driverId: string
+      - status: InspectionStatus
+      - odometer: number
+      - startedAt: Date
+      - completedAt: Date | null
+      - results: InspectionResultEntry[]
+      - createdAt: Date
+      - updatedAt: Date
+      + resultFor(inspectionItemId: string): InspectionResultEntry | undefined
+      + withResult(entry: InspectionResultEntry): Inspection
+  }
+  class InspectionResultEntry <<Entity>> {
+      - id: string
+      - inspectionItemId: string
+      - itemName: string
+      - itemCategory: ItemCategory
+      - result: ResultValue
+      - createdAt: Date
+      - observations: Observation[]
+  }
+  class Observation <<Entity>> {
+      - id: string
+      - description: string
+      - createdBy: string
+      - createdAt: Date
+      - evidences: Evidence[]
+  }
+  class Evidence <<Entity>> {
+      - id: string
+      - fileUrl: string
+      - mediaType: EvidenceMediaType
+      - uploadedAt: Date
+  }
+  class InspectionItem <<Entity>> {
+      - id: string
+      - code: string
+      - name: string
+      - description: string
+      - category: ItemCategory
+      - system: ItemSystem
+      - isSafetyComponent: boolean
+      - requiresEvidence: boolean
+      - displayOrder: number
+      - isActive: boolean
+      - createdAt: Date
+      - updatedAt: Date
+  }
+  class AssignedVehicle <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - driverId: string
+      - plate: string
+      - brand: string
+      - model: string
+      - type: string
+      - assignedFrom: Date
+  }
+  enum InspectionStatus {
+      IN_PROGRESS
+      COMPLETED
+  }
+  enum ResultValue {
+      OK
+      OBSERVED
+      FAIL
+  }
+  enum ItemCategory {
+      COMPONENT
+      SAFETY_COMPONENT
+      DOCUMENTATION
+  }
+  enum ItemSystem {
+      BRAKES
+      LIGHTS
+      TIRES_AND_SUSPENSION
+      ENGINE_AND_FLUIDS
+      CABIN
+      SAFETY_EQUIPMENT
+      BODY_AND_COUPLING
+      DOCUMENTATION
+  }
+  enum EvidenceMediaType {
+      image/jpeg
+      image/png
+  }
+  class InspectionStore <<Store>> {
+      - inspectionApi: InspectionApi
+      - notifier: Notifier
+      + inspectionItems: Signal<InspectionItem[]>
+      + activeInspectionItems: Signal<InspectionItem[]>
+      + assignedVehicle: Signal<AssignedVehicle | null>
+      + noVehicleAssigned: Signal<boolean>
+      + currentInspection: Signal<Inspection | null>
+      + savingItemId: Signal<string | null>
+      + loading: Signal<boolean>
+      + error: Signal<string | null>
+      + loadInspectionItems(): void
+      + loadAssignedVehicle(): void
+      + loadInspection(id: string): void
+      + startInspection(inspection: Inspection): void
+      + answerItem(item: InspectionItem, result: ResultValue): void
+      - isNotFound(error: unknown): boolean
+      - formatError(error: unknown, fallback: string): string
+  }
+  class InspectionApi <<Api>> {
+      - http: HttpClient
+      - inspectionsEndpoint: InspectionsApiEndpoint
+      - inspectionItemsEndpoint: InspectionItemsApiEndpoint
+      - assignedVehicleEndpoint: AssignedVehicleApiEndpoint
+      + getInspectionItems(): Observable<InspectionItem[]>
+      + getInspection(id: string): Observable<Inspection>
+      + createInspection(inspection): Observable<Inspection>
+      + updateInspection(inspection): Observable<Inspection>
+      + getAssignedVehicle(): Observable<AssignedVehicle>
+  }
+  class InspectionsApiEndpoint <<Endpoint>> {
+  }
+  class InspectionItemsApiEndpoint <<Endpoint>> {
+  }
+  class AssignedVehicleApiEndpoint <<Action Endpoint>> {
+      - http: HttpClient
+      - assembler: AssignedVehicleAssembler
+      + getAssignedVehicle(): Observable<AssignedVehicle>
+  }
+  class InspectionAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): Inspection[]
+      + toEntityFromResource(resource): Inspection
+      + toResourceFromEntity(entity): InspectionResource
+      - toResultEntryFromResource(resource): InspectionResultEntry
+      - toObservationFromResource(resource): Observation
+      - toEvidenceFromResource(resource): Evidence
+      - toResultResourceFromEntry(entry): InspectionResultResource
+  }
+  class InspectionItemAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): InspectionItem[]
+      + toEntityFromResource(resource): InspectionItem
+      + toResourceFromEntity(entity): InspectionItemResource
+  }
+  class AssignedVehicleAssembler <<Assembler>> {
+      + toEntityFromResponse(response): AssignedVehicle
+  }
+  Inspection "1" *-- "0..*" InspectionResultEntry : records
+  InspectionResultEntry "1" *-- "0..*" Observation : has
+  Observation "1" *-- "0..*" Evidence : attaches
+  InspectionResultEntry "0..*" --> "1" InspectionItem : answers
+  Inspection "1" --> "1" InspectionStatus : has status
+  InspectionResultEntry "1" --> "1" ResultValue : has result
+  InspectionItem "1" --> "1" ItemCategory : belongs to
+  InspectionItem "1" --> "1" ItemSystem : reviews
+  Evidence "1" --> "1" EvidenceMediaType : has format
+  InspectionStore "1" --> "1" InspectionApi : calls
+  InspectionStore ..> Notifier : notifies
+  InspectionApi "1" *-- "1" InspectionsApiEndpoint : owns
+  InspectionApi "1" *-- "1" InspectionItemsApiEndpoint : owns
+  InspectionApi "1" *-- "1" AssignedVehicleApiEndpoint : owns
+  InspectionsApiEndpoint "1" --> "1" InspectionAssembler : translates
+  InspectionItemsApiEndpoint "1" --> "1" InspectionItemAssembler : translates
+  AssignedVehicleApiEndpoint "1" --> "1" AssignedVehicleAssembler : translates
+  InspectionStore ..> AssignedVehicle : holds
+}
+
+package "Evaluation and Authorization" {
+  class EvaluationRule <<Entity>> {
+      - id: string
+      - inspectionItemId: string
+      - name: string
+      - foundResult: string
+      - resultingImpact: RuleImpact
+      - description: string
+      - isActive: boolean
+      - createdAt: string
+      - updatedAt: string
+      + appliesTo(itemId: string, value: string): boolean
+  }
+  class Evaluation <<Entity>> {
+      - id: string
+      - inspectionId: string
+      - evaluatedAt: string
+      - evaluatedBy: string | null
+      - createdAt: string
+      - details: EvaluationDetail[]
+      + resolveMostRestrictiveImpact(): RuleImpact
+      + isAutomatic(): boolean
+  }
+  class EvaluationDetail <<Entity>> {
+      - id: string
+      - evaluationId: string
+      - inspectionResultId: string
+      - evaluationRuleId: string
+      - appliedImpact: RuleImpact
+  }
+  class OperationalAuthorization <<Entity>> {
+      - id: string
+      - evaluationId: string
+      - vehicleId: string
+      - status: AuthorizationStatus
+      - isOverride: boolean
+      - overrideReason: string | null
+      - authorizedBy: string | null
+      - authorizedAt: string
+      - validUntil: string | null
+      - createdAt: string
+      + isValidOn(moment: string): boolean
+      + liftsBlock(): boolean
+  }
+  enum RuleImpact {
+      NONE
+      OBSERVED
+      BLOCKING
+  }
+  enum AuthorizationStatus {
+      ENABLED
+      OBSERVED
+      NOT_ENABLED
+  }
+  class LiftBlockCommand <<Command>> {
+      - vehicleId: string
+      - reason: string
+      - authorizedBy: string
+  }
+  class DefineEvaluationRuleCommand <<Command>> {
+      - inspectionItemId: string
+      - name: string
+      - foundResult: string
+      - resultingImpact: RuleImpact
+      - description: string
+  }
+  class EvaluationStore <<Store>> {
+      - evaluationApi: EvaluationApi
+      - notifier: Notifier
+      + rules: Signal<EvaluationRule[]>
+      + evaluations: Signal<Evaluation[]>
+      + authorizations: Signal<OperationalAuthorization[]>
+      + loading: Signal<boolean>
+      + error: Signal<string | null>
+      + blockedAuthorizations: Signal<OperationalAuthorization[]>
+      + loadRules(): void
+      + loadEvaluations(): void
+      + loadAuthorizations(): void
+      + defineRule(command: DefineEvaluationRuleCommand): void
+      + updateRule(rule: EvaluationRule): void
+      + liftBlock(command: LiftBlockCommand): void
+      - formatError(error: unknown, fallback: string): string
+  }
+  class EvaluationApi <<Api>> {
+      - http: HttpClient
+      - evaluationRulesEndpoint: EvaluationRulesApiEndpoint
+      - evaluationsEndpoint: EvaluationsApiEndpoint
+      - operationalAuthorizationsEndpoint: OperationalAuthorizationsApiEndpoint
+      - defineEvaluationRuleEndpoint: DefineEvaluationRuleApiEndpoint
+      - liftBlockEndpoint: LiftBlockApiEndpoint
+      + getEvaluationRules(): Observable<EvaluationRule[]>
+      + updateEvaluationRule(rule: EvaluationRule): Observable<EvaluationRule>
+      + getEvaluations(): Observable<Evaluation[]>
+      + getOperationalAuthorizations(): Observable<OperationalAuthorization[]>
+      + defineEvaluationRule(command): Observable<EvaluationRule>
+      + liftBlock(command): Observable<OperationalAuthorization>
+  }
+  class EvaluationRulesApiEndpoint <<Endpoint>> {
+  }
+  class EvaluationsApiEndpoint <<Endpoint>> {
+  }
+  class OperationalAuthorizationsApiEndpoint <<Endpoint>> {
+  }
+  class DefineEvaluationRuleApiEndpoint <<Action Endpoint>> {
+      + defineEvaluationRule(command): Observable<EvaluationRule>
+  }
+  class LiftBlockApiEndpoint <<Action Endpoint>> {
+      + liftBlock(command): Observable<OperationalAuthorization>
+  }
+  class EvaluationRuleAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): EvaluationRule[]
+      + toEntityFromResource(resource): EvaluationRule
+      + toResourceFromEntity(entity): EvaluationRuleResource
+  }
+  class EvaluationAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): Evaluation[]
+      + toEntityFromResource(resource): Evaluation
+      + toResourceFromEntity(entity): EvaluationResource
+      - toEvaluationDetailFromResource(resource): EvaluationDetail
+  }
+  class OperationalAuthorizationAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): OperationalAuthorization[]
+      + toEntityFromResource(resource): OperationalAuthorization
+      + toResourceFromEntity(entity): OperationalAuthorizationResource
+  }
+  class DefineEvaluationRuleAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): EvaluationRule
+  }
+  class LiftBlockAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): OperationalAuthorization
+  }
+  Evaluation "1" *-- "1..*" EvaluationDetail : contains
+  EvaluationRule "1" --> "0..*" EvaluationDetail : is applied in
+  Evaluation "1" --> "1" OperationalAuthorization : produces
+  EvaluationRule "1" --> "1" RuleImpact : has impact
+  EvaluationDetail "1" --> "1" RuleImpact : has impact
+  OperationalAuthorization "1" --> "1" AuthorizationStatus : has status
+  EvaluationStore "1" --> "1" EvaluationApi : calls
+  EvaluationStore ..> Notifier : notifies
+  EvaluationApi "1" *-- "1" EvaluationRulesApiEndpoint : owns
+  EvaluationApi "1" *-- "1" EvaluationsApiEndpoint : owns
+  EvaluationApi "1" *-- "1" OperationalAuthorizationsApiEndpoint : owns
+  EvaluationApi "1" *-- "1" DefineEvaluationRuleApiEndpoint : owns
+  EvaluationApi "1" *-- "1" LiftBlockApiEndpoint : owns
+  EvaluationRulesApiEndpoint "1" --> "1" EvaluationRuleAssembler : translates
+  EvaluationsApiEndpoint "1" --> "1" EvaluationAssembler : translates
+  OperationalAuthorizationsApiEndpoint "1" --> "1" OperationalAuthorizationAssembler : translates
+  DefineEvaluationRuleApiEndpoint "1" --> "1" DefineEvaluationRuleAssembler : translates
+  LiftBlockApiEndpoint "1" --> "1" LiftBlockAssembler : translates
+  EvaluationStore ..> LiftBlockCommand : handles
+  EvaluationStore ..> DefineEvaluationRuleCommand : handles
+}
+
+package "Incident Management" {
+  class Incident <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - incidentTypeId: string
+      - inspectionId: string | null
+      - origin: IncidentOrigin
+      - description: string
+      - severity: IncidentSeverity
+      - status: IncidentStatus
+      - reportedBy: string
+      - reportedAt: string
+      - resolutionType: string
+      - resolvedAt: string
+      - createdAt: string
+      - updatedAt: string
+      - correctiveActions: CorrectiveAction[]
+      - repairs: Repair[]
+      - followUps: IncidentFollowUp[]
+      + addCorrectiveAction(action: CorrectiveAction): void
+      + addFollowUp(followUp: IncidentFollowUp): void
+      + resolve(resolutionType: string, moment: string): void
+      + isCritical(): boolean
+      + comesFromInspection(): boolean
+  }
+  class IncidentType <<Entity>> {
+      - id: string
+      - code: string
+      - name: string
+      - description: string
+      - isActive: boolean
+  }
+  class CorrectiveAction <<Entity>> {
+      - id: string
+      - incidentId: string
+      - description: string
+      - performedBy: string
+      - performedAt: string
+      - evidenceUrl: string
+  }
+  class Repair <<Entity>> {
+      - id: string
+      - incidentId: string
+      - workshop: string
+      - cost: number
+      - startedAt: string
+      - finishedAt: string
+      - status: RepairStatus
+      + isFinished(): boolean
+      + durationInDays(): number
+  }
+  class IncidentFollowUp <<Entity>> {
+      - id: string
+      - incidentId: string
+      - note: string
+      - createdBy: string
+      - createdAt: string
+  }
+  enum IncidentOrigin {
+      INSPECTION
+      OPERATION
+  }
+  enum IncidentSeverity {
+      LOW
+      MEDIUM
+      HIGH
+      CRITICAL
+  }
+  enum IncidentStatus {
+      REGISTERED
+      IN_REVIEW
+      RESOLVED
+      CLOSED
+  }
+  enum RepairStatus {
+      SCHEDULED
+      IN_PROGRESS
+      COMPLETED
+  }
+  class ReportIncidentCommand <<Command>> {
+      - vehicleId: string
+      - incidentTypeId: string
+      - inspectionId: string | null
+      - origin: IncidentOrigin
+      - description: string
+      - severity: IncidentSeverity
+      - reportedBy: string
+  }
+  class RegisterCorrectiveActionCommand <<Command>> {
+      - incidentId: string
+      - description: string
+      - performedBy: string
+      - performedAt: string
+      - evidenceUrl: string
+  }
+  class ScheduleRepairCommand <<Command>> {
+      - incidentId: string
+      - workshop: string
+      - cost: number
+      - startedAt: string
+      - finishedAt: string
+  }
+  class CompleteRepairCommand <<Command>> {
+      - incidentId: string
+      - repairId: string
+      - finishedAt: string
+  }
+  class AddIncidentFollowUpCommand <<Command>> {
+      - incidentId: string
+      - note: string
+      - createdBy: string
+      - createdAt: string
+  }
+  class ResolveIncidentCommand <<Command>> {
+      - incidentId: string
+      - resolutionType: string
+      - resolvedAt: string
+  }
+  class IncidentStore <<Store>> {
+      - incidentApi: IncidentApi
+      + incidents: Signal<Incident[]>
+      + incidentTypes: Signal<IncidentType[]>
+      + loading: Signal<boolean>
+      + error: Signal<string | null>
+      + incidentCount: Signal<number>
+      + openIncidents: Signal<Incident[]>
+      + criticalIncidents: Signal<Incident[]>
+      + getIncidentById(id: string): Signal<Incident | undefined>
+      + getIncidentTypeById(id: string): Signal<IncidentType | undefined>
+      + loadIncidents(): void
+      + loadIncidentTypes(): void
+      + addIncident(incident: Incident): void
+      + updateIncident(incident: Incident): void
+      + deleteIncident(id: string): void
+      + registerCorrectiveAction(command: RegisterCorrectiveActionCommand): void
+      + scheduleRepair(command: ScheduleRepairCommand): void
+      + completeRepair(command: CompleteRepairCommand): void
+      + addIncidentFollowUp(command: AddIncidentFollowUpCommand): void
+      + resolveIncident(command: ResolveIncidentCommand): void
+      - formatError(error: unknown, fallback: string): string
+  }
+  class IncidentApi <<Api>> {
+      - http: HttpClient
+      - incidentsEndpoint: IncidentsApiEndpoint
+      - incidentTypesEndpoint: IncidentTypesApiEndpoint
+      - registerCorrectiveActionEndpoint: RegisterCorrectiveActionApiEndpoint
+      - scheduleRepairEndpoint: ScheduleRepairApiEndpoint
+      - completeRepairEndpoint: CompleteRepairApiEndpoint
+      - addIncidentFollowUpEndpoint: AddIncidentFollowUpApiEndpoint
+      - resolveIncidentEndpoint: ResolveIncidentApiEndpoint
+      + getIncidents(): Observable<Incident[]>
+      + getIncident(id: string): Observable<Incident>
+      + createIncident(incident: Incident): Observable<Incident>
+      + updateIncident(incident: Incident): Observable<Incident>
+      + deleteIncident(id: string): Observable<void>
+      + getIncidentTypes(): Observable<IncidentType[]>
+      + getIncidentType(id: string): Observable<IncidentType>
+      + createIncidentType(incidentType): Observable<IncidentType>
+      + updateIncidentType(incidentType): Observable<IncidentType>
+      + deleteIncidentType(id: string): Observable<void>
+      + registerCorrectiveAction(command): Observable<CorrectiveAction>
+      + scheduleRepair(command): Observable<Repair>
+      + completeRepair(command): Observable<Repair>
+      + addIncidentFollowUp(command): Observable<IncidentFollowUp>
+      + resolveIncident(command): Observable<Incident>
+  }
+  class IncidentsApiEndpoint <<Endpoint>> {
+  }
+  class IncidentTypesApiEndpoint <<Endpoint>> {
+  }
+  class RegisterCorrectiveActionApiEndpoint <<Action Endpoint>> {
+      + registerCorrectiveAction(command): Observable<CorrectiveAction>
+  }
+  class ScheduleRepairApiEndpoint <<Action Endpoint>> {
+      + scheduleRepair(command): Observable<Repair>
+  }
+  class CompleteRepairApiEndpoint <<Action Endpoint>> {
+      + completeRepair(command): Observable<Repair>
+  }
+  class AddIncidentFollowUpApiEndpoint <<Action Endpoint>> {
+      + addIncidentFollowUp(command): Observable<IncidentFollowUp>
+  }
+  class ResolveIncidentApiEndpoint <<Action Endpoint>> {
+      + resolveIncident(command): Observable<Incident>
+  }
+  class IncidentAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): Incident[]
+      + toEntityFromResource(resource): Incident
+      + toResourceFromEntity(entity): IncidentResource
+      - toCorrectiveActionFromResource(resource): CorrectiveAction
+      - toRepairFromResource(resource): Repair
+      - toIncidentFollowUpFromResource(resource): IncidentFollowUp
+  }
+  class IncidentTypeAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): IncidentType[]
+      + toEntityFromResource(resource): IncidentType
+      + toResourceFromEntity(entity): IncidentTypeResource
+  }
+  class RegisterCorrectiveActionAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): CorrectiveAction
+  }
+  class ScheduleRepairAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): Repair
+  }
+  class CompleteRepairAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): Repair
+  }
+  class AddIncidentFollowUpAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): IncidentFollowUp
+  }
+  class ResolveIncidentAssembler <<Assembler>> {
+      + toResourceFromResponse(response): Resource
+      + toRequestFromCommand(command): Request
+      + toEntityFromResource(resource): Incident
+  }
+  Incident "1" *-- "0..*" CorrectiveAction : records
+  Incident "1" *-- "0..*" Repair : schedules
+  Incident "1" *-- "0..*" IncidentFollowUp : accumulates
+  Incident "0..*" --> "1" IncidentType : has type
+  Incident "1" --> "1" IncidentOrigin : originates in
+  Incident "1" --> "1" IncidentSeverity : has severity
+  Incident "1" --> "1" IncidentStatus : has status
+  Repair "1" --> "1" RepairStatus : has status
+  IncidentStore "1" --> "1" IncidentApi : calls
+  IncidentApi "1" *-- "1" IncidentsApiEndpoint : owns
+  IncidentApi "1" *-- "1" IncidentTypesApiEndpoint : owns
+  IncidentApi "1" *-- "1" RegisterCorrectiveActionApiEndpoint : owns
+  IncidentApi "1" *-- "1" ScheduleRepairApiEndpoint : owns
+  IncidentApi "1" *-- "1" CompleteRepairApiEndpoint : owns
+  IncidentApi "1" *-- "1" AddIncidentFollowUpApiEndpoint : owns
+  IncidentApi "1" *-- "1" ResolveIncidentApiEndpoint : owns
+  IncidentsApiEndpoint "1" --> "1" IncidentAssembler : translates
+  IncidentTypesApiEndpoint "1" --> "1" IncidentTypeAssembler : translates
+  RegisterCorrectiveActionApiEndpoint "1" --> "1" RegisterCorrectiveActionAssembler : translates
+  ScheduleRepairApiEndpoint "1" --> "1" ScheduleRepairAssembler : translates
+  CompleteRepairApiEndpoint "1" --> "1" CompleteRepairAssembler : translates
+  AddIncidentFollowUpApiEndpoint "1" --> "1" AddIncidentFollowUpAssembler : translates
+  ResolveIncidentApiEndpoint "1" --> "1" ResolveIncidentAssembler : translates
+  IncidentStore ..> ReportIncidentCommand : handles
+  IncidentStore ..> RegisterCorrectiveActionCommand : handles
+  IncidentStore ..> ScheduleRepairCommand : handles
+  IncidentStore ..> CompleteRepairCommand : handles
+  IncidentStore ..> AddIncidentFollowUpCommand : handles
+  IncidentStore ..> ResolveIncidentCommand : handles
+}
+
+
+User "0..*" ..> "1" Company : belongs to (companyId)
+Driver "0..1" ..> "1" User : is (userId)
+DocumentedVehicle "0..1" ..> "1" Vehicle : projects (id)
+AssignedVehicle "0..*" ..> "1" Vehicle : projects (vehicleId)
+AssignedVehicle "0..*" ..> "1" Driver : assigned to (driverId)
+Inspection "0..*" ..> "1" Vehicle : inspects (vehicleId)
+Inspection "0..*" ..> "1" Driver : done by (driverId)
+Observation "0..*" ..> "1" User : created by (createdBy)
+VehicleInspectionSummary "0..1" ..> "1" Inspection : projects (id)
+EvaluationRule "0..*" ..> "1" InspectionItem : evaluates (inspectionItemId)
+Evaluation "0..1" ..> "1" Inspection : evaluates (inspectionId)
+Evaluation "0..*" ..> "0..1" User : done by (evaluatedBy)
+EvaluationDetail "0..*" ..> "1" InspectionResultEntry : refers to (inspectionResultId)
+OperationalAuthorization "0..*" ..> "1" Vehicle : enables (vehicleId)
+OperationalAuthorization "0..*" ..> "0..1" User : granted by (authorizedBy)
+Incident "0..*" ..> "1" Vehicle : reported on (vehicleId)
+Incident "0..1" ..> "1" Inspection : from (inspectionId)
+Incident "0..*" ..> "1" User : reported by (reportedBy)
+CorrectiveAction "0..*" ..> "1" User : done by (performedBy)
+IncidentFollowUp "0..*" ..> "1" User : created by (createdBy)
+
+@enduml

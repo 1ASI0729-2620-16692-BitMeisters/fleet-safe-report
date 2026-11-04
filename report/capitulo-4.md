@@ -1,4 +1,4 @@
-[← Capítulo III](capitulo-3.md) · [Contenido](README.md#contenido) · [Capítulo V →](capitulo-5.md)
+[← Capítulo III](capitulo-3.md) · [Contenido](../README.md#contenido) · [Capítulo V →](capitulo-5.md)
 
 <a id="capitulo-iv-product-design"></a>
 # Capítulo IV: Product Design
@@ -2061,164 +2061,45 @@ Las características principales que se consideran en los diagramas son cuatro:
 
 El Class Diagram representa la estructura estática del software: las clases que lo componen, sus atributos y métodos con el scope correspondiente, las interfaces y enumeraciones que utilizan, y las relaciones entre ellas con su nombre y multiplicidad.
 
-Siguiendo el mismo criterio aplicado en las secciones 4.6.4 y 4.8, se presenta **un diagrama por cada bounded context** en lugar de un único diagrama consolidado. Un diagrama consolidado de las veintidós clases del dominio resultaría ilegible y, sobre todo, ocultaría precisamente lo que el diseño orientado al dominio busca hacer explícito: dónde está la frontera de cada contexto y qué lo comunica con los demás.
-
-Los diagramas corresponden al **Backend RESTful API**, que es el producto de software donde reside el modelo de dominio de FleetSafe. El Landing Page no posee modelo de dominio por tratarse de un sitio estático, y la Web Application consume el modelo a través de la API sin reimplementarlo, por lo que su estructura se documenta en el diagrama de componentes de la sección 4.6.4.
-
-**Convenciones aplicadas en los seis diagramas.** Los atributos y métodos indican su scope mediante los símbolos `-` para `private` y `+` para `public`. Las relaciones internas de cada contexto se representan como asociaciones o composiciones con su multiplicidad. Las referencias que **cruzan la frontera de un bounded context** no se representan como asociación entre clases, sino como un atributo de tipo `UUID` con el sufijo `Id`, en coherencia con la regla establecida en la sección 4.8: dentro de un contexto se utiliza clave foránea, y cruzando la frontera únicamente el identificador, siendo la capa de aplicación la responsable de validar su existencia.
+**Estado de los diagramas.** Los diagramas del frontend de *Identity and Access*, *Fleet Management*, *Vehicle Documentation*, *Pre-Operational Inspection* e *Incident Management* corresponden al código de la Single-Page Application, verificado clase por clase.
 
 ---
 
-#### Class Diagram: Identity and Access
+#### Class Diagrams: Identity and Access
 
-```mermaid
-classDiagram
-    class User {
-        -UUID id
-        -UUID companyId
-        -String email
-        -String passwordHash
-        -String firstName
-        -String lastName
-        -UserRole role
-        -boolean isActive
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +getFullName() String
-        +hasRole(role UserRole) boolean
-        +changePassword(newHash String) void
-        +activate() void
-        +deactivate() void
-    }
+**Frontend.**
 
-    class UserRole {
-        <<enumeration>>
-        ADMINISTRATOR
-        FLEET_SUPERVISOR
-        DRIVER
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-identity-access.png" alt="Diagrama de clases del frontend de Identity and Access" width="800">
 
-    class UserRepository {
-        <<interface>>
-        +findById(id UUID) Optional~User~
-        +findByEmail(email String) Optional~User~
-        +findAllByCompanyId(companyId UUID) List~User~
-        +save(user User) User
-    }
+`User` es la única entidad del contexto y su rol es la enumeración `Role` (`ADMINISTRATOR`, `FLEET_SUPERVISOR`, `DRIVER`). Su atributo `companyId` es un identificador: la clase `Company` pertenece a Fleet Management. Los comandos `SignInCommand` y `RegisterUserCommand` encapsulan los datos de las dos operaciones de entrada, y `UsersQuery` agrupa el filtro por rol y estado junto con la paginación del listado.
 
-    class AuthenticationService {
-        -UserRepository userRepository
-        -PasswordEncoder passwordEncoder
-        +signIn(email String, password String) AuthenticatedUser
-        +issueToken(user User) String
-        +verifyToken(token String) AuthenticatedUser
-    }
+`IamStore` conserva la sesión en una señal y en el almacenamiento local del navegador; al arrancar la restaura solo si el token no ha expirado (`restoreSession`). Delega todas las llamadas en la fachada `IamApi`, que compone dos endpoints (`SignInApiEndpoint` y `UsersApiEndpoint`), cada uno con su assembler. Tres funciones de infraestructura protegen la aplicación: `iamGuard` exige una sesión iniciada, `administratorGuard` restringe las rutas al rol administrador e `iamInterceptor` añade el token a cada petición al backend y, ante un 401, cierra la sesión.
 
-    User "1" --> "1" UserRole : tiene asignado
-    UserRepository ..> User : gestiona
-    AuthenticationService --> "1" UserRepository : consulta
-```
+**Backend.**
 
-**Explicación del diagrama.** Este contexto contiene una única entidad de dominio, `User`, junto con la enumeración `UserRole` que define los tres roles del producto descritos en la sección 1.1.1. El atributo `companyId` es de tipo `UUID` y no una asociación a la clase `Company`, porque `Company` pertenece al contexto **Fleet Management**; es la aplicación de la regla de referencias entre contextos.
+<img src="../img/Software-Object-Oriented-Design/backend-class-identity-access.png" alt="Diagrama de clases del backend de Identity and Access" width="800">
+
+Este contexto contiene una única entidad de dominio, `User`, junto con la enumeración `UserRole` que define los tres roles del producto descritos en la sección 1.1.1. El atributo `companyId` es de tipo `UUID` y no una asociación a la clase `Company`, porque `Company` pertenece al contexto **Fleet Management**; es la aplicación de la regla de referencias entre contextos.
 
 `AuthenticationService` es el servicio de aplicación que valida las credenciales y emite el token, y `UserRepository` la interfaz de persistencia. La contraseña nunca se almacena ni se expone en claro: la clase conserva únicamente `passwordHash` y el método `changePassword` recibe ya el valor cifrado.
 
 ---
 
-#### Class Diagram: Fleet Management
+#### Class Diagrams: Fleet Management
 
-```mermaid
-classDiagram
-    class Company {
-        -UUID id
-        -String name
-        -String taxId
-        -String address
-        -String phone
-        -String email
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addFleet(fleet Fleet) void
-        +getFleets() List~Fleet~
-    }
+**Frontend.**
 
-    class Fleet {
-        -UUID id
-        -UUID companyId
-        -String name
-        -String description
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addVehicle(vehicle Vehicle) void
-        +getVehicles() List~Vehicle~
-        +countByStatus(status VehicleStatus) int
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-fleet-management.png" alt="Diagrama de clases del frontend de Fleet Management" width="800">
 
-    class Vehicle {
-        -UUID id
-        -UUID fleetId
-        -String plate
-        -String brand
-        -String model
-        -int year
-        -String type
-        -BigDecimal capacity
-        -VehicleStatus currentStatus
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +applyAuthorizationResult(status VehicleStatus) void
-        +isOperational() boolean
-        +getActiveAssignment() Optional~VehicleAssignment~
-    }
+El modelo sigue la jerarquía `Company` → `Fleet` → `Vehicle`, que en el código se mantiene mediante identificadores (`fleetIds`, `vehicleIds`). `Vehicle` tiene un estado (`VehicleStatus`: `ENABLED`, `OBSERVED`, `NOT_ENABLED`) y un tipo (`VehicleType`), y sus datos descriptivos se agrupan en el value object `VehicleDetails`, que valida el formato de la placa y el rango del año. Las operaciones que modifican un vehículo (`register`, `withDetails`) devuelven una instancia nueva en lugar de alterar la existente.
 
-    class Driver {
-        -UUID id
-        -UUID userId
-        -String licenseNumber
-        -LocalDate licenseExpirationDate
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +hasValidLicense(onDate LocalDate) boolean
-        +getActiveAssignment() Optional~VehicleAssignment~
-    }
+`VehicleAssignment` representa la asignación de un conductor a un vehículo (`start`, `close`). Quién puede recibir un vehículo lo decide el servicio de dominio `VehicleAssignmentPolicy`, que devuelve la causa del rechazo como un valor de `AssignmentViolation` (vehículo no habilitado, licencia vencida, vehículo o conductor ya asignado, entre otras); `FleetStore` lo consulta antes de ejecutar `assignVehicle`. `VehicleInspectionSummary` es una proyección mínima de las inspecciones de un vehículo, que el contexto lee sin depender de Pre-Operational Inspection, y `FleetOverview` resume por flota la cantidad de vehículos en cada estado. La fachada `FleetApi` compone seis endpoints con sus assemblers. El store notifica al usuario mediante `Notifier`, del módulo Shared.
 
-    class VehicleAssignment {
-        -UUID id
-        -UUID vehicleId
-        -UUID driverId
-        -LocalDate assignedFrom
-        -LocalDate assignedTo
-        -boolean isActive
-        -LocalDateTime createdAt
-        +isActiveOn(date LocalDate) boolean
-        +close(endDate LocalDate) void
-    }
+**Backend.**
 
-    class VehicleStatus {
-        <<enumeration>>
-        ENABLED
-        OBSERVED
-        NOT_ENABLED
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-fleet-management.png" alt="Diagrama de clases del backend de Fleet Management" width="800">
 
-    class FleetService {
-        -FleetRepository fleetRepository
-        +registerVehicle(fleetId UUID, vehicle Vehicle) Vehicle
-        +assignDriver(vehicleId UUID, driverId UUID, from LocalDate) VehicleAssignment
-        +updateCurrentStatus(vehicleId UUID, status VehicleStatus) void
-        +findVehicleAssignedTo(driverId UUID) Optional~Vehicle~
-    }
-
-    Company "1" *-- "0..*" Fleet : organiza
-    Fleet "1" *-- "0..*" Vehicle : agrupa
-    Vehicle "1" --> "0..*" VehicleAssignment : es asignado en
-    Driver "1" --> "0..*" VehicleAssignment : recibe
-    Vehicle "1" --> "1" VehicleStatus : presenta
-    FleetService ..> Vehicle : gestiona
-    FleetService ..> VehicleAssignment : gestiona
-```
-
-**Explicación del diagrama.** Este contexto agrupa los activos sobre los que opera la plataforma. `Company` y `Fleet` mantienen una composición, al igual que `Fleet` y `Vehicle`: una flota no existe fuera de su empresa, ni un vehículo fuera de su flota.
+Este contexto agrupa los activos sobre los que opera la plataforma. `Company` y `Fleet` mantienen una composición, al igual que `Fleet` y `Vehicle`: una flota no existe fuera de su empresa, ni un vehículo fuera de su flota.
 
 `VehicleAssignment` es la clase que resuelve la relación entre `Vehicle` y `Driver`, que no es una asociación directa sino una asociación con atributos propios —el periodo de vigencia— y con historial. Es la clase que permite determinar cuál es el vehículo asignado a un conductor en el momento de iniciar una inspección preoperacional, lo que constituye la premisa del producto.
 
@@ -2228,165 +2109,41 @@ El método `applyAuthorizationResult` de `Vehicle` es el único que modifica `cu
 
 ---
 
-#### Class Diagram: Vehicle Documentation
+#### Class Diagrams: Vehicle Documentation
 
-```mermaid
-classDiagram
-    class DocumentType {
-        -UUID id
-        -String code
-        -String name
-        -String description
-        -boolean isRequired
-        -boolean isActive
-        +isMandatoryForOperation() boolean
-    }
+**Frontend.**
 
-    class VehicleDocument {
-        -UUID id
-        -UUID vehicleId
-        -UUID documentTypeId
-        -String number
-        -LocalDate issueDate
-        -LocalDate expirationDate
-        -DocumentStatus status
-        -String fileUrl
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +recalculateStatus(today LocalDate) DocumentStatus
-        +isExpired(today LocalDate) boolean
-        +daysUntilExpiration(today LocalDate) long
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-vehicle-documentation.png" alt="Diagrama de clases del frontend de Vehicle Documentation" width="800">
 
-    class DocumentStatus {
-        <<enumeration>>
-        VALID
-        EXPIRING
-        EXPIRED
-    }
+`VehicleDocument` es la entidad central: referencia su tipo mediante `DocumentType` y el vehículo mediante `DocumentedVehicle`, una proyección local con solo el identificador y la placa, de modo que el contexto no depende de la clase `Vehicle` de Fleet Management. El estado del documento (`DocumentStatus`: `VALID`, `EXPIRING`, `EXPIRED`) **no se almacena**: se calcula con `recalculateStatus` a partir de la fecha de vencimiento y de un umbral de alerta de 30 días (`DOCUMENT_ALERT_DAYS`).
 
-    class DocumentService {
-        -DocumentRepository documentRepository
-        +registerDocument(vehicleId UUID, document VehicleDocument) VehicleDocument
-        +recalculateAll(today LocalDate) int
-        +findExpiringSoon(vehicleId UUID, days int) List~VehicleDocument~
-    }
+Las funciones de validación y la constante del umbral se agrupan en `VehicleDocumentRules`, que `VehicleDocumentationStore` usa antes de guardar un documento descrito por `VehicleDocumentInput`. La fachada `VehicleDocumentationApi` compone tres endpoints con sus assemblers.
 
-    DocumentType "1" --> "0..*" VehicleDocument : clasifica
-    VehicleDocument "1" --> "1" DocumentStatus : presenta
-    DocumentService ..> VehicleDocument : gestiona
-```
+**Backend.**
 
-**Explicación del diagrama.** `DocumentType` actúa como catálogo y `VehicleDocument` como el documento concreto asociado a un vehículo. El atributo `vehicleId` es de nuevo una referencia por identificador al contexto **Fleet Management**.
+<img src="../img/Software-Object-Oriented-Design/backend-class-vehicle-documentation.png" alt="Diagrama de clases del backend de Vehicle Documentation" width="800">
+
+`DocumentType` actúa como catálogo y `VehicleDocument` como el documento concreto asociado a un vehículo. El atributo `vehicleId` es de nuevo una referencia por identificador al contexto **Fleet Management**.
 
 El método `recalculateStatus` concentra la derivación del estado a partir de `expirationDate`, de modo que la regla que distingue `VALID`, `EXPIRING` y `EXPIRED` reside en un único lugar. `DocumentService.recalculateAll` es el método que invoca la tarea programada descrita en el diagrama de componentes de la sección 4.6.4.
 
 ---
 
-#### Class Diagram: Pre-Operational Inspection
+#### Class Diagrams: Pre-Operational Inspection
 
-```mermaid
-classDiagram
-    class InspectionItem {
-        -UUID id
-        -String code
-        -String name
-        -String description
-        -ItemCategory category
-        -boolean isSafetyComponent
-        -boolean requiresEvidence
-        -int displayOrder
-        -boolean isActive
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +demandsEvidence() boolean
-        +deactivate() void
-    }
+**Frontend.**
 
-    class Inspection {
-        -UUID id
-        -UUID vehicleId
-        -UUID driverId
-        -InspectionStatus status
-        -int odometer
-        -LocalDateTime startedAt
-        -LocalDateTime completedAt
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addResult(result InspectionResultEntry) void
-        +complete(completedAt LocalDateTime) void
-        +isComplete() boolean
-        +getResults() List~InspectionResultEntry~
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-pre-operational-inspection.png" alt="Diagrama de clases del frontend de Pre-Operational Inspection" width="800">
 
-    class InspectionResultEntry {
-        -UUID id
-        -UUID inspectionId
-        -UUID inspectionItemId
-        -String itemName
-        -String itemCategory
-        -ResultValue result
-        -LocalDateTime createdAt
-        +addObservation(observation Observation) void
-        +requiresObservation() boolean
-    }
+`Inspection` agrupa por composición sus resultados (`InspectionResultEntry`), cada resultado puede tener observaciones (`Observation`) y cada observación sus evidencias fotográficas (`Evidence`, en formato JPEG o PNG). Cada resultado responde a un ítem del catálogo (`InspectionItem`), clasificado por categoría (`ItemCategory`) y por sistema del vehículo (`ItemSystem`), y toma un valor de `ResultValue` (`OK`, `OBSERVED`, `FAIL`). `Inspection.withResult` devuelve una inspección nueva con la respuesta registrada, sin modificar la original. `AssignedVehicle` es la proyección del vehículo asignado al conductor que inicia la inspección.
 
-    class Observation {
-        -UUID id
-        -UUID inspectionResultId
-        -String description
-        -UUID createdBy
-        -LocalDateTime createdAt
-        +addEvidence(evidence Evidence) void
-        +hasEvidence() boolean
-    }
+`InspectionStore` carga el catálogo y el vehículo asignado, inicia la inspección y registra la respuesta a cada ítem con `answerItem`, marcando `savingItemId` mientras se guarda; notifica al usuario mediante `Notifier`, del módulo Shared. En infraestructura, `AssignedVehicleApiEndpoint` es un endpoint de acción (`<<Action Endpoint>>`): extiende `ErrorHandlingEnabledBaseType` y no `BaseApiEndpoint`, porque consulta un único recurso y no ofrece operaciones CRUD.
 
-    class Evidence {
-        -UUID id
-        -UUID observationId
-        -String fileUrl
-        -String mediaType
-        -LocalDateTime uploadedAt
-    }
+**Backend.**
 
-    class ItemCategory {
-        <<enumeration>>
-        COMPONENT
-        SAFETY_COMPONENT
-        DOCUMENTATION
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-pre-operational-inspection.png" alt="Diagrama de clases del backend de Pre-Operational Inspection" width="800">
 
-    class InspectionStatus {
-        <<enumeration>>
-        IN_PROGRESS
-        COMPLETED
-    }
-
-    class ResultValue {
-        <<enumeration>>
-        OK
-        OBSERVED
-        FAIL
-    }
-
-    class InspectionService {
-        -InspectionRepository inspectionRepository
-        +startInspection(driverId UUID, odometer int) Inspection
-        +registerResult(inspectionId UUID, itemId UUID, value ResultValue) InspectionResultEntry
-        +completeInspection(inspectionId UUID) Inspection
-    }
-
-    Inspection "1" *-- "1..*" InspectionResultEntry : contiene
-    InspectionItem "1" --> "0..*" InspectionResultEntry : es verificado en
-    InspectionResultEntry "1" *-- "0..*" Observation : puede registrar
-    Observation "1" *-- "0..*" Evidence : es respaldada por
-    InspectionItem "1" --> "1" ItemCategory : pertenece a
-    Inspection "1" --> "1" InspectionStatus : presenta
-    InspectionResultEntry "1" --> "1" ResultValue : obtiene
-    InspectionService ..> Inspection : gestiona
-```
-
-**Explicación del diagrama.** Este es el contexto núcleo del producto. `Inspection` es la raíz del agregado y mantiene una composición con `InspectionResultEntry`: los resultados no existen fuera de la inspección que los contiene. La cadena continúa con `Observation` y `Evidence`, ambas también en composición, reflejando la decisión de diseño de la sección 4.8 según la cual una evidencia siempre respalda una observación concreta y no la inspección en su conjunto.
+Este es el contexto núcleo del producto. `Inspection` es la raíz del agregado y mantiene una composición con `InspectionResultEntry`: los resultados no existen fuera de la inspección que los contiene. La cadena continúa con `Observation` y `Evidence`, ambas también en composición, reflejando la decisión de diseño de la sección 4.8 según la cual una evidencia siempre respalda una observación concreta y no la inspección en su conjunto.
 
 La clase se denomina `InspectionResultEntry` y no `InspectionResult` para evitar la colisión con la enumeración de valores posibles, que se denomina `ResultValue`. Ambos nombres corresponden a los términos *Inspection Result* del Ubiquitous Language de la sección 2.5.
 
@@ -2396,96 +2153,23 @@ Los atributos `itemName` e `itemCategory` de `InspectionResultEntry` no son redu
 
 ---
 
-#### Class Diagram: Evaluation and Authorization
+#### Class Diagrams: Evaluation and Authorization
 
-```mermaid
-classDiagram
-    class EvaluationRule {
-        -UUID id
-        -UUID inspectionItemId
-        -String name
-        -ResultValue foundResult
-        -RuleImpact resultingImpact
-        -String description
-        -boolean isActive
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +appliesTo(itemId UUID, value ResultValue) boolean
-        +getImpact() RuleImpact
-    }
+**Frontend.**
 
-    class Evaluation {
-        -UUID id
-        -UUID inspectionId
-        -LocalDateTime evaluatedAt
-        -UUID evaluatedBy
-        -LocalDateTime createdAt
-        +addDetail(detail EvaluationDetail) void
-        +resolveMostRestrictiveImpact() RuleImpact
-        +isAutomatic() boolean
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-evaluation-authorization.png" alt="Diagrama de clases del frontend de Evaluation and Authorization (diseño)" width="800">
 
-    class EvaluationDetail {
-        -UUID id
-        -UUID evaluationId
-        -UUID inspectionResultId
-        -UUID evaluationRuleId
-        -RuleImpact appliedImpact
-    }
+Este diagrama es un **diseño**: el módulo aún no existe en el código de la Single-Page Application (solo la entrada `/evaluation` del menú) y se modeló con la misma arquitectura de los demás contextos. Corresponde al *Authorization Feature* del diagrama de componentes de la sección 4.6.4, desde donde el supervisor consulta la condición operativa de cada vehículo y registra el levantamiento de un bloqueo.
 
-    class OperationalAuthorization {
-        -UUID id
-        -UUID evaluationId
-        -UUID vehicleId
-        -AuthorizationStatus status
-        -boolean isOverride
-        -String overrideReason
-        -UUID authorizedBy
-        -LocalDateTime authorizedAt
-        -LocalDateTime validUntil
-        -LocalDateTime createdAt
-        +isValidOn(moment LocalDateTime) boolean
-        +liftsBlock() boolean
-    }
+`EvaluationRule`, `Evaluation`, `EvaluationDetail` y `OperationalAuthorization` son las entidades del contexto, con las enumeraciones `RuleImpact` (`NONE`, `OBSERVED`, `BLOCKING`) y `AuthorizationStatus` (`ENABLED`, `OBSERVED`, `NOT_ENABLED`). `Evaluation` compone sus detalles (`EvaluationDetail`), cada uno con la regla aplicada y su impacto, y produce una `OperationalAuthorization`. Los identificadores `inspectionItemId`, `inspectionId`, `inspectionResultId`, `vehicleId`, `evaluatedBy` y `authorizedBy` son referencias a otros contextos; no se importan sus clases.
 
-    class RuleImpact {
-        <<enumeration>>
-        NONE
-        OBSERVED
-        BLOCKING
-    }
+`EvaluationStore` expone en señales las reglas, las evaluaciones y las habilitaciones, y calcula `blockedAuthorizations`, las habilitaciones que dejan un vehículo sin habilitar. Sus dos operaciones del usuario se modelan con comandos: `DefineEvaluationRuleCommand` para crear una regla y `LiftBlockCommand` para levantar un bloqueo con su justificación y su responsable. Delega todas las llamadas en la fachada `EvaluationApi`, que compone tres endpoints CRUD (`EvaluationRulesApiEndpoint`, `EvaluationsApiEndpoint` y `OperationalAuthorizationsApiEndpoint`) y dos endpoints de acción (`DefineEvaluationRuleApiEndpoint` y `LiftBlockApiEndpoint`), cada uno con su assembler. El store notifica al usuario mediante `Notifier`, del módulo Shared.
 
-    class AuthorizationStatus {
-        <<enumeration>>
-        ENABLED
-        OBSERVED
-        NOT_ENABLED
-    }
+**Backend.**
 
-    class EvaluationEngine {
-        -EvaluationRepository evaluationRepository
-        +evaluate(inspectionId UUID) Evaluation
-        +findApplicableRules(itemId UUID, value ResultValue) List~EvaluationRule~
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-evaluation-authorization.png" alt="Diagrama de clases del backend de Evaluation and Authorization" width="800">
 
-    class AuthorizationService {
-        -EvaluationRepository evaluationRepository
-        +authorize(evaluation Evaluation) OperationalAuthorization
-        +liftBlock(vehicleId UUID, reason String, authorizedBy UUID) OperationalAuthorization
-        +findCurrentAuthorization(vehicleId UUID) Optional~OperationalAuthorization~
-    }
-
-    Evaluation "1" *-- "1..*" EvaluationDetail : se descompone en
-    EvaluationRule "1" --> "0..*" EvaluationDetail : es aplicada en
-    Evaluation "1" --> "1" OperationalAuthorization : produce
-    EvaluationDetail "1" --> "1" RuleImpact : aplica
-    OperationalAuthorization "1" --> "1" AuthorizationStatus : determina
-    EvaluationEngine ..> Evaluation : produce
-    EvaluationEngine ..> AuthorizationService : solicita el registro de la habilitación
-    AuthorizationService ..> OperationalAuthorization : gestiona
-```
-
-**Explicación del diagrama.** Este es el segundo contexto núcleo. `EvaluationRule` expresa una regla legible de la forma *"si el elemento X presenta el resultado Y, el impacto sobre el vehículo es Z"*, y el método `appliesTo` es el que permite al motor determinar qué reglas corresponden a cada resultado. La condición es estructurada y no texto libre, precisamente para poder evaluarse de forma determinista y auditarse después.
+Este es el segundo contexto núcleo. `EvaluationRule` expresa una regla legible de la forma *"si el elemento X presenta el resultado Y, el impacto sobre el vehículo es Z"*, y el método `appliesTo` es el que permite al motor determinar qué reglas corresponden a cada resultado. La condición es estructurada y no texto libre, precisamente para poder evaluarse de forma determinista y auditarse después.
 
 `Evaluation` y `OperationalAuthorization` se mantienen como clases distintas y con relación `1 --> 1`, porque representan dos cosas diferentes: la evaluación es el proceso de aplicar las reglas, y la habilitación es la decisión resultante con su vigencia. El método `resolveMostRestrictiveImpact` de `Evaluation` implementa la regla según la cual un solo impacto `BLOCKING` produce el estado `NOT_ENABLED`.
 
@@ -2495,118 +2179,21 @@ El atributo `evaluatedBy` admite valor nulo porque la evaluación se ejecuta de 
 
 ---
 
-#### Class Diagram: Incident Management
+#### Class Diagrams: Incident Management
 
-```mermaid
-classDiagram
-    class IncidentType {
-        -UUID id
-        -String code
-        -String name
-        -String description
-        -boolean isActive
-    }
+**Frontend.**
 
-    class Incident {
-        -UUID id
-        -UUID vehicleId
-        -UUID incidentTypeId
-        -UUID inspectionId
-        -IncidentOrigin origin
-        -String description
-        -IncidentSeverity severity
-        -IncidentStatus status
-        -UUID reportedBy
-        -LocalDateTime reportedAt
-        -String resolutionType
-        -LocalDateTime resolvedAt
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addCorrectiveAction(action CorrectiveAction) void
-        +addFollowUp(followUp IncidentFollowUp) void
-        +resolve(resolutionType String, moment LocalDateTime) void
-        +isCritical() boolean
-        +comesFromInspection() boolean
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-incident-management.png" alt="Diagrama de clases del frontend de Incident Management" width="800">
 
-    class CorrectiveAction {
-        -UUID id
-        -UUID incidentId
-        -String description
-        -UUID performedBy
-        -LocalDateTime performedAt
-        -String evidenceUrl
-    }
+`Incident` es la raíz del contexto y compone sus acciones correctivas (`CorrectiveAction`), reparaciones (`Repair`) y seguimientos (`IncidentFollowUp`). Tiene un origen (`IncidentOrigin`), una severidad (`IncidentSeverity`) y un estado (`IncidentStatus`), y `Repair` tiene el suyo (`RepairStatus`). Los métodos `isCritical`, `comesFromInspection` y `resolve` expresan las reglas del incidente. Su atributo `inspectionId` es un identificador nulo: solo se completa cuando el incidente nace de una inspección.
 
-    class Repair {
-        -UUID id
-        -UUID incidentId
-        -String workshop
-        -BigDecimal cost
-        -LocalDate startedAt
-        -LocalDate finishedAt
-        -RepairStatus status
-        +isFinished() boolean
-        +durationInDays() long
-    }
+Cada operación sobre el incidente se modela con un comando: `RegisterCorrectiveActionCommand`, `ScheduleRepairCommand`, `CompleteRepairCommand`, `AddIncidentFollowUpCommand` y `ResolveIncidentCommand`. Como no son operaciones CRUD, cada una tiene su propio endpoint de acción (`<<Action Endpoint>>`) y su assembler, mientras que `IncidentsApiEndpoint` e `IncidentTypesApiEndpoint` sí son endpoints CRUD. `ReportIncidentCommand` está declarado en el dominio, pero el formulario de registro construye hoy la entidad `Incident` directamente.
 
-    class IncidentFollowUp {
-        -UUID id
-        -UUID incidentId
-        -String note
-        -UUID createdBy
-        -LocalDateTime createdAt
-    }
+**Backend.**
 
-    class IncidentOrigin {
-        <<enumeration>>
-        INSPECTION
-        OPERATION
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-incident-management.png" alt="Diagrama de clases del backend de Incident Management" width="800">
 
-    class IncidentSeverity {
-        <<enumeration>>
-        LOW
-        MEDIUM
-        HIGH
-        CRITICAL
-    }
-
-    class IncidentStatus {
-        <<enumeration>>
-        OPEN
-        IN_PROGRESS
-        RESOLVED
-        CLOSED
-    }
-
-    class RepairStatus {
-        <<enumeration>>
-        SCHEDULED
-        IN_PROGRESS
-        COMPLETED
-    }
-
-    class IncidentService {
-        -IncidentRepository incidentRepository
-        +reportIncident(vehicleId UUID, incident Incident) Incident
-        +registerCorrectiveAction(incidentId UUID, action CorrectiveAction) CorrectiveAction
-        +scheduleRepair(incidentId UUID, repair Repair) Repair
-        +findOpenByVehicle(vehicleId UUID) List~Incident~
-    }
-
-    IncidentType "1" --> "0..*" Incident : clasifica
-    Incident "1" *-- "0..*" CorrectiveAction : es atendida mediante
-    Incident "1" *-- "0..*" Repair : puede requerir
-    Incident "1" *-- "0..*" IncidentFollowUp : es seguida mediante
-    Incident "1" --> "1" IncidentOrigin : procede de
-    Incident "1" --> "1" IncidentSeverity : presenta
-    Incident "1" --> "1" IncidentStatus : se encuentra en
-    Repair "1" --> "1" RepairStatus : se encuentra en
-    IncidentService ..> Incident : gestiona
-```
-
-**Explicación del diagrama.** `Incident` es la raíz del agregado y mantiene composiciones con `CorrectiveAction`, `Repair` e `IncidentFollowUp`, ya que ninguna de las tres tiene sentido fuera de la incidencia que las origina.
+`Incident` es la raíz del agregado y mantiene composiciones con `CorrectiveAction`, `Repair` e `IncidentFollowUp`, ya que ninguna de las tres tiene sentido fuera de la incidencia que las origina.
 
 El atributo `inspectionId` admite valor nulo y se acompaña de la enumeración `IncidentOrigin`, porque el Ubiquitous Language define la incidencia como un problema detectado en un vehículo durante una inspección **o durante su operación**. El método `comesFromInspection` expone esa distinción. Si la referencia a la inspección fuera obligatoria, las incidencias surgidas durante la operación no podrían registrarse.
 
@@ -2614,7 +2201,7 @@ El atributo `inspectionId` admite valor nulo y se acompaña de la enumeración `
 
 #### Resumen de referencias entre bounded contexts
 
-Las referencias que cruzan la frontera de un contexto se implementan como atributos de tipo `UUID` y no como asociaciones entre clases. El cuadro siguiente las recoge:
+Las referencias que cruzan la frontera de un contexto se implementan como atributos identificadores y no como asociaciones entre clases. El cuadro siguiente recoge las del **backend**:
 
 | Clase | Atributo | Contexto referenciado |
 |:---|:---|:---|
@@ -2630,8 +2217,6 @@ Las referencias que cruzan la frontera de un contexto se implementan como atribu
 | `Incident` | `vehicleId`, `inspectionId`, `reportedBy` | Fleet Management · Pre-Operational Inspection · Identity and Access |
 | `CorrectiveAction` | `performedBy` | Identity and Access |
 | `IncidentFollowUp` | `createdBy` | Identity and Access |
-
-La validación de la existencia del elemento referenciado es responsabilidad del servicio de aplicación del contexto que realiza la referencia, tal como se refleja en las relaciones del diagrama de componentes de la sección 4.6.4.
 
 ---
 
@@ -3229,4 +2814,4 @@ El flujo núcleo de FleetSafe —inspección, validación, evaluación, identifi
 
 ---
 
-[← Capítulo III](capitulo-3.md) · [Contenido](README.md#contenido) · [Capítulo V →](capitulo-5.md)
+[← Capítulo III](capitulo-3.md) · [Contenido](../README.md#contenido) · [Capítulo V →](capitulo-5.md)

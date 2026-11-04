@@ -1,4 +1,4 @@
-[← Conclusiones](conclusiones.md) · [Contenido](README.md#contenido) · [Anexos →](anexos.md)
+[← Conclusiones](conclusiones.md) · [Contenido](../README.md#contenido) · [Anexos →](anexos.md)
 
 <a id="bibliografia"></a>
 # Bibliografía
@@ -39,4 +39,4 @@ DataScope. (s. f.). *Digitalización del checklist preoperacional en gestión de
 
 ---
 
-[← Conclusiones](conclusiones.md) · [Contenido](README.md#contenido) · [Anexos →](anexos.md)
+[← Conclusiones](conclusiones.md) · [Contenido](../README.md#contenido) · [Anexos →](anexos.md)

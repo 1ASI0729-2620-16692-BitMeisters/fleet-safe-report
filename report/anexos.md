@@ -1,4 +1,4 @@
-[← Bibliografía](bibliografia.md) · [Contenido](README.md#contenido)
+[← Bibliografía](bibliografia.md) · [Contenido](../README.md#contenido)
 
 <a id="anexos"></a>
 # Anexos
@@ -48,4 +48,4 @@ Registro de los videos de las entrevistas realizadas a los tres segmentos objeti
 
 ---
 
-[← Bibliografía](bibliografia.md) · [Contenido](README.md#contenido)
+[← Bibliografía](bibliografia.md) · [Contenido](../README.md#contenido)

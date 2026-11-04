@@ -1,4 +1,4 @@
-[← Capítulo I](capitulo-1.md) · [Contenido](README.md#contenido) · [Capítulo III →](capitulo-3.md)
+[← Capítulo I](capitulo-1.md) · [Contenido](../README.md#contenido) · [Capítulo III →](capitulo-3.md)
 
 <a id="capitulo-ii-requirements-elicitation-analysis"></a>
 # Capítulo II: Requirements Elicitation & Analysis
@@ -801,4 +801,4 @@ Este glosario busca establecer una terminología común entre los miembros del e
 
 ---
 
-[← Capítulo I](capitulo-1.md) · [Contenido](README.md#contenido) · [Capítulo III →](capitulo-3.md)
+[← Capítulo I](capitulo-1.md) · [Contenido](../README.md#contenido) · [Capítulo III →](capitulo-3.md)

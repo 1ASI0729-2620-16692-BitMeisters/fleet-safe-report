@@ -1,4 +1,4 @@
-[← Capítulo II](capitulo-2.md) · [Contenido](README.md#contenido) · [Capítulo IV →](capitulo-4.md)
+[← Capítulo II](capitulo-2.md) · [Contenido](../README.md#contenido) · [Capítulo IV →](capitulo-4.md)
 
 <a id="capitulo-iii-requirements-specification"></a>
 # Capítulo III: Requirements Specification
@@ -225,4 +225,4 @@ Cada tarjeta conserva el identificador de la User Story, su Epic asociado, su t�
 
 ---
 
-[← Capítulo II](capitulo-2.md) · [Contenido](README.md#contenido) · [Capítulo IV →](capitulo-4.md)
+[← Capítulo II](capitulo-2.md) · [Contenido](../README.md#contenido) · [Capítulo IV →](capitulo-4.md)
