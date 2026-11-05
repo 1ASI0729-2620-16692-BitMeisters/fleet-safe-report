@@ -1409,156 +1409,172 @@ El botón **Authorize departure** del diálogo de levantamiento de bloqueo es el
 <a id="444-web-applications-user-flow-diagrams"></a>
 ### 4.4.4. Web Applications User Flow Diagrams.
 
-Los User Flow Diagrams representan el recorrido completo que sigue cada usuario para alcanzar un objetivo dentro de la Web Application, incluyendo las decisiones que el sistema evalúa en el camino. A diferencia de los wireflows de la sección 4.4.2, que muestran **qué ve** el usuario en cada paso, los user flows muestran **qué ocurre** y qué caminos alternativos existen cuando una condición no se cumple.
+Los User Flow Diagrams describen, para cada User goal, el recorrido que sigue el usuario en la Web Application. Hay un diagrama por cada User goal y cada uno se plantea desde el User Persona que lo persigue (sección 2.3.1): el **administrador** José Ramirez, la **supervisora de flota** Alessandra Nova y el **conductor** Álvaro Torres. Los diagramas usan los mock-ups de la sección 4.4.3 y, cuando existe, derivan del wireflow de la sección 4.4.2 que recorre las mismas pantallas.
 
-Se presenta un diagrama por cada User goal, consistente con el wireflow del que deriva. Cada uno recoge el **happy path** —el recorrido cuando todo transcurre según lo previsto— y las **rutas alternativas**, que son las que en la práctica determinan si el producto resulta usable: qué ocurre cuando el conductor no tiene vehículo asignado, cuando un elemento crítico exige evidencia fotográfica, o cuando el supervisor intenta autorizar una salida sin justificarla.
+A diferencia de los wireflows, que muestran **qué ve** el usuario en cada paso, los user flows muestran **qué decide el sistema** y qué ocurre cuando una condición no se cumple. El **happy path**, en verde, lleva al usuario a cumplir su objetivo. Cada **unhappy path**, en rojo y con línea discontinua, muestra la causa del problema y cómo el usuario retoma el flujo o abandona el recorrido. Los rechazos del sistema que aparecen en los unhappy paths corresponden a los escenarios de las User Stories de la sección 3.1. Los nombres de botones y etiquetas se escriben entre « » tal como aparecen en los mock-ups, que están en inglés.
 
-**Convención de color.** Cada tipo de nodo tiene un color propio, tomado de los tokens definidos en la sección 4.1.1. El color acompaña siempre al texto del nodo y nunca lo sustituye, de modo que el diagrama se lee igual sin distinguir los colores.
+**Leyenda**
 
-| Color | Tipo de nodo |
+<p align="center"><a href="../img/webapp/user-flows/00-legend.png"><img src="../img/webapp/user-flows/00-legend.png" alt="Leyenda de los User Flow Diagrams" width="340"></a></p>
+
+Cada tipo de nodo tiene su propio color y forma, tomados de los colores definidos en la sección 4.1.1. El color acompaña siempre al texto y nunca lo reemplaza, de modo que el diagrama se lee igual sin distinguir los colores.
+
+| Elemento | Significado |
 |:---|:---|
-| Gris oscuro | Inicio y fin del recorrido |
-| Azul | Acción que ejecuta el usuario |
-| Gris pizarra | Paso que ejecuta el sistema |
-| Ámbar (rombo) | Decisión |
-| Rojo | Ruta alternativa o salida bloqueada |
-| Verde | Salida favorable |
+| Pantalla con borde azul | Mock-up de la vista en la que se encuentra el usuario |
+| Recuadro gris | Acción que ejecuta el usuario |
+| Recuadro azul claro | Paso que ejecuta el sistema |
+| Rombo ámbar | Condición que decide el camino |
+| Flecha verde continua | Happy path |
+| Recuadro rojo con flecha discontinua | Unhappy path: mensaje o estado de error |
+| Recuadro verde | Fin: objetivo cumplido |
+| Recuadro rojo con borde grueso | Fin: el flujo termina con el vehículo no habilitado |
+| Recuadro gris oscuro | Fin alternativo: el usuario abandona el flujo |
 
----
+#### Administrador — José Ramirez (Desktop 1280 px)
 
-#### User Flow: realizar la inspección preoperacional del vehículo asignado
+**Goal 1: Consolidar el estado de la flota antes de despachar.**
 
-**User goal.** Como conductor, deseo registrar el estado del vehículo que tengo asignado antes de iniciar la operación, para saber si puedo salir. Corresponde a las User Stories US17 a US21 de la sección 3.1.
+**User Goal:** Como administrador de la empresa, deseo ver el estado de mi flota al empezar la jornada para decidir qué unidades salen a operar y cuáles no. Corresponde a las User Stories US13 y US25 y deriva del Wireflow 2.
 
-```mermaid
-flowchart TD
-    A([Driver signs in]) --> B{Has an active vehicle assignment?}
-    B -->|No| B1[No vehicle assigned today.<br>Contact your supervisor]
-    B1 --> Z([End])
-    B -->|Yes| C[Shows the assigned vehicle<br>and its current status]
-    C --> D[Driver starts the inspection]
-    D --> E[Registers the result of an inspection item]
-    E --> F{Is the result Observed or Fail?}
-    F -->|No · OK| J
-    F -->|Yes| G[Registers an observation<br>describing the condition]
-    G --> H{Does the item require evidence?}
-    H -->|No| J
-    H -->|Yes| I[Attaches a photograph as evidence]
-    I --> J{Are all 42 items registered?}
-    J -->|No| E
-    J -->|Yes| K[Reviews the summary<br>and submits the inspection]
-    K --> L[Applies the active evaluation rules<br>to every result]
-    L --> M{Most restrictive impact obtained}
-    M -->|Blocking| N[Not Enabled<br>Incident registered,<br>supervisor notified]
-    M -->|Observed| O[Observed<br>May operate with the<br>findings recorded]
-    M -->|None| P[Enabled<br>Authorized to operate]
-    N --> Z
-    O --> Z
-    P --> Z
+<p align="center"><a href="../img/webapp/user-flows/01-admin-fleet-overview.png"><img src="../img/webapp/user-flows/01-admin-fleet-overview.png" alt="User flow: consolidar el estado de la flota antes de despachar" width="520"></a></p>
 
-    classDef inicio fill:#0f172a,stroke:#0f172a,color:#ffffff
-    classDef accion fill:#2563eb,stroke:#1d4ed8,color:#ffffff
-    classDef sistema fill:#475569,stroke:#334155,color:#ffffff
-    classDef decision fill:#b45309,stroke:#92400e,color:#ffffff
-    classDef alterna fill:#b91c1c,stroke:#991b1b,color:#ffffff
-    classDef favorable fill:#15803d,stroke:#166534,color:#ffffff
+**Happy path.** En «Fleet», el administrador revisa los contadores por condición operativa. Si hay vehículos «Not Enabled», presiona «View detail» en uno de ellos y, en «Vehicle detail», identifica la unidad, su conductor y sus documentos, y la excluye del despacho. Si no hay ninguno y tampoco hay vehículos «Not inspected», confirma el despacho de la flota.
 
-    class A,Z inicio
-    class D,E,G,I,K accion
-    class C,L sistema
-    class B,F,H,J,M decision
-    class B1,N alterna
-    class O,P favorable
-```
+**Unhappy paths.**
 
-**Explicación del flujo.** El recorrido no avanza hasta que los 42 elementos tienen resultado registrado, porque una inspección incompleta no permite evaluar el vehículo y perdería su valor como evidencia. Las tres salidas finales se corresponden con los tres valores de `AuthorizationStatus` del modelo de la sección 4.8, y se determinan por el **impacto más restrictivo** obtenido: basta un solo impacto `Blocking` para que el vehículo quede `Not Enabled`, aunque los otros 41 elementos estén conformes.
+- **Vehículos sin inspección:** si hay unidades «Not inspected», el administrador no puede confirmarlas. Solicita al supervisor que verifique su inspección antes de despachar.
 
-La ruta alternativa de la evidencia obligatoria es la que sostiene el atributo `inspection_items.requires_evidence`: cuando el elemento lo exige, el conductor no puede continuar sin adjuntar una fotografía.
+**Goal 2: Auditar las inspecciones de un vehículo y exportar el historial.**
 
----
+**User Goal:** Como administrador, deseo consultar el historial de inspecciones y de excepciones de un vehículo y exportarlo para responder a las auditorías de mis clientes. Corresponde a las User Stories US35 y US36.
 
-#### User Flow: saber qué vehículos pueden operar y por qué
+<p align="center"><a href="../img/webapp/user-flows/02-admin-inspection-audit.png"><img src="../img/webapp/user-flows/02-admin-inspection-audit.png" alt="User flow: auditar las inspecciones de un vehículo y exportar el historial" width="420"></a></p>
 
-**User goal.** Como supervisor de flota, deseo identificar rápidamente qué unidades están habilitadas para operar y conocer el motivo cuando alguna no lo está. Corresponde a las User Stories US25 y US35.
+**Happy path.** En «Inspection history», el administrador elige «Vehicle», «From», «To» y «Result» y presiona «Apply». Como el rango es válido y hay inspecciones, revisa los contadores y las filas con «Yes» en «Exception», presiona «Export PDF» y el sistema genera el PDF del historial filtrado, que le sirve de respaldo en una auditoría.
 
-```mermaid
-flowchart TD
-    A([Supervisor opens Fleet]) --> B[Shows the fleet grouped<br>by operational status]
-    B --> C{Is any vehicle Not Enabled?}
-    C -->|No| C1[Whole fleet authorized.<br>No action required]
-    C1 --> Z([End])
-    C -->|Yes| D[Opens the vehicle detail]
-    D --> E{Has it been inspected today?}
-    E -->|No| E1[Not inspected. The driver<br>has not started the inspection]
-    E1 --> Z
-    E -->|Yes| F[Opens the inspection detail]
-    F --> G[Shows the rule that produced<br>the blocking impact]
-    G --> H{Does the finding justify keeping the block?}
-    H -->|No · operation cannot wait| I[Lifts the block with<br>written justification]
-    H -->|Yes| J[Manages the incident<br>and schedules the repair]
-    I --> Z
-    J --> Z
+**Unhappy paths.**
 
-    classDef inicio fill:#0f172a,stroke:#0f172a,color:#ffffff
-    classDef accion fill:#2563eb,stroke:#1d4ed8,color:#ffffff
-    classDef sistema fill:#475569,stroke:#334155,color:#ffffff
-    classDef decision fill:#b45309,stroke:#92400e,color:#ffffff
-    classDef alterna fill:#b91c1c,stroke:#991b1b,color:#ffffff
-    classDef favorable fill:#15803d,stroke:#166534,color:#ffffff
+- **Rango de fechas inválido:** el filtro marca el rango y no se aplica; el administrador corrige las fechas.
+- **Sin resultados:** la tabla queda vacía; el administrador amplía el rango o cambia el filtro.
 
-    class A,Z inicio
-    class D,F,I,J accion
-    class B,G sistema
-    class C,E,H decision
-    class E1 alterna
-    class C1 favorable
-```
+#### Supervisor de flota — Alessandra Nova (Desktop 1280 px y Mobile 390 px)
 
-**Explicación del flujo.** El recorrido responde a la pregunta con la que el supervisor empieza su jornada, y en tres pasos llega de la visión general de la flota a la regla concreta que bloqueó un vehículo. La ruta alternativa *"no inspeccionado"* es relevante porque un vehículo sin inspección **no está habilitado ni bloqueado**: sencillamente no ha sido evaluado, y la acción que corresponde es distinta.
+**Goal 1: Conocer por qué un vehículo no está habilitado.**
 
-La decisión final bifurca hacia los otros dos objetivos del supervisor —gestionar la incidencia o levantar el bloqueo—, lo que refleja que en la operación real ambos caminos son legítimos.
+**User Goal:** Como supervisora de flota, deseo conocer la regla y los hallazgos que dejaron un vehículo sin habilitar para decidir qué hacer con él. Corresponde a las User Stories US24 y US35 y deriva del Wireflow 2.
 
----
+<p align="center"><a href="../img/webapp/user-flows/03-supervisor-block-reason.png"><img src="../img/webapp/user-flows/03-supervisor-block-reason.png" alt="User flow: conocer por qué un vehículo no está habilitado" width="420"></a></p>
 
-#### User Flow: levantar el bloqueo de un vehículo dejando constancia
+**Happy path.** En «Vehicle detail», la supervisora abre la inspección más reciente con «View». «Inspection detail» muestra, en «Why it is not enabled», la regla aplicada y los hallazgos con su evidencia. Con esa información decide: si la operación puede esperar, mantiene el bloqueo y gestiona la incidencia y la reparación; si no puede esperar, evalúa autorizar la salida con una excepción (Goal 2).
 
-**User goal.** Como supervisor de flota, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando registrado quién lo autorizó y por qué. Sostiene la Estrategia 2 de la sección 2.1.2.
+**Unhappy paths.**
 
-```mermaid
-flowchart TD
-    A([Supervisor opens a<br>Not Enabled vehicle]) --> B{Does the role allow lifting a block?}
-    B -->|No| B1[Action not available. Only a supervisor<br>or administrator may authorize]
-    B1 --> Z([End])
-    B -->|Yes| C[Opens the Lift block dialog]
-    C --> D[Shows why the vehicle is Not Enabled]
-    D --> E{Has a reason been written?}
-    E -->|No| E1[A reason is required<br>to authorize the departure]
-    E1 --> C
-    E -->|Yes| F[Authorizes the departure]
-    F --> G[Records a new operational authorization<br>as an override, with reason<br>and responsible user]
-    G --> H[Vehicle status becomes Enabled]
-    H --> I[The exception appears in the audit history<br>and in the exceptions per period report]
-    I --> Z
+- **Vehículo sin inspecciones:** la pestaña «Inspections» está vacía. El vehículo no está habilitado ni bloqueado, simplemente aún no ha sido evaluado.
 
-    classDef inicio fill:#0f172a,stroke:#0f172a,color:#ffffff
-    classDef accion fill:#2563eb,stroke:#1d4ed8,color:#ffffff
-    classDef sistema fill:#475569,stroke:#334155,color:#ffffff
-    classDef decision fill:#b45309,stroke:#92400e,color:#ffffff
-    classDef alterna fill:#b91c1c,stroke:#991b1b,color:#ffffff
-    classDef favorable fill:#15803d,stroke:#166534,color:#ffffff
+**Goal 2: Levantar el bloqueo de un vehículo dejando constancia.**
 
-    class A,Z inicio
-    class C,F accion
-    class D,G,H sistema
-    class B,E decision
-    class B1,E1 alterna
-    class I favorable
-```
+**User Goal:** Como supervisora de flota, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando registrado quién lo autorizó y por qué. Deriva del Wireflow 3 y sostiene la Estrategia 2 de la sección 2.1.2.
 
-**Explicación del flujo.** Este es el recorrido que traduce a interfaz la decisión de diseño de la sección 4.8: *la excepción se permite, pero se cobra en trazabilidad*. La ruta alternativa de la justificación no es una validación de formulario cualquiera, sino la que garantiza que `operational_authorizations.override_reason` nunca quede vacío cuando `is_override` es verdadero.
+<p align="center"><a href="../img/webapp/user-flows/04-supervisor-lift-block.png"><img src="../img/webapp/user-flows/04-supervisor-lift-block.png" alt="User flow: levantar el bloqueo de un vehículo dejando constancia" width="400"></a></p>
 
-El último paso —la aparición de la excepción en el historial de auditoría y en el reporte de excepciones por periodo— es la contrapartida que hace aceptable permitir la excepción: el supervisor sabe, al autorizar, que su decisión queda registrada con su nombre.
+**Happy path.** Desde «Vehicle detail» de un vehículo «Not Enabled», la supervisora presiona «Lift block». El diálogo muestra el motivo del bloqueo y advierte que la excepción quedará registrada con su nombre. Escribe el motivo en «Reason» y presiona «Authorize departure». El sistema registra la excepción con el motivo y el responsable, y el vehículo pasa a «Enabled». El recorrido termina en «Inspection history», donde la excepción aparece con «Yes» en «Exception» y el nombre en «Authorized by».
 
+**Unhappy paths.**
+
+- **Rol sin permiso:** la acción «Lift block» no está disponible; solo un supervisor o un administrador puede autorizar.
+- **Motivo vacío:** «Reason» es obligatorio. El diálogo lo marca y no autoriza la salida hasta que se escriba.
+- **Cancelar:** con «Cancel» el diálogo se cierra, el vehículo sigue «Not Enabled» y no se registra ninguna excepción.
+
+**Goal 3: Mantener vigente la documentación de la flota.**
+
+**User Goal:** Como supervisora de flota, deseo detectar los documentos próximos a vencer y actualizarlos para que ningún vehículo opere con documentos vencidos. Corresponde a las User Stories US32 a US34.
+
+<p align="center"><a href="../img/webapp/user-flows/05-supervisor-documents.png"><img src="../img/webapp/user-flows/05-supervisor-documents.png" alt="User flow: mantener vigente la documentación de la flota" width="420"></a></p>
+
+**Happy path.** En «Documents», la supervisora elige «Document type» y «Status» y presiona «Apply». Si hay documentos «Expiring» o «Expired», presiona «Update» en el documento y registra la nueva fecha de vencimiento. Como la fecha es posterior a la actual, el sistema la guarda, recalcula el estado de vigencia a «Valid» y el documento deja de aparecer entre los que vencen.
+
+**Unhappy paths.**
+
+- **Documentación vigente:** si no hay documentos «Expiring» ni «Expired», el recorrido termina sin acción.
+- **Fecha anterior a la actual:** el sistema guarda el cambio y marca el documento como «Expired». El supervisor registra después la fecha del documento renovado.
+
+**Goal 4: Dar seguimiento a las incidencias de la flota.**
+
+**User Goal:** Como supervisora de flota, deseo revisar las incidencias abiertas y registrar la acción correctiva aplicada para resolverlas. Corresponde a las User Stories US28 a US30.
+
+<p align="center"><a href="../img/webapp/user-flows/06-supervisor-incidents.png"><img src="../img/webapp/user-flows/06-supervisor-incidents.png" alt="User flow: dar seguimiento a las incidencias de la flota" width="420"></a></p>
+
+**Happy path.** En «Incidents», la supervisora elige «Severity», «Status» y «Origin» y presiona «Apply». Abre una incidencia y registra la acción correctiva. Como la incidencia no estaba resuelta, el sistema guarda la acción y actualiza el estado, y el detalle muestra la acción correctiva y el nuevo estado.
+
+**Unhappy paths.**
+
+- **Sin resultados:** la lista queda vacía; la supervisora cambia el filtro.
+- **Incidencia ya resuelta:** el sistema rechaza el cambio porque la incidencia se encuentra cerrada.
+
+**Goal 5: Consultar la condición de la flota desde el teléfono.**
+
+**User Goal:** Como supervisora de flota, deseo consultar la condición de una unidad desde mi teléfono para decidir sin volver a mi escritorio. Corresponde a las User Stories US13 y US25 y usa la vista adaptada a móvil de la sección 4.1.2.
+
+<p align="center"><a href="../img/webapp/user-flows/07-supervisor-fleet-mobile.png"><img src="../img/webapp/user-flows/07-supervisor-fleet-mobile.png" alt="User flow: consultar la condición de la flota desde el teléfono" width="380"></a></p>
+
+**Happy path.** En «Fleet», la supervisora escribe la placa, la marca o el modelo en «Search», o toca una de las condiciones. Si hay vehículos que coinciden, revisa la tarjeta de cada uno con su condición, su conductor y la hora de su inspección.
+
+**Unhappy paths.**
+
+- **Sin coincidencias:** no se muestra ninguna tarjeta; la supervisora cambia la búsqueda.
+
+#### Conductor — Álvaro Torres (Mobile 390 px)
+
+**Goal 1: Iniciar sesión y ver el vehículo asignado.**
+
+**User Goal:** Como conductor, deseo acceder a la plataforma y ver el vehículo que tengo asignado para empezar mi inspección. Corresponde a las User Stories US09 y US17.
+
+<p align="center"><a href="../img/webapp/user-flows/08-driver-sign-in.png"><img src="../img/webapp/user-flows/08-driver-sign-in.png" alt="User flow: iniciar sesión y ver el vehículo asignado" width="420"></a></p>
+
+**Happy path.** El conductor ingresa su correo y su contraseña en «Sign in». Como las credenciales son correctas y tiene un vehículo asignado, llega a «My assigned vehicle», donde ve su vehículo, su condición y el botón «Start inspection».
+
+**Unhappy paths.**
+
+- **Credenciales incorrectas:** el sistema rechaza el acceso y muestra un mensaje de error; el conductor permanece en «Sign in».
+- **Sin vehículo asignado:** el sistema informa que no tiene vehículo asignado y el conductor contacta a su supervisor.
+
+**Goal 2: Registrar el estado de los elementos de la inspección.**
+
+**User Goal:** Como conductor, deseo registrar el estado de cada elemento del vehículo para documentar las condiciones que encuentro antes de operar. Corresponde a las User Stories US17 y US18 y deriva del Wireflow 1.
+
+<p align="center"><a href="../img/webapp/user-flows/09-driver-checklist.png"><img src="../img/webapp/user-flows/09-driver-checklist.png" alt="User flow: registrar el estado de los elementos de la inspección" width="460"></a></p>
+
+**Happy path.** En «My assigned vehicle», el conductor presiona «Start inspection» y llega a «Inspection checklist». Marca «OK» en cada elemento conforme. Mientras falten elementos, repite el registro. Cuando los 42 tienen resultado, pasa al resumen.
+
+**Unhappy paths.**
+
+- **Elemento no conforme:** si marca «Obs.» o «Fail», el sistema solicita una observación y evidencia, y el recorrido continúa en el Goal 3.
+
+**Goal 3: Registrar una observación con evidencia fotográfica.**
+
+**User Goal:** Como conductor, deseo describir y fotografiar una condición insegura para respaldar lo que reporto. Corresponde a las User Stories US19 y US20 y deriva del Wireflow 1.
+
+<p align="center"><a href="../img/webapp/user-flows/10-driver-observation-evidence.png"><img src="../img/webapp/user-flows/10-driver-observation-evidence.png" alt="User flow: registrar una observación con evidencia fotográfica" width="360"></a></p>
+
+**Happy path.** Al marcar «Fail» en un elemento, la aplicación abre «Observation and evidence». El conductor describe la condición, adjunta las fotografías y presiona «Save and continue». Vuelve al checklist con el elemento registrado y las fotografías guardadas.
+
+**Unhappy paths.**
+
+- **Observación vacía o foto inválida:** el sistema rechaza el registro: la observación no puede estar vacía o la foto tiene un formato no permitido. El conductor completa los datos y vuelve a guardar.
+
+**Goal 4: Finalizar la inspección y saber si el vehículo puede operar.**
+
+**User Goal:** Como conductor, deseo enviar mi inspección y conocer de inmediato si el vehículo puede salir. Corresponde a las User Stories US21, US23 y US24 y deriva del Wireflow 1.
+
+<p align="center"><a href="../img/webapp/user-flows/11-driver-submit-result.png"><img src="../img/webapp/user-flows/11-driver-submit-result.png" alt="User flow: finalizar la inspección y saber si el vehículo puede operar" width="480"></a></p>
+
+**Happy path.** En «Summary», el conductor revisa los contadores y presiona «Submit inspection». Como todos los elementos tienen resultado, el sistema evalúa cada uno con las reglas de la empresa y toma el impacto más restrictivo. El diagrama sigue el caso más exigente, un impacto bloqueante: la pantalla «Result» muestra el vehículo «Not Enabled», se registra la incidencia y se notifica al supervisor. Si el impacto es «Observed» o no hay ninguno, el vehículo queda «Observed» o «Enabled» y el conductor puede operar.
+
+**Unhappy paths.**
+
+- **Inspección incompleta:** el sistema rechaza el envío e indica los elementos pendientes; el conductor regresa al checklist.
+- **Vehículo no habilitado:** la inspección termina con el resultado «Not Enabled». No es un error del sistema, sino la información que el conductor necesita: no inicia la operación hasta recibir instrucciones.
 <a id="45-web-applications-prototyping"></a>
 ## 4.5. Web Applications Prototyping.
 
@@ -1587,14 +1603,13 @@ Proceso del Design-Level event storming
 Paso 1: Partimos del Big Picture Event Storming como base.
 
 <br>**Unstructure Exploration**
-<img src="img/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
+<img src="../img/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
 
 Paso 2: Ordenamos los domain events
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming2.png" alt=" paso 2 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming2.png" alt="Paso 2 del Design-level Event Storming" width="800">
 
 Paso 3: Se colocó dudas/posibles problemas a futuro sobre el dominio en algunas partes del flujo.
-
 <img src="../img/designLevelEventStorming/designlevel-eventstorming3.png" alt=" paso 3 del designlevelES" width="800">
 
 Paso 4: Exploramos que "pivotal events" pueden identificarse.

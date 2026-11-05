@@ -1,0 +1,29 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  s1 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="256" HEIGHT="144"><IMG SRC="../mockups/13-documents-desktop.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Documents</B></TD></TR></TABLE>>];
+  a1 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Elige «Document type» y<BR/>«Status» y presiona<BR/>«Apply»>];
+  d1 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Hay documentos<BR/>«Expiring» o<BR/>«Expired»?>];
+  e0 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>La documentación de la flota<BR/>está vigente y no requiere<BR/>acción>];
+  a2 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Presiona «Update» y<BR/>registra la nueva fecha de<BR/>vencimiento>];
+  d2 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿La nueva fecha es<BR/>posterior a la fecha<BR/>actual?>];
+  u1 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>El sistema guarda el cambio<BR/>y marca el documento como<BR/>«Expired»>];
+  y1 [shape=box, style="rounded,filled", fillcolor="#D6E4F0", color="#1D4E89", label=<<B>El sistema</B><BR/>guarda la fecha y recalcula<BR/>el estado de vigencia a<BR/>«Valid»>];
+  e1 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>El documento deja de<BR/>aparecer entre los que<BR/>vencen>];
+  x1 [shape=box, style="rounded,filled", fillcolor="#E0E0E0", color="#4A4A4A", label=<<B>Fin alternativo</B><BR/>El documento sigue<BR/>«Expired»; el supervisor<BR/>registra la fecha del<BR/>documento renovado>];
+  start -> s1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  s1 -> a1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a1 -> d1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d1 -> e0 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>No</B>>];
+  d1 -> a2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  a2 -> d2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d2 -> y1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d2 -> u1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  u1 -> x1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6];
+  y1 -> e1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  { rank=same; d1; e0; }
+  { rank=same; d2; u1; }
+}

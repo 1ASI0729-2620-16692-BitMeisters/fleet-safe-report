@@ -1,0 +1,21 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  s1 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="104" HEIGHT="204"><IMG SRC="../mockups/12-fleet-mobile.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Fleet (Mobile)</B></TD></TR></TABLE>>];
+  a1 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Escribe la placa, la marca<BR/>o el modelo en «Search» o<BR/>toca una condición>];
+  d1 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Hay vehículos que<BR/>coinciden?>];
+  u1 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>No se muestra ninguna<BR/>tarjeta; el supervisor<BR/>cambia la búsqueda>];
+  a2 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Revisa la tarjeta del vehículo<BR/>con su condición, conductor y<BR/>hora de inspección>];
+  e1 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>Conoce la condición de la<BR/>unidad sin volver a su<BR/>escritorio>];
+  start -> s1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  s1 -> a1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a1 -> d1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d1 -> a2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d1 -> u1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  u1 -> s1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Reintenta</B>>, constraint=false];
+  a2 -> e1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  { rank=same; d1; u1; }
+}
