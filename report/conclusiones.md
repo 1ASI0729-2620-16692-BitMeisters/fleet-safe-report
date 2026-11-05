@@ -1,4 +1,4 @@
-[← Capítulo V](capitulo-5.md) · [Contenido](README.md#contenido) · [Bibliografía →](bibliografia.md)
+[← Capítulo V](capitulo-5.md) · [Contenido](../README.md#contenido) · [Bibliografía →](bibliografia.md)
 
 <a id="conclusiones"></a>
 # Conclusiones
@@ -39,4 +39,4 @@
 
 ---
 
-[← Capítulo V](capitulo-5.md) · [Contenido](README.md#contenido) · [Bibliografía →](bibliografia.md)
+[← Capítulo V](capitulo-5.md) · [Contenido](../README.md#contenido) · [Bibliografía →](bibliografia.md)

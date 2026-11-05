@@ -1,4 +1,4 @@
-[← Capítulo III](capitulo-3.md) · [Contenido](README.md#contenido) · [Capítulo V →](capitulo-5.md)
+[← Capítulo III](capitulo-3.md) · [Contenido](../README.md#contenido) · [Capítulo V →](capitulo-5.md)
 
 <a id="capitulo-iv-product-design"></a>
 # Capítulo IV: Product Design
@@ -19,19 +19,31 @@ Las decisiones que se presentan a continuación se derivan de tres fuentes: el *
 
 FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su identidad visual debe comunicar **confiabilidad, control y prevención**, y no velocidad, modernidad o innovación tecnológica por sí mismas. El usuario de FleetSafe —un supervisor de flota o un conductor de vehículo de carga— debe percibir que la plataforma es una herramienta de trabajo seria, no un producto experimental.
 
+<p align="center">
+  <img src="../img/brand/fleetsafe-logo.png" alt="Logotipo de FleetSafe" width="420">
+</p>
+
 | Elemento | Definición |
 |:---|:---|
 | **Nombre del producto** | FleetSafe |
 | **Startup** | BitMeisters |
 | **Concepto de marca** | La unión de los conceptos *fleet* (flota) y *safe* (seguro) sintetiza la propuesta de valor: una flota que opera de forma segura porque su condición ha sido verificada antes de operar. |
-| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. |
-| **Isotipo** | La marca de verificación representa el resultado de la inspección preoperacional: el vehículo ha sido verificado y se encuentra habilitado. |
-| **Versión monocromática** | El logotipo debe contar con una versión en un solo color para su uso sobre fondos de color pleno o fotografías. |
+| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo de carga— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. La palabra "Fleet" se escribe en azul `#13315C` y "Safe" en verde `#2A9D8F`, ambos de la paleta de la sección 4.1.1, con la familia tipográfica Inter en peso Bold. |
+| **Isotipo** | La marca de verificación, ubicada en la caja de carga del vehículo, representa el resultado de la inspección preoperacional: el vehículo ha sido verificado y se encuentra habilitado. El verde de la caja es el mismo que identifica el estado *habilitado* dentro de la aplicación. |
+| **Versión monocromática** | El logotipo debe contar con una versión en un solo color para su uso sobre fondos de color pleno o fotografías. Se dispone de una versión en azul `#13315C` y de una versión en blanco para fondos oscuros; en ambas, la marca de verificación se muestra como vacío en la caja de carga. |
 | **Área de resguardo** | El logotipo debe mantener un margen libre equivalente a la altura de la letra "F" en todos sus lados. |
 | **Tamaño mínimo** | 24 px de alto en interfaces digitales. |
 | **Usos incorrectos** | No se debe deformar, rotar, aplicar sombras, degradados ni contornos al logotipo. No se debe alterar la relación entre el isotipo y el logotipo tipográfico. |
 
-> **Pendiente:** incorporar el archivo del logotipo y del isotipo en `img/brand/` y referenciarlo desde esta sección.
+Los archivos se encuentran en `img/brand/`. Se recomienda el formato SVG en las interfaces digitales por conservar la nitidez a cualquier tamaño, y el PNG con fondo transparente para documentos.
+
+| Versión | Uso | Archivos |
+|:---|:---|:---|
+| Logotipo a color | Versión principal, sobre fondo claro | [`fleetsafe-logo.svg`](../img/brand/fleetsafe-logo.svg) · [`png`](../img/brand/fleetsafe-logo.png) |
+| Isotipo a color | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`fleetsafe-isotype.svg`](../img/brand/fleetsafe-isotype.svg) · [`png`](../img/brand/fleetsafe-isotype.png) |
+| Logotipo monocromático | Un solo color, sobre fondo de color pleno o fotografías claras | [`fleetsafe-logo-mono.svg`](../img/brand/fleetsafe-logo-mono.svg) · [`png`](../img/brand/fleetsafe-logo-mono.png) |
+| Logotipo en blanco | Sobre fondos oscuros o fotografías oscuras | [`fleetsafe-logo-white.svg`](../img/brand/fleetsafe-logo-white.svg) · [`png`](../img/brand/fleetsafe-logo-white.png) |
+| Isotipo monocromático y en blanco | Mismos usos que el logotipo, en espacios cuadrados | [`fleetsafe-isotype-mono.svg`](../img/brand/fleetsafe-isotype-mono.svg) · [`fleetsafe-isotype-white.svg`](../img/brand/fleetsafe-isotype-white.svg) |
 
 ---
 
@@ -1236,29 +1248,29 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 <a id="431-landing-page-wireframe"></a>
 ### 4.3.1. Landing Page Wireframe.
-<img src="img/wireframe/01-navegacion.png" width="1000">
-<img src="img/wireframe/02-hero.png" width="1000">
-<img src="img/wireframe/03-problema.png" width="1000">
-<img src="img/wireframe/04-plataforma.png" width="1000">
-<img src="img/wireframe/05-proceso.png" width="1000">
-<img src="img/wireframe/06-perfiles.png" width="1000">
-<img src="img/wireframe/07-equipo.png" width="1000">
-<img src="img/wireframe/08-preguntas.png" width="1000">
-<img src="img/wireframe/09-llamada-accion.png" width="1000">
-<img src="img/wireframe/10-footer.png" width="1000">
+<img src="../img/wireframe/01-navegacion.png" width="1000">
+<img src="../img/wireframe/02-hero.png" width="1000">
+<img src="../img/wireframe/03-problema.png" width="1000">
+<img src="../img/wireframe/04-plataforma.png" width="1000">
+<img src="../img/wireframe/05-proceso.png" width="1000">
+<img src="../img/wireframe/06-perfiles.png" width="1000">
+<img src="../img/wireframe/07-equipo.png" width="1000">
+<img src="../img/wireframe/08-preguntas.png" width="1000">
+<img src="../img/wireframe/09-llamada-accion.png" width="1000">
+<img src="../img/wireframe/10-footer.png" width="1000">
 
 <a id="432-landing-page-mock-up"></a>
 ### 4.3.2. Landing Page Mock-up.
-<img src="img/mockup/01-navegacion.png" width="1000">
-<img src="img/mockup/02-hero.png" width="1000">
-<img src="img/mockup/03-problema.png" width="1000">
-<img src="img/mockup/04-plataforma.png" width="1000">
-<img src="img/mockup/05-proceso.png" width="1000">
-<img src="img/mockup/06-perfiles.png" width="1000">
-<img src="img/mockup/07-equipo.png" width="1000">
-<img src="img/mockup/08-preguntas.png" width="1000">
-<img src="img/mockup/09-llamada-accion.png" width="1000">
-<img src="img/mockup/10-footer.png" width="1000">
+<img src="../img/mockup/01-navegacion.png" width="1000">
+<img src="../img/mockup/02-hero.png" width="1000">
+<img src="../img/mockup/03-problema.png" width="1000">
+<img src="../img/mockup/04-plataforma.png" width="1000">
+<img src="../img/mockup/05-proceso.png" width="1000">
+<img src="../img/mockup/06-perfiles.png" width="1000">
+<img src="../img/mockup/07-equipo.png" width="1000">
+<img src="../img/mockup/08-preguntas.png" width="1000">
+<img src="../img/mockup/09-llamada-accion.png" width="1000">
+<img src="../img/mockup/10-footer.png" width="1000">
 
 <a id="44-web-applications-uxui-design"></a>
 ## 4.4. Web Applications UX/UI Design.
@@ -1280,46 +1292,45 @@ Esta comprobación tiene además una función de **diseño inclusivo**. La condi
 
 | | | |
 |:---:|:---:|:---:|
-| <img src="img/webapp/wireframes/01-sign-in-mobile.png" alt="Wireframe de la vista de inicio de sesión en móvil" width="260"> | <img src="img/webapp/wireframes/02-assigned-vehicle-mobile.png" alt="Wireframe de la vista del vehículo asignado en móvil" width="260"> | <img src="img/webapp/wireframes/03-inspection-checklist-mobile.png" alt="Wireframe del checklist de inspección en móvil" width="260"> |
+| <img src="../img/webapp/wireframes/01-sign-in-mobile.png" alt="Wireframe de la vista de inicio de sesión en móvil" width="260"> | <img src="../img/webapp/wireframes/02-assigned-vehicle-mobile.png" alt="Wireframe de la vista del vehículo asignado en móvil" width="260"> | <img src="../img/webapp/wireframes/03-inspection-checklist-mobile.png" alt="Wireframe del checklist de inspección en móvil" width="260"> |
 | **Sign in** | **My assigned vehicle** | **Inspection checklist** |
-| <img src="img/webapp/wireframes/04-observation-evidence-mobile.png" alt="Wireframe del registro de observación y evidencia en móvil" width="260"> | <img src="img/webapp/wireframes/05-summary-mobile.png" alt="Wireframe del resumen de la inspección en móvil" width="260"> | <img src="img/webapp/wireframes/06-result-mobile.png" alt="Wireframe del resultado de la inspección en móvil" width="260"> |
+| <img src="../img/webapp/wireframes/04-observation-evidence-mobile.png" alt="Wireframe del registro de observación y evidencia en móvil" width="260"> | <img src="../img/webapp/wireframes/05-summary-mobile.png" alt="Wireframe del resumen de la inspección en móvil" width="260"> | <img src="../img/webapp/wireframes/06-result-mobile.png" alt="Wireframe del resultado de la inspección en móvil" width="260"> |
 | **Observation and evidence** | **Summary** | **Result** |
 
 Las seis vistas cubren el recorrido completo de la inspección preoperacional, de principio a fin.
-
 #### Flujo del supervisor — Desktop 1280 px
 
-<img src="img/webapp/wireframes/07-fleet-dashboard-desktop.png" alt="Wireframe del tablero de flota en escritorio" width="1000">
+<img src="../img/webapp/wireframes/07-fleet-dashboard-desktop.png" alt="Wireframe del tablero de flota en escritorio" width="1000">
 
 **Fleet dashboard.** La jerarquía sitúa primero el resumen por condición operativa y después el detalle por vehículo, conforme al principio de *surfacing the summary before the detail* establecido en 4.1.1.
 
-<img src="img/webapp/wireframes/08-vehicle-detail-desktop.png" alt="Wireframe del detalle de vehículo en escritorio" width="1000">
+<img src="../img/webapp/wireframes/08-vehicle-detail-desktop.png" alt="Wireframe del detalle de vehículo en escritorio" width="1000">
 
 **Vehicle detail.** Presenta la ficha del vehículo, su conductor asignado y el estado de sus documentos, con el historial de inspecciones organizado en pestañas.
 
-<img src="img/webapp/wireframes/09-inspection-detail-desktop.png" alt="Wireframe del detalle de una inspección en escritorio" width="1000">
+<img src="../img/webapp/wireframes/09-inspection-detail-desktop.png" alt="Wireframe del detalle de una inspección en escritorio" width="1000">
 
 **Inspection detail.** El bloque superior explica **por qué** el vehículo no está habilitado, citando la regla concreta que se aplicó.
 
-<img src="img/webapp/wireframes/10-lift-block-desktop.png" alt="Wireframe del diálogo de levantamiento de bloqueo" width="1000">
+<img src="../img/webapp/wireframes/10-lift-block-desktop.png" alt="Wireframe del diálogo de levantamiento de bloqueo" width="1000">
 
 **Lift block.** Diálogo modal sobre velo, con la justificación como campo obligatorio.
 
-<img src="img/webapp/wireframes/11-inspection-history-desktop.png" alt="Wireframe del historial de inspecciones en escritorio" width="1000">
+<img src="../img/webapp/wireframes/11-inspection-history-desktop.png" alt="Wireframe del historial de inspecciones en escritorio" width="1000">
 
 **Inspection history.** Vista de auditoría, con filtros acumulativos y el recuento de excepciones autorizadas.
 
-<img src="img/webapp/wireframes/13-documents-desktop.png" alt="Wireframe de la vista de documentos vehiculares en escritorio" width="1000">
+<img src="../img/webapp/wireframes/13-documents-desktop.png" alt="Wireframe de la vista de documentos vehiculares en escritorio" width="1000">
 
 **Documents.** Control de vigencia documental, ordenado por proximidad al vencimiento.
 
-<img src="img/webapp/wireframes/14-incidents-desktop.png" alt="Wireframe de la vista de incidencias en escritorio" width="1000">
+<img src="../img/webapp/wireframes/14-incidents-desktop.png" alt="Wireframe de la vista de incidencias en escritorio" width="1000">
 
 **Incidents.** Seguimiento de las incidencias detectadas, con el detalle de la acción correctiva y la reparación programada bajo el listado.
 
 #### Vista del supervisor adaptada a Mobile
 
-<img src="img/webapp/wireframes/12-fleet-mobile.png" alt="Wireframe del listado de flota adaptado a móvil" width="300">
+<img src="../img/webapp/wireframes/12-fleet-mobile.png" alt="Wireframe del listado de flota adaptado a móvil" width="300">
 
 **Fleet.** Muestra la adaptación declarada en la sección 4.1.2: el listado que en escritorio es una tabla con columnas ordenables se convierte en tarjetas apiladas, una por vehículo, porque una tabla de seis columnas no resulta operable a 390 px. La navegación lateral se sustituye por una barra inferior de cuatro destinos.
 
@@ -1334,7 +1345,7 @@ Los wireframes empleados son exactamente los mismos de la sección 4.4.1, de mod
 
 **User goal.** Como conductor, deseo registrar el estado del vehículo asignado antes de iniciar la operación. Corresponde a las User Stories US17 a US21.
 
-<img src="img/webapp/wireflows/01-driver-inspection.png" alt="Wireflow del recorrido de inspección preoperacional del conductor, en seis pasos" width="1000">
+<img src="../img/webapp/wireflows/01-driver-inspection.png" alt="Wireflow del recorrido de inspección preoperacional del conductor, en seis pasos" width="1000">
 
 El recorrido recoge el caso **más exigente**, no el más favorable: el conductor detecta una falla en el sistema de frenos, el sistema le exige observación y evidencia fotográfica antes de continuar, y la inspección termina con el vehículo no habilitado. El paso 4 regresa al checklist, lo que evidencia que el registro de una observación no interrumpe la secuencia.
 
@@ -1342,7 +1353,7 @@ El recorrido recoge el caso **más exigente**, no el más favorable: el conducto
 
 **User goal.** Como supervisor, deseo identificar qué unidades pueden operar y conocer el motivo cuando alguna no puede. Corresponde a US25 y US35.
 
-<img src="img/webapp/wireflows/02-supervisor-fleet-status.png" alt="Wireflow del recorrido de consulta de la condición de la flota, en tres pasos" width="1000">
+<img src="../img/webapp/wireflows/02-supervisor-fleet-status.png" alt="Wireflow del recorrido de consulta de la condición de la flota, en tres pasos" width="1000">
 
 Tres pasos bastan para pasar de la visión general de la flota a la regla concreta que bloqueó un vehículo. Esa brevedad es deliberada: es la consulta que el supervisor realiza a primera hora, todos los días.
 
@@ -1350,7 +1361,7 @@ Tres pasos bastan para pasar de la visión general de la flota a la regla concre
 
 **User goal.** Como supervisor, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando constancia. Sostiene la Estrategia 2 de la sección 2.1.2.
 
-<img src="img/webapp/wireflows/03-supervisor-lift-block.png" alt="Wireflow del recorrido de levantamiento de bloqueo, en tres pasos" width="1000">
+<img src="../img/webapp/wireflows/03-supervisor-lift-block.png" alt="Wireflow del recorrido de levantamiento de bloqueo, en tres pasos" width="1000">
 
 El tercer paso no es decorativo: cierra el recorrido mostrando la excepción ya registrada en el historial de auditoría. Es la contrapartida que hace aceptable permitir la excepción, y el usuario la ve antes de autorizar.
 
@@ -1365,190 +1376,205 @@ Se incorporan además dos elementos que los wireframes no representan: el **sele
 
 | | | |
 |:---:|:---:|:---:|
-| <img src="img/webapp/mockups/01-sign-in-mobile.png" alt="Mock-up de la vista de inicio de sesión en móvil" width="260"> | <img src="img/webapp/mockups/02-assigned-vehicle-mobile.png" alt="Mock-up de la vista del vehículo asignado en móvil" width="260"> | <img src="img/webapp/mockups/03-inspection-checklist-mobile.png" alt="Mock-up del checklist de inspección en móvil" width="260"> |
+| <img src="../img/webapp/mockups/01-sign-in-mobile.png" alt="Mock-up de la vista de inicio de sesión en móvil" width="260"> | <img src="../img/webapp/mockups/02-assigned-vehicle-mobile.png" alt="Mock-up de la vista del vehículo asignado en móvil" width="260"> | <img src="../img/webapp/mockups/03-inspection-checklist-mobile.png" alt="Mock-up del checklist de inspección en móvil" width="260"> |
 | **Sign in** | **My assigned vehicle** | **Inspection checklist** |
-| <img src="img/webapp/mockups/04-observation-evidence-mobile.png" alt="Mock-up del registro de observación y evidencia en móvil" width="260"> | <img src="img/webapp/mockups/05-summary-mobile.png" alt="Mock-up del resumen de la inspección en móvil" width="260"> | <img src="img/webapp/mockups/06-result-mobile.png" alt="Mock-up del resultado de la inspección en móvil" width="260"> |
+| <img src="../img/webapp/mockups/04-observation-evidence-mobile.png" alt="Mock-up del registro de observación y evidencia en móvil" width="260"> | <img src="../img/webapp/mockups/05-summary-mobile.png" alt="Mock-up del resumen de la inspección en móvil" width="260"> | <img src="../img/webapp/mockups/06-result-mobile.png" alt="Mock-up del resultado de la inspección en móvil" width="260"> |
 | **Observation and evidence** | **Summary** | **Result** |
 
 En el **checklist** el selector segmentado `OK · Obs. · Fail` mide 48 × 48 px, la medida mínima que establece la sección 4.1.2. No es un detalle menor: el conductor lo pulsa cuarenta y dos veces seguidas, con guantes y sin detenerse a mirar.
 
 La vista **Result** emplea el tono definido en 4.1.1 —serio, respetuoso y sereno—: describe la condición del vehículo, no evalúa al conductor, y explica el paso siguiente en lugar de alarmar.
-
 #### Flujo del supervisor — Desktop 1280 px
 
-<img src="img/webapp/mockups/07-fleet-dashboard-desktop.png" alt="Mock-up del tablero de flota en escritorio" width="1000">
+<img src="../img/webapp/mockups/07-fleet-dashboard-desktop.png" alt="Mock-up del tablero de flota en escritorio" width="1000">
 
-<img src="img/webapp/mockups/08-vehicle-detail-desktop.png" alt="Mock-up del detalle de vehículo en escritorio" width="1000">
+<img src="../img/webapp/mockups/08-vehicle-detail-desktop.png" alt="Mock-up del detalle de vehículo en escritorio" width="1000">
 
-<img src="img/webapp/mockups/09-inspection-detail-desktop.png" alt="Mock-up del detalle de una inspección en escritorio" width="1000">
+<img src="../img/webapp/mockups/09-inspection-detail-desktop.png" alt="Mock-up del detalle de una inspección en escritorio" width="1000">
 
-<img src="img/webapp/mockups/10-lift-block-desktop.png" alt="Mock-up del diálogo de levantamiento de bloqueo" width="1000">
+<img src="../img/webapp/mockups/10-lift-block-desktop.png" alt="Mock-up del diálogo de levantamiento de bloqueo" width="1000">
 
-<img src="img/webapp/mockups/11-inspection-history-desktop.png" alt="Mock-up del historial de inspecciones en escritorio" width="1000">
+<img src="../img/webapp/mockups/11-inspection-history-desktop.png" alt="Mock-up del historial de inspecciones en escritorio" width="1000">
 
-<img src="img/webapp/mockups/13-documents-desktop.png" alt="Mock-up de la vista de documentos vehiculares en escritorio" width="1000">
+<img src="../img/webapp/mockups/13-documents-desktop.png" alt="Mock-up de la vista de documentos vehiculares en escritorio" width="1000">
 
-<img src="img/webapp/mockups/14-incidents-desktop.png" alt="Mock-up de la vista de incidencias en escritorio" width="1000">
+<img src="../img/webapp/mockups/14-incidents-desktop.png" alt="Mock-up de la vista de incidencias en escritorio" width="1000">
 
 #### Vistas del supervisor adaptadas a Mobile
 
-<img src="img/webapp/mockups/12-fleet-mobile.png" alt="Mock-up del listado de flota adaptado a móvil" width="300">
+<img src="../img/webapp/mockups/12-fleet-mobile.png" alt="Mock-up del listado de flota adaptado a móvil" width="300">
 
 El botón **Authorize departure** del diálogo de levantamiento de bloqueo es el único elemento del producto que emplea el color destructivo. Esa excepción es deliberada: señala que la acción interrumpe el control preventivo y quedará registrada con el nombre de quien la autoriza.
 
 <a id="444-web-applications-user-flow-diagrams"></a>
 ### 4.4.4. Web Applications User Flow Diagrams.
 
-Los User Flow Diagrams representan el recorrido completo que sigue cada usuario para alcanzar un objetivo dentro de la Web Application, incluyendo las decisiones que el sistema evalúa en el camino. A diferencia de los wireflows de la sección 4.4.2, que muestran **qué ve** el usuario en cada paso, los user flows muestran **qué ocurre** y qué caminos alternativos existen cuando una condición no se cumple.
+Los User Flow Diagrams describen, para cada User goal, el recorrido que sigue el usuario en la Web Application. Hay un diagrama por cada User goal y cada uno se plantea desde el User Persona que lo persigue (sección 2.3.1): el **administrador** José Ramirez, la **supervisora de flota** Alessandra Nova y el **conductor** Álvaro Torres. Los diagramas usan los mock-ups de la sección 4.4.3 y, cuando existe, derivan del wireflow de la sección 4.4.2 que recorre las mismas pantallas.
 
-Se presenta un diagrama por cada User goal, consistente con el wireflow del que deriva. Cada uno recoge el **happy path** —el recorrido cuando todo transcurre según lo previsto— y las **rutas alternativas**, que son las que en la práctica determinan si el producto resulta usable: qué ocurre cuando el conductor no tiene vehículo asignado, cuando un elemento crítico exige evidencia fotográfica, o cuando el supervisor intenta autorizar una salida sin justificarla.
+A diferencia de los wireflows, que muestran **qué ve** el usuario en cada paso, los user flows muestran **qué decide el sistema** y qué ocurre cuando una condición no se cumple. El **happy path**, en verde, lleva al usuario a cumplir su objetivo. Cada **unhappy path**, en rojo y con línea discontinua, muestra la causa del problema y cómo el usuario retoma el flujo o abandona el recorrido. Los rechazos del sistema que aparecen en los unhappy paths corresponden a los escenarios de las User Stories de la sección 3.1. Los nombres de botones y etiquetas se escriben entre « » tal como aparecen en los mock-ups, que están en inglés.
 
-**Convención de color.** Cada tipo de nodo tiene un color propio, tomado de los tokens definidos en la sección 4.1.1. El color acompaña siempre al texto del nodo y nunca lo sustituye, de modo que el diagrama se lee igual sin distinguir los colores.
+**Leyenda**
 
-| Color | Tipo de nodo |
+<p align="center"><a href="../img/webapp/user-flows/00-legend.png"><img src="../img/webapp/user-flows/00-legend.png" alt="Leyenda de los User Flow Diagrams" width="340"></a></p>
+
+Cada tipo de nodo tiene su propio color y forma, tomados de los colores definidos en la sección 4.1.1. El color acompaña siempre al texto y nunca lo reemplaza, de modo que el diagrama se lee igual sin distinguir los colores.
+
+| Elemento | Significado |
 |:---|:---|
-| Gris oscuro | Inicio y fin del recorrido |
-| Azul | Acción que ejecuta el usuario |
-| Gris pizarra | Paso que ejecuta el sistema |
-| Ámbar (rombo) | Decisión |
-| Rojo | Ruta alternativa o salida bloqueada |
-| Verde | Salida favorable |
+| Pantalla con borde azul | Mock-up de la vista en la que se encuentra el usuario |
+| Recuadro gris | Acción que ejecuta el usuario |
+| Recuadro azul claro | Paso que ejecuta el sistema |
+| Rombo ámbar | Condición que decide el camino |
+| Flecha verde continua | Happy path |
+| Recuadro rojo con flecha discontinua | Unhappy path: mensaje o estado de error |
+| Recuadro verde | Fin: objetivo cumplido |
+| Recuadro rojo con borde grueso | Fin: el flujo termina con el vehículo no habilitado |
+| Recuadro gris oscuro | Fin alternativo: el usuario abandona el flujo |
 
----
+#### Administrador — José Ramirez (Desktop 1280 px)
 
-#### User Flow: realizar la inspección preoperacional del vehículo asignado
+**Goal 1: Consolidar el estado de la flota antes de despachar.**
 
-**User goal.** Como conductor, deseo registrar el estado del vehículo que tengo asignado antes de iniciar la operación, para saber si puedo salir. Corresponde a las User Stories US17 a US21 de la sección 3.1.
+**User Goal:** Como administrador de la empresa, deseo ver el estado de mi flota al empezar la jornada para decidir qué unidades salen a operar y cuáles no. Corresponde a las User Stories US13 y US25 y deriva del Wireflow 2.
 
-```mermaid
-flowchart TD
-    A([Driver signs in]) --> B{Has an active vehicle assignment?}
-    B -->|No| B1[No vehicle assigned today.<br>Contact your supervisor]
-    B1 --> Z([End])
-    B -->|Yes| C[Shows the assigned vehicle<br>and its current status]
-    C --> D[Driver starts the inspection]
-    D --> E[Registers the result of an inspection item]
-    E --> F{Is the result Observed or Fail?}
-    F -->|No · OK| J
-    F -->|Yes| G[Registers an observation<br>describing the condition]
-    G --> H{Does the item require evidence?}
-    H -->|No| J
-    H -->|Yes| I[Attaches a photograph as evidence]
-    I --> J{Are all 42 items registered?}
-    J -->|No| E
-    J -->|Yes| K[Reviews the summary<br>and submits the inspection]
-    K --> L[Applies the active evaluation rules<br>to every result]
-    L --> M{Most restrictive impact obtained}
-    M -->|Blocking| N[Not Enabled<br>Incident registered,<br>supervisor notified]
-    M -->|Observed| O[Observed<br>May operate with the<br>findings recorded]
-    M -->|None| P[Enabled<br>Authorized to operate]
-    N --> Z
-    O --> Z
-    P --> Z
+<p align="center"><a href="../img/webapp/user-flows/01-admin-fleet-overview.png"><img src="../img/webapp/user-flows/01-admin-fleet-overview.png" alt="User flow: consolidar el estado de la flota antes de despachar" width="520"></a></p>
 
-    classDef inicio fill:#0f172a,stroke:#0f172a,color:#ffffff
-    classDef accion fill:#2563eb,stroke:#1d4ed8,color:#ffffff
-    classDef sistema fill:#475569,stroke:#334155,color:#ffffff
-    classDef decision fill:#b45309,stroke:#92400e,color:#ffffff
-    classDef alterna fill:#b91c1c,stroke:#991b1b,color:#ffffff
-    classDef favorable fill:#15803d,stroke:#166534,color:#ffffff
+**Happy path.** En «Fleet», el administrador revisa los contadores por condición operativa. Si hay vehículos «Not Enabled», presiona «View detail» en uno de ellos y, en «Vehicle detail», identifica la unidad, su conductor y sus documentos, y la excluye del despacho. Si no hay ninguno y tampoco hay vehículos «Not inspected», confirma el despacho de la flota.
 
-    class A,Z inicio
-    class D,E,G,I,K accion
-    class C,L sistema
-    class B,F,H,J,M decision
-    class B1,N alterna
-    class O,P favorable
-```
+**Unhappy paths.**
 
-**Explicación del flujo.** El recorrido no avanza hasta que los 42 elementos tienen resultado registrado, porque una inspección incompleta no permite evaluar el vehículo y perdería su valor como evidencia. Las tres salidas finales se corresponden con los tres valores de `AuthorizationStatus` del modelo de la sección 4.8, y se determinan por el **impacto más restrictivo** obtenido: basta un solo impacto `Blocking` para que el vehículo quede `Not Enabled`, aunque los otros 41 elementos estén conformes.
+- **Vehículos sin inspección:** si hay unidades «Not inspected», el administrador no puede confirmarlas. Solicita al supervisor que verifique su inspección antes de despachar.
 
-La ruta alternativa de la evidencia obligatoria es la que sostiene el atributo `inspection_items.requires_evidence`: cuando el elemento lo exige, el conductor no puede continuar sin adjuntar una fotografía.
+**Goal 2: Auditar las inspecciones de un vehículo y exportar el historial.**
 
----
+**User Goal:** Como administrador, deseo consultar el historial de inspecciones y de excepciones de un vehículo y exportarlo para responder a las auditorías de mis clientes. Corresponde a las User Stories US35 y US36.
 
-#### User Flow: saber qué vehículos pueden operar y por qué
+<p align="center"><a href="../img/webapp/user-flows/02-admin-inspection-audit.png"><img src="../img/webapp/user-flows/02-admin-inspection-audit.png" alt="User flow: auditar las inspecciones de un vehículo y exportar el historial" width="420"></a></p>
 
-**User goal.** Como supervisor de flota, deseo identificar rápidamente qué unidades están habilitadas para operar y conocer el motivo cuando alguna no lo está. Corresponde a las User Stories US25 y US35.
+**Happy path.** En «Inspection history», el administrador elige «Vehicle», «From», «To» y «Result» y presiona «Apply». Como el rango es válido y hay inspecciones, revisa los contadores y las filas con «Yes» en «Exception», presiona «Export PDF» y el sistema genera el PDF del historial filtrado, que le sirve de respaldo en una auditoría.
 
-```mermaid
-flowchart TD
-    A([Supervisor opens Fleet]) --> B[Shows the fleet grouped<br>by operational status]
-    B --> C{Is any vehicle Not Enabled?}
-    C -->|No| C1[Whole fleet authorized.<br>No action required]
-    C1 --> Z([End])
-    C -->|Yes| D[Opens the vehicle detail]
-    D --> E{Has it been inspected today?}
-    E -->|No| E1[Not inspected. The driver<br>has not started the inspection]
-    E1 --> Z
-    E -->|Yes| F[Opens the inspection detail]
-    F --> G[Shows the rule that produced<br>the blocking impact]
-    G --> H{Does the finding justify keeping the block?}
-    H -->|No · operation cannot wait| I[Lifts the block with<br>written justification]
-    H -->|Yes| J[Manages the incident<br>and schedules the repair]
-    I --> Z
-    J --> Z
+**Unhappy paths.**
 
-    classDef inicio fill:#0f172a,stroke:#0f172a,color:#ffffff
-    classDef accion fill:#2563eb,stroke:#1d4ed8,color:#ffffff
-    classDef sistema fill:#475569,stroke:#334155,color:#ffffff
-    classDef decision fill:#b45309,stroke:#92400e,color:#ffffff
-    classDef alterna fill:#b91c1c,stroke:#991b1b,color:#ffffff
-    classDef favorable fill:#15803d,stroke:#166534,color:#ffffff
+- **Rango de fechas inválido:** el filtro marca el rango y no se aplica; el administrador corrige las fechas.
+- **Sin resultados:** la tabla queda vacía; el administrador amplía el rango o cambia el filtro.
 
-    class A,Z inicio
-    class D,F,I,J accion
-    class B,G sistema
-    class C,E,H decision
-    class E1 alterna
-    class C1 favorable
-```
+#### Supervisor de flota — Alessandra Nova (Desktop 1280 px y Mobile 390 px)
 
-**Explicación del flujo.** El recorrido responde a la pregunta con la que el supervisor empieza su jornada, y en tres pasos llega de la visión general de la flota a la regla concreta que bloqueó un vehículo. La ruta alternativa *"no inspeccionado"* es relevante porque un vehículo sin inspección **no está habilitado ni bloqueado**: sencillamente no ha sido evaluado, y la acción que corresponde es distinta.
+**Goal 1: Conocer por qué un vehículo no está habilitado.**
 
-La decisión final bifurca hacia los otros dos objetivos del supervisor —gestionar la incidencia o levantar el bloqueo—, lo que refleja que en la operación real ambos caminos son legítimos.
+**User Goal:** Como supervisora de flota, deseo conocer la regla y los hallazgos que dejaron un vehículo sin habilitar para decidir qué hacer con él. Corresponde a las User Stories US24 y US35 y deriva del Wireflow 2.
 
----
+<p align="center"><a href="../img/webapp/user-flows/03-supervisor-block-reason.png"><img src="../img/webapp/user-flows/03-supervisor-block-reason.png" alt="User flow: conocer por qué un vehículo no está habilitado" width="420"></a></p>
 
-#### User Flow: levantar el bloqueo de un vehículo dejando constancia
+**Happy path.** En «Vehicle detail», la supervisora abre la inspección más reciente con «View». «Inspection detail» muestra, en «Why it is not enabled», la regla aplicada y los hallazgos con su evidencia. Con esa información decide: si la operación puede esperar, mantiene el bloqueo y gestiona la incidencia y la reparación; si no puede esperar, evalúa autorizar la salida con una excepción (Goal 2).
 
-**User goal.** Como supervisor de flota, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando registrado quién lo autorizó y por qué. Sostiene la Estrategia 2 de la sección 2.1.2.
+**Unhappy paths.**
 
-```mermaid
-flowchart TD
-    A([Supervisor opens a<br>Not Enabled vehicle]) --> B{Does the role allow lifting a block?}
-    B -->|No| B1[Action not available. Only a supervisor<br>or administrator may authorize]
-    B1 --> Z([End])
-    B -->|Yes| C[Opens the Lift block dialog]
-    C --> D[Shows why the vehicle is Not Enabled]
-    D --> E{Has a reason been written?}
-    E -->|No| E1[A reason is required<br>to authorize the departure]
-    E1 --> C
-    E -->|Yes| F[Authorizes the departure]
-    F --> G[Records a new operational authorization<br>as an override, with reason<br>and responsible user]
-    G --> H[Vehicle status becomes Enabled]
-    H --> I[The exception appears in the audit history<br>and in the exceptions per period report]
-    I --> Z
+- **Vehículo sin inspecciones:** la pestaña «Inspections» está vacía. El vehículo no está habilitado ni bloqueado, simplemente aún no ha sido evaluado.
 
-    classDef inicio fill:#0f172a,stroke:#0f172a,color:#ffffff
-    classDef accion fill:#2563eb,stroke:#1d4ed8,color:#ffffff
-    classDef sistema fill:#475569,stroke:#334155,color:#ffffff
-    classDef decision fill:#b45309,stroke:#92400e,color:#ffffff
-    classDef alterna fill:#b91c1c,stroke:#991b1b,color:#ffffff
-    classDef favorable fill:#15803d,stroke:#166534,color:#ffffff
+**Goal 2: Levantar el bloqueo de un vehículo dejando constancia.**
 
-    class A,Z inicio
-    class C,F accion
-    class D,G,H sistema
-    class B,E decision
-    class B1,E1 alterna
-    class I favorable
-```
+**User Goal:** Como supervisora de flota, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando registrado quién lo autorizó y por qué. Deriva del Wireflow 3 y sostiene la Estrategia 2 de la sección 2.1.2.
 
-**Explicación del flujo.** Este es el recorrido que traduce a interfaz la decisión de diseño de la sección 4.8: *la excepción se permite, pero se cobra en trazabilidad*. La ruta alternativa de la justificación no es una validación de formulario cualquiera, sino la que garantiza que `operational_authorizations.override_reason` nunca quede vacío cuando `is_override` es verdadero.
+<p align="center"><a href="../img/webapp/user-flows/04-supervisor-lift-block.png"><img src="../img/webapp/user-flows/04-supervisor-lift-block.png" alt="User flow: levantar el bloqueo de un vehículo dejando constancia" width="400"></a></p>
 
-El último paso —la aparición de la excepción en el historial de auditoría y en el reporte de excepciones por periodo— es la contrapartida que hace aceptable permitir la excepción: el supervisor sabe, al autorizar, que su decisión queda registrada con su nombre.
+**Happy path.** Desde «Vehicle detail» de un vehículo «Not Enabled», la supervisora presiona «Lift block». El diálogo muestra el motivo del bloqueo y advierte que la excepción quedará registrada con su nombre. Escribe el motivo en «Reason» y presiona «Authorize departure». El sistema registra la excepción con el motivo y el responsable, y el vehículo pasa a «Enabled». El recorrido termina en «Inspection history», donde la excepción aparece con «Yes» en «Exception» y el nombre en «Authorized by».
 
+**Unhappy paths.**
+
+- **Rol sin permiso:** la acción «Lift block» no está disponible; solo un supervisor o un administrador puede autorizar.
+- **Motivo vacío:** «Reason» es obligatorio. El diálogo lo marca y no autoriza la salida hasta que se escriba.
+- **Cancelar:** con «Cancel» el diálogo se cierra, el vehículo sigue «Not Enabled» y no se registra ninguna excepción.
+
+**Goal 3: Mantener vigente la documentación de la flota.**
+
+**User Goal:** Como supervisora de flota, deseo detectar los documentos próximos a vencer y actualizarlos para que ningún vehículo opere con documentos vencidos. Corresponde a las User Stories US32 a US34.
+
+<p align="center"><a href="../img/webapp/user-flows/05-supervisor-documents.png"><img src="../img/webapp/user-flows/05-supervisor-documents.png" alt="User flow: mantener vigente la documentación de la flota" width="420"></a></p>
+
+**Happy path.** En «Documents», la supervisora elige «Document type» y «Status» y presiona «Apply». Si hay documentos «Expiring» o «Expired», presiona «Update» en el documento y registra la nueva fecha de vencimiento. Como la fecha es posterior a la actual, el sistema la guarda, recalcula el estado de vigencia a «Valid» y el documento deja de aparecer entre los que vencen.
+
+**Unhappy paths.**
+
+- **Documentación vigente:** si no hay documentos «Expiring» ni «Expired», el recorrido termina sin acción.
+- **Fecha anterior a la actual:** el sistema guarda el cambio y marca el documento como «Expired». El supervisor registra después la fecha del documento renovado.
+
+**Goal 4: Dar seguimiento a las incidencias de la flota.**
+
+**User Goal:** Como supervisora de flota, deseo revisar las incidencias abiertas y registrar la acción correctiva aplicada para resolverlas. Corresponde a las User Stories US28 a US30.
+
+<p align="center"><a href="../img/webapp/user-flows/06-supervisor-incidents.png"><img src="../img/webapp/user-flows/06-supervisor-incidents.png" alt="User flow: dar seguimiento a las incidencias de la flota" width="420"></a></p>
+
+**Happy path.** En «Incidents», la supervisora elige «Severity», «Status» y «Origin» y presiona «Apply». Abre una incidencia y registra la acción correctiva. Como la incidencia no estaba resuelta, el sistema guarda la acción y actualiza el estado, y el detalle muestra la acción correctiva y el nuevo estado.
+
+**Unhappy paths.**
+
+- **Sin resultados:** la lista queda vacía; la supervisora cambia el filtro.
+- **Incidencia ya resuelta:** el sistema rechaza el cambio porque la incidencia se encuentra cerrada.
+
+**Goal 5: Consultar la condición de la flota desde el teléfono.**
+
+**User Goal:** Como supervisora de flota, deseo consultar la condición de una unidad desde mi teléfono para decidir sin volver a mi escritorio. Corresponde a las User Stories US13 y US25 y usa la vista adaptada a móvil de la sección 4.1.2.
+
+<p align="center"><a href="../img/webapp/user-flows/07-supervisor-fleet-mobile.png"><img src="../img/webapp/user-flows/07-supervisor-fleet-mobile.png" alt="User flow: consultar la condición de la flota desde el teléfono" width="380"></a></p>
+
+**Happy path.** En «Fleet», la supervisora escribe la placa, la marca o el modelo en «Search», o toca una de las condiciones. Si hay vehículos que coinciden, revisa la tarjeta de cada uno con su condición, su conductor y la hora de su inspección.
+
+**Unhappy paths.**
+
+- **Sin coincidencias:** no se muestra ninguna tarjeta; la supervisora cambia la búsqueda.
+
+#### Conductor — Álvaro Torres (Mobile 390 px)
+
+**Goal 1: Iniciar sesión y ver el vehículo asignado.**
+
+**User Goal:** Como conductor, deseo acceder a la plataforma y ver el vehículo que tengo asignado para empezar mi inspección. Corresponde a las User Stories US09 y US17.
+
+<p align="center"><a href="../img/webapp/user-flows/08-driver-sign-in.png"><img src="../img/webapp/user-flows/08-driver-sign-in.png" alt="User flow: iniciar sesión y ver el vehículo asignado" width="420"></a></p>
+
+**Happy path.** El conductor ingresa su correo y su contraseña en «Sign in». Como las credenciales son correctas y tiene un vehículo asignado, llega a «My assigned vehicle», donde ve su vehículo, su condición y el botón «Start inspection».
+
+**Unhappy paths.**
+
+- **Credenciales incorrectas:** el sistema rechaza el acceso y muestra un mensaje de error; el conductor permanece en «Sign in».
+- **Sin vehículo asignado:** el sistema informa que no tiene vehículo asignado y el conductor contacta a su supervisor.
+
+**Goal 2: Registrar el estado de los elementos de la inspección.**
+
+**User Goal:** Como conductor, deseo registrar el estado de cada elemento del vehículo para documentar las condiciones que encuentro antes de operar. Corresponde a las User Stories US17 y US18 y deriva del Wireflow 1.
+
+<p align="center"><a href="../img/webapp/user-flows/09-driver-checklist.png"><img src="../img/webapp/user-flows/09-driver-checklist.png" alt="User flow: registrar el estado de los elementos de la inspección" width="460"></a></p>
+
+**Happy path.** En «My assigned vehicle», el conductor presiona «Start inspection» y llega a «Inspection checklist». Marca «OK» en cada elemento conforme. Mientras falten elementos, repite el registro. Cuando los 42 tienen resultado, pasa al resumen.
+
+**Unhappy paths.**
+
+- **Elemento no conforme:** si marca «Obs.» o «Fail», el sistema solicita una observación y evidencia, y el recorrido continúa en el Goal 3.
+
+**Goal 3: Registrar una observación con evidencia fotográfica.**
+
+**User Goal:** Como conductor, deseo describir y fotografiar una condición insegura para respaldar lo que reporto. Corresponde a las User Stories US19 y US20 y deriva del Wireflow 1.
+
+<p align="center"><a href="../img/webapp/user-flows/10-driver-observation-evidence.png"><img src="../img/webapp/user-flows/10-driver-observation-evidence.png" alt="User flow: registrar una observación con evidencia fotográfica" width="360"></a></p>
+
+**Happy path.** Al marcar «Fail» en un elemento, la aplicación abre «Observation and evidence». El conductor describe la condición, adjunta las fotografías y presiona «Save and continue». Vuelve al checklist con el elemento registrado y las fotografías guardadas.
+
+**Unhappy paths.**
+
+- **Observación vacía o foto inválida:** el sistema rechaza el registro: la observación no puede estar vacía o la foto tiene un formato no permitido. El conductor completa los datos y vuelve a guardar.
+
+**Goal 4: Finalizar la inspección y saber si el vehículo puede operar.**
+
+**User Goal:** Como conductor, deseo enviar mi inspección y conocer de inmediato si el vehículo puede salir. Corresponde a las User Stories US21, US23 y US24 y deriva del Wireflow 1.
+
+<p align="center"><a href="../img/webapp/user-flows/11-driver-submit-result.png"><img src="../img/webapp/user-flows/11-driver-submit-result.png" alt="User flow: finalizar la inspección y saber si el vehículo puede operar" width="480"></a></p>
+
+**Happy path.** En «Summary», el conductor revisa los contadores y presiona «Submit inspection». Como todos los elementos tienen resultado, el sistema evalúa cada uno con las reglas de la empresa y toma el impacto más restrictivo. El diagrama sigue el caso más exigente, un impacto bloqueante: la pantalla «Result» muestra el vehículo «Not Enabled», se registra la incidencia y se notifica al supervisor. Si el impacto es «Observed» o no hay ninguno, el vehículo queda «Observed» o «Enabled» y el conductor puede operar.
+
+**Unhappy paths.**
+
+- **Inspección incompleta:** el sistema rechaza el envío e indica los elementos pendientes; el conductor regresa al checklist.
+- **Vehículo no habilitado:** la inspección termina con el resultado «Not Enabled». No es un error del sistema, sino la información que el conductor necesita: no inicia la operación hasta recibir instrucciones.
 <a id="45-web-applications-prototyping"></a>
 ## 4.5. Web Applications Prototyping.
 
@@ -1577,47 +1603,46 @@ Proceso del Design-Level event storming
 Paso 1: Partimos del Big Picture Event Storming como base.
 
 <br>**Unstructure Exploration**
-<img src="img/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
+<img src="../img/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
 
 Paso 2: Ordenamos los domain events
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming2.png" alt=" paso 2 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming2.png" alt="Paso 2 del Design-level Event Storming" width="800">
 
 Paso 3: Se colocó dudas/posibles problemas a futuro sobre el dominio en algunas partes del flujo.
-
-<img src="img/designLevelEventStorming/designlevel-eventstorming3.png" alt=" paso 3 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming3.png" alt=" paso 3 del designlevelES" width="800">
 
 Paso 4: Exploramos que "pivotal events" pueden identificarse.
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming4.png" alt=" paso 4 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming4.png" alt=" paso 4 del designlevelES" width="800">
 
 Paso 5: Se añadió comandos que desencadenen eventos y tambien agregamos sus actores
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming5.1.png" alt=" paso 5 del designlevelES" width="800">
-<img src="img/designLevelEventStorming/designlevel-eventstorming5.2.png" alt=" paso 5 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming5.1.png" alt=" paso 5 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming5.2.png" alt=" paso 5 del designlevelES" width="800">
 
 Paso 6: Se equipo añadió 'policies' o reglas de negocio que hacen que se ejecuten eventos de dominio
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming6.1.png" alt=" paso 6 del designlevelES" width="800">
-<img src="img/designLevelEventStorming/designlevel-eventstorming6.2.png" alt=" paso 6 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming6.1.png" alt=" paso 6 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming6.2.png" alt=" paso 6 del designlevelES" width="800">
 
 Paso 7: Se añadió read models, son la vista de datos o 'views' que ayudarán al usuario con la ejecución de comandos
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming7.1.png" alt=" paso 7 del designlevelES" width="800">
-<img src="img/designLevelEventStorming/designlevel-eventstorming7.2.png" alt=" paso 7 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming7.1.png" alt=" paso 7 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming7.2.png" alt=" paso 7 del designlevelES" width="800">
 
 Paso 8: Se identifico sistemas externos, tales como el servicio de guardado de imagenes en la nube, por ahora va como "Cloud Storage"
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming8.0.png" alt=" paso 8 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming8.0.png" alt=" paso 8 del designlevelES" width="800">
 
 Paso 9: Se agregan los aggregates
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming8.1.png" alt=" paso 9 del designlevelES" width="800">
-<img src="img/designLevelEventStorming/designlevel-eventstorming8.2.png" alt=" paso 9 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming8.1.png" alt=" paso 9 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming8.2.png" alt=" paso 9 del designlevelES" width="800">
 
 Paso 10: Separamos por BOUNDED CONTEXT en los cuales algunos tienen un cierto tipo de relación medianto comando y domain.
 
-<img src="img/designLevelEventStorming/designlevel-eventstorming10.png" alt=" paso 10 del designlevelES" width="800">
+<img src="../img/designLevelEventStorming/designlevel-eventstorming10.png" alt=" paso 10 del designlevelES" width="800">
 
 ---
 
@@ -1703,9 +1728,9 @@ Esta cadena es la que se traduce, en la sección 4.6.4, en las relaciones `Inspe
 
 El Context Diagram es el primer nivel del modelo C4 y muestra el sistema como un recuadro central, rodeado por sus usuarios y otros sistemas con los que interactúa. Para FleetSafe, este diagrama permite visualizar los actores externos y las relaciones principales con la plataforma.
 
-El diagrama se ha elaborado con **Structurizr**, la herramienta indicada para el modelo C4. El modelo completo se mantiene como código en el archivo [`workspace.dsl`](workspace.dsl) de este repositorio, de modo que los tres niveles del modelo se generan a partir de una única fuente y no pueden quedar desincronizados entre sí. A continuación se presenta el diagrama de contexto de FleetSafe:
+El diagrama se ha elaborado con **Structurizr**, la herramienta indicada para el modelo C4. El modelo completo se mantiene como código en el archivo [`workspace.dsl`](../workspace.dsl) de este repositorio, de modo que los tres niveles del modelo se generan a partir de una única fuente y no pueden quedar desincronizados entre sí. A continuación se presenta el diagrama de contexto de FleetSafe:
 
-<img src="img/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
+<img src="../img/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
 
 <details>
 <summary>Structurizr DSL — vista de contexto</summary>
@@ -1752,47 +1777,64 @@ El sistema FleetSafe se representa como el recuadro central, y se identifican do
 <a id="463-software-architecture-container-diagrams"></a>
 ### 4.6.3. Software Architecture Container Diagrams.
 
-El Container Diagram es el segundo nivel del modelo C4 y muestra los elementos de alto nivel de la arquitectura de software, cómo se distribuyen las responsabilidades entre ellos y cómo se comunican. Cada container representa una unidad de despliegue independiente.
+El Container Diagram es el segundo nivel del modelo C4 y muestra los elementos de alto nivel de la arquitectura de software, cómo se distribuyen las responsabilidades entre ellos y cómo se comunican. Cada container representa algo que se despliega o se ejecuta de forma independiente: un sitio estático, una aplicación en el navegador, un servicio o un almacén de datos.
 
-Para FleetSafe se han identificado los siguientes containers:
+Para FleetSafe se han identificado cinco containers, nombrados y representados según la notación del modelo C4:
 
-| Container | Tecnología | Responsabilidad |
-|:---|:---|:---|
-| **Landing Page** | HTML5, CSS3, JavaScript | Sitio web estático que presenta la propuesta de valor y dirige a cada segmento objetivo a la vista correspondiente de la Web Application. |
-| **Web Application** | Angular, Angular Material, TypeScript | Aplicación web que permite a cada usuario operar la plataforma según el rol concedido a su cuenta. |
-| **Backend RESTful API** | Spring Boot, Spring Data JPA, Java | API RESTful que expone la lógica de negocio de FleetSafe, documentada con OpenAPI. |
-| **Database** | PostgreSQL | Base de datos relacional que almacena la información de la plataforma. |
+| Container | Notación C4 | Tecnología y despliegue | Responsabilidad |
+|:---|:---|:---|:---|
+| **Website** | Static Content (carpeta) | HTML5, CSS3, JavaScript — GitHub Pages | Sitio web estático que presenta la propuesta de valor y dirige a cada segmento objetivo a la Web Application. Es el producto que en el resto del informe se denomina *Landing Page*; se nombra *Website* porque Landing Page es un tipo de página y lo que se publica es un sitio web. |
+| **Web Application Static Content** | Static Content (carpeta) | Build de Angular — GitHub Pages | Archivos HTML, CSS y JavaScript que resultan de construir la aplicación y que el flujo de GitHub Actions publica en GitHub Pages. |
+| **Single-Page Application** | Web Browser (navegador) | Angular, Angular Material, TypeScript | Aplicación de una sola página que se ejecuta en el navegador del usuario y le permite operar la plataforma según el rol concedido a su cuenta. |
+| **Web Services** | Web Service (prompt) | Spring Boot, Spring Data JPA, Java — Azure Container Apps | API RESTful que expone la lógica de negocio de FleetSafe, organizada por bounded context y documentada con OpenAPI. Es el producto que en el resto del informe se denomina *Backend RESTful API*. |
+| **FleetSafe Database** | Database (cilindro) | PostgreSQL — Azure Database for PostgreSQL | Base de datos relacional única del producto; cada bounded context utiliza su propio conjunto de tablas (sección 4.8). |
 
-**El Storage Service y el Email System no son containers**, sino sistemas externos. Un container es una unidad de despliegue que el equipo construye y despliega; ambos servicios son contratados a terceros y la plataforma únicamente los consume, por lo que se representan fuera de la frontera del sistema.
+**La Web Application se representa con dos containers.** En GitHub Pages el despliegue consiste en copiar a la plataforma los archivos que genera la construcción de la aplicación, de modo que lo que se despliega es contenido estático (**Web Application Static Content**, con el símbolo de carpeta). Lo que se ejecuta es otra cosa: la aplicación Angular, que corre dentro del navegador del usuario (**Single-Page Application**, con el símbolo de navegador). La relación *Delivers* entre ambos expresa que el contenido estático entrega la aplicación al navegador. El Website sigue el mismo criterio que el contenido estático de la aplicación: es una carpeta que se publica tal cual en GitHub Pages, sin proceso de construcción.
+
+**La base de datos lleva el nombre del producto.** Una única base de datos atiende a todos los bounded contexts de FleetSafe, por lo que el container se denomina **FleetSafe Database** y no un genérico *Database*; el motor se indica como tecnología.
+
+**El Storage Service y el Email System no son containers**, sino sistemas externos. Un container es una unidad que el equipo construye y despliega; ambos servicios son contratados a terceros y la plataforma únicamente los consume, por lo que se representan fuera de la frontera del sistema.
 
 A continuación se presenta el diagrama de contenedores de FleetSafe, generado a partir del mismo modelo de Structurizr:
 
-<img src="img/c4/02-containers.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
+<img src="../img/DDSoftwareArchitecture/ContainerDiagram-fleetsafe.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
 
 <details>
 <summary>Structurizr DSL — vista de contenedores</summary>
 
 ```
 fleetsafe = softwareSystem "FleetSafe" {
-    landing  = container "Landing Page" "Static site that presents the value proposition and directs each target segment to the corresponding view of the web application." "HTML5, CSS3, JavaScript"
-    webapp   = container "Web Application" "Allows each user to operate the platform according to the role granted to their account." "Angular, Angular Material, TypeScript"
-    api      = container "Backend RESTful API" "Exposes the business logic of FleetSafe, documented with OpenAPI." "Spring Boot, Spring Data JPA, Java"
-    database = container "Database" "Stores users, fleet assets, documents, inspections, evaluations, authorizations and incidents." "PostgreSQL" "Database"
+    website               = container "Website" "Static website that presents the value proposition of FleetSafe and directs each target segment to the web application." "HTML5, CSS3, JavaScript - GitHub Pages" "Static Content"
+    webApplicationStatic  = container "Web Application Static Content" "Serves the HTML, CSS and JavaScript files produced by the build of the single-page application." "Angular build - GitHub Pages" "Static Content"
+    singlePageApplication = container "Single-Page Application" "Runs entirely in the user's web browser and allows each user to operate the platform according to the role granted to their account." "Angular, Angular Material, TypeScript" "Web Browser"
+    webServices           = container "Web Services" "RESTful API that exposes the business logic of FleetSafe, organized by bounded context and documented with OpenAPI." "Spring Boot, Spring Data JPA, Java - Azure Container Apps" "Web Service"
+    database              = container "FleetSafe Database" "Single database of the product. Stores users, fleet assets, documents, inspections, evaluations, authorizations and incidents." "PostgreSQL - Azure Database for PostgreSQL" "Database"
 }
 
-visitor -> landing "Evaluates the value proposition" "HTTPS"
-landingSegmentCta -> webapp "Directs each segment to its corresponding view" "HTTPS"
-administrator -> webapp "Manages users, catalogs and evaluation rules" "HTTPS"
-supervisor -> webapp "Supervises vehicles, manages incidents and authorizes exceptions" "HTTPS"
-driver -> webapp "Performs pre-operational inspections" "HTTPS"
-webapp -> api "Consumes services" "JSON/HTTPS"
-api -> database "Reads and writes" "JDBC"
-api -> storageService "Stores and retrieves evidence" "HTTPS"
-api -> emailSystem "Sends notifications" "SMTP"
+visitor -> website "Visits to evaluate the value proposition" "HTTPS"
+website -> webApplicationStatic "Directs each target segment to the web application" "HTTPS"
+administrator -> webApplicationStatic "Visits the web application URL" "HTTPS"
+supervisor -> webApplicationStatic "Visits the web application URL" "HTTPS"
+driver -> webApplicationStatic "Visits the web application URL" "HTTPS"
+webApplicationStatic -> singlePageApplication "Delivers to the user's web browser"
+administrator -> singlePageApplication "Manages users, catalogs and evaluation rules using"
+supervisor -> singlePageApplication "Supervises vehicles, manages incidents and authorizes exceptions using"
+driver -> singlePageApplication "Performs pre-operational inspections using"
+singlePageApplication -> webServices "Makes API calls to" "JSON/HTTPS"
+webServices -> database "Reads from and writes to" "JDBC"
+webServices -> storageService "Stores and retrieves evidence" "HTTPS"
+webServices -> emailSystem "Sends notifications" "SMTP"
 
 container fleetsafe "Containers" {
     include *
     autolayout lr
+}
+
+styles {
+    element "Static Content" { shape folder }
+    element "Web Browser"    { shape webbrowser }
+    element "Web Service"    { shape shell }
+    element "Database"       { shape cylinder }
 }
 ```
 
@@ -1800,14 +1842,25 @@ container fleetsafe "Containers" {
 
 **Explicación del diagrama:**
 
-El diagrama de contenedores de FleetSafe muestra los siguientes elementos:
+El diagrama de contenedores de FleetSafe sigue este recorrido:
 
-- **Landing Page:** sitio web estático desarrollado con HTML5, CSS3 y JavaScript, que presenta la propuesta de valor de FleetSafe a los visitantes.
-- **Web Application:** aplicación desarrollada en Angular que permite a los usuarios (administrator, fleet supervisor y driver) interactuar con las funcionalidades de la plataforma según su rol.
-- **Backend RESTful API:** API desarrollada en Spring Boot que expone la lógica de negocio de FleetSafe, incluyendo la gestión de usuarios, vehículos, inspecciones, evaluaciones, incidencias y documentación.
-- **Database:** base de datos relacional PostgreSQL que almacena la información de la plataforma.
-- **Storage Service:** servicio externo utilizado para almacenar las evidencias fotográficas registradas durante las inspecciones.
-- **Email System:** servicio externo utilizado para el envío de notificaciones.
+- **Visitor → Website:** el visitante llega al Website para conocer la propuesta de valor. El *call to action* del Website dirige a cada segmento objetivo a la Web Application.
+- **Administrator, Fleet Supervisor y Driver → Web Application Static Content:** cada rol abre la dirección de la Web Application, que se sirve desde GitHub Pages.
+- **Web Application Static Content → Single-Page Application:** el contenido estático entrega la aplicación Angular al navegador del usuario, donde se ejecuta. Los tres roles interactúan con la plataforma a través de la Single-Page Application.
+- **Single-Page Application → Web Services:** la aplicación realiza llamadas a la API por JSON/HTTPS. Es el único container que se comunica con el Web Services.
+- **Web Services → FleetSafe Database:** el servicio lee y escribe en la base de datos PostgreSQL mediante JDBC.
+- **Web Services → Storage Service y Email System:** el servicio almacena las evidencias fotográficas en el servicio externo de almacenamiento y envía las notificaciones a través del sistema de correo.
+
+**Explicación del diagrama:**
+
+El diagrama de contenedores de FleetSafe sigue este recorrido:
+
+- **Visitor → Website:** el visitante llega al Website para conocer la propuesta de valor. El *call to action* del Website dirige a cada segmento objetivo a la Web Application.
+- **Administrator, Fleet Supervisor y Driver → Web Application Static Content:** cada rol abre la dirección de la Web Application, que se sirve desde GitHub Pages.
+- **Web Application Static Content → Single-Page Application:** el contenido estático entrega la aplicación Angular al navegador del usuario, donde se ejecuta. Los tres roles interactúan con la plataforma a través de la Single-Page Application.
+- **Single-Page Application → Web Services:** la aplicación realiza llamadas a la API por JSON/HTTPS. Es el único container que se comunica con el Web Services.
+- **Web Services → FleetSafe Database:** el servicio lee y escribe en la base de datos PostgreSQL mediante JDBC.
+- **Web Services → Storage Service y Email System:** el servicio almacena las evidencias fotográficas en el servicio externo de almacenamiento y envía las notificaciones a través del sistema de correo.
 
 Las relaciones entre los containers muestran que los usuarios acceden a la Landing Page para conocer la propuesta de valor y a la Web Application para interactuar con las funcionalidades. La Web Application consume los servicios del Backend RESTful API, que a su vez lee y escribe en la Database, almacena evidencias en el Storage Service y envía notificaciones a través del Email System.
 
@@ -1826,7 +1879,7 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 
 #### Component Diagram: Landing Page
 
-<img src="img/c4/03-components-landing.png" alt="Diagrama de componentes del Landing Page" width="900">
+<img src="../img/c4/03-components-landing.png" alt="Diagrama de componentes del Landing Page" width="900">
 
 <details>
 <summary>Structurizr DSL — componentes del Landing Page</summary>
@@ -1865,7 +1918,7 @@ component landing "ComponentsLanding" {
 
 #### Component Diagram: Web Application
 
-<img src="img/c4/04-components-webapp.png" alt="Diagrama de componentes de la Web Application" width="1000">
+<img src="../img/c4/04-components-webapp.png" alt="Diagrama de componentes de la Web Application" width="1000">
 
 <details>
 <summary>Structurizr DSL — componentes de la Web Application</summary>
@@ -1917,7 +1970,7 @@ Los cinco componentes transversales resuelven preocupaciones que no pertenecen a
 
 #### Component Diagram: Backend RESTful API
 
-<img src="img/c4/05-components-api.png" alt="Diagrama de componentes del Backend RESTful API" width="1000">
+<img src="../img/c4/05-components-api.png" alt="Diagrama de componentes del Backend RESTful API" width="1000">
 
 <details>
 <summary>Structurizr DSL — componentes del Backend RESTful API</summary>
@@ -2033,164 +2086,45 @@ Las características principales que se consideran en los diagramas son cuatro:
 
 El Class Diagram representa la estructura estática del software: las clases que lo componen, sus atributos y métodos con el scope correspondiente, las interfaces y enumeraciones que utilizan, y las relaciones entre ellas con su nombre y multiplicidad.
 
-Siguiendo el mismo criterio aplicado en las secciones 4.6.4 y 4.8, se presenta **un diagrama por cada bounded context** en lugar de un único diagrama consolidado. Un diagrama consolidado de las veintidós clases del dominio resultaría ilegible y, sobre todo, ocultaría precisamente lo que el diseño orientado al dominio busca hacer explícito: dónde está la frontera de cada contexto y qué lo comunica con los demás.
-
-Los diagramas corresponden al **Backend RESTful API**, que es el producto de software donde reside el modelo de dominio de FleetSafe. El Landing Page no posee modelo de dominio por tratarse de un sitio estático, y la Web Application consume el modelo a través de la API sin reimplementarlo, por lo que su estructura se documenta en el diagrama de componentes de la sección 4.6.4.
-
-**Convenciones aplicadas en los seis diagramas.** Los atributos y métodos indican su scope mediante los símbolos `-` para `private` y `+` para `public`. Las relaciones internas de cada contexto se representan como asociaciones o composiciones con su multiplicidad. Las referencias que **cruzan la frontera de un bounded context** no se representan como asociación entre clases, sino como un atributo de tipo `UUID` con el sufijo `Id`, en coherencia con la regla establecida en la sección 4.8: dentro de un contexto se utiliza clave foránea, y cruzando la frontera únicamente el identificador, siendo la capa de aplicación la responsable de validar su existencia.
+**Estado de los diagramas.** Los diagramas del frontend de *Identity and Access*, *Fleet Management*, *Vehicle Documentation*, *Pre-Operational Inspection* e *Incident Management* corresponden al código de la Single-Page Application, verificado clase por clase.
 
 ---
 
-#### Class Diagram: Identity and Access
+#### Class Diagrams: Identity and Access
 
-```mermaid
-classDiagram
-    class User {
-        -UUID id
-        -UUID companyId
-        -String email
-        -String passwordHash
-        -String firstName
-        -String lastName
-        -UserRole role
-        -boolean isActive
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +getFullName() String
-        +hasRole(role UserRole) boolean
-        +changePassword(newHash String) void
-        +activate() void
-        +deactivate() void
-    }
+**Frontend.**
 
-    class UserRole {
-        <<enumeration>>
-        ADMINISTRATOR
-        FLEET_SUPERVISOR
-        DRIVER
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-identity-access.png" alt="Diagrama de clases del frontend de Identity and Access" width="800">
 
-    class UserRepository {
-        <<interface>>
-        +findById(id UUID) Optional~User~
-        +findByEmail(email String) Optional~User~
-        +findAllByCompanyId(companyId UUID) List~User~
-        +save(user User) User
-    }
+`User` es la única entidad del contexto y su rol es la enumeración `Role` (`ADMINISTRATOR`, `FLEET_SUPERVISOR`, `DRIVER`). Su atributo `companyId` es un identificador: la clase `Company` pertenece a Fleet Management. Los comandos `SignInCommand` y `RegisterUserCommand` encapsulan los datos de las dos operaciones de entrada, y `UsersQuery` agrupa el filtro por rol y estado junto con la paginación del listado.
 
-    class AuthenticationService {
-        -UserRepository userRepository
-        -PasswordEncoder passwordEncoder
-        +signIn(email String, password String) AuthenticatedUser
-        +issueToken(user User) String
-        +verifyToken(token String) AuthenticatedUser
-    }
+`IamStore` conserva la sesión en una señal y en el almacenamiento local del navegador; al arrancar la restaura solo si el token no ha expirado (`restoreSession`). Delega todas las llamadas en la fachada `IamApi`, que compone dos endpoints (`SignInApiEndpoint` y `UsersApiEndpoint`), cada uno con su assembler. Tres funciones de infraestructura protegen la aplicación: `iamGuard` exige una sesión iniciada, `administratorGuard` restringe las rutas al rol administrador e `iamInterceptor` añade el token a cada petición al backend y, ante un 401, cierra la sesión.
 
-    User "1" --> "1" UserRole : tiene asignado
-    UserRepository ..> User : gestiona
-    AuthenticationService --> "1" UserRepository : consulta
-```
+**Backend.**
 
-**Explicación del diagrama.** Este contexto contiene una única entidad de dominio, `User`, junto con la enumeración `UserRole` que define los tres roles del producto descritos en la sección 1.1.1. El atributo `companyId` es de tipo `UUID` y no una asociación a la clase `Company`, porque `Company` pertenece al contexto **Fleet Management**; es la aplicación de la regla de referencias entre contextos.
+<img src="../img/Software-Object-Oriented-Design/backend-class-identity-access.png" alt="Diagrama de clases del backend de Identity and Access" width="800">
+
+Este contexto contiene una única entidad de dominio, `User`, junto con la enumeración `UserRole` que define los tres roles del producto descritos en la sección 1.1.1. El atributo `companyId` es de tipo `UUID` y no una asociación a la clase `Company`, porque `Company` pertenece al contexto **Fleet Management**; es la aplicación de la regla de referencias entre contextos.
 
 `AuthenticationService` es el servicio de aplicación que valida las credenciales y emite el token, y `UserRepository` la interfaz de persistencia. La contraseña nunca se almacena ni se expone en claro: la clase conserva únicamente `passwordHash` y el método `changePassword` recibe ya el valor cifrado.
 
 ---
 
-#### Class Diagram: Fleet Management
+#### Class Diagrams: Fleet Management
 
-```mermaid
-classDiagram
-    class Company {
-        -UUID id
-        -String name
-        -String taxId
-        -String address
-        -String phone
-        -String email
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addFleet(fleet Fleet) void
-        +getFleets() List~Fleet~
-    }
+**Frontend.**
 
-    class Fleet {
-        -UUID id
-        -UUID companyId
-        -String name
-        -String description
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addVehicle(vehicle Vehicle) void
-        +getVehicles() List~Vehicle~
-        +countByStatus(status VehicleStatus) int
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-fleet-management.png" alt="Diagrama de clases del frontend de Fleet Management" width="800">
 
-    class Vehicle {
-        -UUID id
-        -UUID fleetId
-        -String plate
-        -String brand
-        -String model
-        -int year
-        -String type
-        -BigDecimal capacity
-        -VehicleStatus currentStatus
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +applyAuthorizationResult(status VehicleStatus) void
-        +isOperational() boolean
-        +getActiveAssignment() Optional~VehicleAssignment~
-    }
+El modelo sigue la jerarquía `Company` → `Fleet` → `Vehicle`, que en el código se mantiene mediante identificadores (`fleetIds`, `vehicleIds`). `Vehicle` tiene un estado (`VehicleStatus`: `ENABLED`, `OBSERVED`, `NOT_ENABLED`) y un tipo (`VehicleType`), y sus datos descriptivos se agrupan en el value object `VehicleDetails`, que valida el formato de la placa y el rango del año. Las operaciones que modifican un vehículo (`register`, `withDetails`) devuelven una instancia nueva en lugar de alterar la existente.
 
-    class Driver {
-        -UUID id
-        -UUID userId
-        -String licenseNumber
-        -LocalDate licenseExpirationDate
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +hasValidLicense(onDate LocalDate) boolean
-        +getActiveAssignment() Optional~VehicleAssignment~
-    }
+`VehicleAssignment` representa la asignación de un conductor a un vehículo (`start`, `close`). Quién puede recibir un vehículo lo decide el servicio de dominio `VehicleAssignmentPolicy`, que devuelve la causa del rechazo como un valor de `AssignmentViolation` (vehículo no habilitado, licencia vencida, vehículo o conductor ya asignado, entre otras); `FleetStore` lo consulta antes de ejecutar `assignVehicle`. `VehicleInspectionSummary` es una proyección mínima de las inspecciones de un vehículo, que el contexto lee sin depender de Pre-Operational Inspection, y `FleetOverview` resume por flota la cantidad de vehículos en cada estado. La fachada `FleetApi` compone seis endpoints con sus assemblers. El store notifica al usuario mediante `Notifier`, del módulo Shared.
 
-    class VehicleAssignment {
-        -UUID id
-        -UUID vehicleId
-        -UUID driverId
-        -LocalDate assignedFrom
-        -LocalDate assignedTo
-        -boolean isActive
-        -LocalDateTime createdAt
-        +isActiveOn(date LocalDate) boolean
-        +close(endDate LocalDate) void
-    }
+**Backend.**
 
-    class VehicleStatus {
-        <<enumeration>>
-        ENABLED
-        OBSERVED
-        NOT_ENABLED
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-fleet-management.png" alt="Diagrama de clases del backend de Fleet Management" width="800">
 
-    class FleetService {
-        -FleetRepository fleetRepository
-        +registerVehicle(fleetId UUID, vehicle Vehicle) Vehicle
-        +assignDriver(vehicleId UUID, driverId UUID, from LocalDate) VehicleAssignment
-        +updateCurrentStatus(vehicleId UUID, status VehicleStatus) void
-        +findVehicleAssignedTo(driverId UUID) Optional~Vehicle~
-    }
-
-    Company "1" *-- "0..*" Fleet : organiza
-    Fleet "1" *-- "0..*" Vehicle : agrupa
-    Vehicle "1" --> "0..*" VehicleAssignment : es asignado en
-    Driver "1" --> "0..*" VehicleAssignment : recibe
-    Vehicle "1" --> "1" VehicleStatus : presenta
-    FleetService ..> Vehicle : gestiona
-    FleetService ..> VehicleAssignment : gestiona
-```
-
-**Explicación del diagrama.** Este contexto agrupa los activos sobre los que opera la plataforma. `Company` y `Fleet` mantienen una composición, al igual que `Fleet` y `Vehicle`: una flota no existe fuera de su empresa, ni un vehículo fuera de su flota.
+Este contexto agrupa los activos sobre los que opera la plataforma. `Company` y `Fleet` mantienen una composición, al igual que `Fleet` y `Vehicle`: una flota no existe fuera de su empresa, ni un vehículo fuera de su flota.
 
 `VehicleAssignment` es la clase que resuelve la relación entre `Vehicle` y `Driver`, que no es una asociación directa sino una asociación con atributos propios —el periodo de vigencia— y con historial. Es la clase que permite determinar cuál es el vehículo asignado a un conductor en el momento de iniciar una inspección preoperacional, lo que constituye la premisa del producto.
 
@@ -2200,165 +2134,41 @@ El método `applyAuthorizationResult` de `Vehicle` es el único que modifica `cu
 
 ---
 
-#### Class Diagram: Vehicle Documentation
+#### Class Diagrams: Vehicle Documentation
 
-```mermaid
-classDiagram
-    class DocumentType {
-        -UUID id
-        -String code
-        -String name
-        -String description
-        -boolean isRequired
-        -boolean isActive
-        +isMandatoryForOperation() boolean
-    }
+**Frontend.**
 
-    class VehicleDocument {
-        -UUID id
-        -UUID vehicleId
-        -UUID documentTypeId
-        -String number
-        -LocalDate issueDate
-        -LocalDate expirationDate
-        -DocumentStatus status
-        -String fileUrl
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +recalculateStatus(today LocalDate) DocumentStatus
-        +isExpired(today LocalDate) boolean
-        +daysUntilExpiration(today LocalDate) long
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-vehicle-documentation.png" alt="Diagrama de clases del frontend de Vehicle Documentation" width="800">
 
-    class DocumentStatus {
-        <<enumeration>>
-        VALID
-        EXPIRING
-        EXPIRED
-    }
+`VehicleDocument` es la entidad central: referencia su tipo mediante `DocumentType` y el vehículo mediante `DocumentedVehicle`, una proyección local con solo el identificador y la placa, de modo que el contexto no depende de la clase `Vehicle` de Fleet Management. El estado del documento (`DocumentStatus`: `VALID`, `EXPIRING`, `EXPIRED`) **no se almacena**: se calcula con `recalculateStatus` a partir de la fecha de vencimiento y de un umbral de alerta de 30 días (`DOCUMENT_ALERT_DAYS`).
 
-    class DocumentService {
-        -DocumentRepository documentRepository
-        +registerDocument(vehicleId UUID, document VehicleDocument) VehicleDocument
-        +recalculateAll(today LocalDate) int
-        +findExpiringSoon(vehicleId UUID, days int) List~VehicleDocument~
-    }
+Las funciones de validación y la constante del umbral se agrupan en `VehicleDocumentRules`, que `VehicleDocumentationStore` usa antes de guardar un documento descrito por `VehicleDocumentInput`. La fachada `VehicleDocumentationApi` compone tres endpoints con sus assemblers.
 
-    DocumentType "1" --> "0..*" VehicleDocument : clasifica
-    VehicleDocument "1" --> "1" DocumentStatus : presenta
-    DocumentService ..> VehicleDocument : gestiona
-```
+**Backend.**
 
-**Explicación del diagrama.** `DocumentType` actúa como catálogo y `VehicleDocument` como el documento concreto asociado a un vehículo. El atributo `vehicleId` es de nuevo una referencia por identificador al contexto **Fleet Management**.
+<img src="../img/Software-Object-Oriented-Design/backend-class-vehicle-documentation.png" alt="Diagrama de clases del backend de Vehicle Documentation" width="800">
+
+`DocumentType` actúa como catálogo y `VehicleDocument` como el documento concreto asociado a un vehículo. El atributo `vehicleId` es de nuevo una referencia por identificador al contexto **Fleet Management**.
 
 El método `recalculateStatus` concentra la derivación del estado a partir de `expirationDate`, de modo que la regla que distingue `VALID`, `EXPIRING` y `EXPIRED` reside en un único lugar. `DocumentService.recalculateAll` es el método que invoca la tarea programada descrita en el diagrama de componentes de la sección 4.6.4.
 
 ---
 
-#### Class Diagram: Pre-Operational Inspection
+#### Class Diagrams: Pre-Operational Inspection
 
-```mermaid
-classDiagram
-    class InspectionItem {
-        -UUID id
-        -String code
-        -String name
-        -String description
-        -ItemCategory category
-        -boolean isSafetyComponent
-        -boolean requiresEvidence
-        -int displayOrder
-        -boolean isActive
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +demandsEvidence() boolean
-        +deactivate() void
-    }
+**Frontend.**
 
-    class Inspection {
-        -UUID id
-        -UUID vehicleId
-        -UUID driverId
-        -InspectionStatus status
-        -int odometer
-        -LocalDateTime startedAt
-        -LocalDateTime completedAt
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addResult(result InspectionResultEntry) void
-        +complete(completedAt LocalDateTime) void
-        +isComplete() boolean
-        +getResults() List~InspectionResultEntry~
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-pre-operational-inspection.png" alt="Diagrama de clases del frontend de Pre-Operational Inspection" width="800">
 
-    class InspectionResultEntry {
-        -UUID id
-        -UUID inspectionId
-        -UUID inspectionItemId
-        -String itemName
-        -String itemCategory
-        -ResultValue result
-        -LocalDateTime createdAt
-        +addObservation(observation Observation) void
-        +requiresObservation() boolean
-    }
+`Inspection` agrupa por composición sus resultados (`InspectionResultEntry`), cada resultado puede tener observaciones (`Observation`) y cada observación sus evidencias fotográficas (`Evidence`, en formato JPEG o PNG). Cada resultado responde a un ítem del catálogo (`InspectionItem`), clasificado por categoría (`ItemCategory`) y por sistema del vehículo (`ItemSystem`), y toma un valor de `ResultValue` (`OK`, `OBSERVED`, `FAIL`). `Inspection.withResult` devuelve una inspección nueva con la respuesta registrada, sin modificar la original. `AssignedVehicle` es la proyección del vehículo asignado al conductor que inicia la inspección.
 
-    class Observation {
-        -UUID id
-        -UUID inspectionResultId
-        -String description
-        -UUID createdBy
-        -LocalDateTime createdAt
-        +addEvidence(evidence Evidence) void
-        +hasEvidence() boolean
-    }
+`InspectionStore` carga el catálogo y el vehículo asignado, inicia la inspección y registra la respuesta a cada ítem con `answerItem`, marcando `savingItemId` mientras se guarda; notifica al usuario mediante `Notifier`, del módulo Shared. En infraestructura, `AssignedVehicleApiEndpoint` es un endpoint de acción (`<<Action Endpoint>>`): extiende `ErrorHandlingEnabledBaseType` y no `BaseApiEndpoint`, porque consulta un único recurso y no ofrece operaciones CRUD.
 
-    class Evidence {
-        -UUID id
-        -UUID observationId
-        -String fileUrl
-        -String mediaType
-        -LocalDateTime uploadedAt
-    }
+**Backend.**
 
-    class ItemCategory {
-        <<enumeration>>
-        COMPONENT
-        SAFETY_COMPONENT
-        DOCUMENTATION
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-pre-operational-inspection.png" alt="Diagrama de clases del backend de Pre-Operational Inspection" width="800">
 
-    class InspectionStatus {
-        <<enumeration>>
-        IN_PROGRESS
-        COMPLETED
-    }
-
-    class ResultValue {
-        <<enumeration>>
-        OK
-        OBSERVED
-        FAIL
-    }
-
-    class InspectionService {
-        -InspectionRepository inspectionRepository
-        +startInspection(driverId UUID, odometer int) Inspection
-        +registerResult(inspectionId UUID, itemId UUID, value ResultValue) InspectionResultEntry
-        +completeInspection(inspectionId UUID) Inspection
-    }
-
-    Inspection "1" *-- "1..*" InspectionResultEntry : contiene
-    InspectionItem "1" --> "0..*" InspectionResultEntry : es verificado en
-    InspectionResultEntry "1" *-- "0..*" Observation : puede registrar
-    Observation "1" *-- "0..*" Evidence : es respaldada por
-    InspectionItem "1" --> "1" ItemCategory : pertenece a
-    Inspection "1" --> "1" InspectionStatus : presenta
-    InspectionResultEntry "1" --> "1" ResultValue : obtiene
-    InspectionService ..> Inspection : gestiona
-```
-
-**Explicación del diagrama.** Este es el contexto núcleo del producto. `Inspection` es la raíz del agregado y mantiene una composición con `InspectionResultEntry`: los resultados no existen fuera de la inspección que los contiene. La cadena continúa con `Observation` y `Evidence`, ambas también en composición, reflejando la decisión de diseño de la sección 4.8 según la cual una evidencia siempre respalda una observación concreta y no la inspección en su conjunto.
+Este es el contexto núcleo del producto. `Inspection` es la raíz del agregado y mantiene una composición con `InspectionResultEntry`: los resultados no existen fuera de la inspección que los contiene. La cadena continúa con `Observation` y `Evidence`, ambas también en composición, reflejando la decisión de diseño de la sección 4.8 según la cual una evidencia siempre respalda una observación concreta y no la inspección en su conjunto.
 
 La clase se denomina `InspectionResultEntry` y no `InspectionResult` para evitar la colisión con la enumeración de valores posibles, que se denomina `ResultValue`. Ambos nombres corresponden a los términos *Inspection Result* del Ubiquitous Language de la sección 2.5.
 
@@ -2368,96 +2178,23 @@ Los atributos `itemName` e `itemCategory` de `InspectionResultEntry` no son redu
 
 ---
 
-#### Class Diagram: Evaluation and Authorization
+#### Class Diagrams: Evaluation and Authorization
 
-```mermaid
-classDiagram
-    class EvaluationRule {
-        -UUID id
-        -UUID inspectionItemId
-        -String name
-        -ResultValue foundResult
-        -RuleImpact resultingImpact
-        -String description
-        -boolean isActive
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +appliesTo(itemId UUID, value ResultValue) boolean
-        +getImpact() RuleImpact
-    }
+**Frontend.**
 
-    class Evaluation {
-        -UUID id
-        -UUID inspectionId
-        -LocalDateTime evaluatedAt
-        -UUID evaluatedBy
-        -LocalDateTime createdAt
-        +addDetail(detail EvaluationDetail) void
-        +resolveMostRestrictiveImpact() RuleImpact
-        +isAutomatic() boolean
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-evaluation-authorization.png" alt="Diagrama de clases del frontend de Evaluation and Authorization (diseño)" width="800">
 
-    class EvaluationDetail {
-        -UUID id
-        -UUID evaluationId
-        -UUID inspectionResultId
-        -UUID evaluationRuleId
-        -RuleImpact appliedImpact
-    }
+Este diagrama es un **diseño**: el módulo aún no existe en el código de la Single-Page Application (solo la entrada `/evaluation` del menú) y se modeló con la misma arquitectura de los demás contextos. Corresponde al *Authorization Feature* del diagrama de componentes de la sección 4.6.4, desde donde el supervisor consulta la condición operativa de cada vehículo y registra el levantamiento de un bloqueo.
 
-    class OperationalAuthorization {
-        -UUID id
-        -UUID evaluationId
-        -UUID vehicleId
-        -AuthorizationStatus status
-        -boolean isOverride
-        -String overrideReason
-        -UUID authorizedBy
-        -LocalDateTime authorizedAt
-        -LocalDateTime validUntil
-        -LocalDateTime createdAt
-        +isValidOn(moment LocalDateTime) boolean
-        +liftsBlock() boolean
-    }
+`EvaluationRule`, `Evaluation`, `EvaluationDetail` y `OperationalAuthorization` son las entidades del contexto, con las enumeraciones `RuleImpact` (`NONE`, `OBSERVED`, `BLOCKING`) y `AuthorizationStatus` (`ENABLED`, `OBSERVED`, `NOT_ENABLED`). `Evaluation` compone sus detalles (`EvaluationDetail`), cada uno con la regla aplicada y su impacto, y produce una `OperationalAuthorization`. Los identificadores `inspectionItemId`, `inspectionId`, `inspectionResultId`, `vehicleId`, `evaluatedBy` y `authorizedBy` son referencias a otros contextos; no se importan sus clases.
 
-    class RuleImpact {
-        <<enumeration>>
-        NONE
-        OBSERVED
-        BLOCKING
-    }
+`EvaluationStore` expone en señales las reglas, las evaluaciones y las habilitaciones, y calcula `blockedAuthorizations`, las habilitaciones que dejan un vehículo sin habilitar. Sus dos operaciones del usuario se modelan con comandos: `DefineEvaluationRuleCommand` para crear una regla y `LiftBlockCommand` para levantar un bloqueo con su justificación y su responsable. Delega todas las llamadas en la fachada `EvaluationApi`, que compone tres endpoints CRUD (`EvaluationRulesApiEndpoint`, `EvaluationsApiEndpoint` y `OperationalAuthorizationsApiEndpoint`) y dos endpoints de acción (`DefineEvaluationRuleApiEndpoint` y `LiftBlockApiEndpoint`), cada uno con su assembler. El store notifica al usuario mediante `Notifier`, del módulo Shared.
 
-    class AuthorizationStatus {
-        <<enumeration>>
-        ENABLED
-        OBSERVED
-        NOT_ENABLED
-    }
+**Backend.**
 
-    class EvaluationEngine {
-        -EvaluationRepository evaluationRepository
-        +evaluate(inspectionId UUID) Evaluation
-        +findApplicableRules(itemId UUID, value ResultValue) List~EvaluationRule~
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-evaluation-authorization.png" alt="Diagrama de clases del backend de Evaluation and Authorization" width="800">
 
-    class AuthorizationService {
-        -EvaluationRepository evaluationRepository
-        +authorize(evaluation Evaluation) OperationalAuthorization
-        +liftBlock(vehicleId UUID, reason String, authorizedBy UUID) OperationalAuthorization
-        +findCurrentAuthorization(vehicleId UUID) Optional~OperationalAuthorization~
-    }
-
-    Evaluation "1" *-- "1..*" EvaluationDetail : se descompone en
-    EvaluationRule "1" --> "0..*" EvaluationDetail : es aplicada en
-    Evaluation "1" --> "1" OperationalAuthorization : produce
-    EvaluationDetail "1" --> "1" RuleImpact : aplica
-    OperationalAuthorization "1" --> "1" AuthorizationStatus : determina
-    EvaluationEngine ..> Evaluation : produce
-    EvaluationEngine ..> AuthorizationService : solicita el registro de la habilitación
-    AuthorizationService ..> OperationalAuthorization : gestiona
-```
-
-**Explicación del diagrama.** Este es el segundo contexto núcleo. `EvaluationRule` expresa una regla legible de la forma *"si el elemento X presenta el resultado Y, el impacto sobre el vehículo es Z"*, y el método `appliesTo` es el que permite al motor determinar qué reglas corresponden a cada resultado. La condición es estructurada y no texto libre, precisamente para poder evaluarse de forma determinista y auditarse después.
+Este es el segundo contexto núcleo. `EvaluationRule` expresa una regla legible de la forma *"si el elemento X presenta el resultado Y, el impacto sobre el vehículo es Z"*, y el método `appliesTo` es el que permite al motor determinar qué reglas corresponden a cada resultado. La condición es estructurada y no texto libre, precisamente para poder evaluarse de forma determinista y auditarse después.
 
 `Evaluation` y `OperationalAuthorization` se mantienen como clases distintas y con relación `1 --> 1`, porque representan dos cosas diferentes: la evaluación es el proceso de aplicar las reglas, y la habilitación es la decisión resultante con su vigencia. El método `resolveMostRestrictiveImpact` de `Evaluation` implementa la regla según la cual un solo impacto `BLOCKING` produce el estado `NOT_ENABLED`.
 
@@ -2467,118 +2204,21 @@ El atributo `evaluatedBy` admite valor nulo porque la evaluación se ejecuta de 
 
 ---
 
-#### Class Diagram: Incident Management
+#### Class Diagrams: Incident Management
 
-```mermaid
-classDiagram
-    class IncidentType {
-        -UUID id
-        -String code
-        -String name
-        -String description
-        -boolean isActive
-    }
+**Frontend.**
 
-    class Incident {
-        -UUID id
-        -UUID vehicleId
-        -UUID incidentTypeId
-        -UUID inspectionId
-        -IncidentOrigin origin
-        -String description
-        -IncidentSeverity severity
-        -IncidentStatus status
-        -UUID reportedBy
-        -LocalDateTime reportedAt
-        -String resolutionType
-        -LocalDateTime resolvedAt
-        -LocalDateTime createdAt
-        -LocalDateTime updatedAt
-        +addCorrectiveAction(action CorrectiveAction) void
-        +addFollowUp(followUp IncidentFollowUp) void
-        +resolve(resolutionType String, moment LocalDateTime) void
-        +isCritical() boolean
-        +comesFromInspection() boolean
-    }
+<img src="../img/Software-Object-Oriented-Design/frontend-class-incident-management.png" alt="Diagrama de clases del frontend de Incident Management" width="800">
 
-    class CorrectiveAction {
-        -UUID id
-        -UUID incidentId
-        -String description
-        -UUID performedBy
-        -LocalDateTime performedAt
-        -String evidenceUrl
-    }
+`Incident` es la raíz del contexto y compone sus acciones correctivas (`CorrectiveAction`), reparaciones (`Repair`) y seguimientos (`IncidentFollowUp`). Tiene un origen (`IncidentOrigin`), una severidad (`IncidentSeverity`) y un estado (`IncidentStatus`), y `Repair` tiene el suyo (`RepairStatus`). Los métodos `isCritical`, `comesFromInspection` y `resolve` expresan las reglas del incidente. Su atributo `inspectionId` es un identificador nulo: solo se completa cuando el incidente nace de una inspección.
 
-    class Repair {
-        -UUID id
-        -UUID incidentId
-        -String workshop
-        -BigDecimal cost
-        -LocalDate startedAt
-        -LocalDate finishedAt
-        -RepairStatus status
-        +isFinished() boolean
-        +durationInDays() long
-    }
+Cada operación sobre el incidente se modela con un comando: `RegisterCorrectiveActionCommand`, `ScheduleRepairCommand`, `CompleteRepairCommand`, `AddIncidentFollowUpCommand` y `ResolveIncidentCommand`. Como no son operaciones CRUD, cada una tiene su propio endpoint de acción (`<<Action Endpoint>>`) y su assembler, mientras que `IncidentsApiEndpoint` e `IncidentTypesApiEndpoint` sí son endpoints CRUD. `ReportIncidentCommand` está declarado en el dominio, pero el formulario de registro construye hoy la entidad `Incident` directamente.
 
-    class IncidentFollowUp {
-        -UUID id
-        -UUID incidentId
-        -String note
-        -UUID createdBy
-        -LocalDateTime createdAt
-    }
+**Backend.**
 
-    class IncidentOrigin {
-        <<enumeration>>
-        INSPECTION
-        OPERATION
-    }
+<img src="../img/Software-Object-Oriented-Design/backend-class-incident-management.png" alt="Diagrama de clases del backend de Incident Management" width="800">
 
-    class IncidentSeverity {
-        <<enumeration>>
-        LOW
-        MEDIUM
-        HIGH
-        CRITICAL
-    }
-
-    class IncidentStatus {
-        <<enumeration>>
-        OPEN
-        IN_PROGRESS
-        RESOLVED
-        CLOSED
-    }
-
-    class RepairStatus {
-        <<enumeration>>
-        SCHEDULED
-        IN_PROGRESS
-        COMPLETED
-    }
-
-    class IncidentService {
-        -IncidentRepository incidentRepository
-        +reportIncident(vehicleId UUID, incident Incident) Incident
-        +registerCorrectiveAction(incidentId UUID, action CorrectiveAction) CorrectiveAction
-        +scheduleRepair(incidentId UUID, repair Repair) Repair
-        +findOpenByVehicle(vehicleId UUID) List~Incident~
-    }
-
-    IncidentType "1" --> "0..*" Incident : clasifica
-    Incident "1" *-- "0..*" CorrectiveAction : es atendida mediante
-    Incident "1" *-- "0..*" Repair : puede requerir
-    Incident "1" *-- "0..*" IncidentFollowUp : es seguida mediante
-    Incident "1" --> "1" IncidentOrigin : procede de
-    Incident "1" --> "1" IncidentSeverity : presenta
-    Incident "1" --> "1" IncidentStatus : se encuentra en
-    Repair "1" --> "1" RepairStatus : se encuentra en
-    IncidentService ..> Incident : gestiona
-```
-
-**Explicación del diagrama.** `Incident` es la raíz del agregado y mantiene composiciones con `CorrectiveAction`, `Repair` e `IncidentFollowUp`, ya que ninguna de las tres tiene sentido fuera de la incidencia que las origina.
+`Incident` es la raíz del agregado y mantiene composiciones con `CorrectiveAction`, `Repair` e `IncidentFollowUp`, ya que ninguna de las tres tiene sentido fuera de la incidencia que las origina.
 
 El atributo `inspectionId` admite valor nulo y se acompaña de la enumeración `IncidentOrigin`, porque el Ubiquitous Language define la incidencia como un problema detectado en un vehículo durante una inspección **o durante su operación**. El método `comesFromInspection` expone esa distinción. Si la referencia a la inspección fuera obligatoria, las incidencias surgidas durante la operación no podrían registrarse.
 
@@ -2586,7 +2226,7 @@ El atributo `inspectionId` admite valor nulo y se acompaña de la enumeración `
 
 #### Resumen de referencias entre bounded contexts
 
-Las referencias que cruzan la frontera de un contexto se implementan como atributos de tipo `UUID` y no como asociaciones entre clases. El cuadro siguiente las recoge:
+Las referencias que cruzan la frontera de un contexto se implementan como atributos identificadores y no como asociaciones entre clases. El cuadro siguiente recoge las del **backend**:
 
 | Clase | Atributo | Contexto referenciado |
 |:---|:---|:---|
@@ -2602,8 +2242,6 @@ Las referencias que cruzan la frontera de un contexto se implementan como atribu
 | `Incident` | `vehicleId`, `inspectionId`, `reportedBy` | Fleet Management · Pre-Operational Inspection · Identity and Access |
 | `CorrectiveAction` | `performedBy` | Identity and Access |
 | `IncidentFollowUp` | `createdBy` | Identity and Access |
-
-La validación de la existencia del elemento referenciado es responsabilidad del servicio de aplicación del contexto que realiza la referencia, tal como se refleja en las relaciones del diagrama de componentes de la sección 4.6.4.
 
 ---
 
@@ -3201,4 +2839,4 @@ El flujo núcleo de FleetSafe —inspección, validación, evaluación, identifi
 
 ---
 
-[← Capítulo III](capitulo-3.md) · [Contenido](README.md#contenido) · [Capítulo V →](capitulo-5.md)
+[← Capítulo III](capitulo-3.md) · [Contenido](../README.md#contenido) · [Capítulo V →](capitulo-5.md)

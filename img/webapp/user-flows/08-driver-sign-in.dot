@@ -1,0 +1,26 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  s1 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="104" HEIGHT="204"><IMG SRC="../mockups/01-sign-in-mobile.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Sign in</B></TD></TR></TABLE>>];
+  a1 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Ingresa su correo y su<BR/>contraseña y presiona<BR/>«Sign in»>];
+  d1 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Las credenciales<BR/>son correctas?>];
+  u1 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>El sistema rechaza el acceso<BR/>y muestra un mensaje de<BR/>error; el conductor<BR/>permanece en «Sign in»>];
+  d2 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Tiene un vehículo<BR/>asignado?>];
+  x1 [shape=box, style="rounded,filled", fillcolor="#E0E0E0", color="#4A4A4A", label=<<B>Fin alternativo</B><BR/>El sistema informa que no<BR/>tiene vehículo asignado; el<BR/>conductor contacta a su<BR/>supervisor>];
+  s2 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="104" HEIGHT="204"><IMG SRC="../mockups/02-assigned-vehicle-mobile.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>My assigned vehicle</B></TD></TR></TABLE>>];
+  e1 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>Ve su vehículo, su condición<BR/>y el botón «Start<BR/>inspection»>];
+  start -> s1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  s1 -> a1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a1 -> d1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d1 -> d2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d1 -> u1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  u1 -> s1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Reintenta</B>>, constraint=false];
+  d2 -> s2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d2 -> x1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  s2 -> e1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  { rank=same; d1; u1; }
+  { rank=same; d2; x1; }
+}

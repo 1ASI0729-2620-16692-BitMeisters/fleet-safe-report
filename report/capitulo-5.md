@@ -1,4 +1,4 @@
-[← Capítulo IV](capitulo-4.md) · [Contenido](README.md#contenido) · [Conclusiones →](conclusiones.md)
+[← Capítulo IV](capitulo-4.md) · [Contenido](../README.md#contenido) · [Conclusiones →](conclusiones.md)
 
 <a id="capitulo-v-product-implementation-validation-deployment"></a>
 # Capítulo V: Product Implementation, Validation & Deployment
@@ -318,7 +318,7 @@ El Backend RESTful API se empaqueta como una imagen de contenedor, se publica en
 | **Sprint 1 Review Summary** | Durante este sprint el equipo avanzó en la construcción de la base del producto FleetSafe. Se completó la documentación de arquitectura y diseño, incluyendo los diagramas C4 de contexto, contenedores y componentes, los diagramas de clases organizados por bounded context y los diagramas de base de datos correspondientes a los contextos del dominio. Asimismo, se desarrolló el wireframe y el mock-up de alta fidelidad de la Landing Page, definiendo sus diez secciones en versión Desktop. La Landing Page fue implementada como parte del producto y se documentó su configuración para el despliegue mediante GitHub Pages. |
 | **Sprint 1 Retrospective Summary** | Durante la retrospectiva el equipo identificó que una parte importante del tiempo del sprint se concentró en completar y corregir la documentación técnica y el diseño del producto. A partir de la autocrítica realizada, se corrigieron aspectos del análisis competitivo, del diseño de base de datos, de la arquitectura C4 y del diseño orientado a objetos. También se identificó la necesidad de cerrar previamente el diseño de las funcionalidades antes de iniciar su implementación, así como considerar el esfuerzo de documentación dentro de la estimación del trabajo del sprint. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 1 Goal** | Establecer una base sólida para el desarrollo de FleetSafe mediante la definición de la arquitectura, el diseño orientado a objetos, el diseño de base de datos y la construcción de la Landing Page, dejando preparados los artefactos necesarios para continuar con la implementación de las funcionalidades principales de la plataforma. |
+| **Sprint 1 Goal** | **Nuestro enfoque** está en dar a conocer FleetSafe y dejar definido cómo se construirá. **Empresas de transporte de carga:** podrán conocer la propuesta de valor de FleetSafe en una Landing Page publicada, sin necesidad de iniciar sesión. **Supervisores de flota y conductores:** aún no usan la plataforma; en este sprint se deja diseñada la estructura de las funcionalidades que recibirán en los siguientes sprints. **Creemos que esto entrega** una primera presencia pública del producto y un diseño sobre el cual construir sin rehacer trabajo. **Se confirmará cuando** la Landing Page esté accesible por una URL pública con sus diez secciones y los diagramas de arquitectura, de clases y de base de datos estén completos para los cinco bounded contexts. |
 | **Sprint 1 Velocity** | 8 |
 | **Sum of Story Points** | 27 |
 
@@ -414,7 +414,7 @@ La Landing Page fue desarrollada utilizando HTML5, CSS3 y JavaScript, tecnologí
 <a id="5218-team-colaboration-insights-during-sprint"></a>
 #### 5.2.1.8. Team Colaboration Insights during Sprint.
 
-![S1TCI](img/teamCollaborationInsights/sprint1-teamCollaborationInsights.png)
+![S1TCI](../img/teamCollaborationInsights/sprint1-teamCollaborationInsights.png)
 
 <a id="522-sprint-2"></a>
 ### 5.2.2. Sprint 2
@@ -435,7 +435,7 @@ El Sprint 2 tiene como propósito la primera versión desplegada de la Frontend 
 | **Sprint 1 Review Summary** | En el Sprint 1 se completaron los capítulos I a IV del informe y se publicó la primera versión del Landing Page en GitHub Pages. La revisión de la entrega señaló que el Product Backlog no permitía rastrear las User Stories ni su asignación a sprints, lo que se corrigió en la versión 0.9.3 del informe. |
 | **Sprint 1 Retrospective Summary** | El equipo identificó como acierto la organización por bounded context, que permitió repartir el trabajo sin bloqueos entre integrantes. Como oportunidad de mejora, cada integrante había resuelto de forma distinta las mismas decisiones técnicas —tipo de identificador, configuración de entornos, simulación de la API y manejo de errores—, lo que impedía integrar las ramas. Se acordó adoptar como referencia común el proyecto `learning-center` del curso y acordar las decisiones compartidas antes de implementar cada contexto. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 2 Goal** | **Our focus is on** que el conductor realice su inspección preoperacional desde la Web Application y que el supervisor de flota registre incidencias y controle el vencimiento de la documentación de sus vehículos. **We believe it delivers** un control preventivo verificable antes de cada salida **to** las empresas de transporte de carga, sus supervisores de flota y sus conductores. **This will be confirmed when** la Web Application esté desplegada y un conductor pueda iniciar una inspección sobre su vehículo asignado y registrar el estado de sus elementos, y un supervisor pueda registrar una incidencia y consultar los documentos próximos a vencer. |
+| **Sprint 2 Goal** | **Nuestro enfoque** está en que las personas que operan una flota usen FleetSafe desde el navegador. **Conductores:** realizan su inspección preoperacional sobre el vehículo que tienen asignado y registran el estado de cada elemento antes de salir. **Supervisores de flota:** registran las incidencias de sus vehículos, les dan seguimiento y ven qué documentos están por vencer. **Creemos que esto entrega** un control preventivo verificable antes de cada salida, que las empresas de transporte de carga puedan revisar. **Se confirmará cuando** la Web Application esté desplegada en una URL pública y se cumpla lo siguiente: un conductor inicia una inspección y registra el resultado de los 42 elementos del catálogo, y un supervisor registra una incidencia y consulta los documentos que vencen en los próximos 30 días. |
 | **Sprint 2 Velocity** | 31 |
 | **Sum of Story Points** | 31 |
 
@@ -463,7 +463,7 @@ Las horas de cada tarea se estimaron a partir de la actividad registrada en sus 
 
 Tablero del Sprint 2: https://trello.com/b/UPVJLXVw/fleetsafe-sprint-2
 
-<img src="img/sprint2/backlog-trello-board.png" width="700" alt="Tablero del Sprint Backlog 2 en Trello con las veinte tareas completadas">
+<img src="../img/sprint2/backlog-trello-board.png" width="700" alt="Tablero del Sprint Backlog 2 en Trello con las veinte tareas completadas">
 
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
 |---|---|---|---|---|---|---:|---|---|
@@ -670,25 +670,25 @@ Al cierre del Sprint 2, la Web Application está desplegada en https://1asi0729-
 
 **Flujo del conductor — inspección preoperacional (escritorio)**
 
-![Inicio de la inspección con el odómetro registrado](img/sprint2/execution-start-inspection-filled-en.png)
+![Inicio de la inspección con el odómetro registrado](../img/sprint2/execution-start-inspection-filled-en.png)
 
-![Checklist de inspección con elementos respondidos, en español](img/sprint2/execution-inspection-checklist-answered-es.png)
+![Checklist de inspección con elementos respondidos, en español](../img/sprint2/execution-inspection-checklist-answered-es.png)
 
 **Incident Management**
 
-![Lista de incidencias registradas](img/sprint2/execution-incidents-en.png)
+![Lista de incidencias registradas](../img/sprint2/execution-incidents-en.png)
 
-![Detalle de una incidencia con sus acciones correctivas, reparaciones y seguimientos, en español](img/sprint2/execution-incident-detail-es.png)
+![Detalle de una incidencia con sus acciones correctivas, reparaciones y seguimientos, en español](../img/sprint2/execution-incident-detail-es.png)
 
 **Vehicle Documentation**
 
-![Panel de vigencia de la documentación vehicular](img/sprint2/execution-vehicle-documentation-en.png)
+![Panel de vigencia de la documentación vehicular](../img/sprint2/execution-vehicle-documentation-en.png)
 
 **Fleet Management**
 
-![Resumen de la flota](img/sprint2/execution-fleet-en.png)
+![Resumen de la flota](../img/sprint2/execution-fleet-en.png)
 
-![Lista de vehículos de la flota, en español](img/sprint2/execution-fleet-vehicles-es.png)
+![Lista de vehículos de la flota, en español](../img/sprint2/execution-fleet-vehicles-es.png)
 
 Video de la navegación lograda: https://youtu.be/xfpyuPoml0A?si=wCobu-tC12ya4j89
 
@@ -715,23 +715,23 @@ El Backend RESTful API se implementa a partir del Sprint 3. En este sprint se pu
 
 Contrato publicado, visualizado con Swagger UI a partir del archivo `openapi.yaml` del repositorio:
 
-![Contrato OpenAPI de FleetSafe con las operaciones de Identity and Access, Fleet Management y Pre-Operational Inspection](img/sprint2/services-openapi-overview.png)
+![Contrato OpenAPI de FleetSafe con las operaciones de Identity and Access, Fleet Management y Pre-Operational Inspection](../img/sprint2/services-openapi-overview.png)
 
 Operación de consulta del catálogo de elementos de inspección, con sus parámetros y el ejemplo de respuesta:
 
-![Operación GET /inspection-items documentada con sus parámetros y ejemplos de respuesta](img/sprint2/services-openapi-inspection-items.png)
+![Operación GET /inspection-items documentada con sus parámetros y ejemplos de respuesta](../img/sprint2/services-openapi-inspection-items.png)
 
 Operación para iniciar una inspección, con el cuerpo de la petición, la respuesta `201` y las respuestas de error con datos de muestra:
 
-![Operación POST /inspections documentada con el cuerpo de la petición y sus respuestas](img/sprint2/services-openapi-start-inspection.png)
+![Operación POST /inspections documentada con el cuerpo de la petición y sus respuestas](../img/sprint2/services-openapi-start-inspection.png)
 
 Operación de consulta de la asignación activa del conductor:
 
-![Operación GET /drivers/me/vehicle-assignment documentada con su respuesta](img/sprint2/services-openapi-vehicle-assignment.png)
+![Operación GET /drivers/me/vehicle-assignment documentada con su respuesta](../img/sprint2/services-openapi-vehicle-assignment.png)
 
 Respuesta de la API simulada desplegada al consultar el catálogo de elementos de inspección:
 
-![Respuesta JSON del catálogo de elementos de inspección en la API simulada](img/sprint2/deployment-mock-api-response.png)
+![Respuesta JSON del catálogo de elementos de inspección en la API simulada](../img/sprint2/deployment-mock-api-response.png)
 
 Commits del repositorio Web Services relacionados con la documentación de este sprint (https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services):
 
@@ -758,29 +758,29 @@ En el Sprint 2 se desplegaron la Frontend Web Application y la API simulada que 
 
 **1. Configuración de GitHub Pages.** En el repositorio de la Web Application se seleccionó como origen de publicación GitHub Actions, de modo que lo publicado es el resultado de la construcción de Angular y no el contenido de una rama.
 
-![Configuración de GitHub Pages con origen GitHub Actions](img/sprint2/deployment-github-pages-settings.png)
+![Configuración de GitHub Pages con origen GitHub Actions](../img/sprint2/deployment-github-pages-settings.png)
 
 **2. Automatización del despliegue.** El flujo de trabajo `deploy.yml` se ejecuta con cada integración en `main`. Su trabajo `build` instala las dependencias y construye la aplicación con la subruta del repositorio, y su trabajo `deploy` la publica en el entorno `github-pages`.
 
-![Ejecuciones del flujo de trabajo de despliegue](img/sprint2/deployment-actions-runs.png)
+![Ejecuciones del flujo de trabajo de despliegue](../img/sprint2/deployment-actions-runs.png)
 
-![Detalle de una ejecución con los trabajos build y deploy completados](img/sprint2/deployment-actions-run-detail.png)
+![Detalle de una ejecución con los trabajos build y deploy completados](../img/sprint2/deployment-actions-run-detail.png)
 
 **3. Creación del servicio de la API simulada en Render.** Se creó un Web Service a partir del mismo repositorio, en la región de Virginia y con el plan gratuito.
 
-![Servicio fleetsafe-api en Render](img/sprint2/deployment-render-general.png)
+![Servicio fleetsafe-api en Render](../img/sprint2/deployment-render-general.png)
 
 **4. Configuración de construcción y arranque.** Render instala las dependencias con `npm ci` desde la rama `main` y arranca json-server con los datos de `server/db.json` y las reglas de `server/routes.json`.
 
-![Configuración de construcción del servicio en Render](img/sprint2/deployment-render-build.png)
+![Configuración de construcción del servicio en Render](../img/sprint2/deployment-render-build.png)
 
-![Comando de arranque y despliegue automático del servicio en Render](img/sprint2/deployment-render-deploy.png)
+![Comando de arranque y despliegue automático del servicio en Render](../img/sprint2/deployment-render-deploy.png)
 
 **5. Publicación de versiones.** Cada versión desplegada se preparó en una rama `release/*` o `hotfix/*`, se integró en `main` mediante Pull Request y se publicó como release de GitHub con su tag de Semantic Versioning y sus notas, tomadas del `CHANGELOG.md` del repositorio.
 
-![Releases de la Web Application](img/sprint2/deployment-releases.png)
+![Releases de la Web Application](../img/sprint2/deployment-releases.png)
 
-![Notas de la release v0.2.0](img/sprint2/deployment-release-v0.2.0.png)
+![Notas de la release v0.2.0](../img/sprint2/deployment-release-v0.2.0.png)
 
 | Versión | Contenido |
 |---|---|
@@ -807,11 +807,11 @@ Cada integrante desarrolló su bounded context en una rama propia a partir de `d
 | Santos Torres, Juan Manuel | JuanManuel312 | 9 | Vehicle Documentation |
 | Apaza Bocanegra, Elizabeth Noelia | Elizabeth-Apaza | 3 | Catálogo de elementos de inspección |
 
-![Contribuidores del repositorio de la Web Application](img/sprint2/collaboration-contributors.png)
+![Contribuidores del repositorio de la Web Application](../img/sprint2/collaboration-contributors.png)
 
-![Actividad de commits del repositorio de la Web Application](img/sprint2/collaboration-commit-activity.png)
+![Actividad de commits del repositorio de la Web Application](../img/sprint2/collaboration-commit-activity.png)
 
-![Pull Requests integrados durante el sprint](img/sprint2/development-pull-requests.png)
+![Pull Requests integrados durante el sprint](../img/sprint2/development-pull-requests.png)
 
 <a id="523-sprint-3"></a>
 ### 5.2.3. Sprint 3
@@ -821,7 +821,7 @@ Cada integrante desarrolló su bounded context en una rama propia a partir de `d
 
 El Sprint 3 tiene como propósito la primera versión del Backend RESTful API de FleetSafe, exigida para la entrega AV2. En la reunión de planificación, realizada por Google Meet, el equipo acordó que cada integrante implemente en el backend el bounded context que desarrolló en la Web Application, sobre una base común construida con los patrones del proyecto de referencia del curso, y que Alejandro Espino se encargue de Identity and Access y de Vehicle Documentation.
 
-<img src="img/sprint3/planning-meeting.png" width="800" alt="Reunión de planificación del Sprint 3 por Google Meet con cuatro integrantes del equipo">
+<img src="../img/sprint3/planning-meeting.png" width="800" alt="Reunión de planificación del Sprint 3 por Google Meet con cuatro integrantes del equipo">
 
 | Sprint 3 | Sprint 3 |
 |---|---|
@@ -834,7 +834,7 @@ El Sprint 3 tiene como propósito la primera versión del Backend RESTful API de
 | **Sprint 2 Review Summary** | En el Sprint 2 se desplegó la primera versión de la Web Application en GitHub Pages, con los bounded contexts de Pre-Operational Inspection, Incident Management, Fleet Management y Vehicle Documentation, alineados con el proyecto de referencia del curso, y una API simulada en Render. Se reorganizó el código del Landing Page y se documentó el sprint con evidencias de desarrollo, ejecución, servicios, despliegue y colaboración. |
 | **Sprint 2 Retrospective Summary** | Como acierto, el equipo destacó que construir primero una base compartida permitió integrar las ramas de cada bounded context. Como oportunidades de mejora, identificó que cada integrante había resuelto de forma distinta las mismas decisiones técnicas antes de esa base, que los commits se concentraron al final del trabajo y que los Pull Requests se integraron sin revisión de otro integrante. Para el Sprint 3 se acordó partir de la base común del backend antes de implementar cada bounded context, registrar las horas de cada tarea durante el sprint y revisar los Pull Requests antes de integrarlos. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 3 Goal** | **Our focus is on** que la Web Application de FleetSafe deje de depender de una API simulada y trabaje sobre su propio Backend RESTful API. **We believe it delivers** datos persistentes y una autenticación real **to** los supervisores de flota y los conductores de las empresas de transporte de carga. **This will be confirmed when** el Backend RESTful API esté desplegado y documentado con OpenAPI, un usuario pueda iniciar sesión, y las inspecciones, incidencias, vehículos y documentos vehiculares se registren y consulten a través de él. |
+| **Sprint 3 Goal** | **Nuestro enfoque** está en que FleetSafe funcione con datos reales y no con datos de prueba, y en que el sistema indique qué vehículos pueden salir. **Administradores:** inician sesión con su cuenta, registran usuarios y les asignan un rol. **Supervisores de flota:** registran vehículos, los asignan a conductores y ven cuáles están habilitados, observados o no habilitados. **Conductores:** completan su inspección con observaciones y fotografías, y la finalizan. **Empresas de transporte de carga:** reciben la condición de cada vehículo calculada con reglas definidas, no con criterio individual. **Creemos que esto entrega** una información confiable y persistente, que se conserva entre sesiones y sobre la que se puede decidir. **Se confirmará cuando** la plataforma esté desplegada y se cumpla lo siguiente: un usuario inicia sesión con su cuenta; un conductor finaliza una inspección con al menos una fotografía; y, al finalizarla, el vehículo queda en uno de los tres estados según las reglas, y el supervisor lo encuentra al filtrar por estado. |
 | **Sprint 3 Velocity** | 92 |
 | **Sum of Story Points** | 92 |
 
@@ -870,7 +870,7 @@ Las horas de cada tarea terminada se estimaron con el mismo método del Sprint 2
 
 Tablero del Sprint 3: https://trello.com/b/6WgfBLcZ/fleetsafe-sprint-3
 
-<img src="img/sprint3/backlog-trello-board.png" width="700" alt="Tablero del Sprint Backlog 3 en Trello con las tareas en To-do, In-Process, To-Review y Done">
+<img src="../img/sprint3/backlog-trello-board.png" width="700" alt="Tablero del Sprint Backlog 3 en Trello con las tareas en To-do, In-Process, To-Review y Done">
 
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
 |---|---|---|---|---|---|---:|---|---|
@@ -1027,57 +1027,57 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 
 **1. Registro de los proveedores de recursos.** Antes de crear los recursos se comprobó que la suscripción Azure for Students tiene registrados los proveedores que necesitan: `Microsoft.DBforPostgreSQL` para la base de datos, `Microsoft.App` para Azure Container Apps y `Microsoft.OperationalInsights` para los registros.
 
-![Proveedores de recursos registrados en la suscripción](img/sprint3/deployment-01-subscription-resource-providers.png)
+![Proveedores de recursos registrados en la suscripción](../img/sprint3/deployment-01-subscription-resource-providers.png)
 
 **2. Configuración del servidor de base de datos.** Se creó el servidor `fleet-safe-db` con PostgreSQL 18 en el grupo de recursos `rg-fleetsafe`, región `Chile Central`. Se eligió el nivel *Burstable* `Standard_B1ms` con 32 GiB de almacenamiento, que entran en la capa gratuita, sin alta disponibilidad, y la autenticación con usuario y contraseña de PostgreSQL, que es la que utiliza el servicio.
 
-![Cómputo, almacenamiento y autenticación del servidor PostgreSQL](img/sprint3/deployment-02-postgresql-compute-and-authentication.png)
+![Cómputo, almacenamiento y autenticación del servidor PostgreSQL](../img/sprint3/deployment-02-postgresql-compute-and-authentication.png)
 
 **3. Configuración de red.** El servidor admite conexiones desde los servicios de Azure, que es como lo alcanza Azure Container Apps, sin abrirlo a cualquier dirección de internet.
 
-![Configuración de red del servidor PostgreSQL](img/sprint3/deployment-03-postgresql-networking.png)
+![Configuración de red del servidor PostgreSQL](../img/sprint3/deployment-03-postgresql-networking.png)
 
-![Despliegue del servidor PostgreSQL completado](img/sprint3/deployment-04-postgresql-deployment-succeeded.png)
+![Despliegue del servidor PostgreSQL completado](../img/sprint3/deployment-04-postgresql-deployment-succeeded.png)
 
 **4. Creación de la base de datos.** Sobre el servidor se creó la base `fleetsafe`, cuyas tablas genera Spring Data JPA al arrancar el servicio.
 
-![Base de datos fleetsafe creada en el servidor](img/sprint3/deployment-05-postgresql-fleetsafe-database.png)
+![Base de datos fleetsafe creada en el servidor](../img/sprint3/deployment-05-postgresql-fleetsafe-database.png)
 
 **5. Construcción y publicación de la imagen.** El flujo de trabajo `Delivery` de GitHub Actions ejecuta las pruebas del servicio contra una base PostgreSQL 18 temporal en cada Pull Request y, al integrar en `develop`, construye la imagen y la publica en GitHub Container Registry.
 
-![Ejecuciones del flujo de trabajo Delivery](img/sprint3/deployment-06-github-actions-delivery-runs.png)
+![Ejecuciones del flujo de trabajo Delivery](../img/sprint3/deployment-06-github-actions-delivery-runs.png)
 
-![Imagen web-services publicada en GitHub Container Registry](img/sprint3/deployment-07-ghcr-package.png)
+![Imagen web-services publicada en GitHub Container Registry](../img/sprint3/deployment-07-ghcr-package.png)
 
 **6. Visibilidad de la imagen.** El paquete se hizo público para que Azure Container Apps descargue la imagen sin credenciales. La imagen solo contiene el código compilado, que ya es público en el repositorio; las credenciales de la base se entregan como secreto en tiempo de ejecución.
 
-![Visibilidad pública del paquete web-services](img/sprint3/deployment-08-ghcr-package-public.png)
+![Visibilidad pública del paquete web-services](../img/sprint3/deployment-08-ghcr-package-public.png)
 
 **7. Creación del entorno de Azure Container Apps.** El entorno `cae-fleetsafe` se creó con Azure CLI en la misma región que la base de datos, y generó su espacio de trabajo de Log Analytics para los registros.
 
-![Creación del entorno cae-fleetsafe con Azure CLI](img/sprint3/deployment-09-container-apps-environment.png)
+![Creación del entorno cae-fleetsafe con Azure CLI](../img/sprint3/deployment-09-container-apps-environment.png)
 
 **8. Creación de la aplicación.** La aplicación `fleetsafe-api` se creó con Azure CLI a partir de la imagen `develop`, con ingreso externo al puerto 8080, entre cero y una réplica, y la contraseña de la base como secreto. El primer intento falló porque la variable con la contraseña estaba vacía en la terminal y el secreto no llegó a crearse; tras leerla de nuevo, la aplicación se creó y devolvió su dirección pública.
 
-![Creación de la aplicación fleetsafe-api con Azure CLI](img/sprint3/deployment-10-container-app-created.png)
+![Creación de la aplicación fleetsafe-api con Azure CLI](../img/sprint3/deployment-10-container-app-created.png)
 
 **9. Verificación del servicio.** La documentación OpenAPI responde en la dirección pública con el nombre, la versión y la descripción del servicio. Todavía no muestra operaciones, porque los controladores REST se incorporan en este mismo sprint.
 
-![Documentación OpenAPI del servicio desplegado](img/sprint3/deployment-11-swagger-deployed.png)
+![Documentación OpenAPI del servicio desplegado](../img/sprint3/deployment-11-swagger-deployed.png)
 
 **10. Recursos desplegados.** El grupo de recursos `rg-fleetsafe` reúne el servidor de base de datos, el entorno y la aplicación de Azure Container Apps, y el espacio de trabajo de Log Analytics.
 
-![Recursos del grupo rg-fleetsafe](img/sprint3/deployment-12-resource-group.png)
+![Recursos del grupo rg-fleetsafe](../img/sprint3/deployment-12-resource-group.png)
 
-![Vista general de la aplicación fleetsafe-api en ejecución](img/sprint3/deployment-13-container-app-overview.png)
+![Vista general de la aplicación fleetsafe-api en ejecución](../img/sprint3/deployment-13-container-app-overview.png)
 
 **11. Configuración de la aplicación.** Las variables `DATABASE_URL` y `DATABASE_USER` se registraron como valores, y `DATABASE_PASSWORD` como referencia al secreto `db-password`, de modo que la contraseña no aparece en la configuración.
 
-![Variables de entorno del contenedor con la contraseña como secreto](img/sprint3/deployment-14-container-app-environment-variables.png)
+![Variables de entorno del contenedor con la contraseña como secreto](../img/sprint3/deployment-14-container-app-environment-variables.png)
 
 **12. Registros del arranque.** El registro en tiempo real muestra que el servicio se conectó a la base `fleetsafe`, levantó Tomcat en el puerto 8080 y terminó de arrancar.
 
-![Registros del arranque del servicio en Azure Container Apps](img/sprint3/deployment-15-container-app-log-stream.png)
+![Registros del arranque del servicio en Azure Container Apps](../img/sprint3/deployment-15-container-app-log-stream.png)
 
 <a id="53-validation-interviews"></a>
 ## 5.3. Validation Interviews.
@@ -1098,4 +1098,4 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 
 ---
 
-[← Capítulo IV](capitulo-4.md) · [Contenido](README.md#contenido) · [Conclusiones →](conclusiones.md)
+[← Capítulo IV](capitulo-4.md) · [Contenido](../README.md#contenido) · [Conclusiones →](conclusiones.md)

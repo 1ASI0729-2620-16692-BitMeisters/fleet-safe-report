@@ -1,0 +1,28 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  s1 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="104" HEIGHT="204"><IMG SRC="../mockups/05-summary-mobile.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Summary</B></TD></TR></TABLE>>];
+  a1 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Revisa los contadores y<BR/>presiona «Submit<BR/>inspection»>];
+  d1 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Todos los elementos<BR/>tienen resultado?>];
+  u1 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>El sistema rechaza el envío<BR/>y indica los elementos<BR/>pendientes; el conductor<BR/>regresa al checklist>];
+  y1 [shape=box, style="rounded,filled", fillcolor="#D6E4F0", color="#1D4E89", label=<<B>El sistema</B><BR/>evalúa cada resultado con<BR/>las reglas de la empresa y<BR/>toma el impacto más<BR/>restrictivo>];
+  d2 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Qué impacto<BR/>obtuvo?>];
+  s2 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="104" HEIGHT="204"><IMG SRC="../mockups/06-result-mobile.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Result</B></TD></TR></TABLE>>];
+  e1 [shape=box, style="rounded,filled,bold", fillcolor="#FDECE8", color="#B8432B", penwidth=2, label=<<B>Fin</B><BR/>El vehículo queda «Not<BR/>Enabled»: se registra la<BR/>incidencia, se notifica al<BR/>supervisor y no inicia la<BR/>operación>];
+  e2 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>El vehículo queda<BR/>«Observed»: puede operar con<BR/>los hallazgos registrados>];
+  e3 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>El vehículo queda «Enabled»:<BR/>está autorizado para operar>];
+  start -> s1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  s1 -> a1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a1 -> d1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d1 -> y1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d1 -> u1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  y1 -> d2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d2 -> s2 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Bloqueante</B>>];
+  s2 -> e1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6];
+  d2 -> e2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Observado</B>>];
+  d2 -> e3 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Ninguno</B>>];
+  { rank=same; d1; u1; }
+}

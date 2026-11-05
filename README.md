@@ -248,4 +248,4 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 ---
 
-[Capítulo I: Introducción →](capitulo-1.md)
+[Capítulo I: Introducción →](report/capitulo-1.md)
