@@ -19,19 +19,31 @@ Las decisiones que se presentan a continuación se derivan de tres fuentes: el *
 
 FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su identidad visual debe comunicar **confiabilidad, control y prevención**, y no velocidad, modernidad o innovación tecnológica por sí mismas. El usuario de FleetSafe —un supervisor de flota o un conductor de vehículo de carga— debe percibir que la plataforma es una herramienta de trabajo seria, no un producto experimental.
 
+<p align="center">
+  <img src="../img/brand/fleetsafe-logo.png" alt="Logotipo de FleetSafe" width="420">
+</p>
+
 | Elemento | Definición |
 |:---|:---|
 | **Nombre del producto** | FleetSafe |
 | **Startup** | BitMeisters |
 | **Concepto de marca** | La unión de los conceptos *fleet* (flota) y *safe* (seguro) sintetiza la propuesta de valor: una flota que opera de forma segura porque su condición ha sido verificada antes de operar. |
-| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. |
-| **Isotipo** | La marca de verificación representa el resultado de la inspección preoperacional: el vehículo ha sido verificado y se encuentra habilitado. |
-| **Versión monocromática** | El logotipo debe contar con una versión en un solo color para su uso sobre fondos de color pleno o fotografías. |
+| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo de carga— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. La palabra "Fleet" se escribe en azul `#13315C` y "Safe" en verde `#2A9D8F`, ambos de la paleta de la sección 4.1.1, con la familia tipográfica Inter en peso Bold. |
+| **Isotipo** | La marca de verificación, ubicada en la caja de carga del vehículo, representa el resultado de la inspección preoperacional: el vehículo ha sido verificado y se encuentra habilitado. El verde de la caja es el mismo que identifica el estado *habilitado* dentro de la aplicación. |
+| **Versión monocromática** | El logotipo debe contar con una versión en un solo color para su uso sobre fondos de color pleno o fotografías. Se dispone de una versión en azul `#13315C` y de una versión en blanco para fondos oscuros; en ambas, la marca de verificación se muestra como vacío en la caja de carga. |
 | **Área de resguardo** | El logotipo debe mantener un margen libre equivalente a la altura de la letra "F" en todos sus lados. |
 | **Tamaño mínimo** | 24 px de alto en interfaces digitales. |
 | **Usos incorrectos** | No se debe deformar, rotar, aplicar sombras, degradados ni contornos al logotipo. No se debe alterar la relación entre el isotipo y el logotipo tipográfico. |
 
-> **Pendiente:** incorporar el archivo del logotipo y del isotipo en `img/brand/` y referenciarlo desde esta sección.
+Los archivos se encuentran en `img/brand/`. Se recomienda el formato SVG en las interfaces digitales por conservar la nitidez a cualquier tamaño, y el PNG con fondo transparente para documentos.
+
+| Versión | Uso | Archivos |
+|:---|:---|:---|
+| Logotipo a color | Versión principal, sobre fondo claro | [`fleetsafe-logo.svg`](../img/brand/fleetsafe-logo.svg) · [`png`](../img/brand/fleetsafe-logo.png) |
+| Isotipo a color | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`fleetsafe-isotype.svg`](../img/brand/fleetsafe-isotype.svg) · [`png`](../img/brand/fleetsafe-isotype.png) |
+| Logotipo monocromático | Un solo color, sobre fondo de color pleno o fotografías claras | [`fleetsafe-logo-mono.svg`](../img/brand/fleetsafe-logo-mono.svg) · [`png`](../img/brand/fleetsafe-logo-mono.png) |
+| Logotipo en blanco | Sobre fondos oscuros o fotografías oscuras | [`fleetsafe-logo-white.svg`](../img/brand/fleetsafe-logo-white.svg) · [`png`](../img/brand/fleetsafe-logo-white.png) |
+| Isotipo monocromático y en blanco | Mismos usos que el logotipo, en espacios cuadrados | [`fleetsafe-isotype-mono.svg`](../img/brand/fleetsafe-isotype-mono.svg) · [`fleetsafe-isotype-white.svg`](../img/brand/fleetsafe-isotype-white.svg) |
 
 ---
 
