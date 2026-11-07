@@ -370,7 +370,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 10 minutos con 41 segundos
 * **URL de la grabación:** [Link de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211c201_upc_edu_pe/IQCJleaXrBM_QZ0QqnURlQFRAT_Ipzg_Y2VJIaNpfJOwU6c?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=S93Wea) (Timestamp: `00:01 - 10:37`)
 * **Evidencia de la sesión:**
-  <img src="img/chapter2/luisP_entrevista.png" alt="Entrevista - Luis Palacin">
+  <img src="../img/chapter2/luisP_entrevista.png" alt="Entrevista - Luis Palacin">
 
 * **Resumen de respuestas clave:**
   <br>
@@ -460,7 +460,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 04 minutos con 30 segundos
 * **URL de la grabación:** https://youtu.be/MmIpEMgCFwY (Timestamp: `00:00 - 04:30`)
 * **Evidencia de la sesión:**
-  <img src="img/chapter2/entrevista-5.png" alt="Captura de la entrevista 5 — Carmen Dávila" width="600">
+  <img src="../img/chapter2/entrevista-5.png" alt="Captura de la entrevista 5 — Carmen Dávila" width="600">
 
 * **Resumen de respuestas clave:**
   * *Gestión de incidencias:* Cuando un vehículo tiene una falla mecánica leve, se genera una orden manual para el taller mecánico de la empresa, pero no hay seguimiento en tiempo real de si la pieza fue reparada antes de que el camión vuelva a circular.
@@ -481,7 +481,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 16 minutos con 15 segundos
 * **URL de la grabación:** https://shorturl.at/pkaow
 * **Evidencia de la sesión:**
-  <img src="img/chapter2/entrevista-6.png" alt="Captura de la entrevista 6 — Walter Huamán" width="600">
+  <img src="../img/chapter2/entrevista-6.png" alt="Captura de la entrevista 6 — Walter Huamán" width="600">
 
 * **Resumen de respuestas clave:**
   * *Verificación de inspección:* Señala que muchos conductores marcan "OK" en todo el checklist de papel en 3 minutos sin bajarse a mirar la quinta rueda ni las luces de frenos.
@@ -505,7 +505,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 6 minutos con 11 segundos
 * **URL de la grabación:** https://youtu.be/RmQbap_IL3E (Timestamp: `00:00 - 06:11`)
 * **Evidencia de la sesión:**
-  <img src="img/chapter2/entrevista-7.png" alt="Captura de la entrevista 7 — Jorge Rivas" width="600">
+  <img src="../img/chapter2/entrevista-7.png" alt="Captura de la entrevista 7 — Jorge Rivas" width="600">
 
 * **Resumen de respuestas clave:**
   * *Proceso actual:* Revisa luces, presión de llantas, niveles de refrigerante y aceite, y llena la hoja de papel de 30 preguntas que le entrega el despachador.
@@ -528,7 +528,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 14 minutos con 25 segundos
 * **URL de la grabación:** https://shorturl.at/lUVY6
 * **Evidencia de la sesión:**
-  <img src="img/chapter2/entrevista-8.png" alt="Captura de la entrevista 8 — Pedro Morales" width="600">
+  <img src="../img/chapter2/entrevista-8.png" alt="Captura de la entrevista 8 — Pedro Morales" width="600">
 
 * **Resumen de respuestas clave:**
   * *Dificultad con la tecnología:* No le gustan los sistemas complicados ni las letras pequeñas porque en patio hay poca luz y suele tener las manos con guantes o polvo.

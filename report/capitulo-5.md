@@ -666,7 +666,7 @@ Al cierre del Sprint 2, la Web Application está desplegada en https://1asi0729-
 
 | Vehículo asignado | Menú de navegación | Checklist al iniciar | Checklist con respuestas |
 |:---:|:---:|:---:|:---:|
-| <img src="img/sprint2/execution-mobile-start-inspection-en.png" width="200" alt="Vista del vehículo asignado en teléfono"> | <img src="img/sprint2/execution-mobile-menu-en.png" width="200" alt="Menú lateral abierto en teléfono"> | <img src="img/sprint2/execution-mobile-checklist-start-en.png" width="200" alt="Checklist de inspección al iniciar"> | <img src="img/sprint2/execution-mobile-checklist-answered-es.png" width="200" alt="Checklist con elementos respondidos, en español"> |
+| <img src="../img/sprint2/execution-mobile-start-inspection-en.png" width="200" alt="Vista del vehículo asignado en teléfono"> | <img src="../img/sprint2/execution-mobile-menu-en.png" width="200" alt="Menú lateral abierto en teléfono"> | <img src="../img/sprint2/execution-mobile-checklist-start-en.png" width="200" alt="Checklist de inspección al iniciar"> | <img src="../img/sprint2/execution-mobile-checklist-answered-es.png" width="200" alt="Checklist con elementos respondidos, en español"> |
 
 **Flujo del conductor — inspección preoperacional (escritorio)**
 
