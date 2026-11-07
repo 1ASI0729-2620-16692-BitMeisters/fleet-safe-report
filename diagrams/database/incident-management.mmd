@@ -1,0 +1,53 @@
+erDiagram
+    incident_types ||--o{ incidents : "clasifica"
+    incidents ||--o{ corrective_actions : "es atendida mediante"
+    incidents ||--o{ repairs : "puede requerir"
+    incidents ||--o{ incident_follow_ups : "es seguida mediante"
+
+    incident_types {
+        uuid id PK
+        varchar code UK
+        varchar name
+        text description
+        boolean is_active
+    }
+    incidents {
+        uuid id PK
+        uuid vehicle_id "id-ref, Fleet Management"
+        uuid incident_type_id FK
+        uuid inspection_id "id-ref, nullable, Pre-Operational Inspection"
+        varchar origin "INSPECTION, OPERATION"
+        text description
+        varchar severity "LOW, MEDIUM, HIGH, CRITICAL"
+        varchar status "OPEN, IN_PROGRESS, RESOLVED, CLOSED"
+        uuid reported_by "id-ref, Identity and Access"
+        timestamp reported_at
+        varchar resolution_type
+        timestamp resolved_at
+        timestamp created_at
+        timestamp updated_at
+    }
+    corrective_actions {
+        uuid id PK
+        uuid incident_id FK
+        text description
+        uuid performed_by "id-ref, Identity and Access"
+        timestamp performed_at
+        varchar evidence_url
+    }
+    repairs {
+        uuid id PK
+        uuid incident_id FK
+        varchar workshop
+        decimal cost
+        date started_at
+        date finished_at
+        varchar status "SCHEDULED, IN_PROGRESS, COMPLETED"
+    }
+    incident_follow_ups {
+        uuid id PK
+        uuid incident_id FK
+        text note
+        uuid created_by "id-ref, Identity and Access"
+        timestamp created_at
+    }
