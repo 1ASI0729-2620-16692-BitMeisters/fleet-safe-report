@@ -85,10 +85,10 @@ El equipo utiliza **Git** como sistema de control de versiones y **GitHub** como
 
 | Producto | Repositorio |
 |:---|:---|
-| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/Landing-Page |
-| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/Frontend-Web-Application |
-| Web Services | https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services |
-| Informe | https://github.com/1ASI0729-2620-16692-BitMeisters/Report |
+| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website |
+| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application |
+| Web Services | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services |
+| Informe | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-report |
 | Curso de Java (trabajo de responsabilidad social) | https://github.com/1ASI0729-2620-16692-BitMeisters/java-fundamentals-course-bitmeisters |
 
 El repositorio de **Web Services** contiene el proyecto de Spring Boot junto con sus pruebas unitarias y de integración, organizadas bajo `src/test/java` conforme a la estructura estándar de Maven. Las pruebas de integración se ejecutan contra una base PostgreSQL real, tanto en local como en el flujo de entrega continua.
@@ -211,7 +211,7 @@ El Landing Page es un sitio estático compuesto por HTML5, CSS3 y JavaScript, po
 
 1. En el repositorio `Landing-Page`, acceder a **Settings › Pages**.
 2. En *Build and deployment*, seleccionar como origen la rama **`main`** y la carpeta **`/ (root)`**.
-3. Confirmar con *Save*. GitHub Pages construye y publica el sitio, y devuelve la URL pública `https://1asi0729-2620-16692-bitmeisters.github.io/Landing-Page/`.
+3. Confirmar con *Save*. GitHub Pages construye y publica el sitio, y devuelve la URL pública `https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/`.
 4. Cada integración en `main` vuelve a publicar el sitio de forma automática.
 
 #### Frontend Web Application — GitHub Pages con GitHub Actions
@@ -223,7 +223,7 @@ La Web Application requiere un proceso de construcción previo. Un flujo de trab
    - **build**: prepara Node.js 24 con caché de npm, instala las dependencias con `npm ci`, construye la aplicación con `ng build --base-href /Frontend-Web-Application/` —la aplicación se publica en una subruta del dominio de la organización—, copia `index.html` como `404.html` para que una ruta interna de Angular, como `/inspections/new`, cargue la aplicación al recargar la página, y sube `dist/frontend-web-application/browser` como artefacto de Pages.
    - **deploy**: publica el artefacto en el entorno `github-pages` mediante `actions/deploy-pages`.
 3. Registrar en `src/environments/environment.ts`, que es el archivo de configuración de producción, la dirección del API en `platformProviderApiBaseUrl`. Cada recurso se configura en el mismo archivo con su ruta, por ejemplo `platformProviderInspectionsEndpointPath: '/inspections'`.
-4. Publicar una versión: integrar la rama `release/*` en `main` mediante un Pull Request. El flujo de trabajo construye y publica la aplicación en `https://1asi0729-2620-16692-bitmeisters.github.io/Frontend-Web-Application/`, y la versión se etiqueta en GitHub con su número de SemVer.
+4. Publicar una versión: integrar la rama `release/*` en `main` mediante un Pull Request. El flujo de trabajo construye y publica la aplicación en `https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/`, y la versión se etiqueta en GitHub con su número de SemVer.
 
 #### API simulada — Render
 
@@ -376,7 +376,7 @@ Durante el Sprint 1, el desarrollo se concentró en la implementación de la Lan
 #### 5.2.1.5. Execution Evidence for Sprint Review.
 
 Se evidencia el avance del primer sprint por medio del desarrollo del los capitulos del reporte asi tambien como la creación de un landing page que evidencia nos de a conocer y el modelo de negocio. Por medio de este enlace:
-https://1asi0729-2620-16692-bitmeisters.github.io/Landing-Page/
+https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/
 
 <a id="5216-services-documentation-evidence-for-sprint-review"></a>
 #### 5.2.1.6. Services Documentation Evidence for Sprint Review.
@@ -406,7 +406,7 @@ El proceso realizado durante el Sprint comprendió las siguientes actividades:
 
 | Producto | Repositorio / Plataforma | Tecnología | Plataforma de Deployment | Estado | URL |
 |---|---|---|---|---|---|
-| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/Landing-Page | HTML5, CSS3 y JavaScript | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/Landing-Page/ |
+| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | HTML5, CSS3 y JavaScript | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
 
 La Landing Page fue desarrollada utilizando HTML5, CSS3 y JavaScript, tecnologías establecidas para la implementación de la primera versión del producto. Asimismo, el uso de GitHub Pages permitió centralizar el proceso de publicación y disponer de una versión accesible de la Landing Page para su revisión durante el Sprint Review.
 
@@ -660,7 +660,7 @@ La tabla recoge los commits del sprint, sin los commits de merge, en orden crono
 <a id="5225-execution-evidence-for-sprint-review"></a>
 #### 5.2.2.5. Execution Evidence for Sprint Review.
 
-Al cierre del Sprint 2, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/Frontend-Web-Application/ en su versión 0.2.7. El conductor puede consultar su vehículo asignado, iniciar una inspección preoperacional registrando el odómetro y recorrer el checklist de 42 elementos agrupados en ocho sistemas, marcando cada uno como Conforme, Observado o Falla; la interfaz señala que los elementos no conformes requieren una observación, cuyo registro se implementa en el Sprint 3. El supervisor de flota puede registrar incidencias, consultar su detalle con las acciones correctivas, reparaciones y seguimientos, controlar la vigencia de la documentación vehicular y consultar el resumen de su flota. Toda la interfaz está disponible en inglés y en español, y se adapta a pantallas de escritorio y de teléfono.
+Al cierre del Sprint 2, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ en su versión 0.2.7. El conductor puede consultar su vehículo asignado, iniciar una inspección preoperacional registrando el odómetro y recorrer el checklist de 42 elementos agrupados en ocho sistemas, marcando cada uno como Conforme, Observado o Falla; la interfaz señala que los elementos no conformes requieren una observación, cuyo registro se implementa en el Sprint 3. El supervisor de flota puede registrar incidencias, consultar su detalle con las acciones correctivas, reparaciones y seguimientos, controlar la vigencia de la documentación vehicular y consultar el resumen de su flota. Toda la interfaz está disponible en inglés y en español, y se adapta a pantallas de escritorio y de teléfono.
 
 **Flujo del conductor — inspección preoperacional (teléfono)**
 
@@ -697,7 +697,7 @@ Video de la navegación lograda: https://youtu.be/xfpyuPoml0A?si=wCobu-tC12ya4j8
 
 El Backend RESTful API se implementa a partir del Sprint 3. En este sprint se publicó en el repositorio Web Services el contrato OpenAPI que lo especifica, para los contextos de Identity and Access y Pre-Operational Inspection, y la Web Application consume una API simulada con json-server que sirve los mismos recursos bajo el prefijo `/api/v1`. El contrato se valida con Redocly y puede servirse en local con Prism mediante `npm run mock:contract` en el repositorio de la Web Application.
 
-- Contrato: https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services/blob/develop/openapi/openapi.yaml
+- Contrato: https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services/blob/develop/openapi/openapi.yaml
 - API simulada desplegada: https://fleetsafe-api.onrender.com/api/v1
 
 | Endpoint | Acciones implementadas | Verbo HTTP | Sintaxis de llamada | Parámetros | Response |
@@ -733,7 +733,7 @@ Respuesta de la API simulada desplegada al consultar el catálogo de elementos d
 
 ![Respuesta JSON del catálogo de elementos de inspección en la API simulada](assets/sprint2/deployment-mock-api-response.png)
 
-Commits del repositorio Web Services relacionados con la documentación de este sprint (https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services):
+Commits del repositorio Web Services relacionados con la documentación de este sprint (https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services):
 
 | Commit Id | Commit Message |
 |---|---|
@@ -751,10 +751,10 @@ En el Sprint 2 se desplegaron la Frontend Web Application y la API simulada que 
 
 | Producto | Repositorio | Plataforma | Estado | URL |
 |---|---|---|---|---|
-| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/Landing-Page | GitHub Pages | Desplegado (Sprint 1) | https://1asi0729-2620-16692-bitmeisters.github.io/Landing-Page/ |
-| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/Frontend-Web-Application | GitHub Pages con GitHub Actions | Desplegado, versión 0.2.7 | https://1asi0729-2620-16692-bitmeisters.github.io/Frontend-Web-Application/ |
-| API simulada (json-server) | https://github.com/1ASI0729-2620-16692-BitMeisters/Frontend-Web-Application | Render | Desplegado | https://fleetsafe-api.onrender.com/api/v1 |
-| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services | Azure Container Apps | Contrato publicado; despliegue en el Sprint 3 | — |
+| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | GitHub Pages | Desplegado (Sprint 1) | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
+| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | GitHub Pages con GitHub Actions | Desplegado, versión 0.2.7 | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ |
+| API simulada (json-server) | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | Render | Desplegado | https://fleetsafe-api.onrender.com/api/v1 |
+| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | Azure Container Apps | Contrato publicado; despliegue en el Sprint 3 | — |
 
 **1. Configuración de GitHub Pages.** En el repositorio de la Web Application se seleccionó como origen de publicación GitHub Actions, de modo que lo publicado es el resultado de la construcción de Angular y no el contenido de una rama.
 
@@ -978,7 +978,7 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 En el Sprint 3 el Backend RESTful API deja de ser un contrato y pasa a estar implementado. Springdoc genera su documentación OpenAPI a partir de los controladores y la publica con Swagger UI en el propio servicio desplegado; cada operación indica los roles que la pueden ejecutar y las respuestas de error, que siguen el formato Problem Details y se traducen según la cabecera `Accept-Language`. El contrato escrito a mano del repositorio se amplió con los bounded contexts implementados en este sprint.
 
 - Documentación del servicio desplegado: https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html
-- Contrato: https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services/blob/develop/openapi/openapi.yaml
+- Contrato: https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services/blob/develop/openapi/openapi.yaml
 
 Todas las rutas cuelgan de `/api/v1`. Salvo `/auth/login`, todas exigen el token de acceso en la cabecera `Authorization: Bearer <token>`: sin él responden `401`, y con un rol que no tiene permiso, `403`.
 
@@ -1003,7 +1003,7 @@ Todas las rutas cuelgan de `/api/v1`. Salvo `/auth/login`, todas exigen el token
 | `/documents` | Consultar los documentos de todos los vehículos | GET | `GET /api/v1/documents` | — | `200` con los documentos ordenados por vencimiento. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
 | `/documents/expiring` | Consultar los documentos próximos a vencer | GET | `GET /api/v1/documents/expiring?days=30` | Opcional: `days` (0–365, por defecto 30) | `200` con los documentos que vencen entre hoy y ese número de días; `400` si `days` está fuera de rango. |
 
-Commits del repositorio Web Services relacionados con la documentación de este sprint (https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services):
+Commits del repositorio Web Services relacionados con la documentación de este sprint (https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services):
 
 | Commit Id | Commit Message |
 |---|---|
@@ -1020,9 +1020,9 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 
 | Producto | Repositorio | Plataforma | Estado | URL |
 |---|---|---|---|---|
-| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/Landing-Page | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/Landing-Page/ |
-| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/Frontend-Web-Application | GitHub Pages con GitHub Actions | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/Frontend-Web-Application/ |
-| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services | Azure Container Apps, con la imagen en GitHub Container Registry | Desplegado desde `develop` | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
+| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
+| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | GitHub Pages con GitHub Actions | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ |
+| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | Azure Container Apps, con la imagen en GitHub Container Registry | Desplegado desde `develop` | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
 | Base de datos | — | Azure Database for PostgreSQL – Flexible Server | Desplegada | `fleet-safe-db.postgres.database.azure.com` |
 
 **1. Registro de los proveedores de recursos.** Antes de crear los recursos se comprobó que la suscripción Azure for Students tiene registrados los proveedores que necesitan: `Microsoft.DBforPostgreSQL` para la base de datos, `Microsoft.App` para Azure Container Apps y `Microsoft.OperationalInsights` para los registros.

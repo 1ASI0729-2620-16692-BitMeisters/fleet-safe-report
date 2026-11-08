@@ -7,10 +7,10 @@
 
 | Producto | Repositorio | Despliegue |
 |:---|:---|:---|
-| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/Landing-Page | |
-| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/Frontend-Web-Application | |
-| Web Services | https://github.com/1ASI0729-2620-16692-BitMeisters/Web-Services | |
-| Informe | https://github.com/1ASI0729-2620-16692-BitMeisters/Report | — |
+| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | |
+| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | |
+| Web Services | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | |
+| Informe | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-report | — |
 
 | Artefacto | Enlace |
 |:---|:---|
