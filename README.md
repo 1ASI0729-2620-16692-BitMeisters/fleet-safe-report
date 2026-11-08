@@ -101,6 +101,8 @@
 
 <hr>
 
+<div style="page-break-before: always;"></div>
+
 <a id="contenido"></a>
 # **Contenido**
 
@@ -226,6 +228,8 @@
 
 <hr>
 
+
+<div style="page-break-before: always;"></div>
 
 <a id="student-outcome"></a>
 # **Student Outcome**

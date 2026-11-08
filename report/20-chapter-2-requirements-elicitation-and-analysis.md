@@ -358,6 +358,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 #### Segmento 1: Empresas de transporte de carga
 
 ##### Entrevista 1 — Lucho Palacin Lope
+
 * **Segmento:** Empresas de transporte de carga
 * **Cargo / Ocupación:** Gerente de Operaciones
 * **Empresa / Flota:** Transportes San Valentin S.A.C. (Flota de 5 tractocamiones y 2 semirremolques)
@@ -380,6 +381,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 ---
 
 ##### Entrevista 2 — Fernando Quispe Huamán
+
 * **Segmento:** Empresas de transporte de carga
 * **Cargo / Ocupación:** Administrador General
 * **Empresa / Flota:** Inversiones Logísticas del Sur E.I.R.L. (Flota de 15 camiones rígidos y furgones)
@@ -402,6 +404,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 ---
 
 ##### Entrevista 3 — Martín Solís Carrión
+
 * **Segmento:** Empresas de transporte de carga
 * **Cargo / Ocupación:** Jefe de Transporte y Distribución
 * **Empresa / Flota:** Carga Pesada Andina S.A.C. (Flota de 30 unidades articuladas)
@@ -426,6 +429,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 #### Segmento 2: Supervisores o encargados de flota
 
 ##### Entrevista 4 — Roberto Salazar Vega
+
 * **Segmento:** Supervisores de flota
 * **Cargo / Ocupación:** Supervisor de Seguridad y Salud en el Trabajo (SST) de Flota
 * **Empresa / Flota:** Transportes San José S.A.C.
@@ -448,6 +452,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 ---
 
 ##### Entrevista 5 — Carmen Dávila Rengifo
+
 * **Segmento:** Supervisores de flota
 * **Cargo / Ocupación:** Coordinadora de Despacho y Monitoreo de Seguridad Vial
 * **Empresa / Flota:** Inversiones Logísticas del Sur E.I.R.L.
@@ -469,6 +474,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 ---
 
 ##### Entrevista 6 — Walter Huamán Córdova
+
 * **Segmento:** Supervisores de flota
 * **Cargo / Ocupación:** Supervisor de Mantenimiento y Patio
 * **Empresa / Flota:** Carga Pesada Andina S.A.C.
@@ -492,6 +498,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 #### Segmento 3: Conductores de vehículos de carga
 
 ##### Entrevista 7 — Jorge Rivas Mendoza
+
 * **Segmento:** Conductores de vehículos de carga
 * **Cargo / Ocupación:** Conductor profesional de transporte pesado (Tractocamión Volvo FH 540)
 * **Empresa:** Conductor asignado en Transportes San José S.A.C. (Ruta Lima - Arequipa)
@@ -515,6 +522,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 ---
 
 ##### Entrevista 8 — Pedro Morales Huaccachi
+
 * **Segmento:** Conductores de vehículos de carga
 * **Cargo / Ocupación:** Conductor de tractocamión articulado (Scania R450)
 * **Empresa:** Conductor de ruta nacional en Inversiones Logísticas del Sur E.I.R.L.
@@ -537,6 +545,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 ---
 
 ##### Entrevista 9 — Miguel Ángel Ramos Castro
+
 * **Segmento:** Conductores de vehículos de carga
 * **Cargo / Ocupación:** Conductor de semirremolque y plataforma (Freightliner Columbia)
 * **Empresa:** Conductor de transporte de materiales en Carga Pesada Andina S.A.C.
@@ -580,16 +589,19 @@ A partir de la codificación sistemática de las respuestas de los 9 entrevistad
 #### 2. Análisis Cualitativo por Segmento
 
 ##### A. Segmento Empresas de Transporte de Carga
+
 * **Dolor de pérdida económica y legal:** Los gerentes y administradores perciben el control preventivo en papel no como una medida de seguridad real, sino como un "trámite administrativo engorroso". Sin embargo, asumen costos elevados cuando las unidades son multadas o inmovilizadas en carretera por SUTRAN debido a fallas que pudieron detectarse antes de salir.
 * **Falta de visibilidad ejecutiva en tiempo real:** Ninguna de las empresas entrevistadas cuenta con un tablero centralizado donde la gerencia pueda verificar en tiempo real cuántas unidades están habilitadas para salir al iniciar la mañana. Dependen enteramente de llamadas telefónicas y reportes en Excel desactualizados.
 * **Necesidad de cumplimiento en homologaciones:** Las auditorías de homologación de clientes de gran envergadura (minería, consumo masivo, retail) exigen evidencias fotográficas y firmas fechadas. La falta de este respaldo digital reduce su competitividad comercial y frena la adjudicación de contratos de largo plazo.
 
 ##### B. Segmento Supervisores de Flota y Seguridad (SST)
+
 * **Sobrecarga operativa y digitación duplicada:** Los supervisores invierten entre 1.5 y 2.5 horas diarias transcribiendo manualmente las observaciones de las hojas de papel a hojas de cálculo. Este tiempo burocrático les resta capacidad de inspección física en patio.
 * **Dilema ético y presión operativa ante excepciones:** Todos los supervisores admitieron recibir presiones constantes de las áreas comerciales para autorizar la salida de unidades con fallas leves para no perder turnos de carga. Manifiestan la necesidad urgente de que el sistema exija registrar la justificación y el responsable directo de la excepción, blindando su responsabilidad profesional ante siniestros.
 * **Ausencia de trazabilidad en las reparaciones:** Una vez que un elemento mecánico no conforme es reportado, no existe un canal cerrado para verificar si el taller mecánico corrigió el desperfecto antes de que el vehículo sea reasignado a otro conductor.
 
 ##### C. Segmento Conductores de Vehículos de Carga
+
 * **Demanda de simplicidad y botones táctiles grandes:** Los conductores rechazan formularios web con textos largos, campos obligatorios de texto libre o interfaces recargadas. Señalan que en el patio de maniobras la iluminación es variable, el sol refleja en las pantallas y operan con manos sucias o guantes. Requieren botones de gran tamaño (mínimo 48 × 48 px) con opciones directas (*Conforme* / *Falla*) y flujo guiado paso a paso.
 * **Protección ante culpas por fallas mecánicas preexistentes:** El conductor ve con gran entusiasmo la capacidad de adjuntar fotografías obligatorias a los hallazgos con marca de tiempo. Esto les proporciona un escudo probatorio frente a los dueños de la empresa, evitando que se les descuente de sus sueldos roturas o desgastes que ya estaban presentes al iniciar su turno.
 * **Tiempo de llenado reducido:** Consideran aceptable un tiempo de inspección digital de entre 5 y 7 minutos. Cualquier proceso digital que tome más de 10 minutos generará resistencia al cambio y tentación de volver al llenado ficticio.
@@ -622,6 +634,7 @@ Necesitan realizar inspecciones pre-operacionales de forma rápida, registrar ev
 
 <a id="231-user-personas"></a>
 ### 2.3.1. User Personas.
+
 *User Persona Segmento 1:*
 José Ramirez, de 37 años, es empresario y administrador de una empresa de transporte de carga en Huancayo, con 10 años de experiencia en el rubro. Es responsable de supervisar que su flota se encuentre en condiciones adecuadas y necesita tener una visión clara y centralizada del estado de los vehículos para tomar decisiones rápidas, reducir riesgos y evitar que unidades con problemas inicien una operación.
 ![userp1](assets/needFinding/userPersonas/JoseRamirez.png)

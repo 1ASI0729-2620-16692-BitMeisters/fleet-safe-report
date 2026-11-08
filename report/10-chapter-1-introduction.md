@@ -286,21 +286,27 @@ $$\textbf{We believe that } [\text{Business Outcome}] \textbf{ will be achieved 
 Cada enunciado vincula un indicador cuantificable de éxito del negocio con un beneficio tangible percibido por el usuario al interactuar con una capacidad del sistema:
 
 ##### Hypothesis Statement 1 — Pre-Operational Digital Inspection Checklist
+
 > **We believe that** our customer fleets will reduce pre-dispatch verification turnaround times by at least 70% (from 25 minutes down to 7 minutes per unit) and eliminate 100% of illegible physical paper logs **if** heavy freight drivers (*Álvaro Torres*) **attain** a fast, frictionless, mobile-first inspection routine directly from their smartphone browser without paperwork friction **with** the **Pre-Operational Digital Inspection Module** (standardized 42-item checklist covering safety, mechanical components, and documentation).
 
 ##### Hypothesis Statement 2 — Rule-Based Automotive Safety Evaluation Engine
+
 > **We believe that** transport companies will reduce roadside mechanical breakdown incidents and SUTRAN regulatory non-compliance infractions by 40% during the first 90 days **if** fleet supervisors (*Alessandra Nova*) and operations managers (*José Ramírez*) **attain** instantaneous, objective, and deterministic risk verdicts (*Enabled*, *Observed*, *Not Enabled*) without human subjective bias **with** the **Rule-Based Evaluation Engine** (evaluating findings against critical safety thresholds and automated stop-work rules).
 
 ##### Hypothesis Statement 3 — Operational Authorization & Traceable Exception Handling
+
 > **We believe that** client organizations will eliminate 100% of undocumented verbal bypasses and ensure full legal accountability during occupational health and safety (SST) audits **if** fleet safety supervisors (*Alessandra Nova*) **attain** complete administrative control to issue conditional operating clearances with recorded justification, designated authorizer, and strict audit trails **with** the **Operational Authorization & Exception Management Feature**.
 
 ##### Hypothesis Statement 4 — Incident Lifecycle Tracking & Corrective Actions
+
 > **We believe that** fleet maintenance operations will decrease Mean Time to Resolution (MTTR) for critical vehicle defects by 45% and prevent recurring mechanical defects **if** fleet supervisors and workshop coordinators **attain** real-time visibility over reported defects, assigned corrective tasks, photographic evidence, and repair sign-offs **with** the **Incident Tracking & Corrective Actions Module**.
 
 ##### Hypothesis Statement 5 — Centralized Fleet Status & Operational Dispatch Monitoring
+
 > **We believe that** transport operations managers will increase active vehicle availability and on-time terminal departure dispatch rates by 30% **if** fleet operations managers (*José Ramírez*) **attain** an executive, consolidated real-time dashboard showing fleet compliance status, pending inspections, and blocked assets at a glance **with** the **Supervisor Fleet Monitoring & KPI Dashboard**.
 
 ##### Hypothesis Statement 6 — Auditable Preventive History & Compliance Reporting
+
 > **We believe that** freight transport companies will achieve a 100% first-pass approval rate on customer homologation audits and mining/industrial contractor compliance verificaciones **if** safety auditors and fleet administrators **attain** immediate one-click generation of immutable, timestamped historical inspection records and supervisory approval certificates **with** the **Auditable Historical Control & Compliance Reporting Feature**.
 
 ---

@@ -1248,6 +1248,7 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 <a id="431-landing-page-wireframe"></a>
 ### 4.3.1. Landing Page Wireframe.
+
 <img src="assets/wireframe/01-navegacion.png" width="1000">
 <img src="assets/wireframe/02-hero.png" width="1000">
 <img src="assets/wireframe/03-problema.png" width="1000">
@@ -1261,6 +1262,7 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 <a id="432-landing-page-mock-up"></a>
 ### 4.3.2. Landing Page Mock-up.
+
 <img src="assets/mockup/01-navegacion.png" width="1000">
 <img src="assets/mockup/02-hero.png" width="1000">
 <img src="assets/mockup/03-problema.png" width="1000">
@@ -1298,6 +1300,7 @@ Esta comprobación tiene además una función de **diseño inclusivo**. La condi
 | **Observation and evidence** | **Summary** | **Result** |
 
 Las seis vistas cubren el recorrido completo de la inspección preoperacional, de principio a fin.
+
 #### Flujo del supervisor — Desktop 1280 px
 
 <img src="assets/webapp/wireframes/07-fleet-dashboard-desktop.png" alt="Wireframe del tablero de flota en escritorio" width="1000">
@@ -1384,6 +1387,7 @@ Se incorporan además dos elementos que los wireframes no representan: el **sele
 En el **checklist** el selector segmentado `OK · Obs. · Fail` mide 48 × 48 px, la medida mínima que establece la sección 4.1.2. No es un detalle menor: el conductor lo pulsa cuarenta y dos veces seguidas, con guantes y sin detenerse a mirar.
 
 La vista **Result** emplea el tono definido en 4.1.1 —serio, respetuoso y sereno—: describe la condición del vehículo, no evalúa al conductor, y explica el paso siguiente en lugar de alarmar.
+
 #### Flujo del supervisor — Desktop 1280 px
 
 <img src="assets/webapp/mockups/07-fleet-dashboard-desktop.png" alt="Mock-up del tablero de flota en escritorio" width="1000">
