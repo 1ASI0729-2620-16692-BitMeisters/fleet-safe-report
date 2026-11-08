@@ -1743,7 +1743,7 @@ El diagrama de contexto de FleetSafe muestra los actores que interactúan con la
 - **Administrator:** responsable de la gestión de usuarios y roles, del catálogo de elementos de inspección y de las reglas de evaluación de su empresa.
 - **Fleet Supervisor:** responsable de supervisar la condición de los vehículos, gestionar las incidencias y autorizar las excepciones sobre vehículos bloqueados.
 - **Driver:** responsable de realizar la inspección preoperacional del vehículo asignado antes de iniciar una operación.
-- **Visitor:** cliente potencial que evalúa la propuesta de valor de FleetSafe en el Landing Page antes de crear una cuenta. Se incorpora como actor porque es el rol base de las User Stories del Landing Page descritas en la sección 3.1.
+- **Visitor:** cliente potencial que evalúa la propuesta de valor de FleetSafe en el Website antes de crear una cuenta. Se incorpora como actor porque es el rol base de las User Stories del Website descritas en la sección 3.1.
 
 El sistema FleetSafe se representa como el recuadro central, y se identifican dos sistemas externos con los que interactúa: un sistema de correo electrónico para el envío de notificaciones y un servicio de almacenamiento de objetos para las evidencias fotográficas registradas durante las inspecciones.
 
@@ -1761,7 +1761,7 @@ Para FleetSafe se han identificado cinco containers, nombrados y representados s
 | **Website** | Static Content (carpeta) | HTML5, CSS3, JavaScript — GitHub Pages | Sitio web estático que presenta la propuesta de valor y dirige a cada segmento objetivo a la Web Application. Es el producto que en el resto del informe se denomina *Landing Page*; se nombra *Website* porque Landing Page es un tipo de página y lo que se publica es un sitio web. |
 | **Web Application Static Content** | Static Content (carpeta) | Build de Angular — GitHub Pages | Archivos HTML, CSS y JavaScript que resultan de construir la aplicación y que el flujo de GitHub Actions publica en GitHub Pages. |
 | **Single-Page Application** | Web Browser (navegador) | Angular, Angular Material, TypeScript | Aplicación de una sola página que se ejecuta en el navegador del usuario y le permite operar la plataforma según el rol concedido a su cuenta. |
-| **Web Services** | Web Service (prompt) | Spring Boot, Spring Data JPA, Java — Azure Container Apps | API RESTful que expone la lógica de negocio de FleetSafe, organizada por bounded context y documentada con OpenAPI. Es el producto que en el resto del informe se denomina *Backend RESTful API*. |
+| **Web Services** | Web Service (terminal) | Spring Boot, Spring Data JPA, Java — Azure Container Apps | API RESTful que expone la lógica de negocio de FleetSafe, organizada por bounded context y documentada con OpenAPI. Es el producto que en el resto del informe se denomina *Backend RESTful API*. |
 | **FleetSafe Database** | Database (cilindro) | PostgreSQL — Azure Database for PostgreSQL | Base de datos relacional única del producto; cada bounded context utiliza su propio conjunto de tablas (sección 4.8). |
 
 **La Web Application se representa con dos containers.** En GitHub Pages el despliegue consiste en copiar a la plataforma los archivos que genera la construcción de la aplicación, de modo que lo que se despliega es contenido estático (**Web Application Static Content**, con el símbolo de carpeta). Lo que se ejecuta es otra cosa: la aplicación Angular, que corre dentro del navegador del usuario (**Single-Page Application**, con el símbolo de navegador). La relación *Delivers* entre ambos expresa que el contenido estático entrega la aplicación al navegador. El Website sigue el mismo criterio que el contenido estático de la aplicación: es una carpeta que se publica tal cual en GitHub Pages, sin proceso de construcción.
@@ -1785,18 +1785,7 @@ El diagrama de contenedores de FleetSafe sigue este recorrido:
 - **Web Services → FleetSafe Database:** el servicio lee y escribe en la base de datos PostgreSQL mediante JDBC.
 - **Web Services → Storage Service y Email System:** el servicio almacena las evidencias fotográficas en el servicio externo de almacenamiento y envía las notificaciones a través del sistema de correo.
 
-**Explicación del diagrama:**
-
-El diagrama de contenedores de FleetSafe sigue este recorrido:
-
-- **Visitor → Website:** el visitante llega al Website para conocer la propuesta de valor. El *call to action* del Website dirige a cada segmento objetivo a la Web Application.
-- **Administrator, Fleet Supervisor y Driver → Web Application Static Content:** cada rol abre la dirección de la Web Application, que se sirve desde GitHub Pages.
-- **Web Application Static Content → Single-Page Application:** el contenido estático entrega la aplicación Angular al navegador del usuario, donde se ejecuta. Los tres roles interactúan con la plataforma a través de la Single-Page Application.
-- **Single-Page Application → Web Services:** la aplicación realiza llamadas a la API por JSON/HTTPS. Es el único container que se comunica con el Web Services.
-- **Web Services → FleetSafe Database:** el servicio lee y escribe en la base de datos PostgreSQL mediante JDBC.
-- **Web Services → Storage Service y Email System:** el servicio almacena las evidencias fotográficas en el servicio externo de almacenamiento y envía las notificaciones a través del sistema de correo.
-
-Las relaciones entre los containers muestran que los usuarios acceden a la Landing Page para conocer la propuesta de valor y a la Web Application para interactuar con las funcionalidades. La Web Application consume los servicios del Backend RESTful API, que a su vez lee y escribe en la Database, almacena evidencias en el Storage Service y envía notificaciones a través del Email System.
+Las relaciones entre los containers muestran que los usuarios acceden al Website para conocer la propuesta de valor y a la Web Application para interactuar con las funcionalidades. La Web Application consume los servicios del Backend RESTful API, que a su vez lee y escribe en la Database, almacena evidencias en el Storage Service y envía notificaciones a través del Email System.
 
 ---
 
@@ -1807,13 +1796,13 @@ Los Component Diagrams son el tercer nivel del modelo C4 y descomponen cada cont
 
 El container **Database** no cuenta con un diagrama de componentes propio porque no es una unidad de software descomponible en componentes, sino un almacén de datos; su estructura interna se documenta en la sección [4.8. Database Design](#48-database-design).
 
-**Criterio de descomposición.** Los componentes del Backend RESTful API se agrupan **por bounded context y no por capa técnica**. Agruparlos por capa —todos los controllers juntos, todos los services juntos— produciría un diagrama que no refleja el diseño orientado al dominio descrito en la sección 4.6 y que contradiría la organización por contextos del modelo de datos de la sección 4.8. Cada grupo del diagrama corresponde a uno de los seis bounded contexts y se traduce directamente en un paquete del proyecto Spring Boot, con sus propias capas en el interior.
+**Criterio de descomposición.** Los componentes de los Web Services se agrupan **por bounded context y no por capa técnica**. Agruparlos por capa —todos los controllers juntos, todos los services juntos— produciría un diagrama que no refleja el diseño orientado al dominio descrito en la sección 4.6 y que contradiría la organización por contextos del modelo de datos de la sección 4.8. Cada grupo del diagrama corresponde a uno de los seis bounded contexts y se traduce directamente en un paquete del proyecto Spring Boot, con sus propias capas en el interior.
 
 ---
 
-#### Component Diagram: Landing Page
+#### Component Diagram: Website
 
-<img src="assets/c4/03-components-landing.png" alt="Diagrama de componentes del Landing Page" width="900">
+<img src="assets/c4/03-components-landing.png" alt="Diagrama de componentes del Website" width="900">
 
 | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|
@@ -1823,13 +1812,13 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 | **Legal Pages** | HTML, CSS | Presenta los términos y condiciones y la política de privacidad, enlazados desde el pie de página. |
 | **Language Switcher** | JavaScript | Alterna el contenido entre `en_US` y `es_419` y establece el atributo de idioma correspondiente. |
 
-**Explicación del diagrama.** El Landing Page es un sitio estático, por lo que sus componentes son secciones de contenido y no unidades de lógica de negocio. El componente con responsabilidad arquitectónica propia es **Segment Call to Action**: es el que materializa la relación entre el Landing Page y la Web Application, dirigiendo a cada segmento objetivo a la vista que le corresponde según su rol. **Language Switcher** y **Legal Pages** se representan de forma explícita porque implementan dos requisitos transversales del producto —la internacionalización en `en_US` y `es_419`, y el enlace a los documentos legales desde el pie de página— cuya ausencia afectaría al cumplimiento del producto con independencia del contenido presentado.
+**Explicación del diagrama.** El Website es un sitio estático, por lo que sus componentes son secciones de contenido y no unidades de lógica de negocio. El componente con responsabilidad arquitectónica propia es **Segment Call to Action**: es el que materializa la relación entre el Landing Page y la Web Application, dirigiendo a cada segmento objetivo a la vista que le corresponde según su rol. **Language Switcher** y **Legal Pages** se representan de forma explícita porque implementan dos requisitos transversales del producto —la internacionalización en `en_US` y `es_419`, y el enlace a los documentos legales desde el pie de página— cuya ausencia afectaría al cumplimiento del producto con independencia del contenido presentado.
 
 ---
 
-#### Component Diagram: Web Application
+#### Component Diagram: Single-Page Application
 
-<img src="assets/c4/04-components-webapp.png" alt="Diagrama de componentes de la Web Application" width="1000">
+<img src="assets/c4/04-components-webapp.png" alt="Diagrama de componentes de la Single-Page Application" width="1000">
 
 | Componente | Tecnología | Responsabilidad | Bounded context |
 |:---|:---|:---|:---|
@@ -1839,21 +1828,21 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 | **Documentation Feature** | Angular Feature Module | Presenta los documentos de cada vehículo y su condición de vigencia. | Vehicle Documentation |
 | **Authorization Feature** | Angular Feature Module | Presenta la condición operativa de cada vehículo y permite al supervisor registrar el levantamiento de un bloqueo. | Evaluation and Authorization |
 | **Incident Feature** | Angular Feature Module | Presenta las incidencias de la flota, sus acciones correctivas, sus reparaciones y sus seguimientos. | Incident Management |
-| **API Client** | Angular HttpClient | Centraliza las peticiones al Backend RESTful API. | transversal |
+| **API Client** | Angular HttpClient | Centraliza las peticiones a los Web Services. | transversal |
 | **Authentication Interceptor** | Angular HTTP Interceptor | Adjunta el token de autenticación a cada petición saliente y gestiona las sesiones vencidas. | transversal |
 | **Role Guard** | Angular Route Guard | Restringe el acceso a cada ruta según el rol del usuario autenticado. | transversal |
 | **Translation Service** | ngx-translate | Resuelve los textos de la interfaz para `en_US` y `es_419`. | transversal |
 | **Shared UI Components** | Angular Material | Provee los componentes del design system, con los atributos ARIA necesarios para la accesibilidad. | transversal |
 
-**Explicación del diagrama.** La Web Application se descompone en seis módulos de funcionalidad, uno por cada bounded context, de forma que la estructura del frontend refleja la misma división del dominio que el backend y el modelo de datos. Cada módulo presenta sus vistas y delega toda comunicación en **API Client**, que concentra las peticiones al Backend RESTful API en un único punto.
+**Explicación del diagrama.** La Single-Page Application se descompone en seis módulos de funcionalidad, uno por cada bounded context, de forma que la estructura del frontend refleja la misma división del dominio que el backend y el modelo de datos. Cada módulo presenta sus vistas y delega toda comunicación en **API Client**, que concentra las peticiones al Backend RESTful API en un único punto.
 
 Los cinco componentes transversales resuelven preocupaciones que no pertenecen a ningún contexto concreto. **Authentication Interceptor** y **Role Guard** implementan el control de acceso en el lado del cliente: el primero adjunta el token a cada petición, y el segundo impide que un usuario alcance una ruta que su rol no admite. Conviene señalar que **esta restricción es de experiencia de usuario, no de seguridad**: la autorización efectiva se resuelve en el Security Filter del Backend RESTful API, porque un control implementado únicamente en el navegador puede ser eludido. **Translation Service** y **Shared UI Components** concentran respectivamente la internacionalización y los componentes del design system con sus atributos ARIA, de modo que ambos requisitos se cumplen de forma homogénea en todas las vistas en lugar de resolverse módulo a módulo.
 
 ---
 
-#### Component Diagram: Backend RESTful API
+#### Component Diagram: Web Services
 
-<img src="assets/c4/05-components-api.png" alt="Diagrama de componentes del Backend RESTful API" width="1000">
+<img src="assets/c4/05-components-api.png" alt="Diagrama de componentes de los Web Services" width="1000">
 
 | Bounded context | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|:---|
