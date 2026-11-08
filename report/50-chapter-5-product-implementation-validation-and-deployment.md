@@ -1,4 +1,4 @@
-[← Capítulo IV](capitulo-4.md) · [Contenido](../README.md#contenido) · [Conclusiones →](conclusiones.md)
+[← Capítulo IV](40-chapter-4-product-design.md) · [Contenido](../README.md#contenido) · [Conclusiones →](90-conclusions.md)
 
 <a id="capitulo-v-product-implementation-validation-deployment"></a>
 # Capítulo V: Product Implementation, Validation & Deployment
@@ -1098,4 +1098,4 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 
 ---
 
-[← Capítulo IV](capitulo-4.md) · [Contenido](../README.md#contenido) · [Conclusiones →](conclusiones.md)
+[← Capítulo IV](40-chapter-4-product-design.md) · [Contenido](../README.md#contenido) · [Conclusiones →](90-conclusions.md)

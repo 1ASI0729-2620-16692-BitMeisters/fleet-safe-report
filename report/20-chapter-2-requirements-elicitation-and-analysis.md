@@ -1,4 +1,4 @@
-[← Capítulo I](capitulo-1.md) · [Contenido](../README.md#contenido) · [Capítulo III →](capitulo-3.md)
+[← Capítulo I](10-chapter-1-introduction.md) · [Contenido](../README.md#contenido) · [Capítulo III →](30-chapter-3-requirements-specification.md)
 
 <a id="capitulo-ii-requirements-elicitation-analysis"></a>
 # Capítulo II: Requirements Elicitation & Analysis
@@ -699,7 +699,7 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/YmOSO?tagId=nXgEG
 
 **Segmento 1**
 José necesita conocer el estado actualizado de su flota para identificar riesgos y decidir qué vehículos pueden operar. Su principal frustración es la información dispersa y la dificultad para detectar problemas a tiempo.
-![em1](../img/needFinding/empathyMapping/Empathy%20map%20-%20José%20Ramirez.png)
+![em1](../img/needFinding/empathyMapping/Empathy%20map%20-%20Jos%C3%A9%20Ramirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/QRFhq?tagId=nXgEG
 **Segmento 2**
 Alessandra necesita revisar inspecciones, identificar vehículos con problemas y dar seguimiento a las incidencias. Le preocupa no detectar problemas a tiempo y valora contar con información centralizada y actualizada.
@@ -708,7 +708,7 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/W05Q5?tagId=nXgEG
 
 **Segmento 3**
 Álvaro necesita realizar inspecciones rápidas, registrar problemas y saber si su vehículo está listo para operar. Sus principales frustraciones son los procesos manuales, la dificultad para registrar evidencias y no conocer inmediatamente el resultado de la inspección.
-![em3](../img/needFinding/empathyMapping/Empathy%20map%20-%20Álvaro%20Torres.png)
+![em3](../img/needFinding/empathyMapping/Empathy%20map%20-%20%C3%81lvaro%20Torres.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/mnJos?tagId=nXgEG
 
 <a id="24-big-picture-eventstorming"></a>
@@ -801,4 +801,4 @@ Este glosario busca establecer una terminología común entre los miembros del e
 
 ---
 
-[← Capítulo I](capitulo-1.md) · [Contenido](../README.md#contenido) · [Capítulo III →](capitulo-3.md)
+[← Capítulo I](10-chapter-1-introduction.md) · [Contenido](../README.md#contenido) · [Capítulo III →](30-chapter-3-requirements-specification.md)

@@ -1,4 +1,4 @@
-[← Capítulo III](capitulo-3.md) · [Contenido](../README.md#contenido) · [Capítulo V →](capitulo-5.md)
+[← Capítulo III](30-chapter-3-requirements-specification.md) · [Contenido](../README.md#contenido) · [Capítulo V →](50-chapter-5-product-implementation-validation-and-deployment.md)
 
 <a id="capitulo-iv-product-design"></a>
 # Capítulo IV: Product Design
@@ -2434,4 +2434,4 @@ El flujo núcleo de FleetSafe —inspección, validación, evaluación, identifi
 
 ---
 
-[← Capítulo III](capitulo-3.md) · [Contenido](../README.md#contenido) · [Capítulo V →](capitulo-5.md)
+[← Capítulo III](30-chapter-3-requirements-specification.md) · [Contenido](../README.md#contenido) · [Capítulo V →](50-chapter-5-product-implementation-validation-and-deployment.md)

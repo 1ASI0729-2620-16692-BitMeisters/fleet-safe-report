@@ -1,4 +1,4 @@
-[← Student Outcome](../README.md#student-outcome) · [Contenido](../README.md#contenido) · [Capítulo II →](capitulo-2.md)
+[← Student Outcome](../README.md#student-outcome) · [Contenido](../README.md#contenido) · [Capítulo II →](20-chapter-2-requirements-elicitation-and-analysis.md)
 
 <a id="capitulo-i-introduccion"></a>
 # Capítulo I: Introducción
@@ -412,4 +412,4 @@ Esta clasificación inicial podrá ser revisada después de realizar la investig
 
 ---
 
-[← Student Outcome](../README.md#student-outcome) · [Contenido](../README.md#contenido) · [Capítulo II →](capitulo-2.md)
+[← Student Outcome](../README.md#student-outcome) · [Contenido](../README.md#contenido) · [Capítulo II →](20-chapter-2-requirements-elicitation-and-analysis.md)
