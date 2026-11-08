@@ -1,0 +1,42 @@
+erDiagram
+    evaluations ||--o{ evaluation_details : "se descompone en"
+    evaluation_rules ||--o{ evaluation_details : "es aplicada en"
+    evaluations ||--|| operational_authorizations : "produce"
+
+    evaluation_rules {
+        uuid id PK
+        uuid inspection_item_id "id-ref, Pre-Operational Inspection"
+        varchar name
+        varchar found_result "OK, OBSERVED, FAIL"
+        varchar resulting_impact "NONE, OBSERVED, BLOCKING"
+        text description
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }
+    evaluations {
+        uuid id PK
+        uuid inspection_id "id-ref, UNIQUE, Pre-Operational Inspection"
+        timestamp evaluated_at
+        uuid evaluated_by "id-ref, Identity and Access, nullable"
+        timestamp created_at
+    }
+    evaluation_details {
+        uuid id PK
+        uuid evaluation_id FK
+        uuid inspection_result_id "id-ref, Pre-Operational Inspection"
+        uuid evaluation_rule_id FK
+        varchar applied_impact "NONE, OBSERVED, BLOCKING"
+    }
+    operational_authorizations {
+        uuid id PK
+        uuid evaluation_id FK "UNIQUE"
+        uuid vehicle_id "id-ref, Fleet Management"
+        varchar status "ENABLED, OBSERVED, NOT_ENABLED"
+        boolean is_override "levanta un bloqueo previo"
+        text override_reason "obligatorio si is_override"
+        uuid authorized_by "id-ref, Identity and Access, obligatorio si is_override"
+        timestamp authorized_at
+        timestamp valid_until
+        timestamp created_at
+    }

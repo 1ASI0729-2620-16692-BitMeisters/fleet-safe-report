@@ -1,0 +1,53 @@
+erDiagram
+    inspections ||--o{ inspection_results : "contiene"
+    inspection_items ||--o{ inspection_results : "es verificado en"
+    inspection_results ||--o{ observations : "puede registrar"
+    observations ||--o{ evidences : "es respaldada por"
+
+    inspection_items {
+        uuid id PK
+        varchar code UK
+        varchar name
+        text description
+        varchar category "COMPONENT, SAFETY_COMPONENT, DOCUMENTATION"
+        boolean is_safety_component
+        boolean requires_evidence
+        integer display_order
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }
+    inspections {
+        uuid id PK
+        uuid vehicle_id "id-ref, Fleet Management"
+        uuid driver_id "id-ref, Fleet Management"
+        varchar status "IN_PROGRESS, COMPLETED"
+        integer odometer
+        timestamp started_at
+        timestamp completed_at
+        timestamp created_at
+        timestamp updated_at
+    }
+    inspection_results {
+        uuid id PK
+        uuid inspection_id FK
+        uuid inspection_item_id FK
+        varchar item_name "copia al momento de inspeccionar"
+        varchar item_category "copia al momento de inspeccionar"
+        varchar result "OK, OBSERVED, FAIL"
+        timestamp created_at
+    }
+    observations {
+        uuid id PK
+        uuid inspection_result_id FK
+        text description
+        uuid created_by "id-ref, Identity and Access"
+        timestamp created_at
+    }
+    evidences {
+        uuid id PK
+        uuid observation_id FK
+        varchar file_url
+        varchar media_type
+        timestamp uploaded_at
+    }

@@ -1,0 +1,23 @@
+erDiagram
+    document_types ||--o{ vehicle_documents : "clasifica"
+
+    document_types {
+        uuid id PK
+        varchar code UK
+        varchar name
+        text description
+        boolean is_required
+        boolean is_active
+    }
+    vehicle_documents {
+        uuid id PK
+        uuid vehicle_id "id-ref, Fleet Management"
+        uuid document_type_id FK
+        varchar number
+        date issue_date
+        date expiration_date
+        varchar status "VALID, EXPIRING, EXPIRED"
+        varchar file_url
+        timestamp created_at
+        timestamp updated_at
+    }
