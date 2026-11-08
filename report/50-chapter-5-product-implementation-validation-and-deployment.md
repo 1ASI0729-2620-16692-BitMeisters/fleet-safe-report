@@ -1229,8 +1229,9 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 |---|---|---|---|---|
 | Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
 | Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | GitHub Pages con GitHub Actions | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ |
-| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | Azure Container Apps, con la imagen en GitHub Container Registry | Desplegado desde `develop` | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
+| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | Azure Container Apps, con la imagen en GitHub Container Registry | Desplegado, versión 0.3.0 | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
 | Base de datos | — | Azure Database for PostgreSQL – Flexible Server | Desplegada | `fleet-safe-db.postgres.database.azure.com` |
+| Fotografías y archivos | — | Azure Blob Storage, contenedor privado | Desplegado | Cuenta `fleetsafeevidences`, contenedor `evidences` |
 
 **1. Registro de los proveedores de recursos.** Antes de crear los recursos se comprobó que la suscripción Azure for Students tiene registrados los proveedores que necesitan: `Microsoft.DBforPostgreSQL` para la base de datos, `Microsoft.App` para Azure Container Apps y `Microsoft.OperationalInsights` para los registros.
 
@@ -1285,6 +1286,35 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 **12. Registros del arranque.** El registro en tiempo real muestra que el servicio se conectó a la base `fleetsafe`, levantó Tomcat en el puerto 8080 y terminó de arrancar.
 
 ![Registros del arranque del servicio en Azure Container Apps](assets/sprint3/deployment-15-container-app-log-stream.png)
+
+**13. Almacenamiento de fotografías y archivos.** Las fotografías de las inspecciones, las evidencias de las acciones correctivas y los documentos escaneados se guardan en la cuenta de Azure Storage `fleetsafeevidences`, en el contenedor privado `evidences`. Ningún archivo es público: el servicio entrega un enlace de lectura con firma de acceso compartido, válido por una hora, cada vez que devuelve un registro con archivo. La cadena de conexión se registró en la aplicación como el secreto `storage-connection-string`, referenciado por la variable `AZURE_STORAGE_CONNECTION_STRING`.
+
+**14. Versiones del servicio.** Cada versión se publica con GitFlow: la rama `release` se integra en `main`, se etiqueta con su número y el flujo de trabajo `Delivery` publica la imagen con esa etiqueta. La aplicación se actualiza después a la imagen de la versión, primero `web-services:0.2.0` y al cierre del sprint `web-services:0.3.0`, y la documentación del servicio desplegado informa esa misma versión.
+
+**15. Datos de demostración.** Para las pruebas con usuarios se cargó una sola vez el script `db/demo-data.sql` con `psql`, después de que el servicio creara sus tablas: la empresa, su flota, dos vehículos, los tipos de documento, los 42 elementos de inspección, seis reglas de evaluación y cuatro tipos de incidencia. Para conectarse desde fuera de Azure se abrió de forma temporal el firewall del servidor para una sola dirección IP, que se retiró al terminar.
+
+**16. API simulada.** Los conductores y las asignaciones de vehículos siguen en la API simulada de Render hasta el Sprint 4. Se volvió a desplegar con la versión 0.5.0 de la Web Application para que el vehículo asignado al conductor coincida con uno de los vehículos de demostración.
+
+| Producto | Versión al cierre del Sprint 3 |
+|---|---|
+| Landing Page | 1.1.1 |
+| Frontend Web Application | 0.5.0 |
+| Backend RESTful API | 0.3.0 |
+| Informe | 0.14.0 |
+
+<a id="5238-team-collaboration-insights-during-sprint"></a>
+#### 5.2.3.8. Team Collaboration Insights during Sprint.
+
+Cada bounded context se desarrolló en una rama propia a partir de `develop` y se integró mediante su Pull Request, que en el backend debía pasar las pruebas automáticas contra PostgreSQL antes de integrarse; las versiones se publicaron en `main` con ramas `release`. Durante el sprint se integraron 82 Pull Requests: 41 en el Backend RESTful API, 20 en la Web Application, 6 en el Landing Page y 15 en el informe, y se registraron 249 commits sin contar los de merge.
+
+Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Alejandro Espino completó el trabajo pendiente de los demás bounded contexts; los commits de cada integrante se conservan con su autoría en el historial de cada repositorio.
+
+| Integrante | GitHub Username | Commits en el Backend RESTful API | Commits en la Web Application | Commits en el Landing Page | Commits en el informe | Aporte principal |
+|---|---|---:|---:|---:|---:|---|
+| Espino Flores, Alejandro | CafecitoSKR | 73 | 31 | 4 | 21 | Base compartida, Identity and Access, Evaluation and Authorization, Vehicle Documentation, endpoints e integración de las inspecciones, almacenamiento de archivos, integración de Incident Management, conexión de la Web Application con el backend y despliegue |
+| Aguilar Untiveros, Rodrigo Fabrizio | Rodri2712 | 77 | — | — | — | Incident Management en el backend |
+| Palacin Lazo, Gerardo Valentin | GeraldP03 | 11 | 14 | — | 8 | Fleet Management en el backend y en la Web Application |
+| Apaza Bocanegra, Elizabeth Noelia | Elizabeth-Apaza | 10 | — | — | — | Dominio de Pre-Operational Inspection y catálogo de elementos de inspección |
 
 <a id="53-validation-interviews"></a>
 ## 5.3. Validation Interviews.

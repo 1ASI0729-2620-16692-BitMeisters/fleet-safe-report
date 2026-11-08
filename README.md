@@ -210,6 +210,7 @@
             - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5234-development-evidence-for-sprint-review">5.2.3.4. Development Evidence for Sprint Review.</a>
             - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5236-services-documentation-evidence-for-sprint-review">5.2.3.6. Services Documentation Evidence for Sprint Review.</a>
             - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5237-software-deployment-evidence-for-sprint-review">5.2.3.7. Software Deployment Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5238-team-collaboration-insights-during-sprint">5.2.3.8. Team Collaboration Insights during Sprint.</a>
     - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#53-validation-interviews">5.3. Validation Interviews.</a>
         - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#531-diseno-de-entrevistas">5.3.1. Diseño de Entrevistas.</a>
         - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#532-registro-de-entrevistas">5.3.2. Registro de Entrevistas.</a>
