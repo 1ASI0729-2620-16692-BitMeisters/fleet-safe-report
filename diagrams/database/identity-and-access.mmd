@@ -1,0 +1,13 @@
+erDiagram
+    users {
+        uuid id PK
+        uuid company_id "id-ref, Fleet Management"
+        varchar email UK
+        varchar password_hash
+        varchar first_name
+        varchar last_name
+        varchar role "ADMINISTRATOR, FLEET_SUPERVISOR, DRIVER"
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }

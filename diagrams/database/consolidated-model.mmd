@@ -1,0 +1,160 @@
+erDiagram
+    companies ||--o{ fleets : ""
+    fleets ||--o{ vehicles : ""
+    vehicles ||--o{ vehicle_assignments : ""
+    drivers ||--o{ vehicle_assignments : ""
+    document_types ||--o{ vehicle_documents : ""
+    inspections ||--o{ inspection_results : ""
+    inspection_items ||--o{ inspection_results : ""
+    inspection_results ||--o{ observations : ""
+    observations ||--o{ evidences : ""
+    evaluations ||--o{ evaluation_details : ""
+    evaluation_rules ||--o{ evaluation_details : ""
+    evaluations ||--|| operational_authorizations : ""
+    incident_types ||--o{ incidents : ""
+    incidents ||--o{ corrective_actions : ""
+    incidents ||--o{ repairs : ""
+    incidents ||--o{ incident_follow_ups : ""
+
+    companies ||..o{ users : ""
+    users ||..o| drivers : ""
+    vehicles ||..o{ vehicle_documents : ""
+    vehicles ||..o{ inspections : ""
+    drivers ||..o{ inspections : ""
+    users ||..o{ observations : ""
+    inspection_items ||..o{ evaluation_rules : ""
+    inspections ||..|| evaluations : ""
+    users ||..o{ evaluations : ""
+    inspection_results ||..o{ evaluation_details : ""
+    vehicles ||..o{ operational_authorizations : ""
+    users ||..o{ operational_authorizations : ""
+    vehicles ||..o{ incidents : ""
+    inspections ||..o{ incidents : ""
+    users ||..o{ incidents : ""
+    users ||..o{ corrective_actions : ""
+    users ||..o{ incident_follow_ups : ""
+
+    users {
+        uuid id PK
+        uuid company_id
+        varchar role
+    }
+    companies {
+        uuid id PK
+        varchar tax_id UK
+    }
+    fleets {
+        uuid id PK
+        uuid company_id FK
+    }
+    vehicles {
+        uuid id PK
+        uuid fleet_id FK
+        varchar plate UK
+        varchar current_status
+    }
+    drivers {
+        uuid id PK
+        uuid user_id UK
+        varchar license_number UK
+    }
+    vehicle_assignments {
+        uuid id PK
+        uuid vehicle_id FK
+        uuid driver_id FK
+        boolean is_active
+    }
+    document_types {
+        uuid id PK
+        varchar code UK
+        boolean is_required
+    }
+    vehicle_documents {
+        uuid id PK
+        uuid vehicle_id
+        uuid document_type_id FK
+        date expiration_date
+        varchar status
+    }
+    inspection_items {
+        uuid id PK
+        varchar code UK
+        varchar category
+        boolean requires_evidence
+    }
+    inspections {
+        uuid id PK
+        uuid vehicle_id
+        uuid driver_id
+        varchar status
+    }
+    inspection_results {
+        uuid id PK
+        uuid inspection_id FK
+        uuid inspection_item_id FK
+        varchar result
+    }
+    observations {
+        uuid id PK
+        uuid inspection_result_id FK
+        uuid created_by
+    }
+    evidences {
+        uuid id PK
+        uuid observation_id FK
+        varchar file_url
+    }
+    evaluation_rules {
+        uuid id PK
+        uuid inspection_item_id
+        varchar found_result
+        varchar resulting_impact
+    }
+    evaluations {
+        uuid id PK
+        uuid inspection_id UK
+        uuid evaluated_by
+    }
+    evaluation_details {
+        uuid id PK
+        uuid evaluation_id FK
+        uuid inspection_result_id
+        uuid evaluation_rule_id FK
+        varchar applied_impact
+    }
+    operational_authorizations {
+        uuid id PK
+        uuid evaluation_id FK
+        uuid vehicle_id
+        varchar status
+        boolean is_override
+        uuid authorized_by
+    }
+    incident_types {
+        uuid id PK
+        varchar code UK
+    }
+    incidents {
+        uuid id PK
+        uuid vehicle_id
+        uuid incident_type_id FK
+        uuid inspection_id
+        varchar origin
+        varchar status
+        uuid reported_by
+    }
+    corrective_actions {
+        uuid id PK
+        uuid incident_id FK
+        uuid performed_by
+    }
+    repairs {
+        uuid id PK
+        uuid incident_id FK
+        varchar status
+    }
+    incident_follow_ups {
+        uuid id PK
+        uuid incident_id FK
+        uuid created_by
+    }

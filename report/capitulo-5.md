@@ -71,7 +71,7 @@ A continuación se detallan los productos de software que el equipo utiliza, org
 |:---|:---|:---|
 | **GitHub** | Alojamiento del informe en formato Markdown, que constituye el entregable evaluado, y de los repositorios de los tres productos. | https://github.com |
 | **Structurizr** | Elaboración de los diagramas C4 de la sección 4.6 a partir del archivo `workspace.dsl`. | https://structurizr.com |
-| **Mermaid** | Elaboración de los diagramas de clases de la sección 4.7 y de los diagramas de base de datos de la sección 4.8, versionados junto al informe. | https://mermaid.js.org |
+| **Mermaid** | Elaboración de los diagramas de base de datos de la sección 4.8. Su código fuente se versiona en `diagrams/database/` y el informe los incluye como imagen. | https://mermaid.js.org |
 | **OpenAPI y Swagger UI** | Documentación de los endpoints del Backend RESTful API, generada mediante springdoc-openapi y accesible desde el propio servicio. | https://swagger.io/tools/swagger-ui |
 
 ---

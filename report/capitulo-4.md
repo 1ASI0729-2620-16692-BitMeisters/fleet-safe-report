@@ -2291,168 +2291,7 @@ Ambas vistas son complementarias y responden a preguntas distintas: el modelo co
 
 En el diagrama, la **línea continua** representa una relación con clave foránea dentro de un mismo bounded context, y la **línea discontinua**, una referencia por identificador que cruza la frontera de un contexto.
 
-```mermaid
-erDiagram
-    companies ||--o{ fleets : ""
-    fleets ||--o{ vehicles : ""
-    vehicles ||--o{ vehicle_assignments : ""
-    drivers ||--o{ vehicle_assignments : ""
-    document_types ||--o{ vehicle_documents : ""
-    inspections ||--o{ inspection_results : ""
-    inspection_items ||--o{ inspection_results : ""
-    inspection_results ||--o{ observations : ""
-    observations ||--o{ evidences : ""
-    evaluations ||--o{ evaluation_details : ""
-    evaluation_rules ||--o{ evaluation_details : ""
-    evaluations ||--|| operational_authorizations : ""
-    incident_types ||--o{ incidents : ""
-    incidents ||--o{ corrective_actions : ""
-    incidents ||--o{ repairs : ""
-    incidents ||--o{ incident_follow_ups : ""
-
-    companies ||..o{ users : ""
-    users ||..o| drivers : ""
-    vehicles ||..o{ vehicle_documents : ""
-    vehicles ||..o{ inspections : ""
-    drivers ||..o{ inspections : ""
-    users ||..o{ observations : ""
-    inspection_items ||..o{ evaluation_rules : ""
-    inspections ||..|| evaluations : ""
-    users ||..o{ evaluations : ""
-    inspection_results ||..o{ evaluation_details : ""
-    vehicles ||..o{ operational_authorizations : ""
-    users ||..o{ operational_authorizations : ""
-    vehicles ||..o{ incidents : ""
-    inspections ||..o{ incidents : ""
-    users ||..o{ incidents : ""
-    users ||..o{ corrective_actions : ""
-    users ||..o{ incident_follow_ups : ""
-
-    users {
-        uuid id PK
-        uuid company_id
-        varchar role
-    }
-    companies {
-        uuid id PK
-        varchar tax_id UK
-    }
-    fleets {
-        uuid id PK
-        uuid company_id FK
-    }
-    vehicles {
-        uuid id PK
-        uuid fleet_id FK
-        varchar plate UK
-        varchar current_status
-    }
-    drivers {
-        uuid id PK
-        uuid user_id UK
-        varchar license_number UK
-    }
-    vehicle_assignments {
-        uuid id PK
-        uuid vehicle_id FK
-        uuid driver_id FK
-        boolean is_active
-    }
-    document_types {
-        uuid id PK
-        varchar code UK
-        boolean is_required
-    }
-    vehicle_documents {
-        uuid id PK
-        uuid vehicle_id
-        uuid document_type_id FK
-        date expiration_date
-        varchar status
-    }
-    inspection_items {
-        uuid id PK
-        varchar code UK
-        varchar category
-        boolean requires_evidence
-    }
-    inspections {
-        uuid id PK
-        uuid vehicle_id
-        uuid driver_id
-        varchar status
-    }
-    inspection_results {
-        uuid id PK
-        uuid inspection_id FK
-        uuid inspection_item_id FK
-        varchar result
-    }
-    observations {
-        uuid id PK
-        uuid inspection_result_id FK
-        uuid created_by
-    }
-    evidences {
-        uuid id PK
-        uuid observation_id FK
-        varchar file_url
-    }
-    evaluation_rules {
-        uuid id PK
-        uuid inspection_item_id
-        varchar found_result
-        varchar resulting_impact
-    }
-    evaluations {
-        uuid id PK
-        uuid inspection_id UK
-        uuid evaluated_by
-    }
-    evaluation_details {
-        uuid id PK
-        uuid evaluation_id FK
-        uuid inspection_result_id
-        uuid evaluation_rule_id FK
-        varchar applied_impact
-    }
-    operational_authorizations {
-        uuid id PK
-        uuid evaluation_id FK
-        uuid vehicle_id
-        varchar status
-        boolean is_override
-        uuid authorized_by
-    }
-    incident_types {
-        uuid id PK
-        varchar code UK
-    }
-    incidents {
-        uuid id PK
-        uuid vehicle_id
-        uuid incident_type_id FK
-        uuid inspection_id
-        varchar origin
-        varchar status
-        uuid reported_by
-    }
-    corrective_actions {
-        uuid id PK
-        uuid incident_id FK
-        uuid performed_by
-    }
-    repairs {
-        uuid id PK
-        uuid incident_id FK
-        varchar status
-    }
-    incident_follow_ups {
-        uuid id PK
-        uuid incident_id FK
-        uuid created_by
-    }
-```
+<img src="../img/database-design/consolidated-model.png" alt="Diagrama de base de datos consolidado de FleetSafe" width="800">
 
 El diagrama consolidado presenta las **veintidós tablas** del esquema, indicando para cada una su clave primaria y las columnas que participan en relaciones. El detalle completo de columnas, tipos y restricciones se presenta en los diagramas por bounded context de los secciónes siguientes.
 
@@ -2462,21 +2301,7 @@ Todas las columnas con el sufijo `_by` —`created_by`, `reported_by`, `performe
 
 #### Database Diagram: Identity and Access
 
-```mermaid
-erDiagram
-    users {
-        uuid id PK
-        uuid company_id "id-ref, Fleet Management"
-        varchar email UK
-        varchar password_hash
-        varchar first_name
-        varchar last_name
-        varchar role "ADMINISTRATOR, FLEET_SUPERVISOR, DRIVER"
-        boolean is_active
-        timestamp created_at
-        timestamp updated_at
-    }
-```
+<img src="../img/database-design/identity-and-access.png" alt="Diagrama de base de datos de Identity and Access" width="800">
 
 Este contexto es responsable de la identidad de las personas que acceden a la plataforma y del rol con el que lo hacen.
 
@@ -2488,62 +2313,7 @@ La columna `company_id` referencia a la empresa a la que pertenece el usuario, q
 
 #### Database Diagram: Fleet Management
 
-```mermaid
-erDiagram
-    companies ||--o{ fleets : "organiza"
-    fleets ||--o{ vehicles : "agrupa"
-    vehicles ||--o{ vehicle_assignments : "es asignado en"
-    drivers ||--o{ vehicle_assignments : "recibe"
-
-    companies {
-        uuid id PK
-        varchar name
-        varchar tax_id UK
-        varchar address
-        varchar phone
-        varchar email
-        timestamp created_at
-        timestamp updated_at
-    }
-    fleets {
-        uuid id PK
-        uuid company_id FK
-        varchar name
-        text description
-        timestamp created_at
-        timestamp updated_at
-    }
-    vehicles {
-        uuid id PK
-        uuid fleet_id FK
-        varchar plate UK
-        varchar brand
-        varchar model
-        integer year
-        varchar type
-        decimal capacity
-        varchar current_status "ENABLED, OBSERVED, NOT_ENABLED"
-        timestamp created_at
-        timestamp updated_at
-    }
-    drivers {
-        uuid id PK
-        uuid user_id UK "id-ref, Identity and Access"
-        varchar license_number UK
-        date license_expiration_date
-        timestamp created_at
-        timestamp updated_at
-    }
-    vehicle_assignments {
-        uuid id PK
-        uuid vehicle_id FK
-        uuid driver_id FK
-        date assigned_from
-        date assigned_to
-        boolean is_active
-        timestamp created_at
-    }
-```
+<img src="../img/database-design/fleet-management.png" alt="Diagrama de base de datos de Fleet Management" width="800">
 
 Este contexto es responsable de los activos sobre los que opera la plataforma: las empresas, sus flotas, los vehículos que las componen y los conductores que los operan.
 
@@ -2559,31 +2329,7 @@ Este contexto es responsable de los activos sobre los que opera la plataforma: l
 
 #### Database Diagram: Vehicle Documentation
 
-```mermaid
-erDiagram
-    document_types ||--o{ vehicle_documents : "clasifica"
-
-    document_types {
-        uuid id PK
-        varchar code UK
-        varchar name
-        text description
-        boolean is_required
-        boolean is_active
-    }
-    vehicle_documents {
-        uuid id PK
-        uuid vehicle_id "id-ref, Fleet Management"
-        uuid document_type_id FK
-        varchar number
-        date issue_date
-        date expiration_date
-        varchar status "VALID, EXPIRING, EXPIRED"
-        varchar file_url
-        timestamp created_at
-        timestamp updated_at
-    }
-```
+<img src="../img/database-design/vehicle-documentation.png" alt="Diagrama de base de datos de Vehicle Documentation" width="800">
 
 Este contexto es responsable de controlar la vigencia de los documentos asociados a cada vehículo.
 
@@ -2596,61 +2342,7 @@ Este contexto es responsable de controlar la vigencia de los documentos asociado
 
 #### Database Diagram: Pre-Operational Inspection
 
-```mermaid
-erDiagram
-    inspections ||--o{ inspection_results : "contiene"
-    inspection_items ||--o{ inspection_results : "es verificado en"
-    inspection_results ||--o{ observations : "puede registrar"
-    observations ||--o{ evidences : "es respaldada por"
-
-    inspection_items {
-        uuid id PK
-        varchar code UK
-        varchar name
-        text description
-        varchar category "COMPONENT, SAFETY_COMPONENT, DOCUMENTATION"
-        boolean is_safety_component
-        boolean requires_evidence
-        integer display_order
-        boolean is_active
-        timestamp created_at
-        timestamp updated_at
-    }
-    inspections {
-        uuid id PK
-        uuid vehicle_id "id-ref, Fleet Management"
-        uuid driver_id "id-ref, Fleet Management"
-        varchar status "IN_PROGRESS, COMPLETED"
-        integer odometer
-        timestamp started_at
-        timestamp completed_at
-        timestamp created_at
-        timestamp updated_at
-    }
-    inspection_results {
-        uuid id PK
-        uuid inspection_id FK
-        uuid inspection_item_id FK
-        varchar item_name "copia al momento de inspeccionar"
-        varchar item_category "copia al momento de inspeccionar"
-        varchar result "OK, OBSERVED, FAIL"
-        timestamp created_at
-    }
-    observations {
-        uuid id PK
-        uuid inspection_result_id FK
-        text description
-        uuid created_by "id-ref, Identity and Access"
-        timestamp created_at
-    }
-    evidences {
-        uuid id PK
-        uuid observation_id FK
-        varchar file_url
-        varchar media_type
-        timestamp uploaded_at
-    }
-```
+<img src="../img/database-design/pre-operational-inspection.png" alt="Diagrama de base de datos de Pre-Operational Inspection" width="800">
 
 Este es el contexto núcleo de la solución: registra la inspección preoperacional que el conductor realiza sobre el vehículo asignado antes de iniciar una operación.
 
@@ -2668,50 +2360,7 @@ Este es el contexto núcleo de la solución: registra la inspección preoperacio
 
 #### Database Diagram: Evaluation and Authorization
 
-```mermaid
-erDiagram
-    evaluations ||--o{ evaluation_details : "se descompone en"
-    evaluation_rules ||--o{ evaluation_details : "es aplicada en"
-    evaluations ||--|| operational_authorizations : "produce"
-
-    evaluation_rules {
-        uuid id PK
-        uuid inspection_item_id "id-ref, Pre-Operational Inspection"
-        varchar name
-        varchar found_result "OK, OBSERVED, FAIL"
-        varchar resulting_impact "NONE, OBSERVED, BLOCKING"
-        text description
-        boolean is_active
-        timestamp created_at
-        timestamp updated_at
-    }
-    evaluations {
-        uuid id PK
-        uuid inspection_id "id-ref, UNIQUE, Pre-Operational Inspection"
-        timestamp evaluated_at
-        uuid evaluated_by "id-ref, Identity and Access, nullable"
-        timestamp created_at
-    }
-    evaluation_details {
-        uuid id PK
-        uuid evaluation_id FK
-        uuid inspection_result_id "id-ref, Pre-Operational Inspection"
-        uuid evaluation_rule_id FK
-        varchar applied_impact "NONE, OBSERVED, BLOCKING"
-    }
-    operational_authorizations {
-        uuid id PK
-        uuid evaluation_id FK "UNIQUE"
-        uuid vehicle_id "id-ref, Fleet Management"
-        varchar status "ENABLED, OBSERVED, NOT_ENABLED"
-        boolean is_override "levanta un bloqueo previo"
-        text override_reason "obligatorio si is_override"
-        uuid authorized_by "id-ref, Identity and Access, obligatorio si is_override"
-        timestamp authorized_at
-        timestamp valid_until
-        timestamp created_at
-    }
-```
+<img src="../img/database-design/evaluation-and-authorization.png" alt="Diagrama de base de datos de Evaluation and Authorization" width="800">
 
 Este es el segundo contexto núcleo: aplica las reglas establecidas por la empresa sobre los resultados de una inspección y determina si el vehículo se encuentra habilitado para operar.
 
@@ -2730,61 +2379,7 @@ Este es el segundo contexto núcleo: aplica las reglas establecidas por la empre
 
 #### Database Diagram: Incident Management
 
-```mermaid
-erDiagram
-    incident_types ||--o{ incidents : "clasifica"
-    incidents ||--o{ corrective_actions : "es atendida mediante"
-    incidents ||--o{ repairs : "puede requerir"
-    incidents ||--o{ incident_follow_ups : "es seguida mediante"
-
-    incident_types {
-        uuid id PK
-        varchar code UK
-        varchar name
-        text description
-        boolean is_active
-    }
-    incidents {
-        uuid id PK
-        uuid vehicle_id "id-ref, Fleet Management"
-        uuid incident_type_id FK
-        uuid inspection_id "id-ref, nullable, Pre-Operational Inspection"
-        varchar origin "INSPECTION, OPERATION"
-        text description
-        varchar severity "LOW, MEDIUM, HIGH, CRITICAL"
-        varchar status "OPEN, IN_PROGRESS, RESOLVED, CLOSED"
-        uuid reported_by "id-ref, Identity and Access"
-        timestamp reported_at
-        varchar resolution_type
-        timestamp resolved_at
-        timestamp created_at
-        timestamp updated_at
-    }
-    corrective_actions {
-        uuid id PK
-        uuid incident_id FK
-        text description
-        uuid performed_by "id-ref, Identity and Access"
-        timestamp performed_at
-        varchar evidence_url
-    }
-    repairs {
-        uuid id PK
-        uuid incident_id FK
-        varchar workshop
-        decimal cost
-        date started_at
-        date finished_at
-        varchar status "SCHEDULED, IN_PROGRESS, COMPLETED"
-    }
-    incident_follow_ups {
-        uuid id PK
-        uuid incident_id FK
-        text note
-        uuid created_by "id-ref, Identity and Access"
-        timestamp created_at
-    }
-```
+<img src="../img/database-design/incident-management.png" alt="Diagrama de base de datos de Incident Management" width="800">
 
 Este contexto es responsable del registro, seguimiento y resolución de las incidencias detectadas en los vehículos.
 
