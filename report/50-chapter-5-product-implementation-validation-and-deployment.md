@@ -1139,6 +1139,47 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 | Frontend-Web-Application | feature/readable-incidents-and-files | f4bf57c | feat(incident): show the names of the users and the plate instead of identifiers, and attach the evidence of a corrective action | — | 2026-11-08 |
 | Web-Services | feature/readable-incidents-and-files | abe732c | fix(documentation): keep the attached file when a document is edited | — | 2026-11-08 |
 
+<a id="5235-execution-evidence-for-sprint-review"></a>
+#### 5.2.3.5. Execution Evidence for Sprint Review.
+
+Al cierre del Sprint 3, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ en su versión 0.5.1 y trabaja sobre el Backend RESTful API 0.3.0. Cada usuario entra con su propia cuenta y ve solo las opciones de su rol. El recorrido de las capturas usa los datos de demostración: el conductor Carlos Mamani inspecciona el vehículo ABC-123, encuentra desgaste en el disco de freno y lo registra con una fotografía; al enviar la inspección, las reglas de la empresa dejan el vehículo no habilitado, y la supervisora Lucía Ramos lo encuentra en el tablero de estado y registra la incidencia con su acción correctiva, su reparación y su seguimiento.
+
+**Identity and Access**
+
+![Inicio de sesión con la cuenta de la plataforma](assets/sprint3/execution-sign-in-en.png)
+
+![Usuarios de la empresa con su rol y estado, vistos por el administrador, en español](assets/sprint3/execution-users-es.png)
+
+**Pre-Operational Inspection — flujo del conductor**
+
+| Vehículo asignado (teléfono) | Resumen antes de enviar (teléfono) | Resultado (teléfono) |
+|:---:|:---:|:---:|
+| <img src="assets/sprint3/execution-mobile-start-inspection-es.png" width="220" alt="Vehículo asignado al conductor con el odómetro por registrar"> | <img src="assets/sprint3/execution-mobile-inspection-summary-es.png" width="220" alt="Resumen de la inspección con una falla en frenos y su fotografía"> | <img src="assets/sprint3/execution-mobile-inspection-result-es.png" width="220" alt="Resultado de la inspección con el vehículo no habilitado"> |
+
+![Checklist de la inspección con 38 de 42 elementos respondidos, en español](assets/sprint3/execution-inspection-checklist-es.png)
+
+![Resultado de la inspección enviada: el vehículo queda no habilitado](assets/sprint3/execution-inspection-result-en.png)
+
+**Evaluation and Authorization**
+
+![Tablero del estado operativo de los vehículos con ABC-123 no habilitado](assets/sprint3/execution-vehicle-status-board-en.png)
+
+**Incident Management**
+
+![Lista de incidencias con la incidencia de frenos de ABC-123, en español](assets/sprint3/execution-incidents-es.png)
+
+![Detalle de la incidencia con el vehículo, el origen en la inspección y quién la reportó, en español](assets/sprint3/execution-incident-detail-es.png)
+
+![Acción correctiva con su evidencia, reparación programada y seguimiento de la incidencia](assets/sprint3/execution-incident-actions-en.png)
+
+**Vehicle Documentation**
+
+![Documentos de ABC-123 con el SOAT vigente y su archivo, y el CITV próximo a vencer](assets/sprint3/execution-vehicle-documents-en.png)
+
+**Fleet Management**
+
+![Resumen de la flota leída del backend, en español](assets/sprint3/execution-fleet-es.png)
+
 <a id="5236-services-documentation-evidence-for-sprint-review"></a>
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review.
 
@@ -1298,9 +1339,13 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 | Producto | Versión al cierre del Sprint 3 |
 |---|---|
 | Landing Page | 1.1.1 |
-| Frontend Web Application | 0.5.0 |
+| Frontend Web Application | 0.5.1 |
 | Backend RESTful API | 0.3.0 |
 | Informe | 0.14.0 |
+
+![Documentación OpenAPI del servicio desplegado en su versión 0.3.0](assets/sprint3/deployment-16-swagger-version-030.png)
+
+![Versiones etiquetadas del Backend RESTful API](assets/sprint3/deployment-17-web-services-tags.png)
 
 <a id="5238-team-collaboration-insights-during-sprint"></a>
 #### 5.2.3.8. Team Collaboration Insights during Sprint.
@@ -1315,6 +1360,12 @@ Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Aleja
 | Aguilar Untiveros, Rodrigo Fabrizio | Rodri2712 | 77 | — | — | — | Incident Management en el backend |
 | Palacin Lazo, Gerardo Valentin | GeraldP03 | 11 | 14 | — | 8 | Fleet Management en el backend y en la Web Application |
 | Apaza Bocanegra, Elizabeth Noelia | Elizabeth-Apaza | 10 | — | — | — | Dominio de Pre-Operational Inspection y catálogo de elementos de inspección |
+
+![Contribuidores del repositorio del Backend RESTful API](assets/sprint3/collaboration-contributors-web-services.png)
+
+![Contribuidores del repositorio de la Web Application](assets/sprint3/collaboration-contributors-web-application.png)
+
+![Pull Requests integrados en el Backend RESTful API durante el sprint](assets/sprint3/collaboration-pull-requests-web-services.png)
 
 <a id="53-validation-interviews"></a>
 ## 5.3. Validation Interviews.
