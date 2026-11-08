@@ -911,6 +911,8 @@ Tablero del Sprint 3: https://trello.com/b/6WgfBLcZ/fleetsafe-sprint-3
 
 Durante el Sprint 3 se construyó la primera versión del Backend RESTful API en el repositorio Web Services: la base compartida alineada con el proyecto de referencia del curso, el bounded context de Identity and Access con autenticación por JWT y gestión de usuarios, el de Evaluation and Authorization con sus reglas, habilitaciones y levantamiento de bloqueos, y el de Vehicle Documentation con el control de vigencia de los documentos, además de la imagen Docker y el flujo de entrega continua que la publica. En la Web Application se completó el bounded context de Fleet Management, se incorporaron el inicio y cierre de sesión contra el backend y la gestión de usuarios, y se enlazaron los términos y la política de privacidad. El Landing Page pasó a traducirse por claves, con inglés por defecto, y se le añadieron las páginas legales.
 
+En la segunda mitad del sprint se integraron los bounded contexts restantes. En el backend se incorporaron Fleet Management, con la empresa, sus flotas y sus vehículos; Pre-Operational Inspection, con el catálogo de elementos, las inspecciones, sus observaciones y sus fotografías en Azure Blob Storage; e Incident Management, con sus acciones correctivas, reparaciones y seguimientos. Al completarse una inspección, Evaluation and Authorization la evalúa a través de una fachada y actualiza el estado operativo del vehículo. En la Web Application, los módulos de inspección, flota, incidencias y documentación dejaron la API simulada y trabajan contra el backend, y se añadió el tablero del estado operativo de los vehículos.
+
 La tabla recoge los commits del sprint integrados en los repositorios, sin los commits de merge, en orden cronológico. La columna *Branch* indica la rama del Pull Request con el que cada commit se integró en `develop`.
 
 | Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
@@ -979,6 +981,163 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 | Frontend-Web-Application | feature/iam-users | 7eb02f3 | feat(iam): let the administrator open accounts in the company | — | 2026-10-28 |
 | Frontend-Web-Application | feature/iam-users | 807ea00 | feat(iam): let the administrator change the role and status of an account | — | 2026-10-28 |
 | Frontend-Web-Application | chore/mock-vehicle-uuids | a649948 | chore(server): identify the mock vehicles by uuid like the platform backend | — | 2026-10-28 |
+| Web-Services | feature/incident | 70ab5b3 | feat(incident): add incident type aggregate | — | 2026-10-29 |
+| Web-Services | feature/incident | 3162e2c | feat(incident): add incident aggregate | — | 2026-10-29 |
+| Web-Services | feature/incident | c526a32 | feat(incident): add incident status value object | — | 2026-10-29 |
+| Web-Services | feature/incident | 433fecf | feat(incident): add incident severity value object | — | 2026-10-29 |
+| Web-Services | feature/incident | 56f1559 | feat(incident): add incident origin value object | — | 2026-10-29 |
+| Web-Services | feature/incident | a65c6a2 | feat(incident): add resolve incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | 2649119 | feat(incident): add update incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | 19f2208 | feat(incident): add report incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | 724ab0a | feat(incident): add repair status value object | — | 2026-10-29 |
+| Web-Services | feature/incident | cb22d37 | feat(incident): add schedule repair command | — | 2026-10-29 |
+| Web-Services | feature/incident | 0906fcc | feat(incident): add register corrective action command | — | 2026-10-29 |
+| Web-Services | feature/incident | 4aaf206 | feat(incident): add update incident type command | — | 2026-10-29 |
+| Web-Services | feature/incident | 55797b6 | feat(incident): add register incident type command | — | 2026-10-29 |
+| Web-Services | feature/incident | e076a3a | feat(incident): add delete incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | e899727 | feat(incident): add get incident by id query | — | 2026-10-29 |
+| Web-Services | feature/incident | 27fea3e | feat(incident): add get incidents query | — | 2026-10-29 |
+| Web-Services | feature/incident | c0ea534 | feat(incident): add incident follow-up command | — | 2026-10-29 |
+| Web-Services | feature/incident | f525bc7 | feat(incident): add complete repair command | — | 2026-10-29 |
+| Web-Services | feature/incident | ba441d0 | feat(incident): add get incidents by vehicle query | — | 2026-10-29 |
+| Web-Services | feature/incident | f7e054d | feat(incident): add get incidents by status query | — | 2026-10-29 |
+| Web-Services | feature/incident | 6512aaf | feat(incident): add get incident follow-ups query | — | 2026-10-29 |
+| Web-Services | feature/incident | 8327e44 | feat(incident): add get corrective actions query | — | 2026-10-29 |
+| Web-Services | feature/incident | 92e3384 | feat(incident): add corrective action entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 0a33612 | feat(incident): add get repairs query | — | 2026-10-29 |
+| Web-Services | feature/incident | cbb7519 | feat(incident): add get incident types query | — | 2026-10-29 |
+| Web-Services | feature/incident | d5ff554 | feat(incident): add get incident type by id query | — | 2026-10-29 |
+| Web-Services | feature/incident | 7689f54 | feat(incident): add corrective action repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 52d93fa | feat(incident): add incident type repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 638d52a | feat(incident): add incident repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 61a37e2 | feat(incident): add repair entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 4abc597 | feat(incident): add incident follow-up entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 5d150a5 | feat(incident): define incident type command failures | — | 2026-10-29 |
+| Web-Services | feature/incident | 7e6dbeb | feat(incident): define incident command service | — | 2026-10-29 |
+| Web-Services | feature/incident | 6f52621 | feat(incident): define incident command failures | — | 2026-10-29 |
+| Web-Services | feature/incident | 1d31ca1 | feat(incident): add repair repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | b79383d | feat(incident): add incident follow-up repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 4ad520e | feat(incident): define incident type query service | — | 2026-10-29 |
+| Web-Services | feature/incident | 73a51f9 | feat(incident): define incident query service | — | 2026-10-29 |
+| Web-Services | feature/incident | b8f0e15 | feat(incident): define incident type command service | — | 2026-10-29 |
+| Web-Services | feature/incident | 99743ef | feat(incident): implement incident command service | — | 2026-10-29 |
+| Web-Services | feature/incident | e4e223a | feat(incident): implement incident type command service | — | 2026-10-29 |
+| Web-Services | feature/incident | 024a945 | feat(incident): add incident type persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 7d1ca85 | feat(incident): add incident persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 7bc131f | feat(incident): implement incident type query service | — | 2026-10-29 |
+| Web-Services | feature/incident | 14c8609 | feat(incident): implement incident query service | — | 2026-10-29 |
+| Web-Services | feature/incident | 6dd5978 | feat(incident): add incident JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | 9941310 | feat(incident): add incident follow-up persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 41da6d0 | feat(incident): add repair persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 77446e7 | feat(incident): add corrective action persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 88acba3 | feat(incident): add incident follow-up JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | fdd1416 | feat(incident): add repair JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | ebc7972 | feat(incident): add corrective action JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | a28d3bb | feat(incident): add incident type JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | 2ef787e | feat(incident): add repair persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 3f0040b | feat(incident): add corrective action persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | b45014c | feat(incident): add incident type persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 64b29dc | feat(incident): add incident persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 8b3cb48 | feat(incident): implement incident repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 3f1ac1d | feat(incident): add incident follow-up persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 55b2bae | feat(incident): implement incident type repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 826652d | feat(incident): implement repair repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 4638f89 | feat(incident): implement incident follow-up repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 1de2d69 | feat(incident): implement corrective action repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 96089eb | feat(incident): add repair REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 1b24429 | feat(incident): add corrective action REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 7799de3 | feat(incident): add incident type REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | cd997c9 | feat(incident): add incident REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 27db89f | feat(incident): add incident type REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 795f4ea | feat(incident): add incident REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | a72445a | feat(incident): add incident follow-up REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 92fba9d | feat(incident): add incident type REST controller | — | 2026-10-29 |
+| Web-Services | feature/incident | 950490a | feat(incident): add incident REST controller | — | 2026-10-29 |
+| Web-Services | feature/incident | 47a1765 | feat(incident): add incident follow-up REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | d43458c | feat(incident): add repair REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 312e900 | feat(incident): add corrective action REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | fb2826c | feat(incident): add incident operations REST controller | — | 2026-10-29 |
+| Web-Services | feature/incident | c1408e8 | docs(incident): document incident endpoints with Swagger | — | 2026-10-29 |
+| Web-Services | feature/fleet-management-v2 | 3de741a | feat(fleet-management): add value objects of fleet domain layer | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 6383b3f | feat(fleet-management): add the commands, queries and vehicle registered event | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 2aeeada | feat(fleet-management): add the company, fleet and vehicle aggregates and repository ports | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 56e2382 | feat(fleet-management): add the command services with their failures | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 43d46aa | feat(fleet-management): add the query services | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 65ce869 | feat(fleet-management): add the persistence entities and repositories | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 1e217cd | feat(fleet-management): add the persistence assemblers and repository adapters | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 2357d6b | feat(fleet-management): add the request and response resources | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | c30d21a | feat(fleet-management): add the assemblers between resources, commands and responses | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 612f6c0 | feat(fleet-management): expose the company, fleet and vehicle endpoints | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | d6aef16 | feat(fleet-management): add the fleet messages in English and Spanish | — | 2026-11-07 |
+| Web-Services | chore/virtual-threads | a0616e6 | chore(config): serve requests on virtual threads | — | 2026-11-07 |
+| Web-Services | refactor/domain-event-publisher | 898779e | refactor(shared): publish the domain events of every aggregate through one publisher | — | 2026-11-07 |
+| Web-Services | chore/config-profiles | 2c9362b | chore(config): split the development and production profiles | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | b91609c | docs(adrs): record the architecture decisions of the platform | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | f4161fa | docs(adrs): describe how restore and token validation actually behave | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 4bfbd1c | docs: add the contribution guide | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 54ff0da | docs: take the refactor example from the commit history | — | 2026-11-07 |
+| Web-Services | feature/iam-tokens | 694f3de | docs(openapi): sign in through the tokens resource | — | 2026-11-07 |
+| Web-Services | feature/iam-tokens | c4bbf56 | feat(iam): sign in by creating a token at the tokens endpoint | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 10722a7 | docs(adrs): sign in through the tokens resource | — | 2026-11-07 |
+| Frontend-Web-Application | feature/iam-tokens | 7d837e7 | chore(config): sign in through the tokens endpoint of the backend | — | 2026-11-07 |
+| Web-Services | fix/problem-details-coverage | aa6781d | fix(shared): answer every request error as a translated problem detail | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 2c45dc8 | docs(adrs): cover the spring mvc and unexpected errors in the error responses | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | dc133df | feat(preoperationalinspection): define domain value objects and enums | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 85864c5 | feat(preoperationalinspection): implement Inspection and InspectionItem domain aggregates | — | 2026-11-07 |
+| Web-Services | fix/problem-details-coverage | abfe4cb | fix(shared): keep the spring mvc error messages next to the general errors | — | 2026-11-07 |
+| Web-Services | feature/email-notifications | 49727d5 | feat(iam): announce the registration of a user with a domain event | — | 2026-11-07 |
+| Web-Services | feature/email-notifications | 8199218 | feat(iam): email new users through resend when their account is opened | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 2ccad39 | docs(adrs): record the transactional email through resend | — | 2026-11-07 |
+| Frontend-Web-Application | fix/pages-path | d7bbb5b | fix(deploy): serve the web application from the path of the renamed repository | — | 2026-11-07 |
+| Landing-Page | fix/web-application-link | 52617eb | fix(cta): point the call to action to the renamed web application | — | 2026-11-07 |
+| Web-Services | fix/container-image-name | 77a29a5 | ci: keep publishing the image to the package azure pulls from | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | db05e2b | feat(preoperationalinspection): add commands and queries for inspection item management | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 2f27839 | gifix(preoperationalinspection): fix update method in InspectionItem aggregate | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 8e4f44d | feat(preoperationalinspection): implement application command and query services for inspection items | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 92cf208 | feat(preoperationalinspection): implement JPA persistence for inspection items | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 50de26b | feat(preoperationalinspection): implement JPA persistence for inspection items | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | a65c179 | feat(preoperationalinspection): expose REST endpoints for inspection items catalog | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 3883550 | feat(preoperationalinspection): implement application command and query services for inspections | — | 2026-11-07 |
+| Frontend-Web-Application | feature/documentation-backend | 8d9ec44 | feat(vehicle-documentation): manage the vehicle documents through the platform backend | — | 2026-11-07 |
+| Web-Services | feature/current-vehicle-statuses | 1a12d56 | docs(openapi): add the current operational status of every vehicle | — | 2026-11-07 |
+| Web-Services | feature/current-vehicle-statuses | 54ea17a | feat(evaluation): list the current operational status of every vehicle | — | 2026-11-07 |
+| Web-Services | feature/current-vehicle-statuses | bdcf236 | test(evaluation): cover the current operational status of every vehicle | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 60e0897 | feat(preoperationalinspection): implement JPA persistence and event publishing for inspections | — | 2026-11-07 |
+| Frontend-Web-Application | feature/evaluation-status-board | 4f642d6 | feat(evaluation): show the vehicles of the fleet by operational status | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | a242aff | fix(preoperationalinspection): let the database identify new inspection items and inspections | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | f37e84f | fix(preoperationalinspection): leave the identifier of new inspection entities to the database | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | ee4e368 | feat(preoperationalinspection): expose the inspections, their results, observations and photos | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | 62f6c52 | feat(preoperationalinspection): store the photos of the inspections in azure blob storage | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | 6b74108 | docs(openapi): start an inspection with its vehicle and list the inspections without pages | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | 01bc104 | docs(adrs): record the storage of the inspection photos in azure blob storage | — | 2026-11-07 |
+| Web-Services | feature/inspection-evaluation | 040eb4c | feat(preoperationalinspection): announce completed inspections and share their results with other contexts | — | 2026-11-07 |
+| Web-Services | feature/inspection-evaluation | 5562680 | feat(evaluation): evaluate every completed inspection and let a supervisor evaluate one on demand | — | 2026-11-07 |
+| Web-Services | feature/inspection-evaluation | 1c09e33 | fix(evaluation): type the response of the on demand evaluation | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | 4ab4ba5 | feat(inspection): run the inspection checklist against the platform backend | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | d2b2b85 | fix(fleet): read the inspection history of a vehicle from the platform backend | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | 28bc3da | feat(inspection): review and submit the inspection and show the resulting condition of the vehicle | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | 2f95378 | feat(inspection): record the observation and photos of each finding | — | 2026-11-07 |
+| Web-Services | feature/demo-data | 0ba48ea | feat(shared): load demo data for the company of the administrator on demand | — | 2026-11-07 |
+| Frontend-Web-Application | feature/fleet-backend | 1327c4f | feat(fleet): read the company, fleets and vehicles from the platform backend | — | 2026-11-07 |
+| Web-Services | feature/demo-data | efd9ba6 | chore(data): load the demo data with psql instead of at startup | — | 2026-11-07 |
+| Frontend-Web-Application | feature/evaluation-status-board | ce15ede | feat(evaluation): read the vehicles of the status board from the platform backend | — | 2026-11-07 |
+| Web-Services | feature/incident | 5fa5dfd | feat(incident): translate the messages of the incident management context | — | 2026-11-07 |
+| Web-Services | feature/incident | 57ce0bc | feat(incident): restrict the management of incidents to supervisors and administrators | — | 2026-11-07 |
+| Web-Services | feature/incident | b8b0bd5 | fix(incident): answer conflict instead of failing when an incident or repair cannot change its status | — | 2026-11-07 |
+| Web-Services | feature/incident | 5ff6ebc | test(incident): cover the lifecycle of an incident, its roles and its translated errors | — | 2026-11-07 |
+| Frontend-Web-Application | feature/incident-backend | 02f12f5 | feat(incident): manage the incidents through the platform backend | — | 2026-11-07 |
+| Web-Services | docs/incident-contract | 8f7b83b | docs(openapi): add the incident management contract | — | 2026-11-07 |
+| Web-Services | docs/incident-contract-lists | e495ce5 | docs(openapi): describe the incident lists as the objects the api returns | — | 2026-11-08 |
+| Web-Services | feature/demo-incident-types | 56d48d1 | feat(incident): load four incident types with the demo data | — | 2026-11-08 |
+| Frontend-Web-Application | feature/incident-usable-forms | bb6086e | feat(incident): choose the vehicle and inspection of an incident, and complete repairs and resolve incidents | — | 2026-11-08 |
+| Frontend-Web-Application | feature/incident-usable-forms | 945d965 | fix(incident): schedule a repair with its full start date and no end date | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | 1a9d0a9 | feat(shared): store files in a private azure blob container and expose user names to other contexts | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | 9be9c32 | feat(documentation): attach the scanned file of a vehicle document | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | b5422f6 | feat(incident): name the users of an incident and attach the evidence file of a corrective action | — | 2026-11-08 |
+| Frontend-Web-Application | feature/readable-incidents-and-files | c584c79 | fix(fleet): hide the account identifier from the driver list | — | 2026-11-08 |
+| Frontend-Web-Application | feature/readable-incidents-and-files | dbdf3fb | feat(vehicle-documentation): attach the scanned file of a document instead of typing its link | — | 2026-11-08 |
+| Frontend-Web-Application | feature/readable-incidents-and-files | f4bf57c | feat(incident): show the names of the users and the plate instead of identifiers, and attach the evidence of a corrective action | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | abe732c | fix(documentation): keep the attached file when a document is edited | — | 2026-11-08 |
 
 <a id="5236-services-documentation-evidence-for-sprint-review"></a>
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review.
