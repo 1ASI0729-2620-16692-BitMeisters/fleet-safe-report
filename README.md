@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="img/UPC.png" alt="Logo UPC" width="120px">
+  <img src="report/assets/UPC.png" alt="Logo UPC" width="120px">
 </p>
 
 <p align="center">
@@ -93,6 +93,7 @@
 | 0.11.0 | 2026-10-23 | Alejandro Espino | **Reorganización del informe en varios archivos**, como admite el enunciado ("organizado en uno o más archivos con extensión .md, siendo el archivo principal README.md"). El archivo único había alcanzado los 513 KB, cerca del límite de 512 KB a partir del cual GitHub deja de mostrar un archivo Markdown. `README.md` conserva la carátula, el registro de versiones, el índice y el Student Outcome, y cada capítulo, las conclusiones, la bibliografía y los anexos pasan a su propio archivo, con enlaces de navegación entre ellos. El contenido no cambia; se eliminó además el relleno de alineación de las tablas, que GitHub no muestra, y se añadió el encabezado de la sección 1.2.2, al que el índice ya enlazaba. |
 | 0.12.0 | 2026-10-23 | Alejandro Espino | Incorporación del Sprint Planning 3 (5.2.3.1), con la evidencia de la reunión de planificación, y de la matriz de líderes y colaboradores del Sprint 3 (5.2.3.2). Se actualizó la columna *Sprint* de la sección 3.3: las Technical Stories US38, US40, US43 y US44 pasan al Sprint 3, en el que cada integrante implementa en el backend el bounded context que desarrolló en la Web Application. |
 | 0.13.0 | 2026-10-23 | Alejandro Espino | Asignación de las historias del Sprint 3 por bounded context (5.2.3.1), que incorpora a la Web Application las User Stories que completan cada contexto, y columna de Evaluation and Authorization en la matriz de líderes (5.2.3.2). En la sección 3.3, las User Stories entregadas en el Sprint 2 pasan a ese sprint y las pendientes de identidad y flota pasan al Sprint 3; se recalculó el cuadro de distribución por sprint. |
+| 0.14.0 | 2026-11-07 | Alejandro Espino | **Corrección por retroalimentación del docente** (2026-10-30). Los Sprint Goals de 5.2.1.1, 5.2.2.1 y 5.2.3.1 se redactan en español, con las tres partes de la plantilla y en términos que entiende el Product Owner. Los diagramas de base de datos de 4.8 se incluyen como imagen y su código Mermaid se conserva en `report/assets/diagrams/database/`; se retira del informe el código Structurizr de 4.6 y se renombran sus containers según su despliegue. Los capítulos pasan a nombres con prefijo numérico, cada anexo a su propio archivo y las imágenes a `report/assets/`; se corrigen los enlaces de la tabla de contenido y las rutas de imágenes que quedaron rotas al mover los capítulos, y Contenido y Student Outcome inician en una nueva página. |
 
 <hr>
 
@@ -100,6 +101,8 @@
 # **Project Report Collaboration Insights**
 
 <hr>
+
+<div style="page-break-before: always;"></div>
 
 <a id="contenido"></a>
 # **Contenido**
@@ -112,116 +115,122 @@
 
 - <a href="#student-outcome">Student Outcome</a>
 
-- <a href="capitulo-1.md#capitulo-i-introduccion">Capítulo I: Introducción</a>
-    - <a href="capitulo-1.md#11-startup-profile">1.1. Startup Profile</a>
-        - <a href="capitulo-1.md#111-descripcion-de-la-startup">1.1.1. Descripción de la Startup</a>
-        - <a href="capitulo-1.md#112-perfiles-de-integrantes-del-equipo">1.1.2. Perfiles de integrantes del equipo</a>
-    - <a href="capitulo-1.md#12-solution-profile">1.2. Solution Profile</a>
-        - <a href="capitulo-1.md#121-antecedentes-y-problematica">1.2.1. Antecedentes y problemática</a>
-        - <a href="capitulo-1.md#122-lean-ux-process">1.2.2. Lean UX Process.</a>
-            - <a href="capitulo-1.md#1221-lean-ux-problem-statements">1.2.2.1. Lean UX Problem Statements.</a>
-            - <a href="capitulo-1.md#1222-lean-ux-assumptions">1.2.2.2. Lean UX Assumptions.</a>
-            - <a href="capitulo-1.md#1223-lean-ux-hypothesis-statements">1.2.2.3. Lean UX Hypothesis Statements.</a>
-            - <a href="capitulo-1.md#1224-lean-ux-canvas">1.2.2.4. Lean UX Canvas.</a>
-    - <a href="capitulo-1.md#13-segmentos-objetivo">1.3. Segmentos objetivo.</a>
+- <a href="report/10-chapter-1-introduction.md#capitulo-i-introduccion">Capítulo I: Introducción</a>
+    - <a href="report/10-chapter-1-introduction.md#11-startup-profile">1.1. Startup Profile</a>
+        - <a href="report/10-chapter-1-introduction.md#111-descripcion-de-la-startup">1.1.1. Descripción de la Startup</a>
+        - <a href="report/10-chapter-1-introduction.md#112-perfiles-de-integrantes-del-equipo">1.1.2. Perfiles de integrantes del equipo</a>
+    - <a href="report/10-chapter-1-introduction.md#12-solution-profile">1.2. Solution Profile</a>
+        - <a href="report/10-chapter-1-introduction.md#121-antecedentes-y-problematica">1.2.1. Antecedentes y problemática</a>
+        - <a href="report/10-chapter-1-introduction.md#122-lean-ux-process">1.2.2. Lean UX Process.</a>
+            - <a href="report/10-chapter-1-introduction.md#1221-lean-ux-problem-statements">1.2.2.1. Lean UX Problem Statements.</a>
+            - <a href="report/10-chapter-1-introduction.md#1222-lean-ux-assumptions">1.2.2.2. Lean UX Assumptions.</a>
+            - <a href="report/10-chapter-1-introduction.md#1223-lean-ux-hypothesis-statements">1.2.2.3. Lean UX Hypothesis Statements.</a>
+            - <a href="report/10-chapter-1-introduction.md#1224-lean-ux-canvas">1.2.2.4. Lean UX Canvas.</a>
+    - <a href="report/10-chapter-1-introduction.md#13-segmentos-objetivo">1.3. Segmentos objetivo.</a>
 
-- <a href="capitulo-2.md#capitulo-ii-requirements-elicitation-analysis">Capítulo II: Requirements Elicitation & Analysis</a>
-    - <a href="capitulo-2.md#21-competidores">2.1. Competidores.</a>
-        - <a href="capitulo-2.md#211-analisis-competitivo">2.1.1. Análisis competitivo.</a>
-        - <a href="capitulo-2.md#212-estrategias-y-tacticas-frente-a-competidores">2.1.2. Estrategias y tácticas frente a competidores.</a>
-    - <a href="capitulo-2.md#22-entrevistas">2.2. Entrevistas.</a>
-        - <a href="capitulo-2.md#221-diseno-de-entrevistas">2.2.1. Diseño de entrevistas.</a>
-        - <a href="capitulo-2.md#222-registro-de-entrevistas">2.2.2. Registro de entrevistas.</a>
-        - <a href="capitulo-2.md#223-analisis-de-entrevistas">2.2.3. Análisis de entrevistas.</a>
-    - <a href="capitulo-2.md#23-needfinding">2.3. Needfinding.</a>
-        - <a href="capitulo-2.md#231-user-personas">2.3.1. User Personas.</a>
-        - <a href="capitulo-2.md#232-user-task-matrix">2.3.2. User Task Matrix.</a>
-        - <a href="capitulo-2.md#233-user-journey-mapping">2.3.3. User Journey Mapping.</a>
-        - <a href="capitulo-2.md#234-empathy-mapping">2.3.4. Empathy Mapping.</a>
-    - <a href="capitulo-2.md#24-big-picture-eventstorming">2.4. Big Picture EventStorming.</a>
-    - <a href="capitulo-2.md#25-ubiquitous-language">2.5. Ubiquitous Language.</a>
+- <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#capitulo-ii-requirements-elicitation-analysis">Capítulo II: Requirements Elicitation & Analysis</a>
+    - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#21-competidores">2.1. Competidores.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#211-analisis-competitivo">2.1.1. Análisis competitivo.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#212-estrategias-y-tacticas-frente-a-competidores">2.1.2. Estrategias y tácticas frente a competidores.</a>
+    - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#22-entrevistas">2.2. Entrevistas.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#221-diseno-de-entrevistas">2.2.1. Diseño de entrevistas.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#222-registro-de-entrevistas">2.2.2. Registro de entrevistas.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#223-analisis-de-entrevistas">2.2.3. Análisis de entrevistas.</a>
+    - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#23-needfinding">2.3. Needfinding.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#231-user-personas">2.3.1. User Personas.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#232-user-task-matrix">2.3.2. User Task Matrix.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#233-user-journey-mapping">2.3.3. User Journey Mapping.</a>
+        - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#234-empathy-mapping">2.3.4. Empathy Mapping.</a>
+    - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#24-big-picture-eventstorming">2.4. Big Picture EventStorming.</a>
+    - <a href="report/20-chapter-2-requirements-elicitation-and-analysis.md#25-ubiquitous-language">2.5. Ubiquitous Language.</a>
 
-- <a href="capitulo-3.md#capitulo-iii-requirements-specification">Capítulo III: Requirements Specification</a>
-    - <a href="capitulo-3.md#31-user-stories">3.1. User Stories.</a>
-    - <a href="capitulo-3.md#32-impact-mapping">3.2. Impact Mapping.</a>
-    - <a href="capitulo-3.md#33-product-backlog">3.3. Product Backlog.</a>
+- <a href="report/30-chapter-3-requirements-specification.md#capitulo-iii-requirements-specification">Capítulo III: Requirements Specification</a>
+    - <a href="report/30-chapter-3-requirements-specification.md#31-user-stories">3.1. User Stories.</a>
+    - <a href="report/30-chapter-3-requirements-specification.md#32-impact-mapping">3.2. Impact Mapping.</a>
+    - <a href="report/30-chapter-3-requirements-specification.md#33-product-backlog">3.3. Product Backlog.</a>
 
-- <a href="capitulo-4.md#capitulo-iv-product-design">Capítulo IV: Product Design</a>
-    - <a href="capitulo-4.md#41-style-guidelines">4.1. Style Guidelines.</a>
-        - <a href="capitulo-4.md#411-general-style-guidelines">4.1.1. General Style Guidelines.</a>
-        - <a href="capitulo-4.md#412-web-style-guidelines">4.1.2. Web Style Guidelines.</a>
-    - <a href="capitulo-4.md#42-information-architecture">4.2. Information Architecture.</a>
-        - <a href="capitulo-4.md#421-organization-systems">4.2.1. Organization Systems.</a>
-        - <a href="capitulo-4.md#422-labeling-systems">4.2.2. Labeling Systems.</a>
-        - <a href="capitulo-4.md#423-seo-tags-and-meta-tags">4.2.3. SEO Tags and Meta Tags.</a>
-        - <a href="capitulo-4.md#424-searching-systems">4.2.4. Searching Systems.</a>
-        - <a href="capitulo-4.md#425-navigation-systems">4.2.5. Navigation Systems.</a>
-    - <a href="capitulo-4.md#43-landing-page-ui-design">4.3. Landing Page UI Design.</a>
-        - <a href="capitulo-4.md#431-landing-page-wireframe">4.3.1. Landing Page Wireframe.</a>
-        - <a href="capitulo-4.md#432-landing-page-mock-up">4.3.2. Landing Page Mock-up.</a>
-    - <a href="capitulo-4.md#44-web-applications-uxui-design">4.4. Web Applications UX/UI Design.</a>
-        - <a href="capitulo-4.md#441-web-applications-wireframes">4.4.1. Web Applications Wireframes.</a>
-        - <a href="capitulo-4.md#442-web-applications-wireflow-diagrams">4.4.2. Web Applications Wireflow Diagrams.</a>
-        - <a href="capitulo-4.md#443-web-applications-mock-ups">4.4.3. Web Applications Mock-ups.</a>
-        - <a href="capitulo-4.md#444-web-applications-user-flow-diagrams">4.4.4. Web Applications User Flow Diagrams.</a>
-    - <a href="capitulo-4.md#45-web-applications-prototyping">4.5. Web Applications Prototyping.</a>
-    - <a href="capitulo-4.md#46-domain-driven-software-architecture">4.6. Domain-Driven Software Architecture.</a>
-        - <a href="capitulo-4.md#461-design-level-event-storming">4.6.1. Design-level Event Storming.</a>
-        - <a href="capitulo-4.md#462-software-architecture-context-diagram">4.6.2. Software Architecture Context Diagram.</a>
-        - <a href="capitulo-4.md#463-software-architecture-container-diagrams">4.6.3. Software Architecture Container Diagrams.</a>
-        - <a href="capitulo-4.md#464-software-architecture-components-diagrams">4.6.4. Software Architecture Components Diagrams.</a>
-    - <a href="capitulo-4.md#47-software-object-oriented-design">4.7. Software Object-Oriented Design.</a>
-        - <a href="capitulo-4.md#471-class-diagrams">4.7.1. Class Diagrams.</a>
-    - <a href="capitulo-4.md#48-database-design">4.8. Database Design.</a>
-        - <a href="capitulo-4.md#481-database-diagrams">4.8.1. Database Diagrams.</a>
+- <a href="report/40-chapter-4-product-design.md#capitulo-iv-product-design">Capítulo IV: Product Design</a>
+    - <a href="report/40-chapter-4-product-design.md#41-style-guidelines">4.1. Style Guidelines.</a>
+        - <a href="report/40-chapter-4-product-design.md#411-general-style-guidelines">4.1.1. General Style Guidelines.</a>
+        - <a href="report/40-chapter-4-product-design.md#412-web-style-guidelines">4.1.2. Web Style Guidelines.</a>
+    - <a href="report/40-chapter-4-product-design.md#42-information-architecture">4.2. Information Architecture.</a>
+        - <a href="report/40-chapter-4-product-design.md#421-organization-systems">4.2.1. Organization Systems.</a>
+        - <a href="report/40-chapter-4-product-design.md#422-labeling-systems">4.2.2. Labeling Systems.</a>
+        - <a href="report/40-chapter-4-product-design.md#423-seo-tags-and-meta-tags">4.2.3. SEO Tags and Meta Tags.</a>
+        - <a href="report/40-chapter-4-product-design.md#424-searching-systems">4.2.4. Searching Systems.</a>
+        - <a href="report/40-chapter-4-product-design.md#425-navigation-systems">4.2.5. Navigation Systems.</a>
+    - <a href="report/40-chapter-4-product-design.md#43-landing-page-ui-design">4.3. Landing Page UI Design.</a>
+        - <a href="report/40-chapter-4-product-design.md#431-landing-page-wireframe">4.3.1. Landing Page Wireframe.</a>
+        - <a href="report/40-chapter-4-product-design.md#432-landing-page-mock-up">4.3.2. Landing Page Mock-up.</a>
+    - <a href="report/40-chapter-4-product-design.md#44-web-applications-uxui-design">4.4. Web Applications UX/UI Design.</a>
+        - <a href="report/40-chapter-4-product-design.md#441-web-applications-wireframes">4.4.1. Web Applications Wireframes.</a>
+        - <a href="report/40-chapter-4-product-design.md#442-web-applications-wireflow-diagrams">4.4.2. Web Applications Wireflow Diagrams.</a>
+        - <a href="report/40-chapter-4-product-design.md#443-web-applications-mock-ups">4.4.3. Web Applications Mock-ups.</a>
+        - <a href="report/40-chapter-4-product-design.md#444-web-applications-user-flow-diagrams">4.4.4. Web Applications User Flow Diagrams.</a>
+    - <a href="report/40-chapter-4-product-design.md#45-web-applications-prototyping">4.5. Web Applications Prototyping.</a>
+    - <a href="report/40-chapter-4-product-design.md#46-domain-driven-software-architecture">4.6. Domain-Driven Software Architecture.</a>
+        - <a href="report/40-chapter-4-product-design.md#461-design-level-event-storming">4.6.1. Design-level Event Storming.</a>
+        - <a href="report/40-chapter-4-product-design.md#462-software-architecture-context-diagram">4.6.2. Software Architecture Context Diagram.</a>
+        - <a href="report/40-chapter-4-product-design.md#463-software-architecture-container-diagrams">4.6.3. Software Architecture Container Diagrams.</a>
+        - <a href="report/40-chapter-4-product-design.md#464-software-architecture-components-diagrams">4.6.4. Software Architecture Components Diagrams.</a>
+    - <a href="report/40-chapter-4-product-design.md#47-software-object-oriented-design">4.7. Software Object-Oriented Design.</a>
+        - <a href="report/40-chapter-4-product-design.md#471-class-diagrams">4.7.1. Class Diagrams.</a>
+    - <a href="report/40-chapter-4-product-design.md#48-database-design">4.8. Database Design.</a>
+        - <a href="report/40-chapter-4-product-design.md#481-database-diagrams">4.8.1. Database Diagrams.</a>
 
-- <a href="capitulo-5.md#capitulo-v-product-implementation-validation-deployment">Capítulo V: Product Implementation, Validation & Deployment</a>
-    - <a href="capitulo-5.md#51-software-configuration-management">5.1. Software Configuration Management.</a>
-        - <a href="capitulo-5.md#511-software-development-environment-configuration">5.1.1. Software Development Environment Configuration.</a>
-        - <a href="capitulo-5.md#512-source-code-management">5.1.2. Source Code Management.</a>
-        - <a href="capitulo-5.md#513-source-code-style-guide-and-conventions">5.1.3. Source Code Style Guide and Conventions.</a>
-        - <a href="capitulo-5.md#514-software-deployment-configuration">5.1.4. Software Deployment Configuration.</a>
-    - <a href="capitulo-5.md#52-landing-page-services-applications-implementation">5.2. Landing Page, Services & Applications Implementation.</a>
-        - <a href="capitulo-5.md#521-sprint-1">5.2.1. Sprint 1</a>
-            - <a href="capitulo-5.md#5211-sprint-planning-1">5.2.1.1. Sprint Planning 1.</a>
-            - <a href="capitulo-5.md#5212-aspect-leader-and-colaborators">5.2.1.2. Aspect Leader and Colaborators.</a>
-            - <a href="capitulo-5.md#5213-sprint-backlog-1">5.2.1.3. Sprint Backlog 1.</a>
-            - <a href="capitulo-5.md#5214-development-evidence-for-sprint-review">5.2.1.4. Development Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5215-execution-evidence-for-sprint-review">5.2.1.5. Execution Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5216-services-documentation-evidence-for-sprint-review">5.2.1.6. Services Documentation Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5217-software-deployment-evidence-for-sprint-review">5.2.1.7. Software Deployment Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5218-team-colaboration-insights-during-sprint">5.2.1.8. Team Colaboration Insights during Sprint.</a>
-        - <a href="capitulo-5.md#522-sprint-2">5.2.2. Sprint 2</a>
-            - <a href="capitulo-5.md#5221-sprint-planning-2">5.2.2.1. Sprint Planning 2.</a>
-            - <a href="capitulo-5.md#5222-aspect-leaders-and-collaborators">5.2.2.2. Aspect Leaders and Collaborators.</a>
-            - <a href="capitulo-5.md#5223-sprint-backlog-2">5.2.2.3. Sprint Backlog 2.</a>
-            - <a href="capitulo-5.md#5224-development-evidence-for-sprint-review">5.2.2.4. Development Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5225-execution-evidence-for-sprint-review">5.2.2.5. Execution Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5226-services-documentation-evidence-for-sprint-review">5.2.2.6. Services Documentation Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5227-software-deployment-evidence-for-sprint-review">5.2.2.7. Software Deployment Evidence for Sprint Review.</a>
-            - <a href="capitulo-5.md#5228-team-collaboration-insights-during-sprint">5.2.2.8. Team Collaboration Insights during Sprint.</a>
-        - <a href="capitulo-5.md#523-sprint-3">5.2.3. Sprint 3</a>
-            - <a href="capitulo-5.md#5231-sprint-planning-3">5.2.3.1. Sprint Planning 3.</a>
-            - <a href="capitulo-5.md#5232-aspect-leaders-and-collaborators">5.2.3.2. Aspect Leaders and Collaborators.</a>
-    - <a href="capitulo-5.md#53-validation-interviews">5.3. Validation Interviews.</a>
-        - <a href="capitulo-5.md#531-diseno-de-entrevistas">5.3.1. Diseño de Entrevistas.</a>
-        - <a href="capitulo-5.md#532-registro-de-entrevistas">5.3.2. Registro de Entrevistas.</a>
-        - <a href="capitulo-5.md#533-evaluaciones-segun-heuristicas">5.3.3. Evaluaciones según heurísticas.</a>
-    - <a href="capitulo-5.md#54-video-about-the-product">5.4. Video About-the-Product.</a>
+- <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#capitulo-v-product-implementation-validation-deployment">Capítulo V: Product Implementation, Validation & Deployment</a>
+    - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#51-software-configuration-management">5.1. Software Configuration Management.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#511-software-development-environment-configuration">5.1.1. Software Development Environment Configuration.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#512-source-code-management">5.1.2. Source Code Management.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#513-source-code-style-guide-and-conventions">5.1.3. Source Code Style Guide and Conventions.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#514-software-deployment-configuration">5.1.4. Software Deployment Configuration.</a>
+    - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#52-landing-page-services-applications-implementation">5.2. Landing Page, Services & Applications Implementation.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#521-sprint-1">5.2.1. Sprint 1</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5211-sprint-planning-1">5.2.1.1. Sprint Planning 1.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5212-aspect-leader-and-colaborators">5.2.1.2. Aspect Leader and Colaborators.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5213-sprint-backlog-1">5.2.1.3. Sprint Backlog 1.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5214-development-evidence-for-sprint-review">5.2.1.4. Development Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5215-execution-evidence-for-sprint-review">5.2.1.5. Execution Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5216-services-documentation-evidence-for-sprint-review">5.2.1.6. Services Documentation Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5217-software-deployment-evidence-for-sprint-review">5.2.1.7. Software Deployment Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5218-team-colaboration-insights-during-sprint">5.2.1.8. Team Colaboration Insights during Sprint.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#522-sprint-2">5.2.2. Sprint 2</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5221-sprint-planning-2">5.2.2.1. Sprint Planning 2.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5222-aspect-leaders-and-collaborators">5.2.2.2. Aspect Leaders and Collaborators.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5223-sprint-backlog-2">5.2.2.3. Sprint Backlog 2.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5224-development-evidence-for-sprint-review">5.2.2.4. Development Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5225-execution-evidence-for-sprint-review">5.2.2.5. Execution Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5226-services-documentation-evidence-for-sprint-review">5.2.2.6. Services Documentation Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5227-software-deployment-evidence-for-sprint-review">5.2.2.7. Software Deployment Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5228-team-collaboration-insights-during-sprint">5.2.2.8. Team Collaboration Insights during Sprint.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#523-sprint-3">5.2.3. Sprint 3</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5231-sprint-planning-3">5.2.3.1. Sprint Planning 3.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5232-aspect-leaders-and-collaborators">5.2.3.2. Aspect Leaders and Collaborators.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5233-sprint-backlog-3">5.2.3.3. Sprint Backlog 3.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5234-development-evidence-for-sprint-review">5.2.3.4. Development Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5236-services-documentation-evidence-for-sprint-review">5.2.3.6. Services Documentation Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5237-software-deployment-evidence-for-sprint-review">5.2.3.7. Software Deployment Evidence for Sprint Review.</a>
+    - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#53-validation-interviews">5.3. Validation Interviews.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#531-diseno-de-entrevistas">5.3.1. Diseño de Entrevistas.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#532-registro-de-entrevistas">5.3.2. Registro de Entrevistas.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#533-evaluaciones-segun-heuristicas">5.3.3. Evaluaciones según heurísticas.</a>
+    - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#54-video-about-the-product">5.4. Video About-the-Product.</a>
 
-- <a href="conclusiones.md#conclusiones">Conclusiones</a>
-    - <a href="conclusiones.md#conclusiones-y-recomendaciones">Conclusiones y recomendaciones.</a>
-    - <a href="conclusiones.md#video-about-the-team">Video About-the-Team.</a>
+- <a href="report/90-conclusions.md#conclusiones">Conclusiones</a>
+    - <a href="report/90-conclusions.md#conclusiones-y-recomendaciones">Conclusiones y recomendaciones.</a>
+    - <a href="report/90-conclusions.md#video-about-the-team">Video About-the-Team.</a>
 
-- <a href="bibliografia.md#bibliografia">Bibliografía</a>
+- <a href="report/99-bibliography.md#bibliografia">Bibliografía</a>
 
-- <a href="anexos.md#anexos">Anexos</a>
-    - <a href="anexos.md#anexo-a-videos-de-exposiciones">Anexo A — Videos de Exposiciones</a>
-    - <a href="anexos.md#anexo-b-videos-de-entrevistas">Anexo B — Videos de Entrevistas</a>
-    - <a href="anexos.md#anexo-c-enlaces-de-los-productos">Anexo C — Enlaces de los productos y repositorios</a>
+- <a href="report/annexes/annex-a-presentation-videos.md#anexos">Anexos</a>
+    - <a href="report/annexes/annex-a-presentation-videos.md#anexo-a-videos-de-exposiciones">Anexo A — Videos de Exposiciones</a>
+    - <a href="report/annexes/annex-b-interview-videos.md#anexo-b-videos-de-entrevistas">Anexo B — Videos de Entrevistas</a>
+    - <a href="report/annexes/annex-c-product-links.md#anexo-c-enlaces-de-los-productos">Anexo C — Enlaces de los productos y repositorios</a>
 
 <hr>
 
+
+<div style="page-break-before: always;"></div>
 
 <a id="student-outcome"></a>
 # **Student Outcome**
@@ -244,4 +253,4 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 ---
 
-[Capítulo I: Introducción →](capitulo-1.md)
+[Capítulo I: Introducción →](report/10-chapter-1-introduction.md)

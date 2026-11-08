@@ -1,0 +1,24 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  s [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  scr [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="104" HEIGHT="204"><IMG SRC="../mockups/01-sign-in-mobile.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Pantalla del mock-up</B></TD></TR></TABLE>>];
+  act [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Acción que ejecuta el<BR/>usuario>];
+  sy [shape=box, style="rounded,filled", fillcolor="#D6E4F0", color="#1D4E89", label=<<B>El sistema</B><BR/>Paso que ejecuta el sistema>];
+  dec [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<Condición>];
+  err [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>Mensaje o estado de error;<BR/>el usuario retoma el flujo>];
+  ok [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>Objetivo cumplido>];
+  bad [shape=box, style="rounded,filled,bold", fillcolor="#FDECE8", color="#B8432B", penwidth=2, label=<<B>Fin</B><BR/>Salida del flujo con el<BR/>vehículo no habilitado>];
+  alt [shape=box, style="rounded,filled", fillcolor="#E0E0E0", color="#4A4A4A", label=<<B>Fin alternativo</B><BR/>El usuario abandona el flujo>];
+  s -> scr [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  scr -> act [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Happy path</B>>];
+  act -> sy [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  sy -> dec [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  dec -> ok [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  dec -> err [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  err -> alt [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Abandona</B>>];
+  dec -> bad [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Salida bloqueante</B>>, constraint=false];
+  { rank=same; dec; err; }
+}

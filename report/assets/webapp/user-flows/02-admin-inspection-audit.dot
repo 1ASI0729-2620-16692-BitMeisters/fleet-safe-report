@@ -1,0 +1,31 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  s1 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="256" HEIGHT="144"><IMG SRC="../mockups/11-inspection-history-desktop.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Inspection history</B></TD></TR></TABLE>>];
+  a1 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Elige «Vehicle», «From»,<BR/>«To» y «Result» y presiona<BR/>«Apply»>];
+  d1 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿El rango «From» -<BR/>«To» es válido?>];
+  u1 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>El filtro marca el rango y<BR/>no se aplica; el<BR/>administrador corrige las<BR/>fechas>];
+  d2 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Hay inspecciones<BR/>en el rango?>];
+  u2 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>La tabla queda vacía; el<BR/>administrador amplía el<BR/>rango o cambia el filtro>];
+  a2 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Revisa los contadores y<BR/>las filas con «Yes» en<BR/>«Exception»>];
+  a3 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Presiona «Export PDF»>];
+  y1 [shape=box, style="rounded,filled", fillcolor="#D6E4F0", color="#1D4E89", label=<<B>El sistema</B><BR/>genera el PDF del historial<BR/>filtrado>];
+  e1 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>Dispone del respaldo para<BR/>responder a una auditoría>];
+  start -> s1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  s1 -> a1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a1 -> d1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d1 -> d2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d1 -> u1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  u1 -> s1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Corrige</B>>, constraint=false];
+  d2 -> a2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d2 -> u2 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  u2 -> s1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Reintenta</B>>, constraint=false];
+  a2 -> a3 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a3 -> y1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  y1 -> e1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  { rank=same; d1; u1; }
+  { rank=same; d2; u2; }
+}

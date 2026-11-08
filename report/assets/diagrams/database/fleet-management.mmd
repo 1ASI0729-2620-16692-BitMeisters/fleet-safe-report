@@ -1,0 +1,54 @@
+erDiagram
+    companies ||--o{ fleets : "organiza"
+    fleets ||--o{ vehicles : "agrupa"
+    vehicles ||--o{ vehicle_assignments : "es asignado en"
+    drivers ||--o{ vehicle_assignments : "recibe"
+
+    companies {
+        uuid id PK
+        varchar name
+        varchar tax_id UK
+        varchar address
+        varchar phone
+        varchar email
+        timestamp created_at
+        timestamp updated_at
+    }
+    fleets {
+        uuid id PK
+        uuid company_id FK
+        varchar name
+        text description
+        timestamp created_at
+        timestamp updated_at
+    }
+    vehicles {
+        uuid id PK
+        uuid fleet_id FK
+        varchar plate UK
+        varchar brand
+        varchar model
+        integer year
+        varchar type
+        decimal capacity
+        varchar current_status "ENABLED, OBSERVED, NOT_ENABLED"
+        timestamp created_at
+        timestamp updated_at
+    }
+    drivers {
+        uuid id PK
+        uuid user_id UK "id-ref, Identity and Access"
+        varchar license_number UK
+        date license_expiration_date
+        timestamp created_at
+        timestamp updated_at
+    }
+    vehicle_assignments {
+        uuid id PK
+        uuid vehicle_id FK
+        uuid driver_id FK
+        date assigned_from
+        date assigned_to
+        boolean is_active
+        timestamp created_at
+    }

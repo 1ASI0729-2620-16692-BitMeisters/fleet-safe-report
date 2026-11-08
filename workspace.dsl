@@ -13,7 +13,7 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
 
         fleetsafe = softwareSystem "FleetSafe" "Registers pre-operational inspections, evaluates their results against the rules defined by the company and determines whether a vehicle is authorized to operate." {
 
-            landing = container "Landing Page" "Static site that presents the value proposition and directs each target segment to the corresponding view of the web application." "HTML5, CSS3, JavaScript" {
+            website = container "Website" "Static website that presents the value proposition of FleetSafe and directs each target segment to the web application." "HTML5, CSS3, JavaScript - GitHub Pages" "Static Content" {
                 landingNavigation = component "Navigation Bar" "Provides access to the content sections and to the sign-in and sign-up entry points." "HTML, CSS"
                 landingContent = component "Content Sections" "Presents the problem, the platform, the process, the profiles and the frequently asked questions." "HTML, CSS"
                 landingSegmentCta = component "Segment Call to Action" "Directs each target segment to the view of the web application that corresponds to its role." "HTML, JavaScript"
@@ -21,7 +21,9 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
                 landingI18n = component "Language Switcher" "Switches the content between en_US and es_419 and sets the corresponding language attribute." "JavaScript"
             }
 
-            webapp = container "Web Application" "Allows each user to operate the platform according to the role granted to their account." "Angular, Angular Material, TypeScript" {
+            webApplicationStatic = container "Web Application Static Content" "Serves the HTML, CSS and JavaScript files produced by the build of the single-page application." "Angular build - GitHub Pages" "Static Content"
+
+            singlePageApplication = container "Single-Page Application" "Runs entirely in the user's web browser and allows each user to operate the platform according to the role granted to their account." "Angular, Angular Material, TypeScript" "Web Browser" {
                 webAuth = component "Authentication Feature" "Presents the sign-in view and keeps the session of the authenticated user." "Angular Feature Module"
                 webInspection = component "Inspection Feature" "Presents the pre-operational inspection to the driver and registers the result of each inspection item, its observations and its evidence." "Angular Feature Module"
                 webFleet = component "Fleet Feature" "Presents the fleet, the vehicles, the drivers and the assignments between them." "Angular Feature Module"
@@ -35,7 +37,7 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
                 webSharedUi = component "Shared UI Components" "Provides the components of the design system, with the ARIA attributes required for accessibility." "Angular Material"
             }
 
-            api = container "Backend RESTful API" "Exposes the business logic of FleetSafe, documented with OpenAPI." "Spring Boot, Spring Data JPA, Java" {
+            webServices = container "Web Services" "RESTful API that exposes the business logic of FleetSafe, organized by bounded context and documented with OpenAPI." "Spring Boot, Spring Data JPA, Java - Azure Container Apps" "Web Service" {
 
                 group "Identity and Access" {
                     identityController = component "Identity Controller" "Exposes the sign-in, sign-up and user administration endpoints." "Spring REST Controller"
@@ -84,15 +86,16 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
                 }
             }
 
-            database = container "Database" "Stores users, fleet assets, documents, inspections, evaluations, authorizations and incidents." "PostgreSQL" "Database"
+            database = container "FleetSafe Database" "Single database of the product. Stores users, fleet assets, documents, inspections, evaluations, authorizations and incidents." "PostgreSQL - Azure Database for PostgreSQL" "Database"
         }
 
-        visitor -> landing "Evaluates the value proposition" "HTTPS"
-        administrator -> landing "Visits" "HTTPS"
-        supervisor -> landing "Visits" "HTTPS"
-        driver -> landing "Visits" "HTTPS"
-        landingSegmentCta -> webapp "Directs each segment to its corresponding view" "HTTPS"
-        landing -> webapp "Directs each target segment to its corresponding view" "HTTPS"
+        visitor -> website "Visits to evaluate the value proposition" "HTTPS"
+        website -> webApplicationStatic "Directs each target segment to the web application" "HTTPS"
+        landingSegmentCta -> webApplicationStatic "Directs each segment to its corresponding view" "HTTPS"
+        administrator -> webApplicationStatic "Visits the web application URL" "HTTPS"
+        supervisor -> webApplicationStatic "Visits the web application URL" "HTTPS"
+        driver -> webApplicationStatic "Visits the web application URL" "HTTPS"
+        webApplicationStatic -> singlePageApplication "Delivers to the user's web browser"
 
         visitor -> landingNavigation "Browses the site through"
         visitor -> landingContent "Reads the value proposition in"
@@ -104,9 +107,9 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
         landingI18n -> landingContent "Switches the language of"
         landingI18n -> landingLegal "Switches the language of"
 
-        administrator -> webapp "Manages users, catalogs and evaluation rules" "HTTPS"
-        supervisor -> webapp "Supervises vehicles, manages incidents and authorizes exceptions" "HTTPS"
-        driver -> webapp "Performs pre-operational inspections" "HTTPS"
+        administrator -> singlePageApplication "Manages users, catalogs and evaluation rules using"
+        supervisor -> singlePageApplication "Supervises vehicles, manages incidents and authorizes exceptions using"
+        driver -> singlePageApplication "Performs pre-operational inspections using"
 
         administrator -> webAuth "Signs in"
         supervisor -> webAuth "Signs in"
@@ -134,13 +137,13 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
         webSharedUi -> webI18n "Resolves the interface texts"
         webRoleGuard -> webAuth "Consults the role of the session"
         webApiClient -> webAuthInterceptor "Passes through"
-        webAuthInterceptor -> api "Consumes services" "JSON/HTTPS"
-        webapp -> securityFilter "Sends authenticated requests to" "JSON/HTTPS"
+        webAuthInterceptor -> webServices "Makes API calls to" "JSON/HTTPS"
+        singlePageApplication -> securityFilter "Sends authenticated requests to" "JSON/HTTPS"
 
-        webapp -> api "Consumes services" "JSON/HTTPS"
-        api -> database "Reads and writes" "JDBC"
-        api -> storageService "Stores and retrieves evidence" "HTTPS"
-        api -> emailSystem "Sends notifications" "SMTP"
+        singlePageApplication -> webServices "Makes API calls to" "JSON/HTTPS"
+        webServices -> database "Reads from and writes to" "JDBC"
+        webServices -> storageService "Stores and retrieves evidence" "HTTPS"
+        webServices -> emailSystem "Sends notifications" "SMTP"
         fleetsafe -> emailSystem "Sends notifications" "SMTP"
         fleetsafe -> storageService "Stores photographic evidence" "HTTPS"
         administrator -> fleetsafe "Manages users, catalogs and evaluation rules" "HTTPS"
@@ -222,20 +225,20 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
 
         container fleetsafe "Containers" "Diagrama de contenedores de FleetSafe." {
             include *
-            autolayout lr
+            autolayout tb
         }
 
-        component landing "ComponentsLanding" "Diagrama de componentes del container Landing Page." {
+        component website "ComponentsLanding" "Diagrama de componentes del container Website." {
             include *
             autolayout lr
         }
 
-        component webapp "ComponentsWebApp" "Diagrama de componentes del container Web Application." {
+        component singlePageApplication "ComponentsWebApp" "Diagrama de componentes del container Single-Page Application." {
             include *
             autolayout tb
         }
 
-        component api "ComponentsApi" "Diagrama de componentes del container Backend RESTful API." {
+        component webServices "ComponentsApi" "Diagrama de componentes del container Web Services." {
             include *
             autolayout tb
         }
@@ -257,6 +260,15 @@ workspace "FleetSafe" "Plataforma web de seguridad y control preventivo vehicula
             element "Container" {
                 background #3b82f6
                 color #ffffff
+            }
+            element "Static Content" {
+                shape folder
+            }
+            element "Web Browser" {
+                shape webbrowser
+            }
+            element "Web Service" {
+                shape shell
             }
             element "Database" {
                 shape cylinder

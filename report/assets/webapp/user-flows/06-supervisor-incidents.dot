@@ -1,0 +1,28 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", fontname="Inter", nodesep=0.4, ranksep=0.36, pad=0.3, newrank=true];
+  node [fontname="Inter", fontsize=12, color="#9E9E9E"];
+  edge [fontname="Inter", fontsize=11, arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#0B2545", fontcolor="white", color="#0B2545", label="Inicio", width=0.8, fixedsize=true];
+  s1 [shape=plain, label=<<TABLE BORDER="2" COLOR="#13315C" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4" BGCOLOR="white"><TR><TD FIXEDSIZE="TRUE" WIDTH="256" HEIGHT="144"><IMG SRC="../mockups/14-incidents-desktop.png" SCALE="TRUE"/></TD></TR><TR><TD BGCOLOR="#D6E4F0"><B>Incidents</B></TD></TR></TABLE>>];
+  a1 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Elige «Severity», «Status»<BR/>y «Origin» y presiona<BR/>«Apply»>];
+  d1 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿Hay incidencias que<BR/>cumplen el filtro?>];
+  u1 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>La lista queda vacía; el<BR/>supervisor cambia el filtro>];
+  a2 [shape=box, style="rounded,filled", fillcolor="#F7F8FA", color="#9E9E9E", label=<Abre la incidencia y<BR/>registra la acción<BR/>correctiva>];
+  d2 [shape=diamond, style=filled, fillcolor="#FFF4D6", color="#B7791F", penwidth=1.5, margin="0.02,0.02", label=<¿La incidencia ya<BR/>estaba resuelta?>];
+  u2 [shape=box, style="rounded,filled", fillcolor="#FDECE8", color="#B8432B", penwidth=1.5, label=<<B>Unhappy path</B><BR/>El sistema rechaza el<BR/>cambio: la incidencia se<BR/>encuentra cerrada>];
+  y1 [shape=box, style="rounded,filled", fillcolor="#D6E4F0", color="#1D4E89", label=<<B>El sistema</B><BR/>guarda la acción correctiva<BR/>y actualiza el estado de la<BR/>incidencia>];
+  e1 [shape=box, style="rounded,filled,bold", fillcolor="#E3F4F1", color="#1F7A6E", penwidth=2, label=<<B>Fin</B><BR/>La incidencia muestra su<BR/>nuevo estado y la acción<BR/>correctiva en el detalle>];
+  start -> s1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  s1 -> a1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  a1 -> d1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d1 -> a2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>Sí</B>>];
+  d1 -> u1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>No</B>>];
+  u1 -> s1 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Reintenta</B>>, constraint=false];
+  a2 -> d2 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  d2 -> u2 [color="#B8432B", fontcolor="#B8432B", style=dashed, penwidth=1.6, label=<<B>Sí</B>>];
+  d2 -> y1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2, label=<<B>No</B>>];
+  y1 -> e1 [color="#1F7A6E", fontcolor="#1F7A6E", penwidth=2.2];
+  { rank=same; d1; u1; }
+  { rank=same; d2; u2; }
+}
