@@ -221,8 +221,8 @@
 
 - <a href="report/annexes/annex-a-presentation-videos.md#anexos">Anexos</a>
     - <a href="report/annexes/annex-a-presentation-videos.md#anexo-a-videos-de-exposiciones">Anexo A — Videos de Exposiciones</a>
-    - <a href="report/annexes/annex-a-presentation-videos.md#anexo-b-videos-de-entrevistas">Anexo B — Videos de Entrevistas</a>
-    - <a href="report/annexes/annex-a-presentation-videos.md#anexo-c-enlaces-de-los-productos">Anexo C — Enlaces de los productos y repositorios</a>
+    - <a href="report/annexes/annex-b-interview-videos.md#anexo-b-videos-de-entrevistas">Anexo B — Videos de Entrevistas</a>
+    - <a href="report/annexes/annex-c-product-links.md#anexo-c-enlaces-de-los-productos">Anexo C — Enlaces de los productos y repositorios</a>
 
 <hr>
 
