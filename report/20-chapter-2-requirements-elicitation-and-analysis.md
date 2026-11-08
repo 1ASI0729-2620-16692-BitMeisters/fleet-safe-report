@@ -85,7 +85,7 @@ El análisis competitivo tiene como objetivo que BitMeisters conozca mejor a sus
 |:---|
 | Conocer cómo las soluciones existentes de inspección y control preventivo vehicular resuelven la habilitación operativa del vehículo, y determinar cómo puede FleetSafe diferenciarse para ofrecer una propuesta de valor adecuada a las empresas de transporte de carga en el Perú. |
 
-| | | <img src="img/competitors/fleetsafe.png" alt="Logo de FleetSafe" width="80"><br>**FleetSafe** | <img src="img/competitors/fleetio.png" alt="Logo de Fleetio" width="80"><br>**Fleetio** | <img src="img/competitors/whip-around.png" alt="Logo de Whip Around" width="80"><br>**Whip Around** | <img src="img/competitors/vehicheck.png" alt="Logo de Vehicheck" width="80"><br>**Vehicheck** | <img src="img/competitors/verizon-connect.png" alt="Logo de Verizon Connect" width="80"><br>**Verizon Connect** |
+| | | <img src="assets/competitors/fleetsafe.png" alt="Logo de FleetSafe" width="80"><br>**FleetSafe** | <img src="assets/competitors/fleetio.png" alt="Logo de Fleetio" width="80"><br>**Fleetio** | <img src="assets/competitors/whip-around.png" alt="Logo de Whip Around" width="80"><br>**Whip Around** | <img src="assets/competitors/vehicheck.png" alt="Logo de Vehicheck" width="80"><br>**Vehicheck** | <img src="assets/competitors/verizon-connect.png" alt="Logo de Verizon Connect" width="80"><br>**Verizon Connect** |
 |:---|:---|:---|:---|:---|:---|:---|
 | **Perfil** | Overview | Control preventivo y habilitación operativa de vehículos de carga, alineado al marco de cumplimiento peruano. | Gestión integral de flotas con inspecciones, mantenimiento y órdenes de trabajo. | Plataforma especializada en inspecciones DVIR, defectos y cumplimiento. | Inspección preoperacional digital alineada al PESV de Colombia. | Gestión de flotas y telemática con módulo DVIR. |
 | | Ventaja competitiva<br>¿Qué valor ofrece a los clientes? | Produce la evidencia que exigen la normativa peruana de SST y las auditorías de homologación, y deja registro de quién autoriza cada excepción. | Amplitud funcional y automatización entre inspección, incidencia y mantenimiento. | Especialización en el ciclo de defectos y en el cumplimiento del DOT. | Cumplimiento del PESV sin papel, con bloqueo automático ante fallas críticas. | Integración de las inspecciones con telemática y rastreo en tiempo real. |
@@ -370,7 +370,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 10 minutos con 41 segundos
 * **URL de la grabación:** [Link de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20211c201_upc_edu_pe/IQCJleaXrBM_QZ0QqnURlQFRAT_Ipzg_Y2VJIaNpfJOwU6c?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=S93Wea) (Timestamp: `00:01 - 10:37`)
 * **Evidencia de la sesión:**
-  <img src="../img/chapter2/luisP_entrevista.png" alt="Entrevista - Luis Palacin">
+  <img src="assets/chapter2/luisP_entrevista.png" alt="Entrevista - Luis Palacin">
 
 * **Resumen de respuestas clave:**
   <br>
@@ -392,7 +392,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 15 minutos con 20 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 15:20`)
 * **Evidencia de la sesión:**
-  <img src="img/interviews/entrevista-2.png" alt="Captura de la entrevista 2 — Fernando Quispe" width="600">
+  <img src="assets/interviews/entrevista-2.png" alt="Captura de la entrevista 2 — Fernando Quispe" width="600">
 
 * **Resumen de respuestas clave:**
   * *Control preventivo actual:* Cada chofer tiene un talonario autocopiativo de revisión básica. La copia amarilla queda en portería y la blanca va a administración a fin de mes.
@@ -414,7 +414,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 18 minutos con 10 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 18:10`)
 * **Evidencia de la sesión:**
-  <img src="img/interviews/entrevista-3.png" alt="Captura de la entrevista 3 — Martín Solís" width="600">
+  <img src="assets/interviews/entrevista-3.png" alt="Captura de la entrevista 3 — Martín Solís" width="600">
 
 * **Resumen de respuestas clave:**
   * *Control preventivo actual:* El conductor pasa por garita y un inspector anota las observaciones en una tabla compartida en Excel.
@@ -438,7 +438,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 17 minutos con 30 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 17:30`)
 * **Evidencia de la sesión:**
-  <img src="img/interviews/entrevista-4.png" alt="Captura de la entrevista 4 — Roberto Salazar" width="600">
+  <img src="assets/interviews/entrevista-4.png" alt="Captura de la entrevista 4 — Roberto Salazar" width="600">
 
 * **Resumen de respuestas clave:**
   * *Rutina diaria:* Inicia a las 06:00 h revisando qué camiones tienen servicio programado. Debe validar visualmente los formatos que los choferes dejan en la casilla de operaciones.
@@ -460,7 +460,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 04 minutos con 30 segundos
 * **URL de la grabación:** https://youtu.be/MmIpEMgCFwY (Timestamp: `00:00 - 04:30`)
 * **Evidencia de la sesión:**
-  <img src="../img/chapter2/entrevista-5.png" alt="Captura de la entrevista 5 — Carmen Dávila" width="600">
+  <img src="assets/chapter2/entrevista-5.png" alt="Captura de la entrevista 5 — Carmen Dávila" width="600">
 
 * **Resumen de respuestas clave:**
   * *Gestión de incidencias:* Cuando un vehículo tiene una falla mecánica leve, se genera una orden manual para el taller mecánico de la empresa, pero no hay seguimiento en tiempo real de si la pieza fue reparada antes de que el camión vuelva a circular.
@@ -481,7 +481,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 16 minutos con 15 segundos
 * **URL de la grabación:** https://shorturl.at/pkaow
 * **Evidencia de la sesión:**
-  <img src="../img/chapter2/entrevista-6.png" alt="Captura de la entrevista 6 — Walter Huamán" width="600">
+  <img src="assets/chapter2/entrevista-6.png" alt="Captura de la entrevista 6 — Walter Huamán" width="600">
 
 * **Resumen de respuestas clave:**
   * *Verificación de inspección:* Señala que muchos conductores marcan "OK" en todo el checklist de papel en 3 minutos sin bajarse a mirar la quinta rueda ni las luces de frenos.
@@ -505,7 +505,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 6 minutos con 11 segundos
 * **URL de la grabación:** https://youtu.be/RmQbap_IL3E (Timestamp: `00:00 - 06:11`)
 * **Evidencia de la sesión:**
-  <img src="../img/chapter2/entrevista-7.png" alt="Captura de la entrevista 7 — Jorge Rivas" width="600">
+  <img src="assets/chapter2/entrevista-7.png" alt="Captura de la entrevista 7 — Jorge Rivas" width="600">
 
 * **Resumen de respuestas clave:**
   * *Proceso actual:* Revisa luces, presión de llantas, niveles de refrigerante y aceite, y llena la hoja de papel de 30 preguntas que le entrega el despachador.
@@ -528,7 +528,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 14 minutos con 25 segundos
 * **URL de la grabación:** https://shorturl.at/lUVY6
 * **Evidencia de la sesión:**
-  <img src="../img/chapter2/entrevista-8.png" alt="Captura de la entrevista 8 — Pedro Morales" width="600">
+  <img src="assets/chapter2/entrevista-8.png" alt="Captura de la entrevista 8 — Pedro Morales" width="600">
 
 * **Resumen de respuestas clave:**
   * *Dificultad con la tecnología:* No le gustan los sistemas complicados ni las letras pequeñas porque en patio hay poca luz y suele tener las manos con guantes o polvo.
@@ -550,7 +550,7 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 16 minutos con 05 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 16:05`)
 * **Evidencia de la sesión:**
-  <img src="img/interviews/entrevista-9.png" alt="Captura de la entrevista 9 — Miguel Ángel Ramos" width="600">
+  <img src="assets/interviews/entrevista-9.png" alt="Captura de la entrevista 9 — Miguel Ángel Ramos" width="600">
 
 * **Resumen de respuestas clave:**
   * *Exigencias de clientes mineros:* En ruta minera los estándares son estrictos; si un extintor está despresurizado o falta una cinta reflectiva, no le permiten ingresar a mina y la empresa pierde el viaje.
@@ -624,17 +624,17 @@ Necesitan realizar inspecciones pre-operacionales de forma rápida, registrar ev
 ### 2.3.1. User Personas.
 *User Persona Segmento 1:*
 José Ramirez, de 37 años, es empresario y administrador de una empresa de transporte de carga en Huancayo, con 10 años de experiencia en el rubro. Es responsable de supervisar que su flota se encuentre en condiciones adecuadas y necesita tener una visión clara y centralizada del estado de los vehículos para tomar decisiones rápidas, reducir riesgos y evitar que unidades con problemas inicien una operación.
-![userp1](../img/needFinding/userPersonas/JoseRamirez.png)
+![userp1](assets/needFinding/userPersonas/JoseRamirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/NrqyE?tagId=nXgEG
 
 *User Persona Segmento 2:*
 Alessandra Nova, de 35 años, es supervisora de operaciones y encargada de flota en Lima, con 8 años de experiencia. Su trabajo consiste en revisar las inspecciones, verificar el estado de los vehículos y realizar seguimiento a las incidencias hasta su resolución. Utiliza herramientas como Excel, WhatsApp y Google Drive, pero necesita reducir el trabajo manual y contar con información actualizada para identificar rápidamente qué vehículos están habilitados y cuáles requieren atención.
-![userp2](../img/needFinding/userPersonas/AlessandraNova.png)
+![userp2](assets/needFinding/userPersonas/AlessandraNova.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/6hEDO?tagId=nXgEG
 
 *User Persona Segmento 3:*
 Álvaro Torres, de 45 años, es conductor de transporte de carga en Tacna, con 3 años de experiencia en rutas nacionales. Antes de iniciar una operación verifica las condiciones del vehículo y comunica cualquier falla o condición insegura. Utiliza principalmente smartphone y herramientas de comunicación como WhatsApp, y necesita realizar inspecciones de manera sencilla, registrar evidencias y conocer el estado del vehículo sin depender de procesos manuales o poco claros.
-![userp3](../img/needFinding/userPersonas/AlvaroTorres.png)
+![userp3](assets/needFinding/userPersonas/AlvaroTorres.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/rnMBZ?tagId=nXgEG
 
 <a id="232-user-task-matrix"></a>
@@ -679,19 +679,19 @@ El análisis de la matriz evidencia una clara división de responsabilidades ope
 **Segmento 1**
 José inicia su recorrido planificando las operaciones y verificando la disponibilidad de la flota. Luego revisa las condiciones de seguridad y los resultados de las inspecciones para identificar vehículos que presentan problemas o requieren atención. Finalmente, utiliza esta información para decidir qué unidades pueden operar y cuáles deben ser atendidas. Durante el proceso, la información dispersa y la falta de actualización generan preocupación y dificultad para tomar decisiones oportunas.
 
-![ujm1](../img/needFinding/userJourneyMapping/JoseRamirez-UserJourneyMap.png)
+![ujm1](assets/needFinding/userJourneyMapping/JoseRamirez-UserJourneyMap.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/f6aJG?tagId=nXgEG
 
 **Segmento 2**
 Alessandra comienza revisando las operaciones y el estado de los vehículos, para luego verificar los resultados de las inspecciones y determinar qué unidades están habilitadas. Cuando encuentra incidencias, registra y realiza seguimiento de los problemas hasta su resolución. Finalmente, consulta el historial y los cambios realizados en los vehículos. Sus principales dificultades son el trabajo manual, la información dispersa y la falta de trazabilidad, por lo que necesita información centralizada y actualizada.
 
-![ujm2](../img/needFinding/userJourneyMapping/AlessandraNova-UserJourneyMap.png)
+![ujm2](assets/needFinding/userJourneyMapping/AlessandraNova-UserJourneyMap.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/etpoc?tagId=nXgEG
 
 **Segmento 3**
 Álvaro inicia su jornada realizando la inspección preoperacional y revisando las condiciones de seguridad del vehículo. Luego registra cualquier problema encontrado y adjunta evidencias cuando es necesario. Al finalizar, necesita conocer si el vehículo está habilitado para operar y posteriormente consultar qué ocurrió con los problemas que reportó. Sus principales dificultades son realizar inspecciones manuales, registrar evidencias rápidamente y no conocer inmediatamente el resultado o seguimiento de sus reportes.
 
-![ujm3](../img/needFinding/userJourneyMapping/AlvaroTorres-UserJourneyMap.png)
+![ujm3](assets/needFinding/userJourneyMapping/AlvaroTorres-UserJourneyMap.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/YmOSO?tagId=nXgEG
 
 <a id="234-empathy-mapping"></a>
@@ -699,16 +699,16 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/YmOSO?tagId=nXgEG
 
 **Segmento 1**
 José necesita conocer el estado actualizado de su flota para identificar riesgos y decidir qué vehículos pueden operar. Su principal frustración es la información dispersa y la dificultad para detectar problemas a tiempo.
-![em1](../img/needFinding/empathyMapping/Empathy%20map%20-%20Jos%C3%A9%20Ramirez.png)
+![em1](assets/needFinding/empathyMapping/Empathy%20map%20-%20Jos%C3%A9%20Ramirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/QRFhq?tagId=nXgEG
 **Segmento 2**
 Alessandra necesita revisar inspecciones, identificar vehículos con problemas y dar seguimiento a las incidencias. Le preocupa no detectar problemas a tiempo y valora contar con información centralizada y actualizada.
-![em2](../img/needFinding/empathyMapping/Empathy%20map%20-%20Alessandra%20Nova.png)
+![em2](assets/needFinding/empathyMapping/Empathy%20map%20-%20Alessandra%20Nova.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/W05Q5?tagId=nXgEG
 
 **Segmento 3**
 Álvaro necesita realizar inspecciones rápidas, registrar problemas y saber si su vehículo está listo para operar. Sus principales frustraciones son los procesos manuales, la dificultad para registrar evidencias y no conocer inmediatamente el resultado de la inspección.
-![em3](../img/needFinding/empathyMapping/Empathy%20map%20-%20%C3%81lvaro%20Torres.png)
+![em3](assets/needFinding/empathyMapping/Empathy%20map%20-%20%C3%81lvaro%20Torres.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/mnJos?tagId=nXgEG
 
 <a id="24-big-picture-eventstorming"></a>
@@ -719,17 +719,17 @@ Big Picture Event Storming es una técnica colaborativa que nos permitirá compr
 **Primera Etapa: OPEN**
 Aqui colocamos todos los eventos de dominio que se nos ocurra
 
-<img src="../img/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
+<img src="assets/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
 
 **Segunda Etapa: EXPLORE**
 Identificamos actores y pain points que luego cuestionamos, y lo más importante crear una secuencia entre los eventos de dominio.
 
-<img src="../img/bigPictureEventStorming/explore_bp_eventstorming.png" alt="Explore EventStorming de FleetSafe - Parte 1" width="800">
+<img src="assets/bigPictureEventStorming/explore_bp_eventstorming.png" alt="Explore EventStorming de FleetSafe - Parte 1" width="800">
 
 **Tercera Etapa: CLOSE**
 Identificamos problemas que hayamos encontrado, temas a investigar más a fondo y declaramos que esta fuera de nuestro alcance actual.
 
-<img src="../img/bigPictureEventStorming/close_bp_eventstorming.png" alt="Close EventStorming de FleetSafe" width="800">
+<img src="assets/bigPictureEventStorming/close_bp_eventstorming.png" alt="Close EventStorming de FleetSafe" width="800">
 
 Enlace hacia el Big Picture Eventstorming: 
 

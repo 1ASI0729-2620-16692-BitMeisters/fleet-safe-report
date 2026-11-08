@@ -20,7 +20,7 @@ Las decisiones que se presentan a continuación se derivan de tres fuentes: el *
 FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su identidad visual debe comunicar **confiabilidad, control y prevención**, y no velocidad, modernidad o innovación tecnológica por sí mismas. El usuario de FleetSafe —un supervisor de flota o un conductor de vehículo de carga— debe percibir que la plataforma es una herramienta de trabajo seria, no un producto experimental.
 
 <p align="center">
-  <img src="../img/brand/fleetsafe-logo.png" alt="Logotipo de FleetSafe" width="420">
+  <img src="assets/brand/fleetsafe-logo.png" alt="Logotipo de FleetSafe" width="420">
 </p>
 
 | Elemento | Definición |
@@ -35,15 +35,15 @@ FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su iden
 | **Tamaño mínimo** | 24 px de alto en interfaces digitales. |
 | **Usos incorrectos** | No se debe deformar, rotar, aplicar sombras, degradados ni contornos al logotipo. No se debe alterar la relación entre el isotipo y el logotipo tipográfico. |
 
-Los archivos se encuentran en `img/brand/`. Se recomienda el formato SVG en las interfaces digitales por conservar la nitidez a cualquier tamaño, y el PNG con fondo transparente para documentos.
+Los archivos se encuentran en `report/assets/brand/`. Se recomienda el formato SVG en las interfaces digitales por conservar la nitidez a cualquier tamaño, y el PNG con fondo transparente para documentos.
 
 | Versión | Uso | Archivos |
 |:---|:---|:---|
-| Logotipo a color | Versión principal, sobre fondo claro | [`fleetsafe-logo.svg`](../img/brand/fleetsafe-logo.svg) · [`png`](../img/brand/fleetsafe-logo.png) |
-| Isotipo a color | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`fleetsafe-isotype.svg`](../img/brand/fleetsafe-isotype.svg) · [`png`](../img/brand/fleetsafe-isotype.png) |
-| Logotipo monocromático | Un solo color, sobre fondo de color pleno o fotografías claras | [`fleetsafe-logo-mono.svg`](../img/brand/fleetsafe-logo-mono.svg) · [`png`](../img/brand/fleetsafe-logo-mono.png) |
-| Logotipo en blanco | Sobre fondos oscuros o fotografías oscuras | [`fleetsafe-logo-white.svg`](../img/brand/fleetsafe-logo-white.svg) · [`png`](../img/brand/fleetsafe-logo-white.png) |
-| Isotipo monocromático y en blanco | Mismos usos que el logotipo, en espacios cuadrados | [`fleetsafe-isotype-mono.svg`](../img/brand/fleetsafe-isotype-mono.svg) · [`fleetsafe-isotype-white.svg`](../img/brand/fleetsafe-isotype-white.svg) |
+| Logotipo a color | Versión principal, sobre fondo claro | [`fleetsafe-logo.svg`](assets/brand/fleetsafe-logo.svg) · [`png`](assets/brand/fleetsafe-logo.png) |
+| Isotipo a color | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`fleetsafe-isotype.svg`](assets/brand/fleetsafe-isotype.svg) · [`png`](assets/brand/fleetsafe-isotype.png) |
+| Logotipo monocromático | Un solo color, sobre fondo de color pleno o fotografías claras | [`fleetsafe-logo-mono.svg`](assets/brand/fleetsafe-logo-mono.svg) · [`png`](assets/brand/fleetsafe-logo-mono.png) |
+| Logotipo en blanco | Sobre fondos oscuros o fotografías oscuras | [`fleetsafe-logo-white.svg`](assets/brand/fleetsafe-logo-white.svg) · [`png`](assets/brand/fleetsafe-logo-white.png) |
+| Isotipo monocromático y en blanco | Mismos usos que el logotipo, en espacios cuadrados | [`fleetsafe-isotype-mono.svg`](assets/brand/fleetsafe-isotype-mono.svg) · [`fleetsafe-isotype-white.svg`](assets/brand/fleetsafe-isotype-white.svg) |
 
 ---
 
@@ -228,14 +228,14 @@ Los recursos visuales del proyecto se organizan de la siguiente manera dentro de
 
 | Ruta | Contenido |
 |:---|:---|
-| `img/UPC.png` | Logotipo institucional, empleado en la portada del informe |
-| `img/team-members/` | Fotografías de los integrantes del equipo |
-| `img/bigPictureEventStorming/` | Imágenes del Big Picture EventStorming (sección 2.4) |
-| `img/designLevelEventStorming/` | Imágenes del Design-level Event Storming (sección 4.6.1) |
-| `img/competitors/` | Logotipos de los competidores analizados en la sección 2.1 |
-| `img/brand/` | *(Pendiente)* Logotipo, isotipo y versiones monocromáticas de FleetSafe |
-| `img/landing/` | *(Pendiente)* Wireframes y mock-ups de la Landing Page (sección 4.3) |
-| `img/webapp/` | *(Pendiente)* Wireframes y mock-ups de la Web Application (sección 4.4) |
+| `report/assets/UPC.png` | Logotipo institucional, empleado en la portada del informe |
+| `report/assets/team-members/` | Fotografías de los integrantes del equipo |
+| `report/assets/bigPictureEventStorming/` | Imágenes del Big Picture EventStorming (sección 2.4) |
+| `report/assets/designLevelEventStorming/` | Imágenes del Design-level Event Storming (sección 4.6.1) |
+| `report/assets/competitors/` | *(Pendiente)* Logotipos de los competidores analizados en la sección 2.1 |
+| `report/assets/brand/` | Logotipo e isotipo de FleetSafe |
+| `report/assets/webapp/` | Wireframes y mock-ups de la Web Application (sección 4.4) |
+| `report/assets/database-design/` | Diagramas de base de datos de la sección 4.8, generados desde `report/assets/diagrams/database/` |
 
 ---
 
@@ -1248,29 +1248,29 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 <a id="431-landing-page-wireframe"></a>
 ### 4.3.1. Landing Page Wireframe.
-<img src="../img/wireframe/01-navegacion.png" width="1000">
-<img src="../img/wireframe/02-hero.png" width="1000">
-<img src="../img/wireframe/03-problema.png" width="1000">
-<img src="../img/wireframe/04-plataforma.png" width="1000">
-<img src="../img/wireframe/05-proceso.png" width="1000">
-<img src="../img/wireframe/06-perfiles.png" width="1000">
-<img src="../img/wireframe/07-equipo.png" width="1000">
-<img src="../img/wireframe/08-preguntas.png" width="1000">
-<img src="../img/wireframe/09-llamada-accion.png" width="1000">
-<img src="../img/wireframe/10-footer.png" width="1000">
+<img src="assets/wireframe/01-navegacion.png" width="1000">
+<img src="assets/wireframe/02-hero.png" width="1000">
+<img src="assets/wireframe/03-problema.png" width="1000">
+<img src="assets/wireframe/04-plataforma.png" width="1000">
+<img src="assets/wireframe/05-proceso.png" width="1000">
+<img src="assets/wireframe/06-perfiles.png" width="1000">
+<img src="assets/wireframe/07-equipo.png" width="1000">
+<img src="assets/wireframe/08-preguntas.png" width="1000">
+<img src="assets/wireframe/09-llamada-accion.png" width="1000">
+<img src="assets/wireframe/10-footer.png" width="1000">
 
 <a id="432-landing-page-mock-up"></a>
 ### 4.3.2. Landing Page Mock-up.
-<img src="../img/mockup/01-navegacion.png" width="1000">
-<img src="../img/mockup/02-hero.png" width="1000">
-<img src="../img/mockup/03-problema.png" width="1000">
-<img src="../img/mockup/04-plataforma.png" width="1000">
-<img src="../img/mockup/05-proceso.png" width="1000">
-<img src="../img/mockup/06-perfiles.png" width="1000">
-<img src="../img/mockup/07-equipo.png" width="1000">
-<img src="../img/mockup/08-preguntas.png" width="1000">
-<img src="../img/mockup/09-llamada-accion.png" width="1000">
-<img src="../img/mockup/10-footer.png" width="1000">
+<img src="assets/mockup/01-navegacion.png" width="1000">
+<img src="assets/mockup/02-hero.png" width="1000">
+<img src="assets/mockup/03-problema.png" width="1000">
+<img src="assets/mockup/04-plataforma.png" width="1000">
+<img src="assets/mockup/05-proceso.png" width="1000">
+<img src="assets/mockup/06-perfiles.png" width="1000">
+<img src="assets/mockup/07-equipo.png" width="1000">
+<img src="assets/mockup/08-preguntas.png" width="1000">
+<img src="assets/mockup/09-llamada-accion.png" width="1000">
+<img src="assets/mockup/10-footer.png" width="1000">
 
 <a id="44-web-applications-uxui-design"></a>
 ## 4.4. Web Applications UX/UI Design.
@@ -1292,45 +1292,45 @@ Esta comprobación tiene además una función de **diseño inclusivo**. La condi
 
 | | | |
 |:---:|:---:|:---:|
-| <img src="../img/webapp/wireframes/01-sign-in-mobile.png" alt="Wireframe de la vista de inicio de sesión en móvil" width="260"> | <img src="../img/webapp/wireframes/02-assigned-vehicle-mobile.png" alt="Wireframe de la vista del vehículo asignado en móvil" width="260"> | <img src="../img/webapp/wireframes/03-inspection-checklist-mobile.png" alt="Wireframe del checklist de inspección en móvil" width="260"> |
+| <img src="assets/webapp/wireframes/01-sign-in-mobile.png" alt="Wireframe de la vista de inicio de sesión en móvil" width="260"> | <img src="assets/webapp/wireframes/02-assigned-vehicle-mobile.png" alt="Wireframe de la vista del vehículo asignado en móvil" width="260"> | <img src="assets/webapp/wireframes/03-inspection-checklist-mobile.png" alt="Wireframe del checklist de inspección en móvil" width="260"> |
 | **Sign in** | **My assigned vehicle** | **Inspection checklist** |
-| <img src="../img/webapp/wireframes/04-observation-evidence-mobile.png" alt="Wireframe del registro de observación y evidencia en móvil" width="260"> | <img src="../img/webapp/wireframes/05-summary-mobile.png" alt="Wireframe del resumen de la inspección en móvil" width="260"> | <img src="../img/webapp/wireframes/06-result-mobile.png" alt="Wireframe del resultado de la inspección en móvil" width="260"> |
+| <img src="assets/webapp/wireframes/04-observation-evidence-mobile.png" alt="Wireframe del registro de observación y evidencia en móvil" width="260"> | <img src="assets/webapp/wireframes/05-summary-mobile.png" alt="Wireframe del resumen de la inspección en móvil" width="260"> | <img src="assets/webapp/wireframes/06-result-mobile.png" alt="Wireframe del resultado de la inspección en móvil" width="260"> |
 | **Observation and evidence** | **Summary** | **Result** |
 
 Las seis vistas cubren el recorrido completo de la inspección preoperacional, de principio a fin.
 #### Flujo del supervisor — Desktop 1280 px
 
-<img src="../img/webapp/wireframes/07-fleet-dashboard-desktop.png" alt="Wireframe del tablero de flota en escritorio" width="1000">
+<img src="assets/webapp/wireframes/07-fleet-dashboard-desktop.png" alt="Wireframe del tablero de flota en escritorio" width="1000">
 
 **Fleet dashboard.** La jerarquía sitúa primero el resumen por condición operativa y después el detalle por vehículo, conforme al principio de *surfacing the summary before the detail* establecido en 4.1.1.
 
-<img src="../img/webapp/wireframes/08-vehicle-detail-desktop.png" alt="Wireframe del detalle de vehículo en escritorio" width="1000">
+<img src="assets/webapp/wireframes/08-vehicle-detail-desktop.png" alt="Wireframe del detalle de vehículo en escritorio" width="1000">
 
 **Vehicle detail.** Presenta la ficha del vehículo, su conductor asignado y el estado de sus documentos, con el historial de inspecciones organizado en pestañas.
 
-<img src="../img/webapp/wireframes/09-inspection-detail-desktop.png" alt="Wireframe del detalle de una inspección en escritorio" width="1000">
+<img src="assets/webapp/wireframes/09-inspection-detail-desktop.png" alt="Wireframe del detalle de una inspección en escritorio" width="1000">
 
 **Inspection detail.** El bloque superior explica **por qué** el vehículo no está habilitado, citando la regla concreta que se aplicó.
 
-<img src="../img/webapp/wireframes/10-lift-block-desktop.png" alt="Wireframe del diálogo de levantamiento de bloqueo" width="1000">
+<img src="assets/webapp/wireframes/10-lift-block-desktop.png" alt="Wireframe del diálogo de levantamiento de bloqueo" width="1000">
 
 **Lift block.** Diálogo modal sobre velo, con la justificación como campo obligatorio.
 
-<img src="../img/webapp/wireframes/11-inspection-history-desktop.png" alt="Wireframe del historial de inspecciones en escritorio" width="1000">
+<img src="assets/webapp/wireframes/11-inspection-history-desktop.png" alt="Wireframe del historial de inspecciones en escritorio" width="1000">
 
 **Inspection history.** Vista de auditoría, con filtros acumulativos y el recuento de excepciones autorizadas.
 
-<img src="../img/webapp/wireframes/13-documents-desktop.png" alt="Wireframe de la vista de documentos vehiculares en escritorio" width="1000">
+<img src="assets/webapp/wireframes/13-documents-desktop.png" alt="Wireframe de la vista de documentos vehiculares en escritorio" width="1000">
 
 **Documents.** Control de vigencia documental, ordenado por proximidad al vencimiento.
 
-<img src="../img/webapp/wireframes/14-incidents-desktop.png" alt="Wireframe de la vista de incidencias en escritorio" width="1000">
+<img src="assets/webapp/wireframes/14-incidents-desktop.png" alt="Wireframe de la vista de incidencias en escritorio" width="1000">
 
 **Incidents.** Seguimiento de las incidencias detectadas, con el detalle de la acción correctiva y la reparación programada bajo el listado.
 
 #### Vista del supervisor adaptada a Mobile
 
-<img src="../img/webapp/wireframes/12-fleet-mobile.png" alt="Wireframe del listado de flota adaptado a móvil" width="300">
+<img src="assets/webapp/wireframes/12-fleet-mobile.png" alt="Wireframe del listado de flota adaptado a móvil" width="300">
 
 **Fleet.** Muestra la adaptación declarada en la sección 4.1.2: el listado que en escritorio es una tabla con columnas ordenables se convierte en tarjetas apiladas, una por vehículo, porque una tabla de seis columnas no resulta operable a 390 px. La navegación lateral se sustituye por una barra inferior de cuatro destinos.
 
@@ -1345,7 +1345,7 @@ Los wireframes empleados son exactamente los mismos de la sección 4.4.1, de mod
 
 **User goal.** Como conductor, deseo registrar el estado del vehículo asignado antes de iniciar la operación. Corresponde a las User Stories US17 a US21.
 
-<img src="../img/webapp/wireflows/01-driver-inspection.png" alt="Wireflow del recorrido de inspección preoperacional del conductor, en seis pasos" width="1000">
+<img src="assets/webapp/wireflows/01-driver-inspection.png" alt="Wireflow del recorrido de inspección preoperacional del conductor, en seis pasos" width="1000">
 
 El recorrido recoge el caso **más exigente**, no el más favorable: el conductor detecta una falla en el sistema de frenos, el sistema le exige observación y evidencia fotográfica antes de continuar, y la inspección termina con el vehículo no habilitado. El paso 4 regresa al checklist, lo que evidencia que el registro de una observación no interrumpe la secuencia.
 
@@ -1353,7 +1353,7 @@ El recorrido recoge el caso **más exigente**, no el más favorable: el conducto
 
 **User goal.** Como supervisor, deseo identificar qué unidades pueden operar y conocer el motivo cuando alguna no puede. Corresponde a US25 y US35.
 
-<img src="../img/webapp/wireflows/02-supervisor-fleet-status.png" alt="Wireflow del recorrido de consulta de la condición de la flota, en tres pasos" width="1000">
+<img src="assets/webapp/wireflows/02-supervisor-fleet-status.png" alt="Wireflow del recorrido de consulta de la condición de la flota, en tres pasos" width="1000">
 
 Tres pasos bastan para pasar de la visión general de la flota a la regla concreta que bloqueó un vehículo. Esa brevedad es deliberada: es la consulta que el supervisor realiza a primera hora, todos los días.
 
@@ -1361,7 +1361,7 @@ Tres pasos bastan para pasar de la visión general de la flota a la regla concre
 
 **User goal.** Como supervisor, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando constancia. Sostiene la Estrategia 2 de la sección 2.1.2.
 
-<img src="../img/webapp/wireflows/03-supervisor-lift-block.png" alt="Wireflow del recorrido de levantamiento de bloqueo, en tres pasos" width="1000">
+<img src="assets/webapp/wireflows/03-supervisor-lift-block.png" alt="Wireflow del recorrido de levantamiento de bloqueo, en tres pasos" width="1000">
 
 El tercer paso no es decorativo: cierra el recorrido mostrando la excepción ya registrada en el historial de auditoría. Es la contrapartida que hace aceptable permitir la excepción, y el usuario la ve antes de autorizar.
 
@@ -1376,9 +1376,9 @@ Se incorporan además dos elementos que los wireframes no representan: el **sele
 
 | | | |
 |:---:|:---:|:---:|
-| <img src="../img/webapp/mockups/01-sign-in-mobile.png" alt="Mock-up de la vista de inicio de sesión en móvil" width="260"> | <img src="../img/webapp/mockups/02-assigned-vehicle-mobile.png" alt="Mock-up de la vista del vehículo asignado en móvil" width="260"> | <img src="../img/webapp/mockups/03-inspection-checklist-mobile.png" alt="Mock-up del checklist de inspección en móvil" width="260"> |
+| <img src="assets/webapp/mockups/01-sign-in-mobile.png" alt="Mock-up de la vista de inicio de sesión en móvil" width="260"> | <img src="assets/webapp/mockups/02-assigned-vehicle-mobile.png" alt="Mock-up de la vista del vehículo asignado en móvil" width="260"> | <img src="assets/webapp/mockups/03-inspection-checklist-mobile.png" alt="Mock-up del checklist de inspección en móvil" width="260"> |
 | **Sign in** | **My assigned vehicle** | **Inspection checklist** |
-| <img src="../img/webapp/mockups/04-observation-evidence-mobile.png" alt="Mock-up del registro de observación y evidencia en móvil" width="260"> | <img src="../img/webapp/mockups/05-summary-mobile.png" alt="Mock-up del resumen de la inspección en móvil" width="260"> | <img src="../img/webapp/mockups/06-result-mobile.png" alt="Mock-up del resultado de la inspección en móvil" width="260"> |
+| <img src="assets/webapp/mockups/04-observation-evidence-mobile.png" alt="Mock-up del registro de observación y evidencia en móvil" width="260"> | <img src="assets/webapp/mockups/05-summary-mobile.png" alt="Mock-up del resumen de la inspección en móvil" width="260"> | <img src="assets/webapp/mockups/06-result-mobile.png" alt="Mock-up del resultado de la inspección en móvil" width="260"> |
 | **Observation and evidence** | **Summary** | **Result** |
 
 En el **checklist** el selector segmentado `OK · Obs. · Fail` mide 48 × 48 px, la medida mínima que establece la sección 4.1.2. No es un detalle menor: el conductor lo pulsa cuarenta y dos veces seguidas, con guantes y sin detenerse a mirar.
@@ -1386,23 +1386,23 @@ En el **checklist** el selector segmentado `OK · Obs. · Fail` mide 48 × 48 px
 La vista **Result** emplea el tono definido en 4.1.1 —serio, respetuoso y sereno—: describe la condición del vehículo, no evalúa al conductor, y explica el paso siguiente en lugar de alarmar.
 #### Flujo del supervisor — Desktop 1280 px
 
-<img src="../img/webapp/mockups/07-fleet-dashboard-desktop.png" alt="Mock-up del tablero de flota en escritorio" width="1000">
+<img src="assets/webapp/mockups/07-fleet-dashboard-desktop.png" alt="Mock-up del tablero de flota en escritorio" width="1000">
 
-<img src="../img/webapp/mockups/08-vehicle-detail-desktop.png" alt="Mock-up del detalle de vehículo en escritorio" width="1000">
+<img src="assets/webapp/mockups/08-vehicle-detail-desktop.png" alt="Mock-up del detalle de vehículo en escritorio" width="1000">
 
-<img src="../img/webapp/mockups/09-inspection-detail-desktop.png" alt="Mock-up del detalle de una inspección en escritorio" width="1000">
+<img src="assets/webapp/mockups/09-inspection-detail-desktop.png" alt="Mock-up del detalle de una inspección en escritorio" width="1000">
 
-<img src="../img/webapp/mockups/10-lift-block-desktop.png" alt="Mock-up del diálogo de levantamiento de bloqueo" width="1000">
+<img src="assets/webapp/mockups/10-lift-block-desktop.png" alt="Mock-up del diálogo de levantamiento de bloqueo" width="1000">
 
-<img src="../img/webapp/mockups/11-inspection-history-desktop.png" alt="Mock-up del historial de inspecciones en escritorio" width="1000">
+<img src="assets/webapp/mockups/11-inspection-history-desktop.png" alt="Mock-up del historial de inspecciones en escritorio" width="1000">
 
-<img src="../img/webapp/mockups/13-documents-desktop.png" alt="Mock-up de la vista de documentos vehiculares en escritorio" width="1000">
+<img src="assets/webapp/mockups/13-documents-desktop.png" alt="Mock-up de la vista de documentos vehiculares en escritorio" width="1000">
 
-<img src="../img/webapp/mockups/14-incidents-desktop.png" alt="Mock-up de la vista de incidencias en escritorio" width="1000">
+<img src="assets/webapp/mockups/14-incidents-desktop.png" alt="Mock-up de la vista de incidencias en escritorio" width="1000">
 
 #### Vistas del supervisor adaptadas a Mobile
 
-<img src="../img/webapp/mockups/12-fleet-mobile.png" alt="Mock-up del listado de flota adaptado a móvil" width="300">
+<img src="assets/webapp/mockups/12-fleet-mobile.png" alt="Mock-up del listado de flota adaptado a móvil" width="300">
 
 El botón **Authorize departure** del diálogo de levantamiento de bloqueo es el único elemento del producto que emplea el color destructivo. Esa excepción es deliberada: señala que la acción interrumpe el control preventivo y quedará registrada con el nombre de quien la autoriza.
 
@@ -1415,7 +1415,7 @@ A diferencia de los wireflows, que muestran **qué ve** el usuario en cada paso,
 
 **Leyenda**
 
-<p align="center"><a href="../img/webapp/user-flows/00-legend.png"><img src="../img/webapp/user-flows/00-legend.png" alt="Leyenda de los User Flow Diagrams" width="340"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/00-legend.png"><img src="assets/webapp/user-flows/00-legend.png" alt="Leyenda de los User Flow Diagrams" width="340"></a></p>
 
 Cada tipo de nodo tiene su propio color y forma, tomados de los colores definidos en la sección 4.1.1. El color acompaña siempre al texto y nunca lo reemplaza, de modo que el diagrama se lee igual sin distinguir los colores.
 
@@ -1437,7 +1437,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como administrador de la empresa, deseo ver el estado de mi flota al empezar la jornada para decidir qué unidades salen a operar y cuáles no. Corresponde a las User Stories US13 y US25 y deriva del Wireflow 2.
 
-<p align="center"><a href="../img/webapp/user-flows/01-admin-fleet-overview.png"><img src="../img/webapp/user-flows/01-admin-fleet-overview.png" alt="User flow: consolidar el estado de la flota antes de despachar" width="520"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/01-admin-fleet-overview.png"><img src="assets/webapp/user-flows/01-admin-fleet-overview.png" alt="User flow: consolidar el estado de la flota antes de despachar" width="520"></a></p>
 
 **Happy path.** En «Fleet», el administrador revisa los contadores por condición operativa. Si hay vehículos «Not Enabled», presiona «View detail» en uno de ellos y, en «Vehicle detail», identifica la unidad, su conductor y sus documentos, y la excluye del despacho. Si no hay ninguno y tampoco hay vehículos «Not inspected», confirma el despacho de la flota.
 
@@ -1449,7 +1449,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como administrador, deseo consultar el historial de inspecciones y de excepciones de un vehículo y exportarlo para responder a las auditorías de mis clientes. Corresponde a las User Stories US35 y US36.
 
-<p align="center"><a href="../img/webapp/user-flows/02-admin-inspection-audit.png"><img src="../img/webapp/user-flows/02-admin-inspection-audit.png" alt="User flow: auditar las inspecciones de un vehículo y exportar el historial" width="420"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/02-admin-inspection-audit.png"><img src="assets/webapp/user-flows/02-admin-inspection-audit.png" alt="User flow: auditar las inspecciones de un vehículo y exportar el historial" width="420"></a></p>
 
 **Happy path.** En «Inspection history», el administrador elige «Vehicle», «From», «To» y «Result» y presiona «Apply». Como el rango es válido y hay inspecciones, revisa los contadores y las filas con «Yes» en «Exception», presiona «Export PDF» y el sistema genera el PDF del historial filtrado, que le sirve de respaldo en una auditoría.
 
@@ -1464,7 +1464,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como supervisora de flota, deseo conocer la regla y los hallazgos que dejaron un vehículo sin habilitar para decidir qué hacer con él. Corresponde a las User Stories US24 y US35 y deriva del Wireflow 2.
 
-<p align="center"><a href="../img/webapp/user-flows/03-supervisor-block-reason.png"><img src="../img/webapp/user-flows/03-supervisor-block-reason.png" alt="User flow: conocer por qué un vehículo no está habilitado" width="420"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/03-supervisor-block-reason.png"><img src="assets/webapp/user-flows/03-supervisor-block-reason.png" alt="User flow: conocer por qué un vehículo no está habilitado" width="420"></a></p>
 
 **Happy path.** En «Vehicle detail», la supervisora abre la inspección más reciente con «View». «Inspection detail» muestra, en «Why it is not enabled», la regla aplicada y los hallazgos con su evidencia. Con esa información decide: si la operación puede esperar, mantiene el bloqueo y gestiona la incidencia y la reparación; si no puede esperar, evalúa autorizar la salida con una excepción (Goal 2).
 
@@ -1476,7 +1476,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como supervisora de flota, deseo autorizar la salida de un vehículo no habilitado cuando la operación no puede esperar, dejando registrado quién lo autorizó y por qué. Deriva del Wireflow 3 y sostiene la Estrategia 2 de la sección 2.1.2.
 
-<p align="center"><a href="../img/webapp/user-flows/04-supervisor-lift-block.png"><img src="../img/webapp/user-flows/04-supervisor-lift-block.png" alt="User flow: levantar el bloqueo de un vehículo dejando constancia" width="400"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/04-supervisor-lift-block.png"><img src="assets/webapp/user-flows/04-supervisor-lift-block.png" alt="User flow: levantar el bloqueo de un vehículo dejando constancia" width="400"></a></p>
 
 **Happy path.** Desde «Vehicle detail» de un vehículo «Not Enabled», la supervisora presiona «Lift block». El diálogo muestra el motivo del bloqueo y advierte que la excepción quedará registrada con su nombre. Escribe el motivo en «Reason» y presiona «Authorize departure». El sistema registra la excepción con el motivo y el responsable, y el vehículo pasa a «Enabled». El recorrido termina en «Inspection history», donde la excepción aparece con «Yes» en «Exception» y el nombre en «Authorized by».
 
@@ -1490,7 +1490,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como supervisora de flota, deseo detectar los documentos próximos a vencer y actualizarlos para que ningún vehículo opere con documentos vencidos. Corresponde a las User Stories US32 a US34.
 
-<p align="center"><a href="../img/webapp/user-flows/05-supervisor-documents.png"><img src="../img/webapp/user-flows/05-supervisor-documents.png" alt="User flow: mantener vigente la documentación de la flota" width="420"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/05-supervisor-documents.png"><img src="assets/webapp/user-flows/05-supervisor-documents.png" alt="User flow: mantener vigente la documentación de la flota" width="420"></a></p>
 
 **Happy path.** En «Documents», la supervisora elige «Document type» y «Status» y presiona «Apply». Si hay documentos «Expiring» o «Expired», presiona «Update» en el documento y registra la nueva fecha de vencimiento. Como la fecha es posterior a la actual, el sistema la guarda, recalcula el estado de vigencia a «Valid» y el documento deja de aparecer entre los que vencen.
 
@@ -1503,7 +1503,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como supervisora de flota, deseo revisar las incidencias abiertas y registrar la acción correctiva aplicada para resolverlas. Corresponde a las User Stories US28 a US30.
 
-<p align="center"><a href="../img/webapp/user-flows/06-supervisor-incidents.png"><img src="../img/webapp/user-flows/06-supervisor-incidents.png" alt="User flow: dar seguimiento a las incidencias de la flota" width="420"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/06-supervisor-incidents.png"><img src="assets/webapp/user-flows/06-supervisor-incidents.png" alt="User flow: dar seguimiento a las incidencias de la flota" width="420"></a></p>
 
 **Happy path.** En «Incidents», la supervisora elige «Severity», «Status» y «Origin» y presiona «Apply». Abre una incidencia y registra la acción correctiva. Como la incidencia no estaba resuelta, el sistema guarda la acción y actualiza el estado, y el detalle muestra la acción correctiva y el nuevo estado.
 
@@ -1516,7 +1516,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como supervisora de flota, deseo consultar la condición de una unidad desde mi teléfono para decidir sin volver a mi escritorio. Corresponde a las User Stories US13 y US25 y usa la vista adaptada a móvil de la sección 4.1.2.
 
-<p align="center"><a href="../img/webapp/user-flows/07-supervisor-fleet-mobile.png"><img src="../img/webapp/user-flows/07-supervisor-fleet-mobile.png" alt="User flow: consultar la condición de la flota desde el teléfono" width="380"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/07-supervisor-fleet-mobile.png"><img src="assets/webapp/user-flows/07-supervisor-fleet-mobile.png" alt="User flow: consultar la condición de la flota desde el teléfono" width="380"></a></p>
 
 **Happy path.** En «Fleet», la supervisora escribe la placa, la marca o el modelo en «Search», o toca una de las condiciones. Si hay vehículos que coinciden, revisa la tarjeta de cada uno con su condición, su conductor y la hora de su inspección.
 
@@ -1530,7 +1530,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como conductor, deseo acceder a la plataforma y ver el vehículo que tengo asignado para empezar mi inspección. Corresponde a las User Stories US09 y US17.
 
-<p align="center"><a href="../img/webapp/user-flows/08-driver-sign-in.png"><img src="../img/webapp/user-flows/08-driver-sign-in.png" alt="User flow: iniciar sesión y ver el vehículo asignado" width="420"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/08-driver-sign-in.png"><img src="assets/webapp/user-flows/08-driver-sign-in.png" alt="User flow: iniciar sesión y ver el vehículo asignado" width="420"></a></p>
 
 **Happy path.** El conductor ingresa su correo y su contraseña en «Sign in». Como las credenciales son correctas y tiene un vehículo asignado, llega a «My assigned vehicle», donde ve su vehículo, su condición y el botón «Start inspection».
 
@@ -1543,7 +1543,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como conductor, deseo registrar el estado de cada elemento del vehículo para documentar las condiciones que encuentro antes de operar. Corresponde a las User Stories US17 y US18 y deriva del Wireflow 1.
 
-<p align="center"><a href="../img/webapp/user-flows/09-driver-checklist.png"><img src="../img/webapp/user-flows/09-driver-checklist.png" alt="User flow: registrar el estado de los elementos de la inspección" width="460"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/09-driver-checklist.png"><img src="assets/webapp/user-flows/09-driver-checklist.png" alt="User flow: registrar el estado de los elementos de la inspección" width="460"></a></p>
 
 **Happy path.** En «My assigned vehicle», el conductor presiona «Start inspection» y llega a «Inspection checklist». Marca «OK» en cada elemento conforme. Mientras falten elementos, repite el registro. Cuando los 42 tienen resultado, pasa al resumen.
 
@@ -1555,7 +1555,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como conductor, deseo describir y fotografiar una condición insegura para respaldar lo que reporto. Corresponde a las User Stories US19 y US20 y deriva del Wireflow 1.
 
-<p align="center"><a href="../img/webapp/user-flows/10-driver-observation-evidence.png"><img src="../img/webapp/user-flows/10-driver-observation-evidence.png" alt="User flow: registrar una observación con evidencia fotográfica" width="360"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/10-driver-observation-evidence.png"><img src="assets/webapp/user-flows/10-driver-observation-evidence.png" alt="User flow: registrar una observación con evidencia fotográfica" width="360"></a></p>
 
 **Happy path.** Al marcar «Fail» en un elemento, la aplicación abre «Observation and evidence». El conductor describe la condición, adjunta las fotografías y presiona «Save and continue». Vuelve al checklist con el elemento registrado y las fotografías guardadas.
 
@@ -1567,7 +1567,7 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 
 **User Goal:** Como conductor, deseo enviar mi inspección y conocer de inmediato si el vehículo puede salir. Corresponde a las User Stories US21, US23 y US24 y deriva del Wireflow 1.
 
-<p align="center"><a href="../img/webapp/user-flows/11-driver-submit-result.png"><img src="../img/webapp/user-flows/11-driver-submit-result.png" alt="User flow: finalizar la inspección y saber si el vehículo puede operar" width="480"></a></p>
+<p align="center"><a href="assets/webapp/user-flows/11-driver-submit-result.png"><img src="assets/webapp/user-flows/11-driver-submit-result.png" alt="User flow: finalizar la inspección y saber si el vehículo puede operar" width="480"></a></p>
 
 **Happy path.** En «Summary», el conductor revisa los contadores y presiona «Submit inspection». Como todos los elementos tienen resultado, el sistema evalúa cada uno con las reglas de la empresa y toma el impacto más restrictivo. El diagrama sigue el caso más exigente, un impacto bloqueante: la pantalla «Result» muestra el vehículo «Not Enabled», se registra la incidencia y se notifica al supervisor. Si el impacto es «Observed» o no hay ninguno, el vehículo queda «Observed» o «Enabled» y el conductor puede operar.
 
@@ -1603,46 +1603,46 @@ Proceso del Design-Level event storming
 Paso 1: Partimos del Big Picture Event Storming como base.
 
 <br>**Unstructure Exploration**
-<img src="../img/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
+<img src="assets/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
 
 Paso 2: Ordenamos los domain events
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming2.png" alt="Paso 2 del Design-level Event Storming" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming2.png" alt="Paso 2 del Design-level Event Storming" width="800">
 
 Paso 3: Se colocó dudas/posibles problemas a futuro sobre el dominio en algunas partes del flujo.
-<img src="../img/designLevelEventStorming/designlevel-eventstorming3.png" alt=" paso 3 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming3.png" alt=" paso 3 del designlevelES" width="800">
 
 Paso 4: Exploramos que "pivotal events" pueden identificarse.
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming4.png" alt=" paso 4 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming4.png" alt=" paso 4 del designlevelES" width="800">
 
 Paso 5: Se añadió comandos que desencadenen eventos y tambien agregamos sus actores
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming5.1.png" alt=" paso 5 del designlevelES" width="800">
-<img src="../img/designLevelEventStorming/designlevel-eventstorming5.2.png" alt=" paso 5 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming5.1.png" alt=" paso 5 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming5.2.png" alt=" paso 5 del designlevelES" width="800">
 
 Paso 6: Se equipo añadió 'policies' o reglas de negocio que hacen que se ejecuten eventos de dominio
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming6.1.png" alt=" paso 6 del designlevelES" width="800">
-<img src="../img/designLevelEventStorming/designlevel-eventstorming6.2.png" alt=" paso 6 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming6.1.png" alt=" paso 6 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming6.2.png" alt=" paso 6 del designlevelES" width="800">
 
 Paso 7: Se añadió read models, son la vista de datos o 'views' que ayudarán al usuario con la ejecución de comandos
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming7.1.png" alt=" paso 7 del designlevelES" width="800">
-<img src="../img/designLevelEventStorming/designlevel-eventstorming7.2.png" alt=" paso 7 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming7.1.png" alt=" paso 7 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming7.2.png" alt=" paso 7 del designlevelES" width="800">
 
 Paso 8: Se identifico sistemas externos, tales como el servicio de guardado de imagenes en la nube, por ahora va como "Cloud Storage"
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming8.0.png" alt=" paso 8 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming8.0.png" alt=" paso 8 del designlevelES" width="800">
 
 Paso 9: Se agregan los aggregates
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming8.1.png" alt=" paso 9 del designlevelES" width="800">
-<img src="../img/designLevelEventStorming/designlevel-eventstorming8.2.png" alt=" paso 9 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming8.1.png" alt=" paso 9 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming8.2.png" alt=" paso 9 del designlevelES" width="800">
 
 Paso 10: Separamos por BOUNDED CONTEXT en los cuales algunos tienen un cierto tipo de relación medianto comando y domain.
 
-<img src="../img/designLevelEventStorming/designlevel-eventstorming10.png" alt=" paso 10 del designlevelES" width="800">
+<img src="assets/designLevelEventStorming/designlevel-eventstorming10.png" alt=" paso 10 del designlevelES" width="800">
 
 ---
 
@@ -1730,7 +1730,7 @@ El Context Diagram es el primer nivel del modelo C4 y muestra el sistema como un
 
 El diagrama se ha elaborado con **Structurizr**, la herramienta indicada para el modelo C4. El modelo completo se mantiene como código en el archivo [`workspace.dsl`](../workspace.dsl) de este repositorio, de modo que los tres niveles del modelo se generan a partir de una única fuente y no pueden quedar desincronizados entre sí. A continuación se presenta el diagrama de contexto de FleetSafe:
 
-<img src="../img/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
+<img src="assets/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
 
 <details>
 <summary>Structurizr DSL — vista de contexto</summary>
@@ -1797,7 +1797,7 @@ Para FleetSafe se han identificado cinco containers, nombrados y representados s
 
 A continuación se presenta el diagrama de contenedores de FleetSafe, generado a partir del mismo modelo de Structurizr:
 
-<img src="../img/DDSoftwareArchitecture/ContainerDiagram-fleetsafe.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
+<img src="assets/DDSoftwareArchitecture/ContainerDiagram-fleetsafe.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
 
 <details>
 <summary>Structurizr DSL — vista de contenedores</summary>
@@ -1879,7 +1879,7 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 
 #### Component Diagram: Landing Page
 
-<img src="../img/c4/03-components-landing.png" alt="Diagrama de componentes del Landing Page" width="900">
+<img src="assets/c4/03-components-landing.png" alt="Diagrama de componentes del Landing Page" width="900">
 
 <details>
 <summary>Structurizr DSL — componentes del Landing Page</summary>
@@ -1918,7 +1918,7 @@ component landing "ComponentsLanding" {
 
 #### Component Diagram: Web Application
 
-<img src="../img/c4/04-components-webapp.png" alt="Diagrama de componentes de la Web Application" width="1000">
+<img src="assets/c4/04-components-webapp.png" alt="Diagrama de componentes de la Web Application" width="1000">
 
 <details>
 <summary>Structurizr DSL — componentes de la Web Application</summary>
@@ -1970,7 +1970,7 @@ Los cinco componentes transversales resuelven preocupaciones que no pertenecen a
 
 #### Component Diagram: Backend RESTful API
 
-<img src="../img/c4/05-components-api.png" alt="Diagrama de componentes del Backend RESTful API" width="1000">
+<img src="assets/c4/05-components-api.png" alt="Diagrama de componentes del Backend RESTful API" width="1000">
 
 <details>
 <summary>Structurizr DSL — componentes del Backend RESTful API</summary>
@@ -2094,7 +2094,7 @@ El Class Diagram representa la estructura estática del software: las clases que
 
 **Frontend.**
 
-<img src="../img/Software-Object-Oriented-Design/frontend-class-identity-access.png" alt="Diagrama de clases del frontend de Identity and Access" width="800">
+<img src="assets/Software-Object-Oriented-Design/frontend-class-identity-access.png" alt="Diagrama de clases del frontend de Identity and Access" width="800">
 
 `User` es la única entidad del contexto y su rol es la enumeración `Role` (`ADMINISTRATOR`, `FLEET_SUPERVISOR`, `DRIVER`). Su atributo `companyId` es un identificador: la clase `Company` pertenece a Fleet Management. Los comandos `SignInCommand` y `RegisterUserCommand` encapsulan los datos de las dos operaciones de entrada, y `UsersQuery` agrupa el filtro por rol y estado junto con la paginación del listado.
 
@@ -2102,7 +2102,7 @@ El Class Diagram representa la estructura estática del software: las clases que
 
 **Backend.**
 
-<img src="../img/Software-Object-Oriented-Design/backend-class-identity-access.png" alt="Diagrama de clases del backend de Identity and Access" width="800">
+<img src="assets/Software-Object-Oriented-Design/backend-class-identity-access.png" alt="Diagrama de clases del backend de Identity and Access" width="800">
 
 Este contexto contiene una única entidad de dominio, `User`, junto con la enumeración `UserRole` que define los tres roles del producto descritos en la sección 1.1.1. El atributo `companyId` es de tipo `UUID` y no una asociación a la clase `Company`, porque `Company` pertenece al contexto **Fleet Management**; es la aplicación de la regla de referencias entre contextos.
 
@@ -2114,7 +2114,7 @@ Este contexto contiene una única entidad de dominio, `User`, junto con la enume
 
 **Frontend.**
 
-<img src="../img/Software-Object-Oriented-Design/frontend-class-fleet-management.png" alt="Diagrama de clases del frontend de Fleet Management" width="800">
+<img src="assets/Software-Object-Oriented-Design/frontend-class-fleet-management.png" alt="Diagrama de clases del frontend de Fleet Management" width="800">
 
 El modelo sigue la jerarquía `Company` → `Fleet` → `Vehicle`, que en el código se mantiene mediante identificadores (`fleetIds`, `vehicleIds`). `Vehicle` tiene un estado (`VehicleStatus`: `ENABLED`, `OBSERVED`, `NOT_ENABLED`) y un tipo (`VehicleType`), y sus datos descriptivos se agrupan en el value object `VehicleDetails`, que valida el formato de la placa y el rango del año. Las operaciones que modifican un vehículo (`register`, `withDetails`) devuelven una instancia nueva en lugar de alterar la existente.
 
@@ -2122,7 +2122,7 @@ El modelo sigue la jerarquía `Company` → `Fleet` → `Vehicle`, que en el có
 
 **Backend.**
 
-<img src="../img/Software-Object-Oriented-Design/backend-class-fleet-management.png" alt="Diagrama de clases del backend de Fleet Management" width="800">
+<img src="assets/Software-Object-Oriented-Design/backend-class-fleet-management.png" alt="Diagrama de clases del backend de Fleet Management" width="800">
 
 Este contexto agrupa los activos sobre los que opera la plataforma. `Company` y `Fleet` mantienen una composición, al igual que `Fleet` y `Vehicle`: una flota no existe fuera de su empresa, ni un vehículo fuera de su flota.
 
@@ -2138,7 +2138,7 @@ El método `applyAuthorizationResult` de `Vehicle` es el único que modifica `cu
 
 **Frontend.**
 
-<img src="../img/Software-Object-Oriented-Design/frontend-class-vehicle-documentation.png" alt="Diagrama de clases del frontend de Vehicle Documentation" width="800">
+<img src="assets/Software-Object-Oriented-Design/frontend-class-vehicle-documentation.png" alt="Diagrama de clases del frontend de Vehicle Documentation" width="800">
 
 `VehicleDocument` es la entidad central: referencia su tipo mediante `DocumentType` y el vehículo mediante `DocumentedVehicle`, una proyección local con solo el identificador y la placa, de modo que el contexto no depende de la clase `Vehicle` de Fleet Management. El estado del documento (`DocumentStatus`: `VALID`, `EXPIRING`, `EXPIRED`) **no se almacena**: se calcula con `recalculateStatus` a partir de la fecha de vencimiento y de un umbral de alerta de 30 días (`DOCUMENT_ALERT_DAYS`).
 
@@ -2146,7 +2146,7 @@ Las funciones de validación y la constante del umbral se agrupan en `VehicleDoc
 
 **Backend.**
 
-<img src="../img/Software-Object-Oriented-Design/backend-class-vehicle-documentation.png" alt="Diagrama de clases del backend de Vehicle Documentation" width="800">
+<img src="assets/Software-Object-Oriented-Design/backend-class-vehicle-documentation.png" alt="Diagrama de clases del backend de Vehicle Documentation" width="800">
 
 `DocumentType` actúa como catálogo y `VehicleDocument` como el documento concreto asociado a un vehículo. El atributo `vehicleId` es de nuevo una referencia por identificador al contexto **Fleet Management**.
 
@@ -2158,7 +2158,7 @@ El método `recalculateStatus` concentra la derivación del estado a partir de `
 
 **Frontend.**
 
-<img src="../img/Software-Object-Oriented-Design/frontend-class-pre-operational-inspection.png" alt="Diagrama de clases del frontend de Pre-Operational Inspection" width="800">
+<img src="assets/Software-Object-Oriented-Design/frontend-class-pre-operational-inspection.png" alt="Diagrama de clases del frontend de Pre-Operational Inspection" width="800">
 
 `Inspection` agrupa por composición sus resultados (`InspectionResultEntry`), cada resultado puede tener observaciones (`Observation`) y cada observación sus evidencias fotográficas (`Evidence`, en formato JPEG o PNG). Cada resultado responde a un ítem del catálogo (`InspectionItem`), clasificado por categoría (`ItemCategory`) y por sistema del vehículo (`ItemSystem`), y toma un valor de `ResultValue` (`OK`, `OBSERVED`, `FAIL`). `Inspection.withResult` devuelve una inspección nueva con la respuesta registrada, sin modificar la original. `AssignedVehicle` es la proyección del vehículo asignado al conductor que inicia la inspección.
 
@@ -2166,7 +2166,7 @@ El método `recalculateStatus` concentra la derivación del estado a partir de `
 
 **Backend.**
 
-<img src="../img/Software-Object-Oriented-Design/backend-class-pre-operational-inspection.png" alt="Diagrama de clases del backend de Pre-Operational Inspection" width="800">
+<img src="assets/Software-Object-Oriented-Design/backend-class-pre-operational-inspection.png" alt="Diagrama de clases del backend de Pre-Operational Inspection" width="800">
 
 Este es el contexto núcleo del producto. `Inspection` es la raíz del agregado y mantiene una composición con `InspectionResultEntry`: los resultados no existen fuera de la inspección que los contiene. La cadena continúa con `Observation` y `Evidence`, ambas también en composición, reflejando la decisión de diseño de la sección 4.8 según la cual una evidencia siempre respalda una observación concreta y no la inspección en su conjunto.
 
@@ -2182,7 +2182,7 @@ Los atributos `itemName` e `itemCategory` de `InspectionResultEntry` no son redu
 
 **Frontend.**
 
-<img src="../img/Software-Object-Oriented-Design/frontend-class-evaluation-authorization.png" alt="Diagrama de clases del frontend de Evaluation and Authorization (diseño)" width="800">
+<img src="assets/Software-Object-Oriented-Design/frontend-class-evaluation-authorization.png" alt="Diagrama de clases del frontend de Evaluation and Authorization (diseño)" width="800">
 
 Este diagrama es un **diseño**: el módulo aún no existe en el código de la Single-Page Application (solo la entrada `/evaluation` del menú) y se modeló con la misma arquitectura de los demás contextos. Corresponde al *Authorization Feature* del diagrama de componentes de la sección 4.6.4, desde donde el supervisor consulta la condición operativa de cada vehículo y registra el levantamiento de un bloqueo.
 
@@ -2192,7 +2192,7 @@ Este diagrama es un **diseño**: el módulo aún no existe en el código de la S
 
 **Backend.**
 
-<img src="../img/Software-Object-Oriented-Design/backend-class-evaluation-authorization.png" alt="Diagrama de clases del backend de Evaluation and Authorization" width="800">
+<img src="assets/Software-Object-Oriented-Design/backend-class-evaluation-authorization.png" alt="Diagrama de clases del backend de Evaluation and Authorization" width="800">
 
 Este es el segundo contexto núcleo. `EvaluationRule` expresa una regla legible de la forma *"si el elemento X presenta el resultado Y, el impacto sobre el vehículo es Z"*, y el método `appliesTo` es el que permite al motor determinar qué reglas corresponden a cada resultado. La condición es estructurada y no texto libre, precisamente para poder evaluarse de forma determinista y auditarse después.
 
@@ -2208,7 +2208,7 @@ El atributo `evaluatedBy` admite valor nulo porque la evaluación se ejecuta de 
 
 **Frontend.**
 
-<img src="../img/Software-Object-Oriented-Design/frontend-class-incident-management.png" alt="Diagrama de clases del frontend de Incident Management" width="800">
+<img src="assets/Software-Object-Oriented-Design/frontend-class-incident-management.png" alt="Diagrama de clases del frontend de Incident Management" width="800">
 
 `Incident` es la raíz del contexto y compone sus acciones correctivas (`CorrectiveAction`), reparaciones (`Repair`) y seguimientos (`IncidentFollowUp`). Tiene un origen (`IncidentOrigin`), una severidad (`IncidentSeverity`) y un estado (`IncidentStatus`), y `Repair` tiene el suyo (`RepairStatus`). Los métodos `isCritical`, `comesFromInspection` y `resolve` expresan las reglas del incidente. Su atributo `inspectionId` es un identificador nulo: solo se completa cuando el incidente nace de una inspección.
 
@@ -2216,7 +2216,7 @@ Cada operación sobre el incidente se modela con un comando: `RegisterCorrective
 
 **Backend.**
 
-<img src="../img/Software-Object-Oriented-Design/backend-class-incident-management.png" alt="Diagrama de clases del backend de Incident Management" width="800">
+<img src="assets/Software-Object-Oriented-Design/backend-class-incident-management.png" alt="Diagrama de clases del backend de Incident Management" width="800">
 
 `Incident` es la raíz del agregado y mantiene composiciones con `CorrectiveAction`, `Repair` e `IncidentFollowUp`, ya que ninguna de las tres tiene sentido fuera de la incidencia que las origina.
 
@@ -2291,7 +2291,7 @@ Ambas vistas son complementarias y responden a preguntas distintas: el modelo co
 
 En el diagrama, la **línea continua** representa una relación con clave foránea dentro de un mismo bounded context, y la **línea discontinua**, una referencia por identificador que cruza la frontera de un contexto.
 
-<img src="../img/database-design/consolidated-model.png" alt="Diagrama de base de datos consolidado de FleetSafe" width="800">
+<img src="assets/database-design/consolidated-model.png" alt="Diagrama de base de datos consolidado de FleetSafe" width="800">
 
 El diagrama consolidado presenta las **veintidós tablas** del esquema, indicando para cada una su clave primaria y las columnas que participan en relaciones. El detalle completo de columnas, tipos y restricciones se presenta en los diagramas por bounded context de los secciónes siguientes.
 
@@ -2301,7 +2301,7 @@ Todas las columnas con el sufijo `_by` —`created_by`, `reported_by`, `performe
 
 #### Database Diagram: Identity and Access
 
-<img src="../img/database-design/identity-and-access.png" alt="Diagrama de base de datos de Identity and Access" width="800">
+<img src="assets/database-design/identity-and-access.png" alt="Diagrama de base de datos de Identity and Access" width="800">
 
 Este contexto es responsable de la identidad de las personas que acceden a la plataforma y del rol con el que lo hacen.
 
@@ -2313,7 +2313,7 @@ La columna `company_id` referencia a la empresa a la que pertenece el usuario, q
 
 #### Database Diagram: Fleet Management
 
-<img src="../img/database-design/fleet-management.png" alt="Diagrama de base de datos de Fleet Management" width="800">
+<img src="assets/database-design/fleet-management.png" alt="Diagrama de base de datos de Fleet Management" width="800">
 
 Este contexto es responsable de los activos sobre los que opera la plataforma: las empresas, sus flotas, los vehículos que las componen y los conductores que los operan.
 
@@ -2329,7 +2329,7 @@ Este contexto es responsable de los activos sobre los que opera la plataforma: l
 
 #### Database Diagram: Vehicle Documentation
 
-<img src="../img/database-design/vehicle-documentation.png" alt="Diagrama de base de datos de Vehicle Documentation" width="800">
+<img src="assets/database-design/vehicle-documentation.png" alt="Diagrama de base de datos de Vehicle Documentation" width="800">
 
 Este contexto es responsable de controlar la vigencia de los documentos asociados a cada vehículo.
 
@@ -2342,7 +2342,7 @@ Este contexto es responsable de controlar la vigencia de los documentos asociado
 
 #### Database Diagram: Pre-Operational Inspection
 
-<img src="../img/database-design/pre-operational-inspection.png" alt="Diagrama de base de datos de Pre-Operational Inspection" width="800">
+<img src="assets/database-design/pre-operational-inspection.png" alt="Diagrama de base de datos de Pre-Operational Inspection" width="800">
 
 Este es el contexto núcleo de la solución: registra la inspección preoperacional que el conductor realiza sobre el vehículo asignado antes de iniciar una operación.
 
@@ -2360,7 +2360,7 @@ Este es el contexto núcleo de la solución: registra la inspección preoperacio
 
 #### Database Diagram: Evaluation and Authorization
 
-<img src="../img/database-design/evaluation-and-authorization.png" alt="Diagrama de base de datos de Evaluation and Authorization" width="800">
+<img src="assets/database-design/evaluation-and-authorization.png" alt="Diagrama de base de datos de Evaluation and Authorization" width="800">
 
 Este es el segundo contexto núcleo: aplica las reglas establecidas por la empresa sobre los resultados de una inspección y determina si el vehículo se encuentra habilitado para operar.
 
@@ -2379,7 +2379,7 @@ Este es el segundo contexto núcleo: aplica las reglas establecidas por la empre
 
 #### Database Diagram: Incident Management
 
-<img src="../img/database-design/incident-management.png" alt="Diagrama de base de datos de Incident Management" width="800">
+<img src="assets/database-design/incident-management.png" alt="Diagrama de base de datos de Incident Management" width="800">
 
 Este contexto es responsable del registro, seguimiento y resolución de las incidencias detectadas en los vehículos.
 
