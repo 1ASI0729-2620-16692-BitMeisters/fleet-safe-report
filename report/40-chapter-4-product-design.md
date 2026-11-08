@@ -1736,35 +1736,6 @@ El diagrama se ha elaborado con **Structurizr**, la herramienta indicada para el
 
 <img src="assets/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
 
-<details>
-<summary>Structurizr DSL — vista de contexto</summary>
-
-```
-administrator = person "Administrator" "Manages users, roles, inspection item catalogs and evaluation rules for the company."
-supervisor = person "Fleet Supervisor" "Supervises vehicle condition, manages incidents and authorizes exceptions over blocked vehicles."
-driver = person "Driver" "Performs the pre-operational inspection of the assigned vehicle before starting an operation."
-visitor = person "Visitor" "Prospective customer who evaluates FleetSafe before creating an account."
-
-emailSystem = softwareSystem "Email System" "External service used to notify supervisors about blocked vehicles, open incidents and expiring documents." "External"
-storageService = softwareSystem "Storage Service" "External object storage service used to keep the photographic evidence attached to an observation." "External"
-
-fleetsafe = softwareSystem "FleetSafe" "Registers pre-operational inspections, evaluates their results against the rules defined by the company and determines whether a vehicle is authorized to operate."
-
-administrator -> fleetsafe "Manages users, catalogs and evaluation rules" "HTTPS"
-supervisor -> fleetsafe "Supervises vehicles, manages incidents and authorizes exceptions" "HTTPS"
-driver -> fleetsafe "Performs pre-operational inspections" "HTTPS"
-visitor -> fleetsafe "Evaluates the value proposition" "HTTPS"
-fleetsafe -> emailSystem "Sends notifications" "SMTP"
-fleetsafe -> storageService "Stores photographic evidence" "HTTPS"
-
-systemContext fleetsafe "Context" {
-    include *
-    autolayout lr
-}
-```
-
-</details>
-
 **Explicación del diagrama:**
 
 El diagrama de contexto de FleetSafe muestra los actores que interactúan con la plataforma:
@@ -1802,47 +1773,6 @@ Para FleetSafe se han identificado cinco containers, nombrados y representados s
 A continuación se presenta el diagrama de contenedores de FleetSafe, generado a partir del mismo modelo de Structurizr:
 
 <img src="assets/DDSoftwareArchitecture/ContainerDiagram-fleetsafe.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
-
-<details>
-<summary>Structurizr DSL — vista de contenedores</summary>
-
-```
-fleetsafe = softwareSystem "FleetSafe" {
-    website               = container "Website" "Static website that presents the value proposition of FleetSafe and directs each target segment to the web application." "HTML5, CSS3, JavaScript - GitHub Pages" "Static Content"
-    webApplicationStatic  = container "Web Application Static Content" "Serves the HTML, CSS and JavaScript files produced by the build of the single-page application." "Angular build - GitHub Pages" "Static Content"
-    singlePageApplication = container "Single-Page Application" "Runs entirely in the user's web browser and allows each user to operate the platform according to the role granted to their account." "Angular, Angular Material, TypeScript" "Web Browser"
-    webServices           = container "Web Services" "RESTful API that exposes the business logic of FleetSafe, organized by bounded context and documented with OpenAPI." "Spring Boot, Spring Data JPA, Java - Azure Container Apps" "Web Service"
-    database              = container "FleetSafe Database" "Single database of the product. Stores users, fleet assets, documents, inspections, evaluations, authorizations and incidents." "PostgreSQL - Azure Database for PostgreSQL" "Database"
-}
-
-visitor -> website "Visits to evaluate the value proposition" "HTTPS"
-website -> webApplicationStatic "Directs each target segment to the web application" "HTTPS"
-administrator -> webApplicationStatic "Visits the web application URL" "HTTPS"
-supervisor -> webApplicationStatic "Visits the web application URL" "HTTPS"
-driver -> webApplicationStatic "Visits the web application URL" "HTTPS"
-webApplicationStatic -> singlePageApplication "Delivers to the user's web browser"
-administrator -> singlePageApplication "Manages users, catalogs and evaluation rules using"
-supervisor -> singlePageApplication "Supervises vehicles, manages incidents and authorizes exceptions using"
-driver -> singlePageApplication "Performs pre-operational inspections using"
-singlePageApplication -> webServices "Makes API calls to" "JSON/HTTPS"
-webServices -> database "Reads from and writes to" "JDBC"
-webServices -> storageService "Stores and retrieves evidence" "HTTPS"
-webServices -> emailSystem "Sends notifications" "SMTP"
-
-container fleetsafe "Containers" {
-    include *
-    autolayout lr
-}
-
-styles {
-    element "Static Content" { shape folder }
-    element "Web Browser"    { shape webbrowser }
-    element "Web Service"    { shape shell }
-    element "Database"       { shape cylinder }
-}
-```
-
-</details>
 
 **Explicación del diagrama:**
 
@@ -1885,29 +1815,6 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 
 <img src="assets/c4/03-components-landing.png" alt="Diagrama de componentes del Landing Page" width="900">
 
-<details>
-<summary>Structurizr DSL — componentes del Landing Page</summary>
-
-```
-landing = container "Landing Page" "..." "HTML5, CSS3, JavaScript" {
-    landingNavigation = component "Navigation Bar" "Provides access to the content sections and to the sign-in and sign-up entry points." "HTML, CSS"
-    landingContent    = component "Content Sections" "Presents the problem, the platform, the process, the profiles and the frequently asked questions." "HTML, CSS"
-    landingSegmentCta = component "Segment Call to Action" "Directs each target segment to the view of the web application that corresponds to its role." "HTML, JavaScript"
-    landingLegal      = component "Legal Pages" "Presents the terms and conditions and the privacy policy, linked from the footer." "HTML, CSS"
-    landingI18n       = component "Language Switcher" "Switches the content between en_US and es_419 and sets the corresponding language attribute." "JavaScript"
-}
-
-visitor -> landing "Evaluates the value proposition" "HTTPS"
-landingSegmentCta -> webapp "Directs each segment to its corresponding view" "HTTPS"
-
-component landing "ComponentsLanding" {
-    include *
-    autolayout lr
-}
-```
-
-</details>
-
 | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|
 | **Navigation Bar** | HTML, CSS | Da acceso a las secciones de contenido y a los puntos de entrada de inicio de sesión y registro. |
@@ -1923,34 +1830,6 @@ component landing "ComponentsLanding" {
 #### Component Diagram: Web Application
 
 <img src="assets/c4/04-components-webapp.png" alt="Diagrama de componentes de la Web Application" width="1000">
-
-<details>
-<summary>Structurizr DSL — componentes de la Web Application</summary>
-
-```
-webapp = container "Web Application" "..." "Angular, Angular Material, TypeScript" {
-    webAuth            = component "Authentication Feature" "Presents the sign-in view and keeps the session of the authenticated user." "Angular Feature Module"
-    webInspection      = component "Inspection Feature" "Presents the pre-operational inspection to the driver and registers the result of each inspection item, its observations and its evidence." "Angular Feature Module"
-    webFleet           = component "Fleet Feature" "Presents the fleet, the vehicles, the drivers and the assignments between them." "Angular Feature Module"
-    webDocumentation   = component "Documentation Feature" "Presents the documents of each vehicle and their expiration status." "Angular Feature Module"
-    webAuthorization   = component "Authorization Feature" "Presents the operational condition of each vehicle and allows the supervisor to register the lifting of a block." "Angular Feature Module"
-    webIncident        = component "Incident Feature" "Presents the incidents of the fleet, their corrective actions, their repairs and their follow-ups." "Angular Feature Module"
-    webApiClient       = component "API Client" "Centralizes the requests to the backend RESTful API." "Angular HttpClient"
-    webAuthInterceptor = component "Authentication Interceptor" "Attaches the authentication token to every outgoing request and handles expired sessions." "Angular HTTP Interceptor"
-    webRoleGuard       = component "Role Guard" "Restricts access to each route according to the role of the authenticated user." "Angular Route Guard"
-    webI18n            = component "Translation Service" "Resolves the interface texts for en_US and es_419." "ngx-translate"
-    webSharedUi        = component "Shared UI Components" "Provides the components of the design system, with the ARIA attributes required for accessibility." "Angular Material"
-}
-
-webAuthInterceptor -> api "Consumes services" "JSON/HTTPS"
-
-component webapp "ComponentsWebApp" {
-    include *
-    autolayout tb
-}
-```
-
-</details>
 
 | Componente | Tecnología | Responsabilidad | Bounded context |
 |:---|:---|:---|:---|
@@ -1975,67 +1854,6 @@ Los cinco componentes transversales resuelven preocupaciones que no pertenecen a
 #### Component Diagram: Backend RESTful API
 
 <img src="assets/c4/05-components-api.png" alt="Diagrama de componentes del Backend RESTful API" width="1000">
-
-<details>
-<summary>Structurizr DSL — componentes del Backend RESTful API</summary>
-
-```
-api = container "Backend RESTful API" "..." "Spring Boot, Spring Data JPA, Java" {
-
-    group "Identity and Access" {
-        identityController    = component "Identity Controller" "Exposes the sign-in, sign-up and user administration endpoints." "Spring REST Controller"
-        authenticationService = component "Authentication Service" "Validates credentials, issues and verifies the authentication token and resolves the role of the user." "Spring Service"
-        userRepository        = component "User Repository" "Persists and retrieves the users of the platform." "Spring Data JPA"
-    }
-
-    group "Fleet Management" {
-        fleetController = component "Fleet Controller" "Exposes the endpoints for companies, fleets, vehicles, drivers and vehicle assignments." "Spring REST Controller"
-        fleetService    = component "Fleet Service" "Manages the assets of the fleet and keeps the current status of each vehicle synchronized with its latest operational authorization." "Spring Service"
-        fleetRepository = component "Fleet Repository" "Persists and retrieves companies, fleets, vehicles, drivers and assignments." "Spring Data JPA"
-    }
-
-    group "Vehicle Documentation" {
-        documentController = component "Document Controller" "Exposes the endpoints for the document types and the documents of each vehicle." "Spring REST Controller"
-        documentService    = component "Document Service" "Manages the documents of each vehicle and derives their status from the expiration date." "Spring Service"
-        documentScheduler  = component "Document Expiration Scheduler" "Recalculates the status of the documents on a scheduled basis and requests the notification of the ones about to expire." "Spring Scheduled Task"
-        documentRepository = component "Document Repository" "Persists and retrieves document types and vehicle documents." "Spring Data JPA"
-    }
-
-    group "Pre-Operational Inspection" {
-        inspectionController = component "Inspection Controller" "Exposes the endpoints for the inspection item catalog and for the inspections performed." "Spring REST Controller"
-        inspectionService    = component "Inspection Service" "Registers the inspection, the result of each item, its observations and the evidence that supports them, and copies the name and category of the item at the moment of the inspection." "Spring Service"
-        evidenceService      = component "Evidence Service" "Uploads the evidence files and resolves the reference stored with the observation." "Spring Service"
-        inspectionRepository = component "Inspection Repository" "Persists and retrieves inspection items, inspections, results, observations and evidence." "Spring Data JPA"
-    }
-
-    group "Evaluation and Authorization" {
-        evaluationController = component "Evaluation Controller" "Exposes the endpoints for the evaluation rules, the evaluations performed and the operational authorizations." "Spring REST Controller"
-        evaluationEngine     = component "Evaluation Engine" "Applies the active rules to the results of a completed inspection and determines the resulting condition from the most restrictive impact obtained." "Spring Service"
-        authorizationService = component "Authorization Service" "Registers the operational authorization produced by an evaluation and the lifting of a block, requiring its reason and the user responsible for it." "Spring Service"
-        evaluationRepository = component "Evaluation Repository" "Persists and retrieves rules, evaluations, evaluation details and operational authorizations." "Spring Data JPA"
-    }
-
-    group "Incident Management" {
-        incidentController = component "Incident Controller" "Exposes the endpoints for the incidents, their corrective actions, their repairs and their follow-ups." "Spring REST Controller"
-        incidentService    = component "Incident Service" "Registers and tracks the incidents detected during an inspection or during the operation of the vehicle." "Spring Service"
-        incidentRepository = component "Incident Repository" "Persists and retrieves incident types, incidents, corrective actions, repairs and follow-ups." "Spring Data JPA"
-    }
-
-    group "Shared" {
-        securityFilter      = component "Security Filter" "Verifies the authentication token of every request and resolves the permissions of the role." "Spring Security Filter"
-        localizationService = component "Localization Service" "Resolves the messages returned by the API for en_US and es_419." "Spring MessageSource"
-        storageClient       = component "Storage Client" "Communicates with the external object storage service." "HTTP Client"
-        emailClient         = component "Email Client" "Communicates with the external email service." "SMTP Client"
-    }
-}
-
-component api "ComponentsApi" {
-    include *
-    autolayout tb
-}
-```
-
-</details>
 
 | Bounded context | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|:---|
