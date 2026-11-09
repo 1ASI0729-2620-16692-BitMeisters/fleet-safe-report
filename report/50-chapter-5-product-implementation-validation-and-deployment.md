@@ -861,6 +861,8 @@ Los aspectos del Sprint 3 son los bounded contexts implementados en el Backend R
 | Aguilar Untiveros, Rodrigo Fabrizio | Rodri2712 | — | — | — | L | — | — | C |
 | Palacin Lazo, Gerardo Valentin | GeraldP03 | — | — | — | — | L | — | C |
 
+El 2026-11-07, a cinco días de la entrega, el equipo revisó el avance de cada bounded context y reasignó el trabajo pendiente. Elizabeth Apaza construyó el dominio de Pre-Operational Inspection y el catálogo de elementos de inspección completo, y Alejandro Espino asumió los endpoints de las inspecciones, el almacenamiento de sus fotografías y la integración con Evaluation and Authorization. Desde el 2026-11-08, Alejandro Espino completó también las partes que seguían pendientes en los demás bounded contexts: corrigió e integró el backend de Incident Management de Rodrigo Aguilar, y conectó con el backend las pantallas de Pre-Operational Inspection, Fleet Management, Incident Management y Vehicle Documentation de la Web Application. La matriz conserva a cada integrante como líder del bounded context que asumió en la planificación; el Sprint Backlog registra quién terminó cada tarea.
+
 <a id="5233-sprint-backlog-3"></a>
 #### 5.2.3.3. Sprint Backlog 3.
 
@@ -875,33 +877,41 @@ Tablero del Sprint 3: https://trello.com/b/6WgfBLcZ/fleetsafe-sprint-3
 | Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
 |---|---|---|---|---|---|---:|---|---|
 | Sprint 3 | — | Base compartida | T01 | Construir la base compartida del Backend RESTful API | Proyecto Spring Boot sobre PostgreSQL con la estructura del proyecto de referencia del curso: patrón `Result`, nombres de tablas, manejo global de errores traducido, agregados sin dependencias de JPA, imagen Docker y entrega continua a GitHub Container Registry. | 8 | Alejandro Espino | Done |
-| Sprint 3 | US38 | API de autenticación | T02 | Implementar la autenticación y la gestión de usuarios | Login con JWT, Spring Security con roles, administrador sembrado al arrancar y los endpoints `/auth/login` y `/users`. | 2 | Alejandro Espino | Done |
-| Sprint 3 | US09 | Iniciar sesión | T03 | Implementar el inicio de sesión en la Web Application | Pantalla de inicio de sesión, sesión guardada hasta que caduca el token, interceptor que envía el token y guard en las rutas. | 1 | Alejandro Espino | To-Review |
-| Sprint 3 | US10 | Cerrar sesión | T04 | Implementar el cierre de sesión | Nombre y rol del usuario en la barra superior y botón para cerrar sesión. | 1 | Alejandro Espino | To-Review |
-| Sprint 3 | US07 | Registrar nuevo usuario | T05 | Implementar el alta de usuarios | Formulario de alta de usuario con su rol, solo para el administrador. | 1 | Alejandro Espino | To-Review |
-| Sprint 3 | US08 | Asignar rol a usuario | T06 | Implementar el cambio de rol y de estado | Cambio de rol y activación o desactivación de cada usuario desde el listado. | 1 | Alejandro Espino | To-Review |
-| Sprint 3 | US11 | Consultar listado de usuarios | T07 | Implementar el listado de usuarios | Listado paginado de los usuarios de la empresa con filtro por rol y estado. | 1 | Alejandro Espino | To-Review |
-| Sprint 3 | US42 | API de evaluación y habilitación | T08 | Implementar la evaluación y la habilitación operativa | Reglas de evaluación, habilitación del vehículo, historial y levantamiento de bloqueos. Falta `POST /inspections/{id}/evaluate`, que depende del backend de inspecciones (US41). | 5 | Alejandro Espino | In-Process |
-| Sprint 3 | US23 | Evaluar resultados de inspección | T09 | Mostrar el resultado de la evaluación de una inspección | Vista del resultado de la evaluación de una inspección completada. | — | Alejandro Espino | To-do |
-| Sprint 3 | US24 | Determinar estado del vehículo | T10 | Mostrar el estado operativo del vehículo | Vista del estado habilitado, observado o no habilitado de cada vehículo. | — | Alejandro Espino | To-do |
-| Sprint 3 | US25 | Consultar vehículos por estado | T11 | Implementar la consulta de vehículos por estado | Listado de vehículos filtrado por su estado operativo. | — | Alejandro Espino | To-do |
+| Sprint 3 | US38 | API de autenticación | T02 | Implementar la autenticación y la gestión de usuarios | Inicio de sesión con JWT, Spring Security con roles, administrador sembrado al arrancar y los endpoints `/tokens` y `/users`. | 2 | Alejandro Espino | Done |
+| Sprint 3 | US09 | Iniciar sesión | T03 | Implementar el inicio de sesión en la Web Application | Pantalla de inicio de sesión, sesión guardada hasta que caduca el token, interceptor que envía el token y guard en las rutas. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US10 | Cerrar sesión | T04 | Implementar el cierre de sesión | Nombre y rol del usuario en la barra superior y botón para cerrar sesión. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US07 | Registrar nuevo usuario | T05 | Implementar el alta de usuarios | Formulario de alta de usuario con su rol, solo para el administrador. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US08 | Asignar rol a usuario | T06 | Implementar el cambio de rol y de estado | Cambio de rol y activación o desactivación de cada usuario desde el listado. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US11 | Consultar listado de usuarios | T07 | Implementar el listado de usuarios | Listado paginado de los usuarios de la empresa con filtro por rol y estado. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US42 | API de evaluación y habilitación | T08 | Implementar la evaluación y la habilitación operativa | Reglas de evaluación, habilitación del vehículo, historial y levantamiento de bloqueos. Al completarse una inspección, Pre-Operational Inspection publica un evento de integración y Evaluation and Authorization la evalúa a través de una fachada; `POST /inspections/{id}/evaluate` permite repetir la evaluación. | 10 | Alejandro Espino | Done |
+| Sprint 3 | US23 | Evaluar resultados de inspección | T09 | Mostrar el resultado de la evaluación de una inspección | Vista del resultado al enviar la inspección, con el estado en que queda el vehículo. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US24 | Determinar estado del vehículo | T10 | Mostrar el estado operativo del vehículo | Tablero con el estado habilitado, observado o no habilitado de cada vehículo de la flota. | 2 | Alejandro Espino | Done |
+| Sprint 3 | US25 | Consultar vehículos por estado | T11 | Implementar la consulta de vehículos por estado | Filtro del tablero por estado operativo. | 1 | Alejandro Espino | Done |
 | Sprint 3 | US44 | API de documentación vehicular | T12 | Implementar la documentación vehicular | Tipos de documento, documentos de cada vehículo con su vigencia, documentos próximos a vencer y recálculo diario del estado. | 2 | Alejandro Espino | Done |
-| Sprint 3 | US41 | API de inspecciones preoperacionales | T13 | Implementar las inspecciones preoperacionales | Registro, consulta y cierre de inspecciones preoperacionales. | — | Elizabeth Apaza | To-do |
-| Sprint 3 | US19 | Registrar observaciones | T14 | Implementar el registro de observaciones | Registro de observaciones sobre un elemento de la inspección. | — | Elizabeth Apaza | To-do |
-| Sprint 3 | US20 | Adjuntar evidencia fotográfica | T15 | Implementar la evidencia fotográfica | Adjuntar una foto como evidencia de una observación. | — | Elizabeth Apaza | To-do |
-| Sprint 3 | US21 | Finalizar inspección preoperacional | T16 | Implementar el cierre de la inspección | Finalizar la inspección cuando todos los elementos tienen resultado. | — | Elizabeth Apaza | To-do |
-| Sprint 3 | US22 | Consultar inspecciones realizadas | T17 | Implementar el historial de inspecciones | Listado de las inspecciones realizadas. | — | Elizabeth Apaza | To-do |
-| Sprint 3 | US40 | API de gestión de vehículos | T18 | Implementar la gestión de vehículos | Registro, consulta y actualización de vehículos, flotas y asignaciones. | — | Gerardo Palacin | To-do |
+| Sprint 3 | US41 | API de inspecciones preoperacionales | T13 | Implementar el dominio y el catálogo de elementos de inspección | Agregados, objetos de valor, servicios y persistencia de las inspecciones, y el CRUD completo del catálogo de elementos de inspección. | 7 | Elizabeth Apaza | Done |
+| Sprint 3 | US19 | Registrar observaciones | T14 | Implementar el registro de observaciones | Registro de una observación sobre cada elemento marcado como observado o con falla, contra el backend. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US20 | Adjuntar evidencia fotográfica | T15 | Implementar la evidencia fotográfica | Fotografías JPEG o PNG de cada observación, guardadas en un contenedor privado de Azure Blob Storage. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US21 | Finalizar inspección preoperacional | T16 | Implementar el cierre de la inspección | Resumen de la inspección antes de enviarla y cierre cuando todos los elementos tienen resultado. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US22 | Consultar inspecciones realizadas | T17 | Implementar el historial de inspecciones | Historial de inspecciones de cada vehículo leído del backend. | 1 | Alejandro Espino | Done |
+| Sprint 3 | US40 | API de gestión de vehículos | T18 | Implementar la gestión de vehículos | Empresa, flotas y vehículos con sus endpoints. Las asignaciones de vehículos pasan al Sprint 4. | 2 | Gerardo Palacin | Done |
 | Sprint 3 | US12 | Registrar vehículo | T19 | Implementar el registro de vehículos | Formulario de registro de vehículo. | 1 | Gerardo Palacin | Done |
 | Sprint 3 | US14 | Consultar detalle de vehículo | T20 | Implementar el detalle de vehículo | Vista de detalle de un vehículo. | 1 | Gerardo Palacin | Done |
 | Sprint 3 | US15 | Actualizar información de vehículo | T21 | Implementar la edición de vehículos | Edición de la información de un vehículo. | 1 | Gerardo Palacin | Done |
-| Sprint 3 | US16 | Asignar vehículo a conductor | T22 | Implementar la asignación de vehículos | Asignación de un vehículo a un conductor. | 1 | Gerardo Palacin | Done |
-| Sprint 3 | US43 | API de gestión de incidencias | T23 | Implementar la gestión de incidencias | Registro, consulta y seguimiento de incidencias. | — | Rodrigo Aguilar | To-do |
+| Sprint 3 | US16 | Asignar vehículo a conductor | T22 | Implementar la asignación de vehículos | Asignación de un vehículo a un conductor en la Web Application, todavía sobre la API simulada hasta que el backend la implemente en el Sprint 4. | 1 | Gerardo Palacin | Done |
+| Sprint 3 | US43 | API de gestión de incidencias | T23 | Implementar la gestión de incidencias | Incidencias, tipos de incidencia, acciones correctivas, reparaciones y seguimientos con sus endpoints. | 3 | Rodrigo Aguilar | Done |
+| Sprint 3 | US41 | API de inspecciones preoperacionales | T24 | Exponer las inspecciones y guardar sus fotografías | Endpoints para iniciar, responder, observar, adjuntar fotografías y completar una inspección; almacenamiento en Azure Blob Storage y publicación del evento de inspección completada. | 2 | Alejandro Espino | Done |
+| Sprint 3 | US43 | API de gestión de incidencias | T25 | Integrar el backend de incidencias | Mensajes en inglés y español, roles por operación, respuesta `409` en cambios de estado inválidos, contrato OpenAPI, prueba de integración, tipos de incidencia de demostración, nombres de los usuarios a través de Identity and Access y evidencia de las acciones correctivas como archivo. | 5 | Alejandro Espino | Done |
+| Sprint 3 | — | Base compartida | T26 | Guardar archivos de cualquier bounded context | Servicio de almacenamiento compartido sobre un contenedor privado de Azure Blob Storage, con enlaces de lectura de una hora, y fachada de Identity and Access para consultar el nombre de un usuario. | 2 | Alejandro Espino | Done |
+| Sprint 3 | US12 – US15 | Gestión de vehículos | T27 | Conectar Fleet Management con el backend | La empresa, las flotas y los vehículos de la Web Application dejan la API simulada y se leen y registran en el backend. | 4 | Alejandro Espino | Done |
+| Sprint 3 | US43 | API de gestión de incidencias | T28 | Conectar Incident Management con el backend | Incidencias, acciones correctivas, reparaciones y seguimientos contra el backend, con selección del vehículo por placa y de la inspección de origen, el usuario de la sesión como responsable, la evidencia como archivo y las acciones de completar reparaciones y resolver incidencias. | 4 | Alejandro Espino | Done |
+| Sprint 3 | US44 | API de documentación vehicular | T29 | Conectar Vehicle Documentation con el backend | Tipos y documentos de cada vehículo contra el backend, con el documento escaneado adjunto como archivo. | 5 | Alejandro Espino | Done |
 
 <a id="5234-development-evidence-for-sprint-review"></a>
 #### 5.2.3.4. Development Evidence for Sprint Review.
 
 Durante el Sprint 3 se construyó la primera versión del Backend RESTful API en el repositorio Web Services: la base compartida alineada con el proyecto de referencia del curso, el bounded context de Identity and Access con autenticación por JWT y gestión de usuarios, el de Evaluation and Authorization con sus reglas, habilitaciones y levantamiento de bloqueos, y el de Vehicle Documentation con el control de vigencia de los documentos, además de la imagen Docker y el flujo de entrega continua que la publica. En la Web Application se completó el bounded context de Fleet Management, se incorporaron el inicio y cierre de sesión contra el backend y la gestión de usuarios, y se enlazaron los términos y la política de privacidad. El Landing Page pasó a traducirse por claves, con inglés por defecto, y se le añadieron las páginas legales.
+
+En la segunda mitad del sprint se integraron los bounded contexts restantes. En el backend se incorporaron Fleet Management, con la empresa, sus flotas y sus vehículos; Pre-Operational Inspection, con el catálogo de elementos, las inspecciones, sus observaciones y sus fotografías en Azure Blob Storage; e Incident Management, con sus acciones correctivas, reparaciones y seguimientos. Al completarse una inspección, Evaluation and Authorization la evalúa a través de una fachada y actualiza el estado operativo del vehículo. En la Web Application, los módulos de inspección, flota, incidencias y documentación dejaron la API simulada y trabajan contra el backend, y se añadió el tablero del estado operativo de los vehículos.
 
 La tabla recoge los commits del sprint integrados en los repositorios, sin los commits de merge, en orden cronológico. La columna *Branch* indica la rama del Pull Request con el que cada commit se integró en `develop`.
 
@@ -971,20 +981,218 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 | Frontend-Web-Application | feature/iam-users | 7eb02f3 | feat(iam): let the administrator open accounts in the company | — | 2026-10-28 |
 | Frontend-Web-Application | feature/iam-users | 807ea00 | feat(iam): let the administrator change the role and status of an account | — | 2026-10-28 |
 | Frontend-Web-Application | chore/mock-vehicle-uuids | a649948 | chore(server): identify the mock vehicles by uuid like the platform backend | — | 2026-10-28 |
+| Web-Services | feature/incident | 70ab5b3 | feat(incident): add incident type aggregate | — | 2026-10-29 |
+| Web-Services | feature/incident | 3162e2c | feat(incident): add incident aggregate | — | 2026-10-29 |
+| Web-Services | feature/incident | c526a32 | feat(incident): add incident status value object | — | 2026-10-29 |
+| Web-Services | feature/incident | 433fecf | feat(incident): add incident severity value object | — | 2026-10-29 |
+| Web-Services | feature/incident | 56f1559 | feat(incident): add incident origin value object | — | 2026-10-29 |
+| Web-Services | feature/incident | a65c6a2 | feat(incident): add resolve incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | 2649119 | feat(incident): add update incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | 19f2208 | feat(incident): add report incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | 724ab0a | feat(incident): add repair status value object | — | 2026-10-29 |
+| Web-Services | feature/incident | cb22d37 | feat(incident): add schedule repair command | — | 2026-10-29 |
+| Web-Services | feature/incident | 0906fcc | feat(incident): add register corrective action command | — | 2026-10-29 |
+| Web-Services | feature/incident | 4aaf206 | feat(incident): add update incident type command | — | 2026-10-29 |
+| Web-Services | feature/incident | 55797b6 | feat(incident): add register incident type command | — | 2026-10-29 |
+| Web-Services | feature/incident | e076a3a | feat(incident): add delete incident command | — | 2026-10-29 |
+| Web-Services | feature/incident | e899727 | feat(incident): add get incident by id query | — | 2026-10-29 |
+| Web-Services | feature/incident | 27fea3e | feat(incident): add get incidents query | — | 2026-10-29 |
+| Web-Services | feature/incident | c0ea534 | feat(incident): add incident follow-up command | — | 2026-10-29 |
+| Web-Services | feature/incident | f525bc7 | feat(incident): add complete repair command | — | 2026-10-29 |
+| Web-Services | feature/incident | ba441d0 | feat(incident): add get incidents by vehicle query | — | 2026-10-29 |
+| Web-Services | feature/incident | f7e054d | feat(incident): add get incidents by status query | — | 2026-10-29 |
+| Web-Services | feature/incident | 6512aaf | feat(incident): add get incident follow-ups query | — | 2026-10-29 |
+| Web-Services | feature/incident | 8327e44 | feat(incident): add get corrective actions query | — | 2026-10-29 |
+| Web-Services | feature/incident | 92e3384 | feat(incident): add corrective action entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 0a33612 | feat(incident): add get repairs query | — | 2026-10-29 |
+| Web-Services | feature/incident | cbb7519 | feat(incident): add get incident types query | — | 2026-10-29 |
+| Web-Services | feature/incident | d5ff554 | feat(incident): add get incident type by id query | — | 2026-10-29 |
+| Web-Services | feature/incident | 7689f54 | feat(incident): add corrective action repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 52d93fa | feat(incident): add incident type repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 638d52a | feat(incident): add incident repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 61a37e2 | feat(incident): add repair entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 4abc597 | feat(incident): add incident follow-up entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 5d150a5 | feat(incident): define incident type command failures | — | 2026-10-29 |
+| Web-Services | feature/incident | 7e6dbeb | feat(incident): define incident command service | — | 2026-10-29 |
+| Web-Services | feature/incident | 6f52621 | feat(incident): define incident command failures | — | 2026-10-29 |
+| Web-Services | feature/incident | 1d31ca1 | feat(incident): add repair repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | b79383d | feat(incident): add incident follow-up repository contract | — | 2026-10-29 |
+| Web-Services | feature/incident | 4ad520e | feat(incident): define incident type query service | — | 2026-10-29 |
+| Web-Services | feature/incident | 73a51f9 | feat(incident): define incident query service | — | 2026-10-29 |
+| Web-Services | feature/incident | b8f0e15 | feat(incident): define incident type command service | — | 2026-10-29 |
+| Web-Services | feature/incident | 99743ef | feat(incident): implement incident command service | — | 2026-10-29 |
+| Web-Services | feature/incident | e4e223a | feat(incident): implement incident type command service | — | 2026-10-29 |
+| Web-Services | feature/incident | 024a945 | feat(incident): add incident type persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 7d1ca85 | feat(incident): add incident persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 7bc131f | feat(incident): implement incident type query service | — | 2026-10-29 |
+| Web-Services | feature/incident | 14c8609 | feat(incident): implement incident query service | — | 2026-10-29 |
+| Web-Services | feature/incident | 6dd5978 | feat(incident): add incident JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | 9941310 | feat(incident): add incident follow-up persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 41da6d0 | feat(incident): add repair persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 77446e7 | feat(incident): add corrective action persistence entity | — | 2026-10-29 |
+| Web-Services | feature/incident | 88acba3 | feat(incident): add incident follow-up JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | fdd1416 | feat(incident): add repair JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | ebc7972 | feat(incident): add corrective action JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | a28d3bb | feat(incident): add incident type JPA repository | — | 2026-10-29 |
+| Web-Services | feature/incident | 2ef787e | feat(incident): add repair persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 3f0040b | feat(incident): add corrective action persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | b45014c | feat(incident): add incident type persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 64b29dc | feat(incident): add incident persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 8b3cb48 | feat(incident): implement incident repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 3f1ac1d | feat(incident): add incident follow-up persistence assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 55b2bae | feat(incident): implement incident type repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 826652d | feat(incident): implement repair repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 4638f89 | feat(incident): implement incident follow-up repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 1de2d69 | feat(incident): implement corrective action repository adapter | — | 2026-10-29 |
+| Web-Services | feature/incident | 96089eb | feat(incident): add repair REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 1b24429 | feat(incident): add corrective action REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 7799de3 | feat(incident): add incident type REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | cd997c9 | feat(incident): add incident REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 27db89f | feat(incident): add incident type REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 795f4ea | feat(incident): add incident REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | a72445a | feat(incident): add incident follow-up REST resource | — | 2026-10-29 |
+| Web-Services | feature/incident | 92fba9d | feat(incident): add incident type REST controller | — | 2026-10-29 |
+| Web-Services | feature/incident | 950490a | feat(incident): add incident REST controller | — | 2026-10-29 |
+| Web-Services | feature/incident | 47a1765 | feat(incident): add incident follow-up REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | d43458c | feat(incident): add repair REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | 312e900 | feat(incident): add corrective action REST assembler | — | 2026-10-29 |
+| Web-Services | feature/incident | fb2826c | feat(incident): add incident operations REST controller | — | 2026-10-29 |
+| Web-Services | feature/incident | c1408e8 | docs(incident): document incident endpoints with Swagger | — | 2026-10-29 |
+| Web-Services | feature/fleet-management-v2 | 3de741a | feat(fleet-management): add value objects of fleet domain layer | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 6383b3f | feat(fleet-management): add the commands, queries and vehicle registered event | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 2aeeada | feat(fleet-management): add the company, fleet and vehicle aggregates and repository ports | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 56e2382 | feat(fleet-management): add the command services with their failures | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 43d46aa | feat(fleet-management): add the query services | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 65ce869 | feat(fleet-management): add the persistence entities and repositories | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 1e217cd | feat(fleet-management): add the persistence assemblers and repository adapters | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 2357d6b | feat(fleet-management): add the request and response resources | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | c30d21a | feat(fleet-management): add the assemblers between resources, commands and responses | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | 612f6c0 | feat(fleet-management): expose the company, fleet and vehicle endpoints | — | 2026-11-07 |
+| Web-Services | feature/fleet-management-v2 | d6aef16 | feat(fleet-management): add the fleet messages in English and Spanish | — | 2026-11-07 |
+| Web-Services | chore/virtual-threads | a0616e6 | chore(config): serve requests on virtual threads | — | 2026-11-07 |
+| Web-Services | refactor/domain-event-publisher | 898779e | refactor(shared): publish the domain events of every aggregate through one publisher | — | 2026-11-07 |
+| Web-Services | chore/config-profiles | 2c9362b | chore(config): split the development and production profiles | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | b91609c | docs(adrs): record the architecture decisions of the platform | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | f4161fa | docs(adrs): describe how restore and token validation actually behave | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 4bfbd1c | docs: add the contribution guide | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 54ff0da | docs: take the refactor example from the commit history | — | 2026-11-07 |
+| Web-Services | feature/iam-tokens | 694f3de | docs(openapi): sign in through the tokens resource | — | 2026-11-07 |
+| Web-Services | feature/iam-tokens | c4bbf56 | feat(iam): sign in by creating a token at the tokens endpoint | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 10722a7 | docs(adrs): sign in through the tokens resource | — | 2026-11-07 |
+| Frontend-Web-Application | feature/iam-tokens | 7d837e7 | chore(config): sign in through the tokens endpoint of the backend | — | 2026-11-07 |
+| Web-Services | fix/problem-details-coverage | aa6781d | fix(shared): answer every request error as a translated problem detail | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 2c45dc8 | docs(adrs): cover the spring mvc and unexpected errors in the error responses | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | dc133df | feat(preoperationalinspection): define domain value objects and enums | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 85864c5 | feat(preoperationalinspection): implement Inspection and InspectionItem domain aggregates | — | 2026-11-07 |
+| Web-Services | fix/problem-details-coverage | abfe4cb | fix(shared): keep the spring mvc error messages next to the general errors | — | 2026-11-07 |
+| Web-Services | feature/email-notifications | 49727d5 | feat(iam): announce the registration of a user with a domain event | — | 2026-11-07 |
+| Web-Services | feature/email-notifications | 8199218 | feat(iam): email new users through resend when their account is opened | — | 2026-11-07 |
+| Web-Services | docs/architecture-decisions | 2ccad39 | docs(adrs): record the transactional email through resend | — | 2026-11-07 |
+| Frontend-Web-Application | fix/pages-path | d7bbb5b | fix(deploy): serve the web application from the path of the renamed repository | — | 2026-11-07 |
+| Landing-Page | fix/web-application-link | 52617eb | fix(cta): point the call to action to the renamed web application | — | 2026-11-07 |
+| Web-Services | fix/container-image-name | 77a29a5 | ci: keep publishing the image to the package azure pulls from | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | db05e2b | feat(preoperationalinspection): add commands and queries for inspection item management | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 2f27839 | gifix(preoperationalinspection): fix update method in InspectionItem aggregate | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 8e4f44d | feat(preoperationalinspection): implement application command and query services for inspection items | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 92cf208 | feat(preoperationalinspection): implement JPA persistence for inspection items | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 50de26b | feat(preoperationalinspection): implement JPA persistence for inspection items | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | a65c179 | feat(preoperationalinspection): expose REST endpoints for inspection items catalog | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 3883550 | feat(preoperationalinspection): implement application command and query services for inspections | — | 2026-11-07 |
+| Frontend-Web-Application | feature/documentation-backend | 8d9ec44 | feat(vehicle-documentation): manage the vehicle documents through the platform backend | — | 2026-11-07 |
+| Web-Services | feature/current-vehicle-statuses | 1a12d56 | docs(openapi): add the current operational status of every vehicle | — | 2026-11-07 |
+| Web-Services | feature/current-vehicle-statuses | 54ea17a | feat(evaluation): list the current operational status of every vehicle | — | 2026-11-07 |
+| Web-Services | feature/current-vehicle-statuses | bdcf236 | test(evaluation): cover the current operational status of every vehicle | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | 60e0897 | feat(preoperationalinspection): implement JPA persistence and event publishing for inspections | — | 2026-11-07 |
+| Frontend-Web-Application | feature/evaluation-status-board | 4f642d6 | feat(evaluation): show the vehicles of the fleet by operational status | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | a242aff | fix(preoperationalinspection): let the database identify new inspection items and inspections | — | 2026-11-07 |
+| Web-Services | feature/preoperational-inspection | f37e84f | fix(preoperationalinspection): leave the identifier of new inspection entities to the database | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | ee4e368 | feat(preoperationalinspection): expose the inspections, their results, observations and photos | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | 62f6c52 | feat(preoperationalinspection): store the photos of the inspections in azure blob storage | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | 6b74108 | docs(openapi): start an inspection with its vehicle and list the inspections without pages | — | 2026-11-07 |
+| Web-Services | feature/inspection-endpoints | 01bc104 | docs(adrs): record the storage of the inspection photos in azure blob storage | — | 2026-11-07 |
+| Web-Services | feature/inspection-evaluation | 040eb4c | feat(preoperationalinspection): announce completed inspections and share their results with other contexts | — | 2026-11-07 |
+| Web-Services | feature/inspection-evaluation | 5562680 | feat(evaluation): evaluate every completed inspection and let a supervisor evaluate one on demand | — | 2026-11-07 |
+| Web-Services | feature/inspection-evaluation | 1c09e33 | fix(evaluation): type the response of the on demand evaluation | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | 4ab4ba5 | feat(inspection): run the inspection checklist against the platform backend | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | d2b2b85 | fix(fleet): read the inspection history of a vehicle from the platform backend | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | 28bc3da | feat(inspection): review and submit the inspection and show the resulting condition of the vehicle | — | 2026-11-07 |
+| Frontend-Web-Application | feature/inspection-backend | 2f95378 | feat(inspection): record the observation and photos of each finding | — | 2026-11-07 |
+| Web-Services | feature/demo-data | 0ba48ea | feat(shared): load demo data for the company of the administrator on demand | — | 2026-11-07 |
+| Frontend-Web-Application | feature/fleet-backend | 1327c4f | feat(fleet): read the company, fleets and vehicles from the platform backend | — | 2026-11-07 |
+| Web-Services | feature/demo-data | efd9ba6 | chore(data): load the demo data with psql instead of at startup | — | 2026-11-07 |
+| Frontend-Web-Application | feature/evaluation-status-board | ce15ede | feat(evaluation): read the vehicles of the status board from the platform backend | — | 2026-11-07 |
+| Web-Services | feature/incident | 5fa5dfd | feat(incident): translate the messages of the incident management context | — | 2026-11-07 |
+| Web-Services | feature/incident | 57ce0bc | feat(incident): restrict the management of incidents to supervisors and administrators | — | 2026-11-07 |
+| Web-Services | feature/incident | b8b0bd5 | fix(incident): answer conflict instead of failing when an incident or repair cannot change its status | — | 2026-11-07 |
+| Web-Services | feature/incident | 5ff6ebc | test(incident): cover the lifecycle of an incident, its roles and its translated errors | — | 2026-11-07 |
+| Frontend-Web-Application | feature/incident-backend | 02f12f5 | feat(incident): manage the incidents through the platform backend | — | 2026-11-07 |
+| Web-Services | docs/incident-contract | 8f7b83b | docs(openapi): add the incident management contract | — | 2026-11-07 |
+| Web-Services | docs/incident-contract-lists | e495ce5 | docs(openapi): describe the incident lists as the objects the api returns | — | 2026-11-08 |
+| Web-Services | feature/demo-incident-types | 56d48d1 | feat(incident): load four incident types with the demo data | — | 2026-11-08 |
+| Frontend-Web-Application | feature/incident-usable-forms | bb6086e | feat(incident): choose the vehicle and inspection of an incident, and complete repairs and resolve incidents | — | 2026-11-08 |
+| Frontend-Web-Application | feature/incident-usable-forms | 945d965 | fix(incident): schedule a repair with its full start date and no end date | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | 1a9d0a9 | feat(shared): store files in a private azure blob container and expose user names to other contexts | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | 9be9c32 | feat(documentation): attach the scanned file of a vehicle document | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | b5422f6 | feat(incident): name the users of an incident and attach the evidence file of a corrective action | — | 2026-11-08 |
+| Frontend-Web-Application | feature/readable-incidents-and-files | c584c79 | fix(fleet): hide the account identifier from the driver list | — | 2026-11-08 |
+| Frontend-Web-Application | feature/readable-incidents-and-files | dbdf3fb | feat(vehicle-documentation): attach the scanned file of a document instead of typing its link | — | 2026-11-08 |
+| Frontend-Web-Application | feature/readable-incidents-and-files | f4bf57c | feat(incident): show the names of the users and the plate instead of identifiers, and attach the evidence of a corrective action | — | 2026-11-08 |
+| Web-Services | feature/readable-incidents-and-files | abe732c | fix(documentation): keep the attached file when a document is edited | — | 2026-11-08 |
+
+<a id="5235-execution-evidence-for-sprint-review"></a>
+#### 5.2.3.5. Execution Evidence for Sprint Review.
+
+Al cierre del Sprint 3, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ en su versión 0.5.1 y trabaja sobre el Backend RESTful API 0.3.0. Cada usuario entra con su propia cuenta y ve solo las opciones de su rol. El recorrido de las capturas usa los datos de demostración: el conductor Carlos Mamani inspecciona el vehículo ABC-123, encuentra desgaste en el disco de freno y lo registra con una fotografía; al enviar la inspección, las reglas de la empresa dejan el vehículo no habilitado, y la supervisora Lucía Ramos lo encuentra en el tablero de estado y registra la incidencia con su acción correctiva, su reparación y su seguimiento.
+
+**Identity and Access**
+
+![Inicio de sesión con la cuenta de la plataforma](assets/sprint3/execution-sign-in-en.png)
+
+![Usuarios de la empresa con su rol y estado, vistos por el administrador, en español](assets/sprint3/execution-users-es.png)
+
+**Pre-Operational Inspection — flujo del conductor**
+
+| Vehículo asignado (teléfono) | Resumen antes de enviar (teléfono) | Resultado (teléfono) |
+|:---:|:---:|:---:|
+| <img src="assets/sprint3/execution-mobile-start-inspection-es.png" width="220" alt="Vehículo asignado al conductor con el odómetro por registrar"> | <img src="assets/sprint3/execution-mobile-inspection-summary-es.png" width="220" alt="Resumen de la inspección con una falla en frenos y su fotografía"> | <img src="assets/sprint3/execution-mobile-inspection-result-es.png" width="220" alt="Resultado de la inspección con el vehículo no habilitado"> |
+
+![Checklist de la inspección con 38 de 42 elementos respondidos, en español](assets/sprint3/execution-inspection-checklist-es.png)
+
+![Resultado de la inspección enviada: el vehículo queda no habilitado](assets/sprint3/execution-inspection-result-en.png)
+
+**Evaluation and Authorization**
+
+![Tablero del estado operativo de los vehículos con ABC-123 no habilitado](assets/sprint3/execution-vehicle-status-board-en.png)
+
+**Incident Management**
+
+![Lista de incidencias con la incidencia de frenos de ABC-123, en español](assets/sprint3/execution-incidents-es.png)
+
+![Detalle de la incidencia con el vehículo, el origen en la inspección y quién la reportó, en español](assets/sprint3/execution-incident-detail-es.png)
+
+![Acción correctiva con su evidencia, reparación programada y seguimiento de la incidencia](assets/sprint3/execution-incident-actions-en.png)
+
+**Vehicle Documentation**
+
+![Documentos de ABC-123 con el SOAT vigente y su archivo, y el CITV próximo a vencer](assets/sprint3/execution-vehicle-documents-en.png)
+
+**Fleet Management**
+
+![Resumen de la flota leída del backend, en español](assets/sprint3/execution-fleet-es.png)
 
 <a id="5236-services-documentation-evidence-for-sprint-review"></a>
 #### 5.2.3.6. Services Documentation Evidence for Sprint Review.
 
-En el Sprint 3 el Backend RESTful API deja de ser un contrato y pasa a estar implementado. Springdoc genera su documentación OpenAPI a partir de los controladores y la publica con Swagger UI en el propio servicio desplegado; cada operación indica los roles que la pueden ejecutar y las respuestas de error, que siguen el formato Problem Details y se traducen según la cabecera `Accept-Language`. El contrato escrito a mano del repositorio se amplió con los bounded contexts implementados en este sprint.
+En el Sprint 3 el Backend RESTful API deja de ser un contrato y pasa a estar implementado, con los seis bounded contexts de FleetSafe. Springdoc genera su documentación OpenAPI a partir de los controladores y la publica con Swagger UI en el propio servicio desplegado; cada operación indica los roles que la pueden ejecutar y las respuestas de error, que siguen el formato Problem Details y se traducen según la cabecera `Accept-Language`. El contrato escrito a mano del repositorio se amplió con los bounded contexts implementados en este sprint.
 
 - Documentación del servicio desplegado: https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html
 - Contrato: https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services/blob/develop/openapi/openapi.yaml
 
-Todas las rutas cuelgan de `/api/v1`. Salvo `/auth/login`, todas exigen el token de acceso en la cabecera `Authorization: Bearer <token>`: sin él responden `401`, y con un rol que no tiene permiso, `403`.
+Todas las rutas cuelgan de `/api/v1`. Salvo `/tokens`, todas exigen el token de acceso en la cabecera `Authorization: Bearer <token>`: sin él responden `401`, y con un rol que no tiene permiso, `403`.
 
 | Endpoint | Acciones implementadas | Verbo HTTP | Sintaxis de llamada | Parámetros | Response |
 |---|---|---|---|---|---|
-| `/auth/login` | Iniciar sesión | POST | `POST /api/v1/auth/login` | Cuerpo: `email`, `password` | `200` con `accessToken`, `tokenType`, `expiresIn` y el usuario (`id`, `companyId`, `email`, `firstName`, `lastName`, `role`, `isActive`). `401` si el correo o la contraseña no son correctos, o la cuenta está inactiva. |
+| `/tokens` | Iniciar sesión | POST | `POST /api/v1/tokens` | Cuerpo: `email`, `password` | `200` con `accessToken`, `tokenType`, `expiresIn` y el usuario (`id`, `companyId`, `email`, `firstName`, `lastName`, `role`, `isActive`). `401` si el correo o la contraseña no son correctos, o la cuenta está inactiva. |
 | `/users` | Consultar los usuarios de la empresa | GET | `GET /api/v1/users?role=DRIVER&isActive=true&page=0&size=20&sort=lastName,asc` | Opcionales: `role`, `isActive`, `page`, `size` (1–100), `sort` (`lastName`, `email` o `createdAt`) | `200` con `content` (los usuarios) y `page` (`number`, `size`, `totalElements`, `totalPages`). Solo `ADMINISTRATOR`. |
 | `/users` | Registrar un usuario en la empresa del administrador | POST | `POST /api/v1/users` | Cuerpo: `email`, `password` (8–72 caracteres), `firstName`, `lastName`, `role` (`ADMINISTRATOR` · `FLEET_SUPERVISOR` · `DRIVER`) | `201` con el usuario creado; `400` si los datos no son válidos; `409` si el correo ya está registrado. Solo `ADMINISTRATOR`. |
 | `/users/{id}` | Consultar un usuario | GET | `GET /api/v1/users/{id}` | `id`: UUID del usuario | `200` con el usuario; `403` si no es la propia cuenta ni la consulta un administrador; `404` si no existe en la empresa. |
@@ -998,10 +1206,37 @@ Todas las rutas cuelgan de `/api/v1`. Salvo `/auth/login`, todas exigen el token
 | `/vehicles/{id}/block-lifts` | Levantar el bloqueo de un vehículo no habilitado | POST | `POST /api/v1/vehicles/{id}/block-lifts` | `id`; cuerpo: `reason` | `201` con la nueva habilitación, marcada como excepción y con el usuario del token como responsable; `404` si no tiene habilitación; `409` si no está bloqueado. |
 | `/operational-authorizations/overrides` | Consultar los bloqueos levantados en un periodo | GET | `GET /api/v1/operational-authorizations/overrides?from=2026-10-01T00:00:00Z&to=2026-10-31T23:59:59Z` | `from`, `to` en ISO-8601 | `200` con las excepciones del periodo; `400` si el periodo no es válido. |
 | `/document-types` | Consultar y registrar tipos de documento | GET · POST | `GET /api/v1/document-types` · `POST /api/v1/document-types` | Cuerpo de `POST`: `code`, `name`, `description`, `isRequired` | `200` con el catálogo; `201` con el tipo creado; `409` si el código ya existe. `POST` solo `ADMINISTRATOR`. |
-| `/vehicles/{vehicleId}/documents` | Registrar y consultar los documentos de un vehículo | POST · GET | `POST /api/v1/vehicles/{vehicleId}/documents` · `GET /api/v1/vehicles/{vehicleId}/documents` | `vehicleId`; cuerpo de `POST`: `documentTypeId`, `number`, `issueDate`, `expirationDate`, `fileUrl` | `201` con el documento y su `status` (`VALID` · `EXPIRING` · `EXPIRED`), calculado a partir del vencimiento; `200` con los documentos ordenados por vencimiento; `422` si el tipo de documento no existe. |
-| `/vehicles/{vehicleId}/documents/{documentId}` | Actualizar un documento | PUT | `PUT /api/v1/vehicles/{vehicleId}/documents/{documentId}` | `vehicleId`, `documentId`; el mismo cuerpo que al registrar | `200` con el documento y su estado recalculado; `404` si el vehículo no tiene ese documento. |
+| `/vehicles/{vehicleId}/documents` | Registrar y consultar los documentos de un vehículo | POST · GET | `POST /api/v1/vehicles/{vehicleId}/documents` · `GET /api/v1/vehicles/{vehicleId}/documents` | `vehicleId`; cuerpo de `POST`: `documentTypeId`, `number`, `issueDate`, `expirationDate` | `201` con el documento y su `status` (`VALID` · `EXPIRING` · `EXPIRED`), calculado a partir del vencimiento; `200` con los documentos ordenados por vencimiento; `422` si el tipo de documento no existe. |
+| `/vehicles/{vehicleId}/documents/{documentId}` | Actualizar un documento | PUT | `PUT /api/v1/vehicles/{vehicleId}/documents/{documentId}` | `vehicleId`, `documentId`; el mismo cuerpo que al registrar | `200` con el documento y su estado recalculado; conserva el archivo adjunto; `404` si el vehículo no tiene ese documento. |
+| `/vehicles/{vehicleId}/documents/{documentId}/file` | Adjuntar el documento escaneado | POST | `POST /api/v1/vehicles/{vehicleId}/documents/{documentId}/file` | `vehicleId`, `documentId`; cuerpo `multipart/form-data` con `file` (JPEG, PNG o PDF) | `200` con el documento y `fileUrl`, un enlace de lectura válido por una hora; `400` si el archivo no es JPEG, PNG o PDF; `503` si no se pudo guardar. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
 | `/documents` | Consultar los documentos de todos los vehículos | GET | `GET /api/v1/documents` | — | `200` con los documentos ordenados por vencimiento. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
 | `/documents/expiring` | Consultar los documentos próximos a vencer | GET | `GET /api/v1/documents/expiring?days=30` | Opcional: `days` (0–365, por defecto 30) | `200` con los documentos que vencen entre hoy y ese número de días; `400` si `days` está fuera de rango. |
+| `/operational-authorizations/current` | Consultar el estado operativo vigente de todos los vehículos | GET | `GET /api/v1/operational-authorizations/current?status=NOT_ENABLED` | Opcional: `status` (`ENABLED` · `OBSERVED` · `NOT_ENABLED`) | `200` con la habilitación más reciente de cada vehículo evaluado; `400` si el estado no existe. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/companies` | Registrar la empresa del administrador | POST | `POST /api/v1/companies` | Cuerpo: `name`, `taxId`, `address`, `phone`, `email` | `201` con la empresa, que toma el identificador de la empresa del administrador; `409` si ya existe. Solo `ADMINISTRATOR`. |
+| `/companies/me` | Consultar la empresa del usuario | GET | `GET /api/v1/companies/me` | — | `200` con `id`, `name`, `taxId`, `address`, `phone`, `email`; `404` si la empresa aún no se registró. |
+| `/fleets` | Consultar y crear las flotas de la empresa | GET · POST | `GET /api/v1/fleets` · `POST /api/v1/fleets` | Cuerpo de `POST`: `name`, `description` | `200` con las flotas ordenadas por nombre; `201` con la flota creada. `POST` solo `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/vehicles` | Consultar y registrar los vehículos de la empresa | GET · POST | `GET /api/v1/vehicles?status=ENABLED` · `POST /api/v1/vehicles` | Opcional en `GET`: `status`. Cuerpo de `POST`: `fleetId`, `plate`, `brand`, `model`, `year`, `type`, `capacity` | `200` con los vehículos ordenados por placa; `201` con el vehículo; `409` si la placa ya existe; `422` si la flota no es de la empresa. `POST` solo `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/vehicles/{vehicleId}` | Consultar y actualizar un vehículo | GET · PUT | `GET /api/v1/vehicles/{vehicleId}` · `PUT /api/v1/vehicles/{vehicleId}` | `vehicleId`; cuerpo de `PUT`: `brand`, `model`, `year`, `type`, `capacity` | `200` con el vehículo; `404` si no existe. `PUT` solo `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/inspection-items` | Consultar y crear los elementos del catálogo de inspección | GET · POST | `GET /api/v1/inspection-items?system=BRAKES&active=true` · `POST /api/v1/inspection-items` | Opcionales en `GET`: `system`, `active`. Cuerpo de `POST`: `code`, `name`, `description`, `category`, `system`, `isSafetyComponent`, `requiresEvidence`, `displayOrder` | `200` con los elementos; `201` con el elemento creado; `409` si el código ya existe. `POST` solo `ADMINISTRATOR`. |
+| `/inspection-items/{id}` | Consultar y actualizar un elemento | GET · PUT | `GET /api/v1/inspection-items/{id}` · `PUT /api/v1/inspection-items/{id}` | `id`; cuerpo de `PUT`: los mismos campos salvo `code` | `200` con el elemento; `404` si no existe. `PUT` solo `ADMINISTRATOR`. |
+| `/inspection-items/{id}/deactivation` | Desactivar un elemento | POST | `POST /api/v1/inspection-items/{id}/deactivation` | `id` | `200` con el elemento inactivo, que deja de aparecer en las inspecciones; `409` si ya estaba inactivo. Solo `ADMINISTRATOR`. |
+| `/inspections` | Consultar e iniciar inspecciones | GET · POST | `GET /api/v1/inspections?vehicleId={id}` · `POST /api/v1/inspections` | Opcional en `GET`: `vehicleId`. Cuerpo de `POST`: `vehicleId`, `odometer` | `200` con las inspecciones, de la más reciente a la más antigua; el conductor solo ve las suyas. `201` con la inspección en `IN_PROGRESS`; el conductor sale del token; `409` si el vehículo ya tiene una inspección en curso. `POST` solo `DRIVER`. |
+| `/inspections/{id}` | Consultar y completar una inspección | GET · PATCH | `GET /api/v1/inspections/{id}` · `PATCH /api/v1/inspections/{id}` | `id`; cuerpo de `PATCH`: `status` = `COMPLETED` | `200` con la inspección, sus resultados, observaciones y fotografías; al completarla se evalúa y el vehículo queda habilitado, observado o no habilitado. `409` si falta el resultado de algún elemento activo, la observación de un resultado observado o con falla, o la fotografía de un elemento que la exige. |
+| `/inspections/{id}/results` | Registrar el resultado de un elemento | POST | `POST /api/v1/inspections/{id}/results` | `id`; cuerpo: `inspectionItemId`, `result` (`OK` · `OBSERVED` · `FAIL`) | `201` con el resultado. Solo el `DRIVER` que realiza la inspección, mientras está `IN_PROGRESS`. |
+| `/inspections/{id}/results/{resultId}` | Cambiar el resultado de un elemento | PATCH | `PATCH /api/v1/inspections/{id}/results/{resultId}` | `id`, `resultId`; cuerpo: `result` | `200` con el resultado; `404` si no existe. |
+| `/inspections/{id}/results/{resultId}/observations` | Registrar una observación | POST | `POST /api/v1/inspections/{id}/results/{resultId}/observations` | `id`, `resultId`; cuerpo: `description` | `201` con la observación. `DRIVER` que realiza la inspección o `FLEET_SUPERVISOR`. |
+| `/inspections/{id}/results/{resultId}/observations/{observationId}/evidences` | Adjuntar una fotografía | POST | `POST /api/v1/inspections/{id}/results/{resultId}/observations/{observationId}/evidences` | Cuerpo `multipart/form-data` con `file` (JPEG o PNG) | `201` con la evidencia y un enlace de lectura válido por una hora; `400` si no es JPEG o PNG; `503` si no se pudo guardar. |
+| `/inspections/{id}/evaluate` | Volver a evaluar una inspección completada | POST | `POST /api/v1/inspections/{id}/evaluate` | `id` | `200` con la nueva habilitación del vehículo; `404` si la inspección no existe o no está completada. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/incident-types` | Consultar y registrar tipos de incidencia | GET · POST | `GET /api/v1/incident-types` · `POST /api/v1/incident-types` | Cuerpo de `POST`: `code`, `name`, `description` | `200` con `{ "incidentTypes": […] }`; `201` con el tipo creado. `POST` solo `ADMINISTRATOR`. |
+| `/incident-types/{id}` | Consultar y actualizar un tipo de incidencia | GET · PUT | `GET /api/v1/incident-types/{id}` · `PUT /api/v1/incident-types/{id}` | `id`; cuerpo de `PUT`: `incidentTypeId`, `code`, `name`, `description`, `active` | `200` con el tipo; `404` si no existe. `PUT` solo `ADMINISTRATOR`. |
+| `/incidents` | Consultar y reportar incidencias | GET · POST | `GET /api/v1/incidents` · `POST /api/v1/incidents` | Cuerpo de `POST`: `vehicleId`, `incidentTypeId`, `inspectionId` (opcional), `origin` (`INSPECTION` · `OPERATION`), `description`, `severity` (`LOW` · `MEDIUM` · `HIGH`), `reportedBy` | `200` con `{ "incidents": […] }`, cada una con sus acciones correctivas, reparaciones, seguimientos y el nombre de quien la reportó; `201` con la incidencia en `REGISTERED`; `404` si el tipo no existe. `POST`: `DRIVER`, `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/incidents/vehicle/{vehicleId}` · `/incidents/status/{status}` | Consultar las incidencias de un vehículo o en un estado | GET | `GET /api/v1/incidents/vehicle/{vehicleId}` · `GET /api/v1/incidents/status/REGISTERED` | `vehicleId` o `status` (`REGISTERED` · `IN_REVIEW` · `RESOLVED` · `CLOSED`) | `200` con `{ "incidents": […] }`. |
+| `/incidents/{id}` | Consultar, actualizar y eliminar una incidencia | GET · PUT · DELETE | `GET /api/v1/incidents/{id}` · `PUT /api/v1/incidents/{id}` · `DELETE /api/v1/incidents/{id}` | `id`; cuerpo de `PUT`: el de `POST` más `incidentId` | `200` con la incidencia; `204` al eliminarla; `404` si no existe; `409` si ya está resuelta. `PUT` y `DELETE`: `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/incidents/{id}/resolve` | Resolver una incidencia | PATCH | `PATCH /api/v1/incidents/{id}/resolve` | `id`; cuerpo: `incidentId`, `resolutionType`, `resolvedAt` | `200` con la incidencia en `RESOLVED`; `409` si ya estaba resuelta. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/incidents/{id}/corrective-actions` | Registrar una acción correctiva | POST | `POST /api/v1/incidents/{id}/corrective-actions` | `id`; cuerpo: `incidentId`, `description`, `performedBy`, `performedAt` | `201` con la acción y el nombre de quien la realizó. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/incidents/{id}/corrective-actions/{correctiveActionId}/evidence` | Adjuntar la evidencia de una acción correctiva | POST | `POST /api/v1/incidents/{id}/corrective-actions/{correctiveActionId}/evidence` | Cuerpo `multipart/form-data` con `file` (JPEG, PNG o PDF) | `200` con la acción y `evidenceUrl`, un enlace de lectura válido por una hora; `400` si el tipo de archivo no se admite; `503` si no se pudo guardar. |
+| `/incidents/{id}/repairs` · `/incidents/{id}/repairs/{repairId}/complete` | Programar y completar una reparación | POST · PATCH | `POST /api/v1/incidents/{id}/repairs` · `PATCH /api/v1/incidents/{id}/repairs/{repairId}/complete` | Cuerpo de `POST`: `incidentId`, `workshop`, `cost`, `startedAt`; de `PATCH`: `incidentId`, `repairId`, `finishedAt` | `201` con la reparación en `SCHEDULED`; `200` con la reparación en `COMPLETED`; `409` si ya estaba completada. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
+| `/incidents/{id}/follow-ups` | Agregar un seguimiento | POST | `POST /api/v1/incidents/{id}/follow-ups` | `id`; cuerpo: `incidentId`, `note`, `createdBy`, `createdAt` | `201` con el seguimiento y el nombre de quien lo escribió. `FLEET_SUPERVISOR` y `ADMINISTRATOR`. |
 
 Commits del repositorio Web Services relacionados con la documentación de este sprint (https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services):
 
@@ -1012,6 +1247,19 @@ Commits del repositorio Web Services relacionados con la documentación de este 
 | 8bb8ebf | feat(shared): allow the web application origins and describe the api in swagger |
 | fa053fb | docs(openapi): add the vehicle documentation contract |
 | acf69e6 | docs(openapi): drop the days until expiration from the vehicle document |
+| b91609c | docs(adrs): record the architecture decisions of the platform |
+| f4161fa | docs(adrs): describe how restore and token validation actually behave |
+| 694f3de | docs(openapi): sign in through the tokens resource |
+| 10722a7 | docs(adrs): sign in through the tokens resource |
+| 2c45dc8 | docs(adrs): cover the spring mvc and unexpected errors in the error responses |
+| 2ccad39 | docs(adrs): record the transactional email through resend |
+| 1a12d56 | docs(openapi): add the current operational status of every vehicle |
+| 6b74108 | docs(openapi): start an inspection with its vehicle and list the inspections without pages |
+| 01bc104 | docs(adrs): record the storage of the inspection photos in azure blob storage |
+| 8f7b83b | docs(openapi): add the incident management contract |
+| e495ce5 | docs(openapi): describe the incident lists as the objects the api returns |
+| b5422f6 | feat(incident): name the users of an incident and attach the evidence file of a corrective action |
+| 9be9c32 | feat(documentation): attach the scanned file of a vehicle document |
 
 <a id="5237-software-deployment-evidence-for-sprint-review"></a>
 #### 5.2.3.7. Software Deployment Evidence for Sprint Review.
@@ -1022,8 +1270,9 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 |---|---|---|---|---|
 | Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
 | Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | GitHub Pages con GitHub Actions | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ |
-| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | Azure Container Apps, con la imagen en GitHub Container Registry | Desplegado desde `develop` | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
+| Backend RESTful API | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | Azure Container Apps, con la imagen en GitHub Container Registry | Desplegado, versión 0.3.0 | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
 | Base de datos | — | Azure Database for PostgreSQL – Flexible Server | Desplegada | `fleet-safe-db.postgres.database.azure.com` |
+| Fotografías y archivos | — | Azure Blob Storage, contenedor privado | Desplegado | Cuenta `fleetsafeevidences`, contenedor `evidences` |
 
 **1. Registro de los proveedores de recursos.** Antes de crear los recursos se comprobó que la suscripción Azure for Students tiene registrados los proveedores que necesitan: `Microsoft.DBforPostgreSQL` para la base de datos, `Microsoft.App` para Azure Container Apps y `Microsoft.OperationalInsights` para los registros.
 
@@ -1078,6 +1327,45 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 **12. Registros del arranque.** El registro en tiempo real muestra que el servicio se conectó a la base `fleetsafe`, levantó Tomcat en el puerto 8080 y terminó de arrancar.
 
 ![Registros del arranque del servicio en Azure Container Apps](assets/sprint3/deployment-15-container-app-log-stream.png)
+
+**13. Almacenamiento de fotografías y archivos.** Las fotografías de las inspecciones, las evidencias de las acciones correctivas y los documentos escaneados se guardan en la cuenta de Azure Storage `fleetsafeevidences`, en el contenedor privado `evidences`. Ningún archivo es público: el servicio entrega un enlace de lectura con firma de acceso compartido, válido por una hora, cada vez que devuelve un registro con archivo. La cadena de conexión se registró en la aplicación como el secreto `storage-connection-string`, referenciado por la variable `AZURE_STORAGE_CONNECTION_STRING`.
+
+**14. Versiones del servicio.** Cada versión se publica con GitFlow: la rama `release` se integra en `main`, se etiqueta con su número y el flujo de trabajo `Delivery` publica la imagen con esa etiqueta. La aplicación se actualiza después a la imagen de la versión, primero `web-services:0.2.0` y al cierre del sprint `web-services:0.3.0`, y la documentación del servicio desplegado informa esa misma versión.
+
+**15. Datos de demostración.** Para las pruebas con usuarios se cargó una sola vez el script `db/demo-data.sql` con `psql`, después de que el servicio creara sus tablas: la empresa, su flota, dos vehículos, los tipos de documento, los 42 elementos de inspección, seis reglas de evaluación y cuatro tipos de incidencia. Para conectarse desde fuera de Azure se abrió de forma temporal el firewall del servidor para una sola dirección IP, que se retiró al terminar.
+
+**16. API simulada.** Los conductores y las asignaciones de vehículos siguen en la API simulada de Render hasta el Sprint 4. Se volvió a desplegar con la versión 0.5.0 de la Web Application para que el vehículo asignado al conductor coincida con uno de los vehículos de demostración.
+
+| Producto | Versión al cierre del Sprint 3 |
+|---|---|
+| Landing Page | 1.1.1 |
+| Frontend Web Application | 0.5.1 |
+| Backend RESTful API | 0.3.0 |
+| Informe | 0.14.0 |
+
+![Documentación OpenAPI del servicio desplegado en su versión 0.3.0](assets/sprint3/deployment-16-swagger-version-030.png)
+
+![Versiones etiquetadas del Backend RESTful API](assets/sprint3/deployment-17-web-services-tags.png)
+
+<a id="5238-team-collaboration-insights-during-sprint"></a>
+#### 5.2.3.8. Team Collaboration Insights during Sprint.
+
+Cada bounded context se desarrolló en una rama propia a partir de `develop` y se integró mediante su Pull Request, que en el backend debía pasar las pruebas automáticas contra PostgreSQL antes de integrarse; las versiones se publicaron en `main` con ramas `release`. Durante el sprint se integraron 82 Pull Requests: 41 en el Backend RESTful API, 20 en la Web Application, 6 en el Landing Page y 15 en el informe, y se registraron 249 commits sin contar los de merge.
+
+Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Alejandro Espino completó el trabajo pendiente de los demás bounded contexts; los commits de cada integrante se conservan con su autoría en el historial de cada repositorio.
+
+| Integrante | GitHub Username | Commits en el Backend RESTful API | Commits en la Web Application | Commits en el Landing Page | Commits en el informe | Aporte principal |
+|---|---|---:|---:|---:|---:|---|
+| Espino Flores, Alejandro | CafecitoSKR | 73 | 31 | 4 | 21 | Base compartida, Identity and Access, Evaluation and Authorization, Vehicle Documentation, endpoints e integración de las inspecciones, almacenamiento de archivos, integración de Incident Management, conexión de la Web Application con el backend y despliegue |
+| Aguilar Untiveros, Rodrigo Fabrizio | Rodri2712 | 77 | — | — | — | Incident Management en el backend |
+| Palacin Lazo, Gerardo Valentin | GeraldP03 | 11 | 14 | — | 8 | Fleet Management en el backend y en la Web Application |
+| Apaza Bocanegra, Elizabeth Noelia | Elizabeth-Apaza | 10 | — | — | — | Dominio de Pre-Operational Inspection y catálogo de elementos de inspección |
+
+![Contribuidores del repositorio del Backend RESTful API](assets/sprint3/collaboration-contributors-web-services.png)
+
+![Contribuidores del repositorio de la Web Application](assets/sprint3/collaboration-contributors-web-application.png)
+
+![Pull Requests integrados en el Backend RESTful API durante el sprint](assets/sprint3/collaboration-pull-requests-web-services.png)
 
 <a id="53-validation-interviews"></a>
 ## 5.3. Validation Interviews.
