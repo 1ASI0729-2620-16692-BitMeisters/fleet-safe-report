@@ -1330,6 +1330,8 @@ En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure
 
 **13. Almacenamiento de fotografías y archivos.** Las fotografías de las inspecciones, las evidencias de las acciones correctivas y los documentos escaneados se guardan en la cuenta de Azure Storage `fleetsafeevidences`, en el contenedor privado `evidences`. Ningún archivo es público: el servicio entrega un enlace de lectura con firma de acceso compartido, válido por una hora, cada vez que devuelve un registro con archivo. La cadena de conexión se registró en la aplicación como el secreto `storage-connection-string`, referenciado por la variable `AZURE_STORAGE_CONNECTION_STRING`.
 
+![Contenedor privado evidences de la cuenta fleetsafeevidences con la fotografía, la evidencia y el documento de la demostración](assets/sprint3/deployment-18-blob-storage-evidences.png)
+
 **14. Versiones del servicio.** Cada versión se publica con GitFlow: la rama `release` se integra en `main`, se etiqueta con su número y el flujo de trabajo `Delivery` publica la imagen con esa etiqueta. La aplicación se actualiza después a la imagen de la versión, primero `web-services:0.2.0` y al cierre del sprint `web-services:0.3.0`, y la documentación del servicio desplegado informa esa misma versión.
 
 **15. Datos de demostración.** Para las pruebas con usuarios se cargó una sola vez el script `db/demo-data.sql` con `psql`, después de que el servicio creara sus tablas: la empresa, su flota, dos vehículos, los tipos de documento, los 42 elementos de inspección, seis reglas de evaluación y cuatro tipos de incidencia. Para conectarse desde fuera de Azure se abrió de forma temporal el firewall del servidor para una sola dirección IP, que se retiró al terminar.
