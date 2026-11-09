@@ -653,9 +653,6 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/rnMBZ?tagId=nXgEG
 <a id="232-user-task-matrix"></a>
 ### 2.3.2. User Task Matrix.
 
-<a id="232-user-task-matrix"></a>
-### 2.3.2. User Task Matrix.
-
 La User Task Matrix mapea las tareas operativas cotidianas que los usuarios representativos de los tres segmentos objetivo realizan en el mundo real dentro del proceso de control preventivo y despacho de carga, **independientemente de la existencia de una solución de software**. Para cada tarea se evalúa la frecuencia de ejecución (*Always*, *Often*, *Sometimes*, *Rarely*, *Never*) y su nivel de criticidad o importancia (*High*, *Medium*, *Low*):
 
 | **USER TASK (Actividades del Negocio)** | **José Ramírez**<br>*(Gerente / Dueño)* | | **Alessandra Nova**<br>*(Supervisora SST)* | | **Álvaro Torres**<br>*(Conductor de Carga)* | |

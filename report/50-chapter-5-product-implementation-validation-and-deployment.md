@@ -341,8 +341,6 @@ Con el objetivo de optimizar la organización y la colaboración del equipo, se 
 <a id="5213-sprint-backlog-1"></a>
 #### 5.2.1.3. Sprint Backlog 1.
 
-#### 5.2.1.3. Sprint Backlog 1.
-
 | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
 |---|---|---|---|---|---:|---|---|
 | US-01 | Visualizar página de inicio | UT-01 | Diseñar wireframe de la página de inicio | Diseñar la estructura inicial de la Landing Page de FleetSafe, definiendo la distribución de sus principales secciones. | 3 | Gerardo Palacin | Done |
