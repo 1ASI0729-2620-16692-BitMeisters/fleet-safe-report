@@ -1850,7 +1850,7 @@ El Context Diagram es el primer nivel del modelo C4 y muestra el sistema como un
 
 El diagrama se ha elaborado con **Structurizr**, la herramienta indicada para el modelo C4. El modelo completo se mantiene como código en el archivo [`workspace.dsl`](../workspace.dsl) de este repositorio, de modo que los tres niveles del modelo se generan a partir de una única fuente y no pueden quedar desincronizados entre sí. A continuación se presenta el diagrama de contexto de FleetSafe:
 
-<img src="assets/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
+<img src="assets/DDSoftwareArchitecture/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
 
 **Explicación del diagrama:**
 
@@ -1888,7 +1888,7 @@ Para FleetSafe se han identificado cinco containers, nombrados y representados s
 
 A continuación se presenta el diagrama de contenedores de FleetSafe, generado a partir del mismo modelo de Structurizr:
 
-<img src="assets/DDSoftwareArchitecture/ContainerDiagram-fleetsafe.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
+<img src="assets/DDSoftwareArchitecture/c4/containers-diagram.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
 
 **Explicación del diagrama:**
 
@@ -1908,7 +1908,7 @@ Las relaciones entre los containers muestran que los usuarios acceden al Website
 <a id="464-software-architecture-components-diagrams"></a>
 ### 4.6.4. Software Architecture Components Diagrams.
 
-Los Component Diagrams son el tercer nivel del modelo C4 y descomponen cada container en los componentes que lo forman, indicando su responsabilidad, la tecnología con la que se implementa y las relaciones entre ellos. Se presenta **un diagrama por cada container de software**: Landing Page, Web Application y Backend RESTful API.
+Los Component Diagrams son el tercer nivel del modelo C4 y descomponen cada container en los componentes que lo forman, indicando su responsabilidad, la tecnología con la que se implementa y las relaciones entre ellos. Se presenta **un diagrama por cada container de software**: Website, Single-Page Application y Web Services.
 
 El container **Database** no cuenta con un diagrama de componentes propio porque no es una unidad de software descomponible en componentes, sino un almacén de datos; su estructura interna se documenta en la sección [4.8. Database Design](#48-database-design).
 
@@ -1918,7 +1918,7 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 
 #### Component Diagram: Website
 
-<img src="assets/c4/03-components-landing.png" alt="Diagrama de componentes del Website" width="900">
+<img src="assets/DDSoftwareArchitecture/c4/component-website.png" alt="Diagrama de componentes del Website" width="900">
 
 | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|
@@ -1928,13 +1928,13 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 | **Legal Pages** | HTML, CSS | Presenta los términos y condiciones y la política de privacidad, enlazados desde el pie de página. |
 | **Language Switcher** | JavaScript | Alterna el contenido entre `en_US` y `es_419` y establece el atributo de idioma correspondiente. |
 
-**Explicación del diagrama.** El Website es un sitio estático, por lo que sus componentes son secciones de contenido y no unidades de lógica de negocio. El componente con responsabilidad arquitectónica propia es **Segment Call to Action**: es el que materializa la relación entre el Landing Page y la Web Application, dirigiendo a cada segmento objetivo a la vista que le corresponde según su rol. **Language Switcher** y **Legal Pages** se representan de forma explícita porque implementan dos requisitos transversales del producto —la internacionalización en `en_US` y `es_419`, y el enlace a los documentos legales desde el pie de página— cuya ausencia afectaría al cumplimiento del producto con independencia del contenido presentado.
+**Explicación del diagrama.** El Website es un sitio estático, por lo que sus componentes son secciones de contenido y no unidades de lógica de negocio. El componente con responsabilidad arquitectónica propia es **Segment Call to Action**: es el que materializa la relación entre el Website y la Web Application Static Content, dirigiendo a cada segmento objetivo a la vista que le corresponde según su rol. **Language Switcher** y **Legal Pages** se representan de forma explícita porque implementan dos requisitos transversales del producto —la internacionalización en `en_US` y `es_419`, y el enlace a los documentos legales desde el pie de página— cuya ausencia afectaría al cumplimiento del producto con independencia del contenido presentado.
 
 ---
 
 #### Component Diagram: Single-Page Application
 
-<img src="assets/c4/04-components-webapp.png" alt="Diagrama de componentes de la Single-Page Application" width="1000">
+<img src="assets/DDSoftwareArchitecture/c4/components-WebApp.png" alt="Diagrama de componentes de la Single-Page Application" width="1000">
 
 | Componente | Tecnología | Responsabilidad | Bounded context |
 |:---|:---|:---|:---|
@@ -1950,15 +1950,15 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 | **Translation Service** | ngx-translate | Resuelve los textos de la interfaz para `en_US` y `es_419`. | transversal |
 | **Shared UI Components** | Angular Material | Provee los componentes del design system, con los atributos ARIA necesarios para la accesibilidad. | transversal |
 
-**Explicación del diagrama.** La Single-Page Application se descompone en seis módulos de funcionalidad, uno por cada bounded context, de forma que la estructura del frontend refleja la misma división del dominio que el backend y el modelo de datos. Cada módulo presenta sus vistas y delega toda comunicación en **API Client**, que concentra las peticiones al Backend RESTful API en un único punto.
+**Explicación del diagrama.** La Single-Page Application se descompone en seis módulos de funcionalidad, uno por cada bounded context, de forma que la estructura del frontend refleja la misma división del dominio que el backend y el modelo de datos. Cada módulo presenta sus vistas y delega toda comunicación en **API Client**, que concentra las peticiones a los Web Services en un único punto.
 
-Los cinco componentes transversales resuelven preocupaciones que no pertenecen a ningún contexto concreto. **Authentication Interceptor** y **Role Guard** implementan el control de acceso en el lado del cliente: el primero adjunta el token a cada petición, y el segundo impide que un usuario alcance una ruta que su rol no admite. Conviene señalar que **esta restricción es de experiencia de usuario, no de seguridad**: la autorización efectiva se resuelve en el Security Filter del Backend RESTful API, porque un control implementado únicamente en el navegador puede ser eludido. **Translation Service** y **Shared UI Components** concentran respectivamente la internacionalización y los componentes del design system con sus atributos ARIA, de modo que ambos requisitos se cumplen de forma homogénea en todas las vistas en lugar de resolverse módulo a módulo.
+Los cinco componentes transversales resuelven preocupaciones que no pertenecen a ningún contexto concreto. **Authentication Interceptor** y **Role Guard** implementan el control de acceso en el lado del cliente: el primero adjunta el token a cada petición, y el segundo impide que un usuario alcance una ruta que su rol no admite. Conviene señalar que **esta restricción es de experiencia de usuario, no de seguridad**: la autorización efectiva se resuelve en el Security Filter de los Web Services, porque un control implementado únicamente en el navegador puede ser eludido. **Translation Service** y **Shared UI Components** concentran respectivamente la internacionalización y los componentes del design system con sus atributos ARIA, de modo que ambos requisitos se cumplen de forma homogénea en todas las vistas en lugar de resolverse módulo a módulo.
 
 ---
 
 #### Component Diagram: Web Services
 
-<img src="assets/c4/05-components-api.png" alt="Diagrama de componentes de los Web Services" width="1000">
+<img src="assets/DDSoftwareArchitecture/c4/components-Api.png" alt="Diagrama de componentes de los Web Services" width="1000">
 
 | Bounded context | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|:---|
@@ -1994,7 +1994,7 @@ El recorrido que sostiene el núcleo del producto atraviesa dos contextos. **Ins
 
 Las referencias entre contextos siguen la misma regla que el modelo de datos: **dentro de un contexto se accede al repositorio propio; cruzando la frontera, se consulta al servicio o al repositorio del otro contexto únicamente para verificar la existencia del elemento referenciado**. Así, `Inspection Service` consulta a `Fleet Repository` para resolver el vehículo asignado al conductor, pero no gestiona vehículos.
 
-Los cuatro componentes de **Shared** concentran las preocupaciones transversales. **Localization Service** es el que permite que los mensajes devueltos por los Web Services cumplan el requisito de internacionalización en `en_US` y `es_419`, exigido no solo en el Landing Page y la Web Application sino también en la API. **Storage Client** y **Email Client** aíslan la comunicación con los dos sistemas externos, de modo que la elección definitiva del proveedor no afecte a los servicios de cada contexto.
+Los cuatro componentes de **Shared** concentran las preocupaciones transversales. **Localization Service** es el que permite que los mensajes devueltos por los Web Services cumplan el requisito de internacionalización en `en_US` y `es_419`, exigido no solo en el Website y la Single-Page Application sino también en los Web Services. **Storage Client** y **Email Client** aíslan la comunicación con los dos sistemas externos, de modo que la elección definitiva del proveedor no afecte a los servicios de cada contexto.
 
 <a id="47-software-object-oriented-design"></a>
 ## 4.7. Software Object-Oriented Design.
