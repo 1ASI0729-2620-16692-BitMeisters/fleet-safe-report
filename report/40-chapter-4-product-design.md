@@ -1582,6 +1582,122 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 <a id="45-web-applications-prototyping"></a>
 ## 4.5. Web Applications Prototyping.
 
+Los prototipos de FleetSafe se diseñaron alrededor de una pregunta central: «¿este vehículo cumple las condiciones para operar?». Las decisiones de interacción responden a ella y replican la arquitectura de información de las secciones 4.2 y 4.4. Para supervisión hay tres niveles: resumen de flota, listado y detalle. Para el conductor hay una secuencia guiada de inspección. Los recorridos coinciden con los paths de los User Flow Diagrams y se presentan en dos aplicaciones: Desktop (supervisión) y Mobile Web Browser (conductor y consulta de supervisión).
+
+**Prototipo en Figma:** [Prototyping-Web-Application](https://www.figma.com/design/zJl09gpQ5zdqiWawl4wTRf/Prototyping-Web-Application?node-id=0-1&t=4UY72g6EkTEAMUG6-1)
+
+**Cómo leer las figuras.** Cada pantalla es un *estado* de la aplicación. Las flechas indican la acción que lleva al siguiente estado; las flechas rojas discontinuas indican una variante de error o validación.
+
+**Sistema de navegación y tipos de interacción.** Desktop usa navegación jerárquica por módulos con barra lateral y ruta de contexto. Mobile usa navegación lineal por pasos, con un botón de retorno en cada pantalla. Las interacciones empleadas son formularios, filtros, tarjetas, checklist, adjuntos simulados y diálogos de confirmación.
+
+**Desktop · Supervisión de flota.**
+
+Recorrido principal: Iniciar sesión → Resumen de flota → Flota no habilitada → Detalle del vehículo → Detalle de inspección → Incidencias → Acción correctiva registrada.
+
+
+![Figura 1. Desktop · Supervisión de flota:](assets/webapp/web-app-prototyping/fig-1-desktop-supervision-flota.png)
+
+*Figura 1. Desktop · Supervisión de flota: inicio de sesión, resumen de flota, flota no habilitada y módulos de consulta (Documentos e Historial).*
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Iniciar sesión | Pulsa «Iniciar sesión» | Resumen de flota |
+| 1b | Credenciales incorrectas (variante) | Ingresa datos erróneos y ve el mensaje de error | Iniciar sesión (reintentar) |
+| 2 | Resumen de flota | Selecciona el filtro «No habilitados» | Flota no habilitada |
+| 3 | Flota no habilitada | Pulsa «Ver detalle» en FS-032 | Detalle del vehículo |
+
+
+![Figura 2-Desktop-Del bloqueo a la decisión: detalle del vehículo](assets/webapp/web-app-prototyping/fig-2-desktop-bloqueo-y-excepcion.png)
+
+*Figura 2. Desktop · Del bloqueo a la decisión: detalle del vehículo, inspección, incidencia con acción correctiva y autorización de excepción con justificación.*
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 4 | Detalle del vehículo (FS-032, no habilitado) | Pulsa «Ver inspección» | Detalle de inspección |
+| 5 | Detalle de inspección (falla crítica en frenos) | Pulsa «Gestionar incidencia» | Incidencias |
+| 6 | Incidencias (INC-032, abierta) | Pulsa «Registrar y resolver» | Acción correctiva registrada |
+
+Resolver la incidencia **no habilita** el vehículo automáticamente.
+
+Recorrido alternativo (autorizar una excepción): Detalle del vehículo → Levantar bloqueo → Justificar → Autorizar salida → Historial → Flota actualizada → Vehículo habilitado.
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| A | Detalle del vehículo | Pulsa «Levantar bloqueo» | Autorizar una excepción |
+| B | Autorizar una excepción (sin motivo) | Intenta autorizar con el campo vacío | Validación: «Escribe una justificación antes de autorizar» |
+| C | Autorizar una excepción (con motivo) | Escribe la justificación y pulsa «Autorizar salida» | Excepción registrada (Historial de inspecciones) |
+| D | Excepción registrada | Pulsa «Volver a flota» | Flota tras autorización (0 no habilitadas) |
+| E | Flota tras autorización | Pulsa «Ver vehículo» | Vehículo habilitado por excepción |
+
+La excepción queda en el historial con el nombre de quien la autorizó y la inspección original se conserva para auditoría. Los módulos Documentos e Historial de inspecciones se consultan desde la barra lateral en cualquier momento.
+
+**Mobile · Supervisión.**
+
+Recorrido: Acceso por rol → Flota → Filtro → Motivo del bloqueo.
+
+![Figura 3. Mobile  Supervisión](assets/webapp/web-app-prototyping/fig-3-mobile-supervision.png)
+
+*Figura 3. Mobile · Supervisión: acceso, flota en tarjetas, filtro «No habilitados» y motivo del bloqueo.*
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Iniciar sesión como supervisora | Pulsa «Iniciar sesión» | Mi flota (supervisión) |
+| 2 | Mi flota: tres tarjetas con su estado | Pulsa el filtro «No habilitados» | Flota filtrada |
+| 3 | Flota filtrada: una tarjeta (FS-032) | Pulsa «Ver motivo» | Detalle del bloqueo |
+| 4 | Detalle del bloqueo: falla, regla aplicada y resumen de la inspección | Pulsa «Volver a mi flota» | Mi flota |
+
+Desde cualquier pantalla se puede cambiar al recorrido del conductor.
+
+**Mobile · Inspección del conductor.**
+
+Recorrido: Acceso → Vehículo asignado → Checklist → Evidencia → Resumen → Resultado.
+
+![Figura 4. Mobile · Inspección del conductor ](assets/webapp/web-app-prototyping/fig-4-mobile-conductor-checklist-evidencia.png)
+
+*Figura 4. Mobile · Inspección del conductor (parte 1): acceso, vehículo asignado, checklist y registro de un hallazgo con observación y evidencia, con sus validaciones.*
+
+| Paso | Estado (pantalla)                         | Acción del usuario                  | Siguiente estado                                      |
+|------|-------------------------------------------|-------------------------------------|-------------------------------------------------------|
+| 1    | Iniciar sesión                            | Pulsa «Entrar con datos de ejemplo» | Vehículo asignado                                     |
+| 1b   | Validación de acceso (variante)           | Pulsa «Probar acceso incorrecto»    | Mensaje de error; reintentar                          |
+| 2    | Vehículo asignado (FS-032)                | Pulsa «Iniciar inspección»          | Checklist                                             |
+| 3    | Checklist: elemento crítico (frenos)      | Elige OK, Obs. o Falla              | Resumen (OK) u Observación y evidencia (Obs. o Falla) |
+| 3b   | Validación de envío incompleto (variante) | Pulsa «Intentar                     |                                                       |
+
+![Figura 5. Mobile · Inspección del conductor](assets/webapp/web-app-prototyping/fig-5-mobile-conductor-resultados.png))
+
+*Figura 5. Mobile · Inspección del conductor (parte 2): resumen, envío y resultado de la inspección, con las variantes Habilitado y Observado.*
+
+La inspección termina de dos formas según lo registrado en el checklist. La fila superior de la figura muestra el resultado conforme y la inferior, la observación no bloqueante.
+
+**Variante 1: resultado conforme (fila superior).** Se llega desde el checklist cuando todos los elementos están en OK.
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Revisa antes de enviar: 42 / 42 registrados, 0 no conformes | Pulsa «Enviar inspección» (o «Cambiar respuesta» para volver) | Inspección enviada |
+| 2 | Inspección enviada: **Habilitado**, cumple las condiciones para operar | Pulsa «Volver a mi vehículo» | Mi vehículo |
+| 3 | Mi vehículo: FS-032 habilitado | Pulsa «Consultar resultado» o «Cerrar sesión» | Resultado de la inspección o fin de sesión |
+
+**Variante 2: observación no bloqueante (fila inferior).** Se llega desde el checklist cuando el conductor elige «Obs.» en un elemento.
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Observación y evidencia (sin adjunto) | Pulsa «Añadir datos de muestra» | Observación con evidencia adjunta |
+| 2 | Observación con evidencia (frenos-032.jpg) | Pulsa «Guardar y continuar» | Checklist con hallazgo guardado |
+| 3 | Checklist completo: 42 / 42 elementos registrados | Pulsa «Revisar resumen» | Revisa antes de enviar |
+| 4 | Revisa antes de enviar: 41 conformes · 1 observado | Pulsa «Enviar inspección» | Inspección enviada |
+| 5 | Inspección enviada: **Observado**, requiere seguimiento preventivo | Pulsa «Volver a mi vehículo» | Mi vehículo |
+| 6 | Mi vehículo: FS-032 observado, con seguimiento preventivo | Pulsa «Consultar resultado» o «Cerrar sesión» | Resultado de la inspección o fin de sesión |
+
+El resultado depende de lo registrado en el checklist. El sistema aplica la regla de mayor impacto y el conductor llega a uno de tres estados:
+
+| Condición | Estado final | Mensaje al conductor |
+|---|---|---|
+| 42 elementos conformes | **Habilitado** | Cumple las condiciones para operar |
+| Observación sin impacto bloqueante | **Observado** | Requiere seguimiento preventivo; puede operar |
+| Falla en un elemento crítico | **No habilitado** | No inicies la operación; se registra la incidencia y se notifica al supervisor |
+
+---
 
 <a id="46-domain-driven-software-architecture"></a>
 ## 4.6. Domain-Driven Software Architecture.
