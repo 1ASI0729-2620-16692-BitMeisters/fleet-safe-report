@@ -37,13 +37,14 @@ FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su iden
 
 Los archivos se encuentran en `report/assets/brand/`. Se recomienda el formato SVG en las interfaces digitales por conservar la nitidez a cualquier tamaño, y el PNG con fondo transparente para documentos.
 
-| Versión | Uso | Archivos |
-|:---|:---|:---|
-| Logotipo a color | Versión principal, sobre fondo claro | [`logo-fleetsafe-negro.svg`](assets/brand/logo-fleetsafe-negro.svg) · [`png`](assets/brand/logo-fleetsafe-negro.png) |
-| Isotipo a color | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`isotype-fleetsafe-negro.svg`](assets/brand/isotype-fleetsafe-negro.svg) · [`png`](assets/brand/isotype-fleetsafe-negro.png) |
-| Logotipo monocromático | Un solo color, sobre fondo de color pleno o fotografías claras | [`logo-fleetsafe-mono.svg`](assets/brand/logo-fleetsafe-mono.svg) · [`png`](assets/brand/logo-fleetsafe-mono.png) |
-| Logotipo en blanco | Sobre fondos oscuros o fotografías oscuras | [`logo-fleetsafe-blanco.svg`](assets/brand/logo-fleetsafe-blanco.svg) · [`png`](assets/brand/logo-fleetsafe-blanco.png) |
-| Isotipo monocromático y en blanco | Mismos usos que el logotipo, en espacios cuadrados | [`isotype-fleetsafe-mono.svg`](assets/brand/isotype-fleetsafe-mono.svg) · [`isotype-fleetsafe-blanco.svg`](assets/brand/isotype-fleetsafe-blanco.svg) |
+| Versión | Vista previa | Uso | Archivo |
+|:---|:---:|:---|:---|
+| Logotipo a color | <img src="assets/brand/fleetsafe-logo.png" alt="Logotipo a color" width="160"> | Versión principal, sobre fondo claro | [`svg`](assets/brand/fleetsafe-logo.svg) · [`png`](assets/brand/fleetsafe-logo.png) |
+| Isotipo a color | <img src="assets/brand/fleetsafe-isotype.png" alt="Isotipo a color" width="56"> | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`svg`](assets/brand/fleetsafe-isotype.svg) · [`png`](assets/brand/fleetsafe-isotype.png) |
+| Logotipo monocromático | <img src="assets/brand/fleetsafe-logo-mono.png" alt="Logotipo monocromático" width="160"> | Un solo color (azul `#13315C`), sobre fondo de color pleno o fotografías claras | [`png`](assets/brand/fleetsafe-logo-mono.png) |
+| Logotipo en blanco | <span style="display:inline-block;background:#13315C;padding:10px"><img src="assets/brand/fleetsafe-logo-white.png" alt="Logotipo en blanco" width="160"></span> | Sobre fondos oscuros o fotografías oscuras | [`png`](assets/brand/fleetsafe-logo-white.png) |
+| Isotipo monocromático | <img src="assets/brand/fleetsafe-isotype-mono.png" alt="Isotipo monocromático" width="56"> | Mismo uso que el logotipo monocromático, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-mono.png) |
+| Isotipo en blanco | <span style="display:inline-block;background:#13315C;padding:10px"><img src="assets/brand/fleetsafe-isotype-white.png" alt="Isotipo en blanco" width="56"></span> | Mismo uso que el logotipo en blanco, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-white.png) |
 
 ---
 
