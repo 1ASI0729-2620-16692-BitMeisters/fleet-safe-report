@@ -103,6 +103,18 @@
 
 <hr>
 
+**Repositorio del informe:** https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-report
+
+El informe de FleetSafe se elaboró en Markdown, dividido por capítulos dentro de la carpeta `report`, y se mantuvo en un repositorio propio. Cada cambio se trabajó en una rama `feature/*` o `docs/*` creada desde `develop` y se integró con un Pull Request, siguiendo el mismo GitFlow y los mismos Conventional Commits del resto de repositorios del proyecto. Cada integración relevante quedó registrada en el Registro de Versiones de este documento.
+
+**Colaboradores del repositorio**
+
+<img src="report/assets/teamCollaborationInsights/sprint-3-collaborators.png" alt="Colaboradores del repositorio del informe" width="900">
+
+**Pull Requests integrados**
+
+<img src="report/assets/teamCollaborationInsights/sprint-3-pullrequests.png" alt="Pull Requests integrados en el repositorio del informe" width="900">
+
 <hr>
 
 <div style="page-break-before: always;"></div>
