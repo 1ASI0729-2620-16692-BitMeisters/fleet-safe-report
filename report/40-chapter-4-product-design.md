@@ -1731,6 +1731,33 @@ El resultado depende de lo registrado en el checklist. El sistema aplica la regl
 | Observación sin impacto bloqueante | **Observado** | Requiere seguimiento preventivo; puede operar |
 | Falla en un elemento crítico | **No habilitado** | No inicies la operación; se registra la incidencia y se notifica al supervisor |
 
+
+
+**Capturas de los prototipos ejecutados.**
+
+Las siguientes capturas muestran la ejecución de los recorridos en el presentador de Figma, complementando las figuras anteriores con evidencia visual de las interfaces navegables.
+
+![Figura 6. Desktop · Prototipo ejecutado](assets/webapp/web-app-prototyping/desktop-prototipo.png)
+
+*Figura 6. Desktop · Captura del prototipo ejecutado de supervisión de flota.*
+
+![Figura 7. Mobile · Prototipo ejecutado del conductor](assets/webapp/web-app-prototyping/mobile-conductor-prototipo.png)
+
+*Figura 7. Mobile · Captura del prototipo ejecutado del recorrido del conductor.*
+
+![Figura 8. Mobile · Prototipo ejecutado del supervisor](assets/webapp/web-app-prototyping/mobile-supervisor-prototipo.png)
+
+*Figura 8. Mobile · Captura del prototipo ejecutado del recorrido de supervisión.*
+
+**Videos de navegación del prototipo.**
+
+A continuación, se presentan las grabaciones de los recorridos principales de FleetSafe, que permiten visualizar la navegación y las interacciones de las interfaces Desktop y Mobile Web Browser.
+
+- **Desktop · Supervisión de flota:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQAHC0cpxYoETbt_2EIK-t2KAfA8uKJfYcW7kDDxAe5Pigg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=eqK4zj)
+- **Mobile · Inspección del conductor:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQDFCAbKa4PyT4IguA1acKfhAe0EZoL35V-10JOGG83vWEY?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Qco49p)
+- **Mobile · Supervisión:** [Ver video](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBwJm3UfpypQ4N__qWSFSo5AdeUMehRre8GF6glRtf3Lt4?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=38Zfjf)
+
+
 ---
 
 <a id="46-domain-driven-software-architecture"></a>
