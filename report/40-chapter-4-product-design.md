@@ -28,9 +28,9 @@ FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su iden
 | **Nombre del producto** | FleetSafe |
 | **Startup** | BitMeisters |
 | **Concepto de marca** | La unión de los conceptos *fleet* (flota) y *safe* (seguro) sintetiza la propuesta de valor: una flota que opera de forma segura porque su condición ha sido verificada antes de operar. |
-| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo de carga— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. La palabra "Fleet" se escribe en azul `#13315C` y "Safe" en verde `#2A9D8F`, ambos de la paleta de la sección 4.1.1, con la familia tipográfica Inter en peso Bold. |
-| **Isotipo** | La marca de verificación, ubicada en la caja de carga del vehículo, representa el resultado de la inspección preoperacional: el vehículo ha sido verificado y se encuentra habilitado. El verde de la caja es el mismo que identifica el estado *habilitado* dentro de la aplicación. |
-| **Versión monocromática** | El logotipo debe contar con una versión en un solo color para su uso sobre fondos de color pleno o fotografías. Se dispone de una versión en azul `#13315C` y de una versión en blanco para fondos oscuros; en ambas, la marca de verificación se muestra como vacío en la caja de carga. |
+| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo de carga— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. La palabra "Fleet" se escribe en azul `#13315C` y "Safe" en verde `#2A9D8F`, colores correspondientes al diseño actual del logotipo. La identidad cromática de las interfaces se define mediante la paleta de la sección 4.1.1. Se emplea la familia tipográfica Inter en peso Bold. |
+| **Isotipo** | La marca de verificación, ubicada en la caja de carga del vehículo, representa el resultado de la inspección preoperacional: el vehículo ha sido verificado. El color verde del isotipo pertenece al diseño gráfico del logotipo y es independiente del color semántico utilizado para identificar el estado *habilitado* dentro de la aplicación. |
+| **Versión monocromática** | El logotipo cuenta con versiones de un solo color para su uso sobre fondos de color pleno o fotografías. La versión oscura utiliza el azul del diseño gráfico actual (`#13315C`) y la versión clara utiliza blanco para fondos oscuros; en ambas, la marca de verificación se muestra como vacío en la caja de carga. |
 | **Área de resguardo** | El logotipo debe mantener un margen libre equivalente a la altura de la letra "F" en todos sus lados. |
 | **Tamaño mínimo** | 24 px de alto en interfaces digitales. |
 | **Usos incorrectos** | No se debe deformar, rotar, aplicar sombras, degradados ni contornos al logotipo. No se debe alterar la relación entre el isotipo y el logotipo tipográfico. |
@@ -41,10 +41,10 @@ Los archivos se encuentran en `report/assets/brand/`. Se recomienda el formato S
 |:---|:---:|:---|:---|
 | Logotipo a color | <img src="assets/brand/fleetsafe-logo.png" alt="Logotipo a color" width="160"> | Versión principal, sobre fondo claro | [`svg`](assets/brand/fleetsafe-logo.svg) · [`png`](assets/brand/fleetsafe-logo.png) |
 | Isotipo a color | <img src="assets/brand/fleetsafe-isotype.png" alt="Isotipo a color" width="56"> | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`svg`](assets/brand/fleetsafe-isotype.svg) · [`png`](assets/brand/fleetsafe-isotype.png) |
-| Logotipo monocromático | <img src="assets/brand/fleetsafe-logo-mono.png" alt="Logotipo monocromático" width="160"> | Un solo color (azul `#13315C`), sobre fondo de color pleno o fotografías claras | [`png`](assets/brand/fleetsafe-logo-mono.png) |
-| Logotipo en blanco | <span style="display:inline-block;background:#13315C;padding:10px"><img src="assets/brand/fleetsafe-logo-white.png" alt="Logotipo en blanco" width="160"></span> | Sobre fondos oscuros o fotografías oscuras | [`png`](assets/brand/fleetsafe-logo-white.png) |
+| Logotipo monocromático | <img src="assets/brand/fleetsafe-logo-mono.png" alt="Logotipo monocromático" width="160"> | Un solo color (azul `#13315C` del diseño gráfico actual), sobre fondos claros | [`png`](assets/brand/fleetsafe-logo-mono.png) |
+| Logotipo en blanco | <span style="display:inline-block;background:#142A27;padding:10px"><img src="assets/brand/fleetsafe-logo-white.png" alt="Logotipo en blanco" width="160"></span> | Sobre fondos oscuros o fotografías oscuras | [`png`](assets/brand/fleetsafe-logo-white.png) |
 | Isotipo monocromático | <img src="assets/brand/fleetsafe-isotype-mono.png" alt="Isotipo monocromático" width="56"> | Mismo uso que el logotipo monocromático, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-mono.png) |
-| Isotipo en blanco | <span style="display:inline-block;background:#13315C;padding:10px"><img src="assets/brand/fleetsafe-isotype-white.png" alt="Isotipo en blanco" width="56"></span> | Mismo uso que el logotipo en blanco, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-white.png) |
+| Isotipo en blanco | <span style="display:inline-block;background:#142A27;padding:10px"><img src="assets/brand/fleetsafe-isotype-white.png" alt="Isotipo en blanco" width="56"></span> | Mismo uso que el logotipo en blanco, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-white.png) |
 
 ---
 
@@ -107,19 +107,33 @@ Se adopta **Inter** como familia tipográfica principal y **JetBrains Mono** com
 
 #### Colores
 
-La paleta se construye sobre un **azul profundo** como color primario, que comunica confiabilidad y control, y un **verde** como color de confirmación, asociado directamente al estado *habilitado* del vehículo. Los colores de estado se derivan directamente de los tres valores del término *Vehicle Status* del Ubiquitous Language.
+La identidad cromática de FleetSafe se construye sobre una paleta de tonos naturales y contrastantes. El **verde petróleo oscuro** representa la identidad principal de la plataforma y comunica control y confiabilidad. El **naranja intenso** funciona como color de acento para destacar llamadas a la acción y elementos relevantes. Los tonos de **verde natural y verde lima** refuerzan la asociación con prevención, seguridad y habilitación vehicular.
+
+La paleta se complementa con fondos cálidos y superficies claras que mantienen la legibilidad y reducen la dureza del contraste en las interfaces.
 
 **Colores de marca**
 
 | Token | Valor | Uso |
 |:---|:---|:---|
-| `color-primary-900` | `#0B2545` | Fondo de encabezados, texto de máximo contraste |
-| `color-primary-700` | `#13315C` | Color primario de la marca, botones principales |
-| `color-primary-500` | `#1D4E89` | Estados hover de elementos primarios |
-| `color-primary-100` | `#D6E4F0` | Fondos de énfasis suave, filas seleccionadas |
-| `color-accent-500` | `#F4A261` | Llamadas a la acción secundarias en la Landing Page |
+| `color-primary-900` | `#142A27` | Verde petróleo oscuro; fondos principales, navegación y encabezados |
+| `color-primary-700` | `#19302D` | Variación del verde petróleo para componentes y superficies oscuras |
+| `color-accent-500` | `#DD471A` | Naranja de marca; llamadas a la acción, énfasis y elementos destacados |
+| `color-secondary-700` | `#246143` | Verde natural; textos destacados, elementos secundarios e indicadores positivos |
+| `color-secondary-100` | `#DCE8DF` | Verde claro; fondos de indicadores y elementos de confirmación |
+| `color-highlight-100` | `#E2ECCD` | Verde lima pálido; detalles de confirmación y acentos suaves |
+
+**Colores de fondo y superficie**
+
+| Token | Valor | Uso |
+|:---|:---|:---|
+| `color-background-warm` | `#F4F2EC` | Fondo cálido principal de la Landing Page |
+| `color-background-soft` | `#E8EBE3` | Fondo de secciones y bloques de contenido |
+| `color-surface` | `#F9FBF7` | Tarjetas, paneles y superficies de la Web Application |
+| `color-border` | `#D7DCD3` | Bordes, divisores y separadores |
 
 **Colores de estado del vehículo**
+
+Los estados funcionales mantienen una codificación semántica diferenciada de los colores de marca. Esta distinción permite reconocer rápidamente la condición operativa de cada vehículo.
 
 | Estado | Token | Valor | Uso |
 |:---|:---|:---|:---|
@@ -129,33 +143,35 @@ La paleta se construye sobre un **azul profundo** como color primario, que comun
 
 **Colores de resultado de inspección**
 
-| Resultado | Token | Valor |
-|:---|:---|:---|
-| Conforme (`OK`) | `color-result-ok` | `#2A9D8F` |
-| Observado (`OBSERVED`) | `color-result-observed` | `#E9C46A` |
-| No conforme (`FAIL`) | `color-result-fail` | `#E76F51` |
-| No aplica (`N/A`) | `color-result-na` | `#8D99AE` |
+| Resultado | Token | Valor | Uso |
+|:---|:---|:---|:---|
+| Conforme (`OK`) | `color-result-ok` | `#2A9D8F` | Resultado satisfactorio |
+| Observado (`OBSERVED`) | `color-result-observed` | `#E9C46A` | Resultado que requiere seguimiento |
+| No conforme (`FAIL`) | `color-result-fail` | `#E76F51` | Resultado crítico |
+| No aplica (`N/A`) | `color-result-na` | `#8D99AE` | Elemento no aplicable |
 
 **Colores neutros y semánticos**
 
 | Token | Valor | Uso |
 |:---|:---|:---|
-| `color-neutral-900` | `#1A1A1A` | Texto principal |
-| `color-neutral-700` | `#4A4A4A` | Texto secundario |
-| `color-neutral-400` | `#9E9E9E` | Texto deshabilitado, bordes suaves |
-| `color-neutral-200` | `#E0E0E0` | Bordes y separadores |
-| `color-neutral-050` | `#F7F8FA` | Fondo general de la aplicación |
-| `color-surface` | `#FFFFFF` | Fondo de tarjetas y paneles |
-| `color-info` | `#3A86FF` | Mensajes informativos |
-| `color-success` | `#2A9D8F` | Confirmación de operación exitosa |
-| `color-warning` | `#E9C46A` | Advertencia que no impide continuar |
-| `color-error` | `#E76F51` | Error que impide completar la operación |
+| `color-neutral-900` | `#142A27` | Texto principal sobre fondos claros |
+| `color-neutral-700` | `#4A5B56` | Texto secundario y descripciones |
+| `color-neutral-400` | `#97A199` | Texto deshabilitado y elementos de baja jerarquía |
+| `color-neutral-200` | `#D7DCD3` | Bordes y separadores |
+| `color-info` | `#3A86FF` | Mensajes informativos puntuales |
+| `color-success` | `#246143` | Confirmación de operaciones exitosas |
+| `color-warning` | `#E9C46A` | Advertencias que no impiden continuar |
+| `color-error` | `#E76F51` | Errores que impiden completar una operación |
 
 **Reglas de aplicación:**
 
-- El color nunca es el único portador de significado. Todo indicador de estado debe acompañarse de texto o de un ícono, para no depender exclusivamente de la percepción cromática del usuario.
-- Los colores de estado del vehículo (`enabled`, `observed`, `not-enabled`) se aplican de forma consistente en todas las vistas: listados, tarjetas, detalle e historial.
-- El color `color-error` se reserva para errores que impiden completar una operación y no se emplea como color decorativo.
+- El verde petróleo oscuro y el naranja constituyen los colores principales de identidad visual de FleetSafe.
+- El naranja se reserva principalmente para llamadas a la acción y elementos que requieren atención; no debe sustituir los colores semánticos de los estados.
+- Los verdes naturales y claros se emplean para comunicar confirmación y condiciones favorables.
+- Los fondos cálidos y las superficies claras deben conservar suficiente contraste con los textos y elementos interactivos.
+- Los colores de estado del vehículo (`enabled`, `observed`, `not-enabled`) se aplican de forma consistente en listados, tarjetas, detalles e historial.
+- El color nunca es el único portador de significado. Todo indicador de estado debe acompañarse de texto o de un ícono.
+- Los colores de marca y los colores semánticos pueden coexistir, pero no deben intercambiar sus funciones.
 
 ---
 
@@ -1143,7 +1159,7 @@ El tercer nivel corresponde a la vista específica de un objeto. Se accede desde
 | Ancho | 240 px en resoluciones de escritorio |
 | Visibilidad | Permanente en escritorio; colapsable en móvil, conforme a la sección 4.1.2 |
 | Contenido | Logotipo, módulos habilitados según el rol, datos del usuario autenticado |
-| Indicador de ubicación | El módulo activo se resalta con `color-primary-100` como fondo y `color-primary-700` como texto |
+| Indicador de ubicación | El módulo activo se resalta con `color-secondary-100` como fondo y `color-primary-900` como texto |
 | Acceso en móvil | Se abre mediante un botón de menú en la barra superior |
 
 **Barra superior**
@@ -1219,7 +1235,7 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 | Estado | Comportamiento |
 |:---|:---|
-| Módulo activo | Se resalta en la barra lateral con `color-primary-100` como fondo y `color-primary-700` como texto |
+| Módulo activo | Se resalta en la barra lateral con `color-secondary-100` como fondo y `color-primary-900` como texto |
 | Nivel actual | Se refleja en las migas de pan |
 | Ruta protegida | Si el usuario no está autenticado, el sistema redirige a la pantalla de inicio de sesión, conforme a US09 |
 | Ruta no autorizada | Si el usuario autenticado no tiene el rol requerido, el sistema redirige al panel y muestra un mensaje informativo |
