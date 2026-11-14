@@ -45,8 +45,8 @@
 | Código | Apellidos y Nombres |
 | :---: | :--- |
 | U20211C201 | Palacin Lazo, Gerardo Valentin |
-| U20221A371 | Santos Torres, Juan Manuel |
-| U20231C197 | Apaza Bocanegra, Elizabeth Noelia |
+| U20221A371 | Santos Torres, Juan Manuel (retirado del curso) |
+| U20231C197 | Apaza Bocanegra, Elizabeth Noelia (retirada del curso) |
 | U202318309 | Aguilar Untiveros, Rodrigo Fabrizio |
 | U202122129 | Espino Flores, Alejandro |
 
