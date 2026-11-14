@@ -85,7 +85,7 @@ El análisis competitivo tiene como objetivo que BitMeisters conozca mejor a sus
 |:---|
 | Conocer cómo las soluciones existentes de inspección y control preventivo vehicular resuelven la habilitación operativa del vehículo, y determinar cómo puede FleetSafe diferenciarse para ofrecer una propuesta de valor adecuada a las empresas de transporte de carga en el Perú. |
 
-| | | <img src="assets/logo-competitors/fleetsafe.png" alt="Logo de FleetSafe" width="90"><br>**FleetSafe** | <img src="assets/logo-competitors/fleetio_logo.png" alt="Logo de Fleetio" width="90"><br>**Fleetio** | <img src="assets/logo-competitors/whiparound_logo.png" alt="Logo de Whip Around" width="90"><br>**Whip Around** | <img src="assets/logo-competitors/vehicheck_logo.png" alt="Logo de Vehicheck" width="90"><br>**Vehicheck** | <img src="assets/logo-competitors/verizon-connect.png" alt="Logo de Verizon Connect" width="90"><br>**Verizon Connect** |
+| | | <img src="assets/logos/fleetsafe.png" alt="Logo de FleetSafe" width="90"><br>**FleetSafe** | <img src="assets/logos/fleetio_logo.png" alt="Logo de Fleetio" width="90"><br>**Fleetio** | <img src="assets/logos/whiparound_logo.png" alt="Logo de Whip Around" width="90"><br>**Whip Around** | <img src="assets/logos/vehicheck_logo.png" alt="Logo de Vehicheck" width="90"><br>**Vehicheck** | <img src="assets/logos/verizon-connect.png" alt="Logo de Verizon Connect" width="90"><br>**Verizon Connect** |
 |:---|:---|:---|:---|:---|:---|:---|
 | **Perfil** | Overview | Control preventivo y habilitación operativa de vehículos de carga, alineado al marco de cumplimiento peruano. | Gestión integral de flotas con inspecciones, mantenimiento y órdenes de trabajo. | Plataforma especializada en inspecciones DVIR, defectos y cumplimiento. | Inspección preoperacional digital alineada al PESV de Colombia. | Gestión de flotas y telemática con módulo DVIR. |
 | | Ventaja competitiva<br>¿Qué valor ofrece a los clientes? | Produce la evidencia que exigen la normativa peruana de SST y las auditorías de homologación, y deja registro de quién autoriza cada excepción. | Amplitud funcional y automatización entre inspección, incidencia y mantenimiento. | Especialización en el ciclo de defectos y en el cumplimiento del DOT. | Cumplimiento del PESV sin papel, con bloqueo automático ante fallas críticas. | Integración de las inspecciones con telemática y rastreo en tiempo real. |
@@ -726,22 +726,19 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/mnJos?tagId=nXgEG
 
 Big Picture Event Storming es una técnica colaborativa que nos permitirá comprender el funcionamiento global de FLEETSAFE. Se basará en visualizar eventos clave del dominio(domain events), fomentar el diálogo entre roles (actores) diversos y detectar oportunidades de mejora. El proceso se divide en tres fases principales:
 
-**Primera Etapa: OPEN**
-Aqui colocamos todos los eventos de dominio que se nos ocurra
+**Primera etapa: OPEN.** El equipo registra, sin filtrar ni ordenar, todos los eventos de dominio que se le ocurren al pensar en el control preventivo de la flota.
 
 <img src="assets/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
 
-**Segunda Etapa: EXPLORE**
-Identificamos actores y pain points que luego cuestionamos, y lo más importante crear una secuencia entre los eventos de dominio.
+**Segunda etapa: EXPLORE.** El equipo identifica los actores y los pain points, los cuestiona y, sobre todo, ordena los eventos de dominio en una secuencia coherente.
 
 <img src="assets/bigPictureEventStorming/explore_bp_eventstorming.png" alt="Explore EventStorming de FleetSafe - Parte 1" width="800">
 
-**Tercera Etapa: CLOSE**
-Identificamos problemas que hayamos encontrado, temas a investigar más a fondo y declaramos que esta fuera de nuestro alcance actual.
+**Tercera etapa: CLOSE.** El equipo registra los problemas encontrados y los temas que requieren mayor investigación, y declara lo que queda fuera del alcance actual.
 
 <img src="assets/bigPictureEventStorming/close_bp_eventstorming.png" alt="Close EventStorming de FleetSafe" width="800">
 
-Enlace hacia el Big Picture Eventstorming: 
+Enlace hacia el Big Picture Eventstorming: https://miro.com/app/board/uXjVHnsi-9M=/?share_link_id=239920257915
 
 <a id="25-ubiquitous-language"></a>
 ## 2.5. Ubiquitous Language.

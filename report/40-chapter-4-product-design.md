@@ -233,7 +233,7 @@ Los recursos visuales del proyecto se organizan de la siguiente manera dentro de
 | `report/assets/team-members/` | Fotografías de los integrantes del equipo |
 | `report/assets/bigPictureEventStorming/` | Imágenes del Big Picture EventStorming (sección 2.4) |
 | `report/assets/designLevelEventStorming/` | Imágenes del Design-level Event Storming (sección 4.6.1) |
-| `report/assets/competitors/` | *(Pendiente)* Logotipos de los competidores analizados en la sección 2.1 |
+| `report/assets/logos/` | Logotipos de FleetSafe y de los competidores analizados en la sección 2.1 |
 | `report/assets/brand/` | Logotipo e isotipo de FleetSafe |
 | `report/assets/webapp/` | Wireframes y mock-ups de la Web Application (sección 4.4) |
 | `report/assets/database-design/` | Diagramas de base de datos de la sección 4.8, generados desde `report/assets/diagrams/database/` |
@@ -1247,8 +1247,29 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 <a id="43-landing-page-ui-design"></a>
 ## 4.3. Landing Page UI Design.
 
+La Landing Page es un sitio estático de una sola página, con desplazamiento vertical entre secciones, cuyo propósito es presentar FleetSafe a sus tres audiencias —empresas de transporte, supervisores de flota y conductores— y llevarlas a explorar la plataforma. El diseño traduce las decisiones de arquitectura de información de la sección 4.2: el contenido sigue el recorrido de un visitante que primero reconoce su problema, luego conoce la solución, comprende cómo funciona, identifica su rol y, por último, decide actuar. Esa secuencia se refleja en diez secciones ordenadas de arriba hacia abajo, con una jerarquía visual clara: un titular de gran tamaño por sección, un texto de apoyo breve y un único elemento dominante (cifras, pasos, ejemplo de la plataforma o llamada a la acción).
+
+El diseño se elaboró en dos etapas: primero los wireframes de baja fidelidad (4.3.1), que fijan la estructura y la jerarquía sin recurrir a color ni fotografía, y luego los mock-ups (4.3.2), que incorporan la identidad visual del producto.
+
 <a id="431-landing-page-wireframe"></a>
 ### 4.3.1. Landing Page Wireframe.
+
+Los wireframes de la versión Desktop (ancho de 1440 px) muestran la estructura de cada sección en escala de grises. Las fotografías e ilustraciones se representan con recuadros rotulados («Ilustración del vehículo + estado de inspección», «Fotografía / transporte de carga», «Foto» de cada integrante), de modo que la validación se concentra en la disposición, el orden y la jerarquía del contenido, y no en el estilo visual.
+
+| Sección | Contenido y decisión de diseño |
+|:---|:---|
+| 1. Navegación | Barra superior con el logotipo, tres enlaces de anclaje —«La plataforma», «Cómo funciona» y «Nuestro equipo»— y un botón de llamada a la acción, «Explorar demo». Pocas opciones, para que el visitante no se pierda en una página corta. |
+| 2. Hero | Titular «La seguridad empieza antes de arrancar», texto de apoyo, botón principal «Explorar la plataforma», enlace secundario «Así funciona» y una ilustración a la derecha. Debajo, tres ventajas en una franja: «Inspecciones sin papel», «Evaluación con tus reglas» y «Trazabilidad por vehículo». |
+| 3. Problema | Tres columnas numeradas —información dispersa, riesgos sin detectar y decisiones en espera—, cada una con una frase de cierre que anticipa la solución, y una fotografía de transporte de carga con un mensaje de tranquilidad que da una pausa visual. Se presenta antes que el producto para que el visitante se reconozca en el problema. |
+| 4. Plataforma | Vista de ejemplo del panel «Tu flota, a la vista», con vehículos en estado habilitado, observado y no habilitado, rotulada como demostración ilustrativa, y tres capacidades: inspeccionar desde el dispositivo, evaluar con criterios claros y dar seguimiento hasta el cierre. |
+| 5. Proceso | Tres pasos secuenciales: inspecciona (conductor), evalúa (plataforma) y decide con información (supervisor). Es una organización secuencial, apropiada para explicar un flujo de trabajo. |
+| 6. Perfiles | Tres perfiles —conductores, supervisores de flota y administradores—, cada uno con una descripción de lo que hace en la plataforma. Es una organización por audiencia, que permite que cada visitante encuentre su rol. |
+| 7. Equipo | Cinco integrantes de BitMeisters, con espacio para fotografía, nombre y carrera. |
+| 8. Preguntas frecuentes | Cuatro preguntas desplegables sobre el tipo de operación, el criterio de habilitación, el uso del celular por parte de los conductores y el tratamiento de los datos de la demostración. |
+| 9. Llamada a la acción | Mensaje de cierre y botón «Conoce FleetSafe», que concentra la última acción de la página. |
+| 10. Pie de página | Logotipo, enlaces de anclaje y aviso de derechos reservados. |
+
+**Principios aplicados.** La jerarquía visual se logra con el tamaño y el peso del titular de cada sección y con abundante espacio en blanco; la alineación a una grilla de columnas mantiene un ritmo constante entre secciones; la proximidad agrupa los tres elementos de cada bloque (problema, pasos, perfiles). En cuanto a diseño inclusivo, el contenido se apoya en texto y no solo en imágenes, los estados de los vehículos se rotulan con palabras además de con color, las preguntas frecuentes reducen la carga cognitiva y los botones principales son grandes y se distinguen de los enlaces secundarios.
 
 <img src="assets/wireframe/01-navegacion.png" width="1000">
 <img src="assets/wireframe/02-hero.png" width="1000">
@@ -1263,6 +1284,18 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 <a id="432-landing-page-mock-up"></a>
 ### 4.3.2. Landing Page Mock-up.
+
+Los mock-ups de la versión Desktop (1440 px) conservan la estructura y el orden de los wireframes de la sección 4.3.1 y añaden la identidad visual: color, tipografía, fotografía e ilustración. Se alternan fondos claros y oscuros para marcar el cambio de tema entre secciones —por ejemplo, la sección de proceso se presenta sobre fondo oscuro para destacar los tres pasos— y el color de acento se reserva para las llamadas a la acción y para las palabras clave de los titulares, como «antes de arrancar», de modo que la mirada del visitante recorra primero el mensaje y luego la acción.
+
+Cambios principales respecto de los wireframes:
+
+- **Hero.** La ilustración del vehículo sobre un panel oscuro muestra el mensaje «Cada salida. Una decisión informada.» junto con un ejemplo de inspección aprobada y vehículo habilitado, que adelanta el resultado que ofrece el producto.
+- **Plataforma.** El panel de ejemplo incorpora los indicadores de estado con su color y su texto —«Habilitado», «Observado» y «No habilitado»—, de manera que el estado nunca depende solo del color.
+- **Fotografías.** Las imágenes de transporte de carga y del conductor con su tableta reemplazan a los recuadros del wireframe; la segunda lleva una leyenda que aclara que es una escena ilustrativa generada con IA.
+- **Equipo.** Cada integrante se identifica con sus iniciales, su nombre completo y su carrera.
+- **Llamada a la acción y pie de página.** Un bloque de color claro contrasta con el pie de página oscuro y concentra la última acción de la página.
+
+El diseño inclusivo se refleja en la jerarquía tipográfica, en el contraste entre el texto y el fondo de cada sección, en el uso de texto junto con el color para comunicar el estado y en la estructura predecible de las secciones, que facilita la lectura con lector de pantalla.
 
 <img src="assets/mockup/01-navegacion.png" width="1000">
 <img src="assets/mockup/02-hero.png" width="1000">

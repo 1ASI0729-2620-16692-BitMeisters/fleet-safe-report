@@ -44,7 +44,7 @@ A continuación se presenta el cuadro consolidado de Epics y User Stories:
 | Epic / Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con (Epic ID) |
 |:---|:---|:---|:---|:---|
 | EP01 | Landing Page | Como visitante, deseo acceder a un sitio web informativo que me permita conocer FleetSafe, sus funcionalidades y beneficios, para evaluar si la solución se ajusta a las necesidades de mi empresa. | No aplica (Epic) | — |
-| US01 | Visualizar página de inicio | Como Visitor, deseo conocer la propuesta de valor de FleetSafe para comprender el propósito de la solución. | **Escenario 1:** Dado que el visitante accede al sitio de FleetSafe, cuando el contenido informativo está disponible, entonces se proporciona información sobre la propuesta de valor de FleetSafe.<br>**Escenario 2:** Dado que el sitio contiene información sobre FleetSafe, cuando el visitante consulta su contenido principal, entonces se proporcionan sus beneficios, funcionalidades y medios de contacto. | EP01 |
+| US01 | Visualizar página de inicio | Como visitante, deseo conocer la propuesta de valor de FleetSafe para comprender el propósito de la solución. | **Escenario 1:** Dado que el visitante accede al sitio de FleetSafe, cuando el contenido informativo está disponible, entonces se proporciona información sobre la propuesta de valor de FleetSafe.<br>**Escenario 2:** Dado que el sitio contiene información sobre FleetSafe, cuando el visitante consulta su contenido principal, entonces se proporcionan sus beneficios, funcionalidades y medios de contacto. | EP01 |
 | US02 | Conocer funcionalidades del producto | Como visitante, deseo conocer las funcionalidades principales de FleetSafe para determinar si cubren las necesidades de control preventivo de mi flota. | **Escenario 1:** Dado que el Visitor consulta FleetSafe, cuando solicita información sobre sus funcionalidades, entonces se proporcionan las funcionalidades de inspección preoperacional, evaluación de condiciones, habilitación operativa y gestión de incidencias.<br>**Escenario 2:** Dado que el Visitor consulta una funcionalidad, cuando solicita información sobre ella, entonces se proporciona su propósito y beneficio para el control preventivo de la flota. | EP01 |
 | US03 | Conocer beneficios por segmento | Como visitante del segmento empresa de transporte de carga, deseo conocer los beneficios de FleetSafe para mi tipo de organización para evaluar su adopción. | **Escenario 1:** Dado que el visitante pertenece a un segmento objetivo, cuando consulta los beneficios de FleetSafe, entonces se proporcionan beneficios relacionados con las necesidades de su segmento.<br>**Escenario 2:** Dado que existen los segmentos Administrator, Fleet Supervisor y Driver, cuando el visitante consulta sus beneficios, entonces se proporciona información diferenciada para cada segmento. | EP01 |
 | US04 | Solicitar contacto o demostración | Como visitante, deseo solicitar una demostración o contacto con el equipo de FleetSafe para recibir más información sobre la plataforma. | **Escenario 1:** Dado que el visitante proporciona datos válidos, cuando registra una solicitud de contacto o demostración, entonces la solicitud queda registrada correctamente.<br>**Escenario 2:** Dado que faltan datos obligatorios o contienen valores inválidos, cuando el visitante registra la solicitud, entonces el sistema rechaza el registro. | EP01 |
@@ -103,18 +103,53 @@ A continuación se presenta el cuadro consolidado de Epics y User Stories:
 <a id="32-impact-mapping"></a>
 ## 3.2. Impact Mapping.
 
+El Impact Mapping relaciona lo que el negocio busca lograr con lo que el equipo construye. Se elaboró un mapa por cada User Persona de la sección 2.3.1, con las cinco columnas de la técnica: **Business Goals** (qué meta de negocio se persigue), **Personas** (quién ayuda a lograrla), **Impacts** (cómo debe cambiar su comportamiento), **Deliverables** (qué ofrece FleetSafe para provocar ese cambio) y **User Stories** (qué historias de la sección 3.1 producen esos entregables).
+
+Cada persona tiene dos Business Goals. Todos cumplen los criterios SMART: son específicos (indican qué cambia), medibles (un porcentaje), alcanzables, relevantes para el control preventivo de la flota y acotados en el tiempo (de cuatro a seis meses desde el inicio de la operación). Las historias referenciadas conservan el identificador del Product Backlog de la sección 3.3.
+
 **Impact Map Segmento 1**
 
 ![im1](assets/impactMapping/Impactmap-JoseRamirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/i/FwgcL?tagId=nXgEG
+
+José Ramirez, administrador de la empresa de transporte, necesita información confiable para decidir qué vehículos pueden operar. El mapa traduce esa necesidad en dos metas:
+
+| Business Goal | Impact esperado en José | Deliverable | User Stories |
+|:---|:---|:---|:---|
+| Lograr que al menos el 95 % de los vehículos cuenten con información de estado y documentación vigente antes de ser considerados para una operación, durante los primeros 6 meses | Verificar el estado y la documentación de los vehículos antes de tomar decisiones operativas | Gestión de Vehículos y Flota | US13 Consultar listado de vehículos; US14 Consultar detalle de vehículo |
+| | Controlar la vigencia de la documentación de los vehículos | Documentación Vehicular | US33 Consultar documentos próximos a vencer; US34 Actualizar documento vehicular |
+| Reducir en 30 % las operaciones iniciadas con vehículos que posteriormente presentan condiciones que requieren atención, durante los primeros 6 meses | Conocer el historial de problemas para tomar decisiones preventivas | Historial y Reportes | US35 Consultar historial de inspecciones; US37 Consultar historial de estados de vehículo |
+| | Identificar oportunamente los vehículos que presentan riesgos o requieren atención antes de una operación | Evaluación y Habilitación Operativa | US23 Evaluar resultados de inspección; US26 Reevaluar vehículo tras acción correctiva |
+
 **Impact Map Segmento 2**
 
 ![im2](assets/impactMapping/Impactmap-AlessandraNova.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/i/qVjTP?tagId=nXgEG
+
+Alessandra Nova, supervisora de flota, dedica buena parte de su tiempo a revisar inspecciones y a dar seguimiento a incidencias y documentos. Sus dos metas apuntan a reducir ese esfuerzo y a cerrar el ciclo de cada problema:
+
+| Business Goal | Impact esperado en Alessandra | Deliverable | User Stories |
+|:---|:---|:---|:---|
+| Reducir en 30 % el tiempo dedicado al registro y revisión de inspecciones preoperacionales durante los primeros 4 meses | Revisar y gestionar las inspecciones de manera rápida y ordenada | Inspección Preoperacional | US18 Registrar estado de elementos de inspección; US21 Finalizar inspección preoperacional |
+| | Identificar rápidamente los vehículos que requieren atención después de una inspección | Evaluación y Habilitación Operativa | US23 Evaluar resultados de inspección; US25 Consultar vehículos por estado |
+| Lograr que al menos el 95 % de las incidencias registradas tengan seguimiento hasta su resolución durante los primeros 6 meses | Dar seguimiento a las incidencias y verificar que sean atendidas | Gestión de Incidencias | US28 Consultar incidencias registradas; US29 Actualizar estado de incidencia |
+| | Detectar y actualizar oportunamente los documentos próximos a vencer | Documentación Vehicular | US32 Registrar documento vehicular; US33 Consultar documentos próximos a vencer |
+
 **Impact Map Segmento 3**
 
 ![im3](assets/impactMapping/Impactmap-AlvaroToress.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/i/P4jiN?tagId=nXgEG
+
+Álvaro Torres, conductor, es quien produce la información con la que el resto del equipo decide. Sus metas buscan que la inspección se haga antes de salir y que lo que encuentra llegue completo al supervisor:
+
+| Business Goal | Impact esperado en Álvaro | Deliverable | User Stories |
+|:---|:---|:---|:---|
+| Lograr que al menos el 95 % de las inspecciones preoperacionales requeridas sean completadas antes del inicio de las operaciones durante los primeros 6 meses | Realizar correctamente la inspección preoperacional antes de iniciar el recorrido | Inspección Preoperacional | US17 Iniciar inspección preoperacional; US18 Registrar estado de elementos de inspección |
+| | Registrar las condiciones que requieren atención | Registro de Observaciones y Evidencias | US19 Registrar observaciones; US20 Adjuntar evidencia fotográfica |
+| Lograr que al menos el 90 % de las incidencias detectadas durante las inspecciones sean reportadas con información suficiente durante los primeros 6 meses | Conocer el resultado de la inspección realizada | Evaluación y Habilitación Operativa | US22 Consultar inspecciones realizadas |
+| | Reportar oportunamente los problemas detectados y proporcionar evidencia de las condiciones encontradas | Gestión de Incidencias | US27 Registrar incidencia; US20 Adjuntar evidencia fotográfica |
+
+**Lectura conjunta.** Los tres mapas se complementan a lo largo de un mismo flujo: el conductor registra la inspección y sus evidencias, el sistema evalúa las condiciones y habilita o bloquea el vehículo, la supervisora gestiona incidencias y documentos, y el administrador decide con el historial y el estado de la flota. La evaluación y habilitación operativa aparece en los tres mapas porque es el punto donde se encuentran las tres necesidades.
 
 <a id="33-product-backlog"></a>
 ## 3.3. Product Backlog.
