@@ -709,16 +709,16 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/YmOSO?tagId=nXgEG
 
 **Segmento 1**
 José necesita conocer el estado actualizado de su flota para identificar riesgos y decidir qué vehículos pueden operar. Su principal frustración es la información dispersa y la dificultad para detectar problemas a tiempo.
-![em1](assets/needFinding/empathyMapping/Empathy%20map%20-%20Jos%C3%A9%20Ramirez.png)
+![em1](assets/needFinding/empathyMapping/EmpathyMap-JoseRamirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/QRFhq?tagId=nXgEG
 **Segmento 2**
 Alessandra necesita revisar inspecciones, identificar vehículos con problemas y dar seguimiento a las incidencias. Le preocupa no detectar problemas a tiempo y valora contar con información centralizada y actualizada.
-![em2](assets/needFinding/empathyMapping/Empathy%20map%20-%20Alessandra%20Nova.png)
+![em2](assets/needFinding/empathyMapping/EmpathyMap-AlessandraNova.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/W05Q5?tagId=nXgEG
 
 **Segmento 3**
 Álvaro necesita realizar inspecciones rápidas, registrar problemas y saber si su vehículo está listo para operar. Sus principales frustraciones son los procesos manuales, la dificultad para registrar evidencias y no conocer inmediatamente el resultado de la inspección.
-![em3](assets/needFinding/empathyMapping/Empathy%20map%20-%20%C3%81lvaro%20Torres.png)
+![em3](assets/needFinding/empathyMapping/EmpathyMap-AlvaroTorres.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/mnJos?tagId=nXgEG
 
 <a id="24-big-picture-eventstorming"></a>
