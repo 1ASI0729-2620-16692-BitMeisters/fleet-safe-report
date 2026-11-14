@@ -1144,7 +1144,15 @@ Al cierre del Sprint 3, la Web Application está desplegada en https://1asi0729-
 
 **Sprint 3 Application Navigation Demo**
 
-- **Video:** [FleetSafe - Sprint 3 - Application Navigation Demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBR1trVqNIMT7Vryn42qWAlASr0szvBtfCXglX5edArsqs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OlcCoP)
+La siguiente captura muestra la navegación de la Web Application durante la demostración de cierre del Sprint 3.
+
+![Sprint 3. Application Navigation Demo](assets/sprint3/sprint3-application-navigation-demo.png)
+
+*Figura. Captura de la demostración de navegación de la aplicación durante el Sprint 3.*
+
+> **Grabación de la demostración**
+>
+> [Consultar video completo — FleetSafe Sprint 3 Application Navigation Demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBR1trVqNIMT7Vryn42qWAlASr0szvBtfCXglX5edArsqs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OlcCoP)
 
 **Identity and Access**
 
