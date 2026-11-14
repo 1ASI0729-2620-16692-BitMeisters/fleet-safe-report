@@ -7,9 +7,9 @@
 
 | Producto | Repositorio | Despliegue |
 |:---|:---|:---|
-| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | |
-| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | |
-| Web Services | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | |
+| Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
+| Frontend Web Application | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-application | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ |
+| Web Services | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-web-services | https://fleetsafe-api.nicesky-02088f36.chilecentral.azurecontainerapps.io/swagger-ui/index.html |
 | Informe | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-report | — |
 
 | Artefacto | Enlace |

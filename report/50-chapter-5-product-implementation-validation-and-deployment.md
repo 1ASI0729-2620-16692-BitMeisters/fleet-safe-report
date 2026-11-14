@@ -322,8 +322,8 @@ El Backend RESTful API se empaqueta como una imagen de contenedor, se publica en
 | **Sprint 1 Velocity** | 8 |
 | **Sum of Story Points** | 27 |
 
-<a id="5212-aspect-leader-and-colaborators"></a>
-#### 5.2.1.2. Aspect Leader and Colaborators.
+<a id="5212-aspect-leaders-and-collaborators"></a>
+#### 5.2.1.2. Aspect Leaders and Collaborators.
 
 Durante este sprint, el equipo BitMeisters se enfocó principalmente en consolidar la propuesta de FleetSafe, priorizando la resolución de errores y observaciones identificadas en los avances previos, el fortalecimiento de la arquitectura y el diseño del producto, así como el refinamiento de las funcionalidades planteadas para la plataforma.
 
@@ -409,8 +409,8 @@ El proceso realizado durante el Sprint comprendió las siguientes actividades:
 La Landing Page fue desarrollada utilizando HTML5, CSS3 y JavaScript, tecnologías establecidas para la implementación de la primera versión del producto. Asimismo, el uso de GitHub Pages permitió centralizar el proceso de publicación y disponer de una versión accesible de la Landing Page para su revisión durante el Sprint Review.
 
 
-<a id="5218-team-colaboration-insights-during-sprint"></a>
-#### 5.2.1.8. Team Colaboration Insights during Sprint.
+<a id="5218-team-collaboration-insights-during-sprint"></a>
+#### 5.2.1.8. Team Collaboration Insights during Sprint.
 
 ![S1TCI](assets/teamCollaborationInsights/sprint1-teamCollaborationInsights.png)
 
