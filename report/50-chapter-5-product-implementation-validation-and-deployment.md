@@ -1142,6 +1142,10 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 
 Al cierre del Sprint 3, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ en su versión 0.5.1 y trabaja sobre el Backend RESTful API 0.3.0. Cada usuario entra con su propia cuenta y ve solo las opciones de su rol. El recorrido de las capturas usa los datos de demostración: el conductor Carlos Mamani inspecciona el vehículo ABC-123, encuentra desgaste en el disco de freno y lo registra con una fotografía; al enviar la inspección, las reglas de la empresa dejan el vehículo no habilitado, y la supervisora Lucía Ramos lo encuentra en el tablero de estado y registra la incidencia con su acción correctiva, su reparación y su seguimiento.
 
+**Sprint 3 Application Navigation Demo**
+
+- **Video:** [FleetSafe - Sprint 3 - Application Navigation Demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBR1trVqNIMT7Vryn42qWAlASr0szvBtfCXglX5edArsqs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OlcCoP)
+
 **Identity and Access**
 
 ![Inicio de sesión con la cuenta de la plataforma](assets/sprint3/execution-sign-in-en.png)
