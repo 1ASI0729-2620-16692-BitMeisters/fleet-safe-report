@@ -1388,8 +1388,93 @@ Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Aleja
 <a id="532-registro-de-entrevistas"></a>
 ### 5.3.2. Registro de Entrevistas.
 
+#### Segmento: Supervisores o encargados de flota
+
+##### Entrevista 1 — Oscar Taza Cordero
+
+* **Segmento:** Supervisores o encargados de flota
+* **Cargo / Ocupación:** Encargado de la gestión de las flotas de su empresa
+* **Edad:** 28 años
+* **Distrito de residencia:** Chaclacayo
+* **Fecha y hora:** 14 de noviembre de 2026 — 18:14 h
+* **Duración:** 6 minutos con 48 segundos
+* **Entrevistador:** Alejandro Espino Flores
+* **Elementos evaluados:** Landing Page y Web Application (Gestión de incidencias, Evaluación y autorización, Gestión de flota y Documentación vehicular), con la cuenta de demostración de supervisora de flota.
+* **URL de la grabación:** [Link de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202122129_upc_edu_pe/IQBUThPU9DW8QbkWqwOgjlvsAV4q-vTu5LY7vpCCmBWZ-Yo?e=vNi07G) (Timestamp: `00:00 - 06:48`)
+* **Evidencia de la sesión:**
+  <img src="assets/sprint3/validation/entrevista-oscar-taza.jpg" alt="Captura de la entrevista de validación con Oscar Taza Cordero" width="600">
+
+* **Resumen de la sesión:**
+  * *Control actual:* lleva el control de su flota en un cuaderno, con papel y lápiz.
+  * *Landing Page:* la página se mostró en inglés y pidió cambiarla a español antes de continuar. Entendió que FleetSafe sirve para gestionar vehículos y flotas y lo asoció con reportes de accidentes, sin mencionar la inspección preoperacional, que es la función principal.
+  * *Gestión de incidencias:* identificó que una incidencia es un reporte sobre un vehículo que no puede operar con normalidad. Registró un choque como incidencia crítica sin ayuda y calificó el proceso como "nada complicado".
+  * *Gestión de flota:* interpretó el resumen de flotas como "algo visual" y esperaba poder entrar a la flota desde él. Registró un vehículo sin problemas y propuso agregar un botón para regresar al panel de Gestión de flota desde la lista de vehículos.
+  * *Documentación vehicular:* relacionó los documentos con un registro de incidentes; no identificó que la sección controla el vencimiento de documentos como el SOAT o la revisión técnica.
+  * *Valoración final:* consideró la aplicación "muy fácil" de usar porque los formularios no son extensos, y la recomendaría a un dueño de flota que necesite una gestión rápida.
+
 <a id="533-evaluaciones-segun-heuristicas"></a>
 ### 5.3.3. Evaluaciones según heurísticas.
+
+La evaluación aplica el formato de evaluación heurística del proyecto a lo observado en la sesión con Oscar Taza Cordero (5.3.2). La severidad sigue la escala de 1 (problema superficial) a 4 (impide continuar usando la herramienta).
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+|:---:|:---|:---:|:---|
+| 1 | El Landing Page se muestra en inglés a un usuario cuyo navegador está en español | 2 | Inclusive Design: Ofrecer una experiencia comparable |
+| 2 | En la primera lectura del Landing Page, el entrevistado asoció el producto con reportes de accidentes y no con la inspección preoperacional | 1 | Information Architecture: Is it findable? |
+| 3 | El estado del vehículo se llama "Habilitado" en la lista de vehículos y "No habilitado" en Evaluación y autorización para el mismo vehículo | 3 | Usability: Consistencia y estándares |
+| 4 | El resumen de flotas parece una tabla navegable, pero no permite entrar a la flota | 2 | Usability: Consistencia y estándares |
+| 5 | No hay un botón para regresar al panel de Gestión de flota desde la lista de vehículos | 2 | Usability: Control y libertad del usuario |
+| 6 | El propósito de Documentación vehicular no se entiende y el tipo de documento aparece en inglés en la interfaz en español | 2 | Usability: Coincidencia entre el sistema y el mundo real |
+
+**Problema 1: El Landing Page se muestra en inglés a un usuario cuyo navegador está en español.**
+Severidad: 2. Heurística violada: Inclusive Design: Ofrecer una experiencia comparable.
+Problema: al abrir el Landing Page, el entrevistado pidió cambiarlo a español antes de leerlo. El inglés es el idioma por defecto del producto, pero un usuario de los segmentos objetivo, que en su mayoría habla español, no ve su idioma en el primer contacto.
+
+<img src="assets/sprint3/validation/problema-landing-ingles.jpg" alt="Landing Page mostrado en inglés al inicio de la sesión" width="600">
+
+Recomendación: usar el idioma del navegador cuando sea español y mantener el inglés como idioma por defecto para el resto; recordar la elección del usuario entre visitas.
+
+**Problema 2: En la primera lectura, el entrevistado asoció el producto con reportes de accidentes y no con la inspección preoperacional.**
+Severidad: 1. Heurística violada: Information Architecture: Is it findable?
+Problema: la sección principal menciona que se inspecciona y se detectan riesgos, y la sección de funciones explica "Inspecciona desde el dispositivo", pero el entrevistado respondió antes de llegar a ella y describió FleetSafe como una herramienta de reportes de accidentes. La inspección preoperacional, que es el centro de la propuesta, no fue lo primero que percibió.
+
+<img src="assets/sprint3/validation/problema-mensaje-landing.jpg" alt="Sección principal del Landing Page" width="600">
+
+Recomendación: usar el término "inspección preoperacional" en el subtítulo de la sección principal y mostrar en la ilustración el paso del conductor que inspecciona desde su teléfono.
+
+**Problema 3: El estado del vehículo se llama "Habilitado" en la lista de vehículos y "No habilitado" en Evaluación y autorización.**
+Severidad: 3. Heurística violada: Usability: Consistencia y estándares.
+Problema: durante la sesión, el resumen de flotas indicaba "2 Habilitado" y la lista de vehículos mostraba ABC-123 como "Habilitado" (vehículo activo en el registro), mientras Evaluación y autorización lo mostraba como "No habilitado" para operar. La misma palabra describe dos conceptos distintos, y un supervisor puede tomar la decisión equivocada.
+
+<img src="assets/sprint3/validation/problema-regresar-flota.jpg" alt="Lista de vehículos con todos los vehículos en estado Habilitado" width="600">
+
+Recomendación: llamar "Activo" o "Inactivo" al estado de registro del vehículo y reservar "Habilitado", "Observado" y "No habilitado" para el estado operativo.
+
+**Problema 4: El resumen de flotas parece una tabla navegable, pero no permite entrar a la flota.**
+Severidad: 2. Heurística violada: Usability: Consistencia y estándares.
+Problema: el entrevistado intentó entrar a "Flota Lima" desde el resumen y concluyó que era "algo visual, no más".
+
+<img src="assets/sprint3/validation/problema-resumen-flotas.jpg" alt="Resumen de flotas en Gestión de flota" width="600">
+
+Recomendación: hacer que cada fila del resumen lleve al detalle de la flota y sus vehículos.
+
+**Problema 5: No hay un botón para regresar al panel de Gestión de flota desde la lista de vehículos.**
+Severidad: 2. Heurística violada: Usability: Control y libertad del usuario.
+Problema: para volver al panel, el entrevistado tuvo que buscar la opción Gestión de flota en el menú lateral. Fue la mejora que propuso de forma explícita.
+
+<img src="assets/sprint3/validation/problema-regresar-flota.jpg" alt="Lista de vehículos sin botón para regresar" width="600">
+
+Recomendación: agregar un enlace de regreso o una ruta de navegación (Gestión de flota › Vehículos) en las vistas internas del módulo.
+
+**Problema 6: El propósito de Documentación vehicular no se entiende y el tipo de documento aparece en inglés.**
+Severidad: 2. Heurística violada: Usability: Coincidencia entre el sistema y el mundo real.
+Problema: el entrevistado relacionó la sección con un registro de incidentes. Además, con la interfaz en español, el tipo de documento aparece como "Technical inspection (CITV)".
+
+<img src="assets/sprint3/validation/problema-documentacion.jpg" alt="Documentación vehicular con el tipo de documento en inglés" width="600">
+
+Recomendación: explicar en el subtítulo que la sección avisa qué documentos (SOAT, revisión técnica, tarjeta de propiedad) vencen en los próximos días, y traducir el tipo de documento con las claves de i18n.
+
+**Lo que funcionó:** el registro de incidencias se completó sin ayuda y el entrevistado lo calificó como sencillo; también consideró breves los formularios de registro de vehículos.
 
 
 <a id="54-video-about-the-product"></a>
