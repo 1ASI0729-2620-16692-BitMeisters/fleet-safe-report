@@ -115,15 +115,22 @@ end
 -- Texto largo sin espacios (feature/landing-page, rutas): LaTeX no sabe donde cortarlo y
 -- el texto invade la columna vecina. Se agregan puntos de corte despues de / - _ .
 local function break_str(s)
-  if #s.text < 10 or not s.text:match('[/%-_%.]') then return nil end
-  local out, buf = {}, ''
-  for ch in s.text:gmatch('.') do
-    buf = buf .. ch
-    if ch:match('[/%-_%.]') then
+  local t = s.text
+  if #t < 12 then return nil end
+  if not (t:match('[/%-_%.:]') or t:match('%l%u')) then return nil end
+  local out, buf, prev = {}, '', ''
+  local function flush()
+    if buf ~= '' then
       table.insert(out, pandoc.Str(buf))
       table.insert(out, pandoc.RawInline('latex', '\\allowbreak{}'))
       buf = ''
     end
+  end
+  for ch in t:gmatch('.') do
+    if prev:match('^%l$') and ch:match('^%u$') then flush() end   -- NombreCompuesto -> Nombre|Compuesto
+    buf = buf .. ch
+    if ch:match('[/%-_%.:]') then flush() end
+    prev = ch
   end
   if buf ~= '' then table.insert(out, pandoc.Str(buf)) end
   return out
@@ -160,10 +167,19 @@ local latex_escape = {
   ['#'] = '\\#', ['^'] = '\\^{}', ['_'] = '\\_', ['%'] = '\\%', ['~'] = '\\textasciitilde{}',
 }
 local function code_break(c)
-  if #c.text < 14 or c.text:find('%s') then return nil end
+  if #c.text < 14 then return nil end
   local s = c.text:gsub('[\\{}$&#^_%%~]', latex_escape)
-  s = s:gsub('([/%-%.])', '%1\\allowbreak{}')
+  s = s:gsub('([/%-%.%?=,:])', '%1\\allowbreak{}')
+  s = s:gsub('(%l)(%u)', '%1\\allowbreak{}%2')
   return pandoc.RawInline('latex', '\\texttt{' .. s .. '}')
+end
+
+-- Formulas largas en bloque: LaTeX no las parte y se salen de la pagina. Se reducen para que
+-- quepan en el ancho del texto.
+local function long_math(m)
+  if m.mathtype == 'DisplayMath' and #m.text > 150 then
+    return pandoc.RawInline('latex', '\\par\\noindent\\resizebox{\\textwidth}{!}{$\\displaystyle ' .. m.text .. '$}\\par ')
+  end
 end
 
 -- Ancho de columnas. Pandoc reparte el ancho segun los guiones de la fila "|:----|:----|" del
@@ -172,11 +188,46 @@ end
 -- columnas, quitando el espacio a las que les sobra.
 local function fix_widths(t)
   local n = #t.colspecs
+  if n == 1 then                              -- tabla de una columna: ocupa todo el ancho
+    if not t.colspecs[1][2] then t.colspecs[1] = { t.colspecs[1][1], 1.0 }; return t end
+    return nil
+  end
   if n < 2 then return nil end
+  -- Las tablas de GitHub (|---|---|) no traen anchos: LaTeX deja cada columna en una sola
+  -- linea y la tabla se sale de la pagina. Si las columnas no caben, se reparte el ancho segun
+  -- el largo del texto de cada columna para que el contenido se ajuste a la linea.
+  local auto = false
+  for j = 1, n do if not t.colspecs[j][2] then auto = true end end
+  local sums, maxs, cnt = {}, {}, 0
+  for j = 1, n do sums[j] = 0; maxs[j] = 0 end
+  local function measure(rows)
+    for _, row in ipairs(rows) do
+      cnt = cnt + 1
+      for j, cell in ipairs(row.cells) do
+        if j <= n then
+          local l = utf8.len(stringify(cell.contents)) or 0
+          sums[j] = sums[j] + math.min(l, 80)
+          if l > maxs[j] then maxs[j] = l end
+        end
+      end
+    end
+  end
+  if auto then
+    measure(t.head.rows)
+    for _, b in ipairs(t.bodies) do measure(b.body) end
+    local natural = 0
+    for j = 1, n do natural = natural + maxs[j] end
+    if natural <= 45 then return nil end      -- cabe en una linea: se deja como esta
+    for j = 1, n do
+      local avg = sums[j] / math.max(cnt, 1)
+      t.colspecs[j] = { t.colspecs[j][1], math.max(8, math.min(avg, 60)) }
+    end
+  end
+
   local orig, total = {}, 0
   for j = 1, n do
     local w = t.colspecs[j][2]
-    if not w then return nil end              -- ancho automatico: no se toca
+    if not w then return nil end
     orig[j] = w; total = total + w
   end
   if total <= 0 then return nil end
@@ -206,7 +257,7 @@ local function fix_widths(t)
     if frac[j] < minfrac[j] then deficit = deficit + (minfrac[j] - frac[j]); frac[j] = minfrac[j]
     else slack = slack + (frac[j] - minfrac[j]) end
   end
-  if deficit == 0 then return nil end
+  if deficit == 0 and not auto then return nil end
   if slack > 0 then
     local take = math.min(deficit, slack)
     for j = 1, n do
@@ -321,14 +372,24 @@ function Pandoc(doc)
   -- texto visible se acorta porque no cabe en la pagina
   doc = doc:walk({ Link = shorten_link })
 
+  -- anchos de columna segun el contenido (antes de insertar los puntos de corte, que alteran el texto medido)
+  doc = doc:walk({ Table = fix_widths })
+
   -- en las tablas, permite cortar linea despues de / - _ . (ramas, rutas y nombres largos)
   doc = doc:walk({ Table = function(t) return t:walk({ Str = break_str }) end })
 
   -- codigo en linea largo (rutas, ramas): tambien se puede cortar
   doc = doc:walk({ Code = code_break })
 
-  -- anchos de columna segun el contenido
-  doc = doc:walk({ Table = fix_widths })
+  doc = doc:walk({ Math = long_math })
+
+  -- bloques de codigo sin lenguaje: LaTeX no parte sus lineas largas y se salen de la pagina
+  doc = doc:walk({ CodeBlock = function(cb)
+    if #cb.classes == 0 and not cb.text:find('\\end{Verbatim}', 1, true) then
+      return pandoc.RawBlock('latex', '\\begin{Verbatim}[breaklines,breakanywhere]\n' .. cb.text .. '\n\\end{Verbatim}')
+    end
+  end })
+
 
   -- 4) aviso si queda algun enlace a otro .md (en el PDF no navegaria)
   doc:walk({ Link = function(l)

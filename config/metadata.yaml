@@ -9,3 +9,5 @@ header-includes:
     \setcounter{tocdepth}{3}
     \addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
     \setlength{\emergencystretch}{3em}
+    \usepackage{fvextra}
+    \fvset{breaklines=true,breakanywhere=true}
