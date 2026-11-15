@@ -907,7 +907,7 @@ Tablero del Sprint 3: https://trello.com/b/6WgfBLcZ/fleetsafe-sprint-3
 <a id="5234-development-evidence-for-sprint-review"></a>
 #### 5.2.3.4. Development Evidence for Sprint Review.
 
-Durante el Sprint 3 se construyó la primera versión del Backend RESTful API en el repositorio Web Services: la base compartida alineada con el proyecto de referencia del curso, el bounded context de Identity and Access con autenticación por JWT y gestión de usuarios, el de Evaluation and Authorization con sus reglas, habilitaciones y levantamiento de bloqueos, y el de Vehicle Documentation con el control de vigencia de los documentos, además de la imagen Docker y el flujo de entrega continua que la publica. En la Web Application se completó el bounded context de Fleet Management, se incorporaron el inicio y cierre de sesión contra el backend y la gestión de usuarios, y se enlazaron los términos y la política de privacidad. El Landing Page pasó a traducirse por claves, con inglés por defecto, y se le añadieron las páginas legales.
+Durante el Sprint 3 se construyó la primera versión del Backend RESTful API en el repositorio Web Services: la base compartida alineada con el proyecto de referencia del curso, el bounded context de Identity and Access con autenticación por JWT y gestión de usuarios, el de Evaluation and Authorization con sus reglas, habilitaciones y levantamiento de bloqueos, y el de Vehicle Documentation con el control de vigencia de los documentos, además de la imagen Docker y el flujo de entrega continua que la publica. En la Web Application se completó el bounded context de Fleet Management, se incorporaron el inicio y cierre de sesión contra el backend y la gestión de usuarios. Asimismo, el footer del componente `FooterContent`, ubicado en `src/app/shared/presentation/components/footer-content/footer-content.html`, enlaza los términos de uso y la política de privacidad mediante las rutas `landingPageUrl + '/terms.html'` y `landingPageUrl + '/privacy.html'`. En el Landing Page, la página `terms.html` contiene los términos de uso en español e inglés, y está enlazada desde el footer de `index.html`, junto con la página `privacy.html`. Las traducciones de estos textos se encuentran en `assets/i18n/es-419.js` y `assets/i18n/en-US.js`.
 
 En la segunda mitad del sprint se integraron los bounded contexts restantes. En el backend se incorporaron Fleet Management, con la empresa, sus flotas y sus vehículos; Pre-Operational Inspection, con el catálogo de elementos, las inspecciones, sus observaciones y sus fotografías en Azure Blob Storage; e Incident Management, con sus acciones correctivas, reparaciones y seguimientos. Al completarse una inspección, Evaluation and Authorization la evalúa a través de una fachada y actualiza el estado operativo del vehículo. En la Web Application, los módulos de inspección, flota, incidencias y documentación dejaron la API simulada y trabajan contra el backend, y se añadió el tablero del estado operativo de los vehículos.
 
@@ -1141,6 +1141,18 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 #### 5.2.3.5. Execution Evidence for Sprint Review.
 
 Al cierre del Sprint 3, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ en su versión 0.5.1 y trabaja sobre el Backend RESTful API 0.3.0. Cada usuario entra con su propia cuenta y ve solo las opciones de su rol. El recorrido de las capturas usa los datos de demostración: el conductor Carlos Mamani inspecciona el vehículo ABC-123, encuentra desgaste en el disco de freno y lo registra con una fotografía; al enviar la inspección, las reglas de la empresa dejan el vehículo no habilitado, y la supervisora Lucía Ramos lo encuentra en el tablero de estado y registra la incidencia con su acción correctiva, su reparación y su seguimiento.
+
+**Sprint 3 Application Navigation Demo**
+
+La siguiente captura muestra la navegación de la Web Application durante la demostración de cierre del Sprint 3.
+
+![Sprint 3. Application Navigation Demo](assets/sprint3/sprint3-application-navigation-demo.png)
+
+*Figura. Captura de la demostración de navegación de la aplicación durante el Sprint 3.*
+
+> **Grabación de la demostración**
+>
+> [Consultar video completo — FleetSafe Sprint 3 Application Navigation Demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBR1trVqNIMT7Vryn42qWAlASr0szvBtfCXglX5edArsqs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OlcCoP)
 
 **Identity and Access**
 
