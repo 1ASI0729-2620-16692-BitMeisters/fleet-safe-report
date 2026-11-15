@@ -402,7 +402,7 @@ El proceso realizado durante el Sprint comprendió las siguientes actividades:
 
 **Información del despliegue**
 
-| Producto | Repositorio / Plataforma | Tecnología | Plataforma de Deployment | Estado | URL |
+| Producto | Repositorio / Plataforma | Tecnología | Plataforma de despliegue | Estado | URL |
 |---|---|---|---|---|---|
 | Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | HTML5, CSS3 y JavaScript | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
 

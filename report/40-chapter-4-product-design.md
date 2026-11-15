@@ -468,8 +468,8 @@ Se emplean los siguientes esquemas, cada uno sustentado en la naturaleza del con
 |:---|:---|:---|:---|
 | **Jerárquico** | Web Application | Navegación principal por módulos según el rol del usuario | Cada rol accede únicamente a las funcionalidades que le corresponden, conforme a los roles definidos en la sección 1.1.1 y a las User Stories de la sección 3.1. |
 | **Secuencial** | Web Application | Flujo de inspección preoperacional | La inspección es un proceso ordenado que debe completarse paso a paso: iniciar (US17), registrar elementos (US18), registrar observaciones (US19), adjuntar evidencia (US20) y finalizar (US21). |
-| **Secuencial** | Landing Page | Narrativa de presentación | La Landing Page presenta la propuesta de valor en un orden progresivo: inicio (US01), funcionalidades (US02), beneficios por segmento (US03) y contacto (US04). |
-| **Por audiencia** | Landing Page | Sección de beneficios | Los beneficios se presentan diferenciados por segmento —empresas, supervisores y conductores— conforme a US03. |
+| **Secuencial** | Landing Page | Narrativa de presentación | La Landing Page sigue el recorrido de un visitante que primero reconoce su problema, luego conoce la plataforma, comprende cómo funciona, identifica su rol y decide actuar: problema, plataforma, proceso, perfiles y llamada a la acción (US01 a US04). |
+| **Por audiencia** | Landing Page | Sección de perfiles | Los perfiles se presentan diferenciados por rol —conductores, supervisores de flota y administradores— conforme a US03. |
 | **Por tarea** | Web Application | Vistas de supervisión | El supervisor accede a las vistas en función de la tarea que debe ejecutar: registrar vehículo (US12), consultar estado (US25), gestionar incidencias (US28), consultar historial (US35). |
 | **Por estado** | Web Application | Listado de vehículos | Los vehículos se agrupan por estado operativo —habilitado, observado, no habilitado— conforme a US25, dado que el estado es la información que determina la decisión del supervisor. |
 | **Cronológico** | Web Application | Historial de inspecciones, incidencias y estados | El historial se presenta en orden cronológico descendente, conforme a US31, US35 y US37, porque el usuario necesita conocer primero lo más reciente. |
@@ -516,13 +516,18 @@ La Landing Page organiza su contenido de forma secuencial, siguiendo el recorrid
 
 | Sección | Contenido | User Story |
 |:---|:---|:---|
-| 1. Encabezado | Nombre, propuesta de valor y llamada a la acción principal | US01 |
-| 2. Funcionalidades | Inspección preoperacional, evaluación de condiciones, habilitación operativa y gestión de incidencias | US02 |
-| 3. Beneficios por segmento | Beneficios diferenciados para empresas, supervisores y conductores | US03 |
-| 4. Contacto | Formulario de solicitud de demostración | US04 |
-| 5. Pie de página | Información de contacto y redes sociales | US06 |
+| 1. Navegación | Logotipo, tres enlaces de anclaje («La plataforma», «Cómo funciona» y «Nuestro equipo») y el botón «Explorar demo» | US05 |
+| 2. Hero | Titular, texto de apoyo, botón principal, enlace secundario, ilustración y tres ventajas | US01 |
+| 3. Problema | Tres columnas: información dispersa, riesgos sin detectar y decisiones en espera | US01 |
+| 4. Plataforma | Vista de ejemplo del panel de la flota y tres capacidades: inspeccionar, evaluar y dar seguimiento | US02 |
+| 5. Proceso | Tres pasos secuenciales: inspecciona, evalúa y decide con información | US02 |
+| 6. Perfiles | Conductores, supervisores de flota y administradores, con lo que hace cada uno en la plataforma | US03 |
+| 7. Equipo | Integrantes de BitMeisters, con fotografía, nombre y carrera | — |
+| 8. Preguntas frecuentes | Cuatro preguntas desplegables | — |
+| 9. Llamada a la acción | Mensaje de cierre y botón «Conoce FleetSafe» | US04 |
+| 10. Pie de página | Logotipo, enlaces de anclaje y aviso de derechos reservados | US06 |
 
-La sección de beneficios se organiza **por audiencia**, dado que cada segmento objetivo tiene necesidades distintas respecto de la plataforma, conforme a lo establecido en la sección 1.3.
+La sección de perfiles se organiza **por audiencia**, dado que cada rol tiene necesidades distintas respecto de la plataforma, conforme a lo establecido en la sección 1.3. El detalle de cada sección se presenta en el wireframe de la sección 4.3.1.
 
 ---
 
@@ -700,12 +705,13 @@ La etiqueta **Solicitar excepción** se incorpora de forma deliberada y no se de
 
 | Etiqueta | Sección | User Story |
 |:---|:---|:---|
-| **Inicio** | Encabezado con la propuesta de valor | US01 |
-| **Funcionalidades** | Descripción de las capacidades de la plataforma | US02 |
-| **Beneficios** | Beneficios diferenciados por segmento | US03 |
-| **Contacto** | Formulario de solicitud de demostración | US04 |
-| **Solicitar demostración** | Botón de llamada a la acción principal | US04 |
-| **Conocer más** | Botón de llamada a la acción secundaria | US02 |
+| **La plataforma** | Enlace de anclaje a la sección que muestra el panel de ejemplo y las capacidades | US02 |
+| **Cómo funciona** | Enlace de anclaje a la sección de los tres pasos | US02 |
+| **Nuestro equipo** | Enlace de anclaje a la sección de integrantes de BitMeisters | US05 |
+| **Explorar demo** | Botón de llamada a la acción de la barra superior | US04 |
+| **Explorar la plataforma** | Botón principal del Hero | US01 |
+| **Así funciona** | Enlace secundario del Hero | US02 |
+| **Conoce FleetSafe** | Botón de la llamada a la acción final | US04 |
 
 ---
 
@@ -843,10 +849,14 @@ La Landing Page es un sitio de una sola página con desplazamiento entre seccion
 
 | Sección | Encabezado | Anclaje | User Story |
 |:---|:---|:---|:---|
-| Inicio | `<h1>Control preventivo y habilitación operativa de su flota</h1>` | `#inicio` | US01 |
-| Funcionalidades | `<h2>Funcionalidades de FleetSafe</h2>` | `#funcionalidades` | US02 |
-| Beneficios | `<h2>Beneficios para su organización</h2>` | `#beneficios` | US03 |
-| Contacto | `<h2>Solicite una demostración</h2>` | `#contacto` | US04 |
+| Hero | `<h1>La seguridad empieza antes de arrancar</h1>` | `#inicio` | US01 |
+| Problema | `<h2>…</h2>` | — | US01 |
+| La plataforma | `<h2>…</h2>` | `#plataforma` | US02 |
+| Cómo funciona | `<h2>…</h2>` | `#como-funciona` | US02 |
+| Perfiles | `<h2>…</h2>` | — | US03 |
+| Nuestro equipo | `<h2>…</h2>` | `#equipo` | US05 |
+| Preguntas frecuentes | `<h2>…</h2>` | — | — |
+| Llamada a la acción | `<h2>…</h2>` | — | US04 |
 
 **Regla de encabezados:** cada página debe contener exactamente un `<h1>`, y los niveles `<h2>` y `<h3>` deben respetar la jerarquía sin saltos, conforme a las buenas prácticas de accesibilidad establecidas en la sección 4.1.2.
 
@@ -1073,16 +1083,15 @@ La Landing Page es un sitio de una sola página con desplazamiento entre seccion
 |:---|:---|:---|
 | Logotipo FleetSafe | Extremo izquierdo | Regresa al inicio de la página (`#inicio`) |
 | Menú de anclas | Centro | Desplaza la vista hacia la sección seleccionada |
-| Botón "Solicitar demostración" | Extremo derecho | Desplaza la vista hacia el formulario de contacto (`#contacto`) |
+| Botón "Explorar demo" | Extremo derecho | Lleva al visitante a explorar la demostración de la plataforma |
 
 **Menú de anclas**
 
 | Etiqueta | Anclaje | User Story |
 |:---|:---|:---|
-| Inicio | `#inicio` | US01 |
-| Funcionalidades | `#funcionalidades` | US02 |
-| Beneficios | `#beneficios` | US03 |
-| Contacto | `#contacto` | US04 |
+| La plataforma | `#plataforma` | US02 |
+| Cómo funciona | `#como-funciona` | US02 |
+| Nuestro equipo | `#equipo` | US05 |
 
 **Comportamiento del encabezado**
 
@@ -1094,10 +1103,9 @@ La Landing Page es un sitio de una sola página con desplazamiento entre seccion
 
 | Elemento | Contenido |
 |:---|:---|
-| Información de contacto | Correo electrónico, teléfono y dirección |
-| Redes sociales | Enlaces a los perfiles oficiales de FleetSafe |
+| Logotipo | Logotipo de FleetSafe |
 | Enlaces internos | Anclas a las secciones de la página |
-| Aviso legal | Derechos de autor y año |
+| Aviso legal | Aviso de derechos reservados |
 
 El pie de página se documenta conforme a US06.
 
