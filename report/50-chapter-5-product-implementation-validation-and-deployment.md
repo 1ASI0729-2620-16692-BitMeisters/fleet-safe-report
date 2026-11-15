@@ -1388,7 +1388,7 @@ Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Aleja
 * **Duración:** 6 minutos con 48 segundos
 * **Entrevistador:** Alejandro Espino Flores
 * **Elementos evaluados:** Landing Page y Web Application (Gestión de incidencias, Evaluación y autorización, Gestión de flota y Documentación vehicular), con la cuenta de demostración de supervisora de flota.
-* **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 06:48`)
+* **URL de la grabación:** [Link de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202122129_upc_edu_pe/IQBUThPU9DW8QbkWqwOgjlvsAV4q-vTu5LY7vpCCmBWZ-Yo?e=vNi07G) (Timestamp: `00:00 - 06:48`)
 * **Evidencia de la sesión:**
   <img src="assets/sprint3/validation/entrevista-oscar-taza.jpg" alt="Captura de la entrevista de validación con Oscar Taza Cordero" width="600">
 
