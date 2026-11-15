@@ -354,7 +354,12 @@ package "Fleet Management" {
       + fleetsById: Signal<Map>
       + vehiclesById: Signal<Map>
       + driversById: Signal<Map>
+      + companyCount: Signal<number>
+      + fleetCount: Signal<number>
+      + vehicleCount: Signal<number>
+      + driverCount: Signal<number>
       + activeAssignments: Signal<VehicleAssignment[]>
+      + activeAssignmentCount: Signal<number>
       + availableVehicles: Signal<Vehicle[]>
       + availableDrivers: Signal<Driver[]>
       + vehicleStatusSummary: Signal<Record>
@@ -404,6 +409,7 @@ package "Fleet Management" {
       + getVehicleInspections(vehicleId): Observable<VehicleInspectionSummary[]>
   }
   class CompaniesApiEndpoint <<Endpoint>> {
+      + getMine(): Observable<Company[]>
   }
   class FleetsApiEndpoint <<Endpoint>> {
   }
@@ -540,7 +546,7 @@ package "Vehicle Documentation" {
       + error: Signal<string | null>
       + load(): void
       + selectVehicle(vehicleId: string): void
-      + save(input: VehicleDocumentInput, id: string | null, done): void
+      + save(input: VehicleDocumentInput, id: string | null, file: File | null, done): void
       - formatError(error: unknown, fallback: string): string
   }
   class VehicleDocumentationApi <<Api>> {
@@ -551,10 +557,14 @@ package "Vehicle Documentation" {
       + getVehicleDocuments(): Observable<VehicleDocument[]>
       + registerVehicleDocument(document): Observable<VehicleDocument>
       + updateVehicleDocument(document): Observable<VehicleDocument>
+      + attachVehicleDocumentFile(document, file: File): Observable<VehicleDocument>
       + getDocumentTypes(): Observable<DocumentType[]>
       + getDocumentedVehicles(): Observable<DocumentedVehicle[]>
   }
   class VehicleDocumentsApiEndpoint <<Endpoint>> {
+      + createForVehicle(document): Observable<VehicleDocument>
+      + updateForVehicle(document): Observable<VehicleDocument>
+      + attachFile(document, file: File): Observable<VehicleDocument>
   }
   class DocumentTypesApiEndpoint <<Endpoint>> {
   }
@@ -687,6 +697,9 @@ package "Pre-Operational Inspection" {
       + noVehicleAssigned: Signal<boolean>
       + currentInspection: Signal<Inspection | null>
       + savingItemId: Signal<string | null>
+      + savingFinding: Signal<boolean>
+      + submitting: Signal<boolean>
+      + vehicleStatus: Signal<VehicleOperationalStatus | null>
       + loading: Signal<boolean>
       + error: Signal<string | null>
       + loadInspectionItems(): void
@@ -694,6 +707,9 @@ package "Pre-Operational Inspection" {
       + loadInspection(id: string): void
       + startInspection(inspection: Inspection): void
       + answerItem(item: InspectionItem, result: ResultValue): void
+      + saveFinding(item: InspectionItem, description: string, photos: File[], done: () => void): void
+      + submitInspection(done: (inspection: Inspection) => void): void
+      + loadVehicleStatus(vehicleId: string): void
       - isNotFound(error: unknown): boolean
       - formatError(error: unknown, fallback: string): string
   }
@@ -701,16 +717,35 @@ package "Pre-Operational Inspection" {
       - http: HttpClient
       - inspectionsEndpoint: InspectionsApiEndpoint
       - inspectionItemsEndpoint: InspectionItemsApiEndpoint
+      - vehicleStatusEndpoint: VehicleStatusApiEndpoint
       - assignedVehicleEndpoint: AssignedVehicleApiEndpoint
       + getInspectionItems(): Observable<InspectionItem[]>
       + getInspection(id: string): Observable<Inspection>
       + createInspection(inspection): Observable<Inspection>
-      + updateInspection(inspection): Observable<Inspection>
+      + registerResult(inspectionId: string, inspectionItemId: string, result: ResultValue): Observable<InspectionResultEntry>
+      + updateResult(inspectionId: string, resultId: string, result: ResultValue): Observable<InspectionResultEntry>
+      + addObservation(inspectionId: string, resultId: string, description: string): Observable<Observation>
+      + attachEvidence(inspectionId: string, observationId: string, photo: File): Observable<Evidence>
+      + completeInspection(inspectionId: string): Observable<Inspection>
+      + getVehicleStatus(vehicleId: string): Observable<VehicleOperationalStatus>
       + getAssignedVehicle(): Observable<AssignedVehicle>
   }
   class InspectionsApiEndpoint <<Endpoint>> {
+      + registerResult(inspectionId, inspectionItemId, result): Observable<InspectionResultEntry>
+      + updateResult(inspectionId, resultId, result): Observable<InspectionResultEntry>
+      + addObservation(inspectionId, resultId, description): Observable<Observation>
+      + attachEvidence(inspectionId, observationId, photo: File): Observable<Evidence>
+      + complete(inspectionId): Observable<Inspection>
   }
   class InspectionItemsApiEndpoint <<Endpoint>> {
+  }
+  class VehicleStatusApiEndpoint <<Action Endpoint>> {
+      + getStatus(vehicleId: string): Observable<VehicleOperationalStatus>
+  }
+  enum VehicleOperationalStatus {
+      ENABLED
+      OBSERVED
+      NOT_ENABLED
   }
   class AssignedVehicleApiEndpoint <<Action Endpoint>> {
       - http: HttpClient
@@ -747,7 +782,10 @@ package "Pre-Operational Inspection" {
   InspectionStore ..> Notifier : notifies
   InspectionApi "1" *-- "1" InspectionsApiEndpoint : owns
   InspectionApi "1" *-- "1" InspectionItemsApiEndpoint : owns
+  InspectionApi "1" *-- "1" VehicleStatusApiEndpoint : owns
   InspectionApi "1" *-- "1" AssignedVehicleApiEndpoint : owns
+  VehicleStatusApiEndpoint ..> VehicleOperationalStatus : returns
+  InspectionStore ..> VehicleOperationalStatus : holds
   InspectionsApiEndpoint "1" --> "1" InspectionAssembler : translates
   InspectionItemsApiEndpoint "1" --> "1" InspectionItemAssembler : translates
   AssignedVehicleApiEndpoint "1" --> "1" AssignedVehicleAssembler : translates
@@ -755,160 +793,80 @@ package "Pre-Operational Inspection" {
 }
 
 package "Evaluation and Authorization" {
-  class EvaluationRule <<Entity>> {
+  class EvaluatedVehicle <<Entity>> {
       - id: string
-      - inspectionItemId: string
-      - name: string
-      - foundResult: string
-      - resultingImpact: RuleImpact
-      - description: string
-      - isActive: boolean
-      - createdAt: string
-      - updatedAt: string
-      + appliesTo(itemId: string, value: string): boolean
-  }
-  class Evaluation <<Entity>> {
-      - id: string
-      - inspectionId: string
-      - evaluatedAt: string
-      - evaluatedBy: string | null
-      - createdAt: string
-      - details: EvaluationDetail[]
-      + resolveMostRestrictiveImpact(): RuleImpact
-      + isAutomatic(): boolean
-  }
-  class EvaluationDetail <<Entity>> {
-      - id: string
-      - evaluationId: string
-      - inspectionResultId: string
-      - evaluationRuleId: string
-      - appliedImpact: RuleImpact
+      - plate: string
+      - brand: string
+      - model: string
+      + /description: string
   }
   class OperationalAuthorization <<Entity>> {
       - id: string
-      - evaluationId: string
       - vehicleId: string
-      - status: AuthorizationStatus
+      - status: OperationalStatus
       - isOverride: boolean
       - overrideReason: string | null
-      - authorizedBy: string | null
-      - authorizedAt: string
-      - validUntil: string | null
-      - createdAt: string
-      + isValidOn(moment: string): boolean
-      + liftsBlock(): boolean
+      - authorizedAt: Date
   }
-  enum RuleImpact {
-      NONE
-      OBSERVED
-      BLOCKING
+  class VehicleCondition <<Value Object>> {
+      - vehicle: EvaluatedVehicle
+      - authorization: OperationalAuthorization | null
+      + {static} fromVehicles(vehicles: EvaluatedVehicle[], authorizations: OperationalAuthorization[]): VehicleCondition[]
+      + /vehicleId: string
+      + /plate: string
+      + /description: string
+      + /status: OperationalStatus
+      + /evaluatedAt: Date | null
+      + /isOverride: boolean
   }
-  enum AuthorizationStatus {
+  enum OperationalStatus {
       ENABLED
       OBSERVED
       NOT_ENABLED
-  }
-  class LiftBlockCommand <<Command>> {
-      - vehicleId: string
-      - reason: string
-      - authorizedBy: string
-  }
-  class DefineEvaluationRuleCommand <<Command>> {
-      - inspectionItemId: string
-      - name: string
-      - foundResult: string
-      - resultingImpact: RuleImpact
-      - description: string
+      NOT_INSPECTED
   }
   class EvaluationStore <<Store>> {
       - evaluationApi: EvaluationApi
-      - notifier: Notifier
-      + rules: Signal<EvaluationRule[]>
-      + evaluations: Signal<Evaluation[]>
-      + authorizations: Signal<OperationalAuthorization[]>
+      + conditions: Signal<VehicleCondition[]>
+      + statusFilter: Signal<StatusFilter>
+      + filteredConditions: Signal<VehicleCondition[]>
+      + counts: Signal<Record>
       + loading: Signal<boolean>
-      + error: Signal<string | null>
-      + blockedAuthorizations: Signal<OperationalAuthorization[]>
-      + loadRules(): void
-      + loadEvaluations(): void
-      + loadAuthorizations(): void
-      + defineRule(command: DefineEvaluationRuleCommand): void
-      + updateRule(rule: EvaluationRule): void
-      + liftBlock(command: LiftBlockCommand): void
-      - formatError(error: unknown, fallback: string): string
+      + error: Signal<boolean>
+      + load(): void
+      + filterByStatus(filter: StatusFilter): void
   }
   class EvaluationApi <<Api>> {
       - http: HttpClient
-      - evaluationRulesEndpoint: EvaluationRulesApiEndpoint
-      - evaluationsEndpoint: EvaluationsApiEndpoint
-      - operationalAuthorizationsEndpoint: OperationalAuthorizationsApiEndpoint
-      - defineEvaluationRuleEndpoint: DefineEvaluationRuleApiEndpoint
-      - liftBlockEndpoint: LiftBlockApiEndpoint
-      + getEvaluationRules(): Observable<EvaluationRule[]>
-      + updateEvaluationRule(rule: EvaluationRule): Observable<EvaluationRule>
-      + getEvaluations(): Observable<Evaluation[]>
-      + getOperationalAuthorizations(): Observable<OperationalAuthorization[]>
-      + defineEvaluationRule(command): Observable<EvaluationRule>
-      + liftBlock(command): Observable<OperationalAuthorization>
+      - currentAuthorizationsEndpoint: CurrentAuthorizationsApiEndpoint
+      - evaluatedVehiclesEndpoint: EvaluatedVehiclesApiEndpoint
+      + getCurrentAuthorizations(): Observable<OperationalAuthorization[]>
+      + getVehicles(): Observable<EvaluatedVehicle[]>
   }
-  class EvaluationRulesApiEndpoint <<Endpoint>> {
+  class CurrentAuthorizationsApiEndpoint <<Endpoint>> {
   }
-  class EvaluationsApiEndpoint <<Endpoint>> {
-  }
-  class OperationalAuthorizationsApiEndpoint <<Endpoint>> {
-  }
-  class DefineEvaluationRuleApiEndpoint <<Action Endpoint>> {
-      + defineEvaluationRule(command): Observable<EvaluationRule>
-  }
-  class LiftBlockApiEndpoint <<Action Endpoint>> {
-      + liftBlock(command): Observable<OperationalAuthorization>
-  }
-  class EvaluationRuleAssembler <<Assembler>> {
-      + toEntitiesFromResponse(response): EvaluationRule[]
-      + toEntityFromResource(resource): EvaluationRule
-      + toResourceFromEntity(entity): EvaluationRuleResource
-  }
-  class EvaluationAssembler <<Assembler>> {
-      + toEntitiesFromResponse(response): Evaluation[]
-      + toEntityFromResource(resource): Evaluation
-      + toResourceFromEntity(entity): EvaluationResource
-      - toEvaluationDetailFromResource(resource): EvaluationDetail
+  class EvaluatedVehiclesApiEndpoint <<Endpoint>> {
   }
   class OperationalAuthorizationAssembler <<Assembler>> {
       + toEntitiesFromResponse(response): OperationalAuthorization[]
       + toEntityFromResource(resource): OperationalAuthorization
       + toResourceFromEntity(entity): OperationalAuthorizationResource
   }
-  class DefineEvaluationRuleAssembler <<Assembler>> {
-      + toResourceFromResponse(response): Resource
-      + toRequestFromCommand(command): Request
-      + toEntityFromResource(resource): EvaluationRule
+  class EvaluatedVehicleAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): EvaluatedVehicle[]
+      + toEntityFromResource(resource): EvaluatedVehicle
+      + toResourceFromEntity(entity): EvaluatedVehicleResource
   }
-  class LiftBlockAssembler <<Assembler>> {
-      + toResourceFromResponse(response): Resource
-      + toRequestFromCommand(command): Request
-      + toEntityFromResource(resource): OperationalAuthorization
-  }
-  Evaluation "1" *-- "1..*" EvaluationDetail : contains
-  EvaluationRule "1" --> "0..*" EvaluationDetail : is applied in
-  Evaluation "1" --> "1" OperationalAuthorization : produces
-  EvaluationRule "1" --> "1" RuleImpact : has impact
-  EvaluationDetail "1" --> "1" RuleImpact : has impact
-  OperationalAuthorization "1" --> "1" AuthorizationStatus : has status
+  OperationalAuthorization "1" --> "1" OperationalStatus : has status
+  VehicleCondition "1" --> "1" EvaluatedVehicle : describes
+  VehicleCondition "1" --> "0..1" OperationalAuthorization : takes its status from
+  VehicleCondition "1" --> "1" OperationalStatus : has status
   EvaluationStore "1" --> "1" EvaluationApi : calls
-  EvaluationStore ..> Notifier : notifies
-  EvaluationApi "1" *-- "1" EvaluationRulesApiEndpoint : owns
-  EvaluationApi "1" *-- "1" EvaluationsApiEndpoint : owns
-  EvaluationApi "1" *-- "1" OperationalAuthorizationsApiEndpoint : owns
-  EvaluationApi "1" *-- "1" DefineEvaluationRuleApiEndpoint : owns
-  EvaluationApi "1" *-- "1" LiftBlockApiEndpoint : owns
-  EvaluationRulesApiEndpoint "1" --> "1" EvaluationRuleAssembler : translates
-  EvaluationsApiEndpoint "1" --> "1" EvaluationAssembler : translates
-  OperationalAuthorizationsApiEndpoint "1" --> "1" OperationalAuthorizationAssembler : translates
-  DefineEvaluationRuleApiEndpoint "1" --> "1" DefineEvaluationRuleAssembler : translates
-  LiftBlockApiEndpoint "1" --> "1" LiftBlockAssembler : translates
-  EvaluationStore ..> LiftBlockCommand : handles
-  EvaluationStore ..> DefineEvaluationRuleCommand : handles
+  EvaluationStore "1" o-- "0..*" VehicleCondition : holds
+  EvaluationApi "1" *-- "1" CurrentAuthorizationsApiEndpoint : owns
+  EvaluationApi "1" *-- "1" EvaluatedVehiclesApiEndpoint : owns
+  CurrentAuthorizationsApiEndpoint "1" --> "1" OperationalAuthorizationAssembler : translates
+  EvaluatedVehiclesApiEndpoint "1" --> "1" EvaluatedVehicleAssembler : translates
 }
 
 package "Incident Management" {
@@ -922,6 +880,7 @@ package "Incident Management" {
       - severity: IncidentSeverity
       - status: IncidentStatus
       - reportedBy: string
+      - reportedByName: string
       - reportedAt: string
       - resolutionType: string
       - resolvedAt: string
@@ -948,6 +907,7 @@ package "Incident Management" {
       - incidentId: string
       - description: string
       - performedBy: string
+      - performedByName: string
       - performedAt: string
       - evidenceUrl: string
   }
@@ -967,7 +927,21 @@ package "Incident Management" {
       - incidentId: string
       - note: string
       - createdBy: string
+      - createdByName: string
       - createdAt: string
+  }
+  class IncidentVehicle <<Entity>> {
+      - id: string
+      - plate: string
+      - brand: string
+      - model: string
+      + /description: string
+  }
+  class IncidentInspection <<Entity>> {
+      - id: string
+      - vehicleId: string
+      - status: string
+      - startedAt: string
   }
   enum IncidentOrigin {
       INSPECTION
@@ -1033,6 +1007,8 @@ package "Incident Management" {
       - incidentApi: IncidentApi
       + incidents: Signal<Incident[]>
       + incidentTypes: Signal<IncidentType[]>
+      + vehicles: Signal<IncidentVehicle[]>
+      + inspectionsOfVehicle: Signal<IncidentInspection[]>
       + loading: Signal<boolean>
       + error: Signal<string | null>
       + incidentCount: Signal<number>
@@ -1042,10 +1018,13 @@ package "Incident Management" {
       + getIncidentTypeById(id: string): Signal<IncidentType | undefined>
       + loadIncidents(): void
       + loadIncidentTypes(): void
+      + loadVehicles(): void
+      + loadInspectionsOfVehicle(vehicleId: string): void
+      + plateOf(vehicleId: string): string
       + addIncident(incident: Incident): void
       + updateIncident(incident: Incident): void
       + deleteIncident(id: string): void
-      + registerCorrectiveAction(command: RegisterCorrectiveActionCommand): void
+      + registerCorrectiveAction(command: RegisterCorrectiveActionCommand, evidence: File | null): void
       + scheduleRepair(command: ScheduleRepairCommand): void
       + completeRepair(command: CompleteRepairCommand): void
       + addIncidentFollowUp(command: AddIncidentFollowUpCommand): void
@@ -1056,11 +1035,15 @@ package "Incident Management" {
       - http: HttpClient
       - incidentsEndpoint: IncidentsApiEndpoint
       - incidentTypesEndpoint: IncidentTypesApiEndpoint
+      - incidentVehiclesEndpoint: IncidentVehiclesApiEndpoint
+      - incidentInspectionsEndpoint: IncidentInspectionsApiEndpoint
       - registerCorrectiveActionEndpoint: RegisterCorrectiveActionApiEndpoint
       - scheduleRepairEndpoint: ScheduleRepairApiEndpoint
       - completeRepairEndpoint: CompleteRepairApiEndpoint
       - addIncidentFollowUpEndpoint: AddIncidentFollowUpApiEndpoint
       - resolveIncidentEndpoint: ResolveIncidentApiEndpoint
+      + getVehicles(): Observable<IncidentVehicle[]>
+      + getInspectionsOfVehicle(vehicleId: string): Observable<IncidentInspection[]>
       + getIncidents(): Observable<Incident[]>
       + getIncident(id: string): Observable<Incident>
       + createIncident(incident: Incident): Observable<Incident>
@@ -1072,17 +1055,25 @@ package "Incident Management" {
       + updateIncidentType(incidentType): Observable<IncidentType>
       + deleteIncidentType(id: string): Observable<void>
       + registerCorrectiveAction(command): Observable<CorrectiveAction>
+      + attachCorrectiveActionEvidence(incidentId: string, correctiveActionId: string, file: File): Observable<unknown>
       + scheduleRepair(command): Observable<Repair>
       + completeRepair(command): Observable<Repair>
       + addIncidentFollowUp(command): Observable<IncidentFollowUp>
       + resolveIncident(command): Observable<Incident>
   }
   class IncidentsApiEndpoint <<Endpoint>> {
+      + update(entity: Incident, id: string): Observable<Incident>
+  }
+  class IncidentVehiclesApiEndpoint <<Endpoint>> {
+  }
+  class IncidentInspectionsApiEndpoint <<Endpoint>> {
+      + getByVehicleId(vehicleId: string): Observable<IncidentInspection[]>
   }
   class IncidentTypesApiEndpoint <<Endpoint>> {
   }
   class RegisterCorrectiveActionApiEndpoint <<Action Endpoint>> {
       + registerCorrectiveAction(command): Observable<CorrectiveAction>
+      + attachEvidence(incidentId: string, correctiveActionId: string, file: File): Observable<unknown>
   }
   class ScheduleRepairApiEndpoint <<Action Endpoint>> {
       + scheduleRepair(command): Observable<Repair>
@@ -1095,6 +1086,16 @@ package "Incident Management" {
   }
   class ResolveIncidentApiEndpoint <<Action Endpoint>> {
       + resolveIncident(command): Observable<Incident>
+  }
+  class IncidentVehicleAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): IncidentVehicle[]
+      + toEntityFromResource(resource): IncidentVehicle
+      + toResourceFromEntity(entity): IncidentVehicleResource
+  }
+  class IncidentInspectionAssembler <<Assembler>> {
+      + toEntitiesFromResponse(response): IncidentInspection[]
+      + toEntityFromResource(resource): IncidentInspection
+      + toResourceFromEntity(entity): IncidentInspectionResource
   }
   class IncidentAssembler <<Assembler>> {
       + toEntitiesFromResponse(response): Incident[]
@@ -1145,6 +1146,12 @@ package "Incident Management" {
   IncidentStore "1" --> "1" IncidentApi : calls
   IncidentApi "1" *-- "1" IncidentsApiEndpoint : owns
   IncidentApi "1" *-- "1" IncidentTypesApiEndpoint : owns
+  IncidentApi "1" *-- "1" IncidentVehiclesApiEndpoint : owns
+  IncidentApi "1" *-- "1" IncidentInspectionsApiEndpoint : owns
+  IncidentVehiclesApiEndpoint "1" --> "1" IncidentVehicleAssembler : translates
+  IncidentInspectionsApiEndpoint "1" --> "1" IncidentInspectionAssembler : translates
+  IncidentStore ..> IncidentVehicle : holds
+  IncidentStore ..> IncidentInspection : holds
   IncidentApi "1" *-- "1" RegisterCorrectiveActionApiEndpoint : owns
   IncidentApi "1" *-- "1" ScheduleRepairApiEndpoint : owns
   IncidentApi "1" *-- "1" CompleteRepairApiEndpoint : owns
@@ -1175,12 +1182,8 @@ Inspection "0..*" ..> "1" Vehicle : inspects (vehicleId)
 Inspection "0..*" ..> "1" Driver : done by (driverId)
 Observation "0..*" ..> "1" User : created by (createdBy)
 VehicleInspectionSummary "0..1" ..> "1" Inspection : projects (id)
-EvaluationRule "0..*" ..> "1" InspectionItem : evaluates (inspectionItemId)
-Evaluation "0..1" ..> "1" Inspection : evaluates (inspectionId)
-Evaluation "0..*" ..> "0..1" User : done by (evaluatedBy)
-EvaluationDetail "0..*" ..> "1" InspectionResultEntry : refers to (inspectionResultId)
+EvaluatedVehicle "0..1" ..> "1" Vehicle : projects (id)
 OperationalAuthorization "0..*" ..> "1" Vehicle : enables (vehicleId)
-OperationalAuthorization "0..*" ..> "0..1" User : granted by (authorizedBy)
 Incident "0..*" ..> "1" Vehicle : reported on (vehicleId)
 Incident "0..1" ..> "1" Inspection : from (inspectionId)
 Incident "0..*" ..> "1" User : reported by (reportedBy)

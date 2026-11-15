@@ -8,7 +8,7 @@
 <a id="anexo-a-videos-de-exposiciones"></a>
 ## Anexo A — Videos de Exposiciones
 
-En este anexo se registran los videos de exposición correspondientes a cada entrega. Cada video presenta a los cinco integrantes ante cámara y tiene una duración máxima de 30 minutos, conforme a lo establecido en el enunciado. Los videos se alojan en Microsoft Stream y se enlazan mediante su dirección completa.
+En este anexo se registran los videos de exposición correspondientes a cada entrega. Cada video presenta a los tres integrantes ante cámara y tiene una duración máxima de 30 minutos, conforme a lo establecido en el enunciado. Los videos se alojan en Microsoft Stream y se enlazan mediante su dirección completa.
 
 | Entrega | Semana | Fecha | Enlace de Microsoft Stream | Duración |
 |:---|:---|:---|:---|:---|

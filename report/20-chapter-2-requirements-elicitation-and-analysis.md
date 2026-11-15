@@ -85,7 +85,7 @@ El análisis competitivo tiene como objetivo que BitMeisters conozca mejor a sus
 |:---|
 | Conocer cómo las soluciones existentes de inspección y control preventivo vehicular resuelven la habilitación operativa del vehículo, y determinar cómo puede FleetSafe diferenciarse para ofrecer una propuesta de valor adecuada a las empresas de transporte de carga en el Perú. |
 
-| | | <img src="assets/competitors/fleetsafe.png" alt="Logo de FleetSafe" width="80"><br>**FleetSafe** | <img src="assets/competitors/fleetio.png" alt="Logo de Fleetio" width="80"><br>**Fleetio** | <img src="assets/competitors/whip-around.png" alt="Logo de Whip Around" width="80"><br>**Whip Around** | <img src="assets/competitors/vehicheck.png" alt="Logo de Vehicheck" width="80"><br>**Vehicheck** | <img src="assets/competitors/verizon-connect.png" alt="Logo de Verizon Connect" width="80"><br>**Verizon Connect** |
+| | | <img src="assets/logos/fleetsafe.png" alt="Logo de FleetSafe" width="90"><br>**FleetSafe** | <img src="assets/logos/fleetio_logo.png" alt="Logo de Fleetio" width="90"><br>**Fleetio** | <img src="assets/logos/whiparound_logo.png" alt="Logo de Whip Around" width="90"><br>**Whip Around** | <img src="assets/logos/vehicheck_logo.png" alt="Logo de Vehicheck" width="90"><br>**Vehicheck** | <img src="assets/logos/verizon-connect.png" alt="Logo de Verizon Connect" width="90"><br>**Verizon Connect** |
 |:---|:---|:---|:---|:---|:---|:---|
 | **Perfil** | Overview | Control preventivo y habilitación operativa de vehículos de carga, alineado al marco de cumplimiento peruano. | Gestión integral de flotas con inspecciones, mantenimiento y órdenes de trabajo. | Plataforma especializada en inspecciones DVIR, defectos y cumplimiento. | Inspección preoperacional digital alineada al PESV de Colombia. | Gestión de flotas y telemática con módulo DVIR. |
 | | Ventaja competitiva<br>¿Qué valor ofrece a los clientes? | Produce la evidencia que exigen la normativa peruana de SST y las auditorías de homologación, y deja registro de quién autoriza cada excepción. | Amplitud funcional y automatización entre inspección, incidencia y mantenimiento. | Especialización en el ciclo de defectos y en el cumplimiento del DOT. | Cumplimiento del PESV sin papel, con bloqueo automático ante fallas críticas. | Integración de las inspecciones con telemática y rastreo en tiempo real. |
@@ -653,9 +653,6 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/rnMBZ?tagId=nXgEG
 <a id="232-user-task-matrix"></a>
 ### 2.3.2. User Task Matrix.
 
-<a id="232-user-task-matrix"></a>
-### 2.3.2. User Task Matrix.
-
 La User Task Matrix mapea las tareas operativas cotidianas que los usuarios representativos de los tres segmentos objetivo realizan en el mundo real dentro del proceso de control preventivo y despacho de carga, **independientemente de la existencia de una solución de software**. Para cada tarea se evalúa la frecuencia de ejecución (*Always*, *Often*, *Sometimes*, *Rarely*, *Never*) y su nivel de criticidad o importancia (*High*, *Medium*, *Low*):
 
 | **USER TASK (Actividades del Negocio)** | **José Ramírez**<br>*(Gerente / Dueño)* | | **Alessandra Nova**<br>*(Supervisora SST)* | | **Álvaro Torres**<br>*(Conductor de Carga)* | |
@@ -712,16 +709,16 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/m/YmOSO?tagId=nXgEG
 
 **Segmento 1**
 José necesita conocer el estado actualizado de su flota para identificar riesgos y decidir qué vehículos pueden operar. Su principal frustración es la información dispersa y la dificultad para detectar problemas a tiempo.
-![em1](assets/needFinding/empathyMapping/Empathy%20map%20-%20Jos%C3%A9%20Ramirez.png)
+![em1](assets/needFinding/empathyMapping/EmpathyMap-JoseRamirez.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/QRFhq?tagId=nXgEG
 **Segmento 2**
 Alessandra necesita revisar inspecciones, identificar vehículos con problemas y dar seguimiento a las incidencias. Le preocupa no detectar problemas a tiempo y valora contar con información centralizada y actualizada.
-![em2](assets/needFinding/empathyMapping/Empathy%20map%20-%20Alessandra%20Nova.png)
+![em2](assets/needFinding/empathyMapping/EmpathyMap-AlessandraNova.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/W05Q5?tagId=nXgEG
 
 **Segmento 3**
 Álvaro necesita realizar inspecciones rápidas, registrar problemas y saber si su vehículo está listo para operar. Sus principales frustraciones son los procesos manuales, la dificultad para registrar evidencias y no conocer inmediatamente el resultado de la inspección.
-![em3](assets/needFinding/empathyMapping/Empathy%20map%20-%20%C3%81lvaro%20Torres.png)
+![em3](assets/needFinding/empathyMapping/EmpathyMap-AlvaroTorres.png)
 Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/mnJos?tagId=nXgEG
 
 <a id="24-big-picture-eventstorming"></a>
@@ -729,22 +726,19 @@ Ver en UXpressia: https://uxpressia.com/w/v8FzI/p/mnJos?tagId=nXgEG
 
 Big Picture Event Storming es una técnica colaborativa que nos permitirá comprender el funcionamiento global de FLEETSAFE. Se basará en visualizar eventos clave del dominio(domain events), fomentar el diálogo entre roles (actores) diversos y detectar oportunidades de mejora. El proceso se divide en tres fases principales:
 
-**Primera Etapa: OPEN**
-Aqui colocamos todos los eventos de dominio que se nos ocurra
+**Primera etapa: OPEN.** El equipo registra, sin filtrar ni ordenar, todos los eventos de dominio que se le ocurren al pensar en el control preventivo de la flota.
 
 <img src="assets/bigPictureEventStorming/open_bp_eventstorming.png" alt="Open EventStorming de FleetSafe" width="800">
 
-**Segunda Etapa: EXPLORE**
-Identificamos actores y pain points que luego cuestionamos, y lo más importante crear una secuencia entre los eventos de dominio.
+**Segunda etapa: EXPLORE.** El equipo identifica los actores y los pain points, los cuestiona y, sobre todo, ordena los eventos de dominio en una secuencia coherente.
 
 <img src="assets/bigPictureEventStorming/explore_bp_eventstorming.png" alt="Explore EventStorming de FleetSafe - Parte 1" width="800">
 
-**Tercera Etapa: CLOSE**
-Identificamos problemas que hayamos encontrado, temas a investigar más a fondo y declaramos que esta fuera de nuestro alcance actual.
+**Tercera etapa: CLOSE.** El equipo registra los problemas encontrados y los temas que requieren mayor investigación, y declara lo que queda fuera del alcance actual.
 
 <img src="assets/bigPictureEventStorming/close_bp_eventstorming.png" alt="Close EventStorming de FleetSafe" width="800">
 
-Enlace hacia el Big Picture Eventstorming: 
+Enlace hacia el Big Picture Eventstorming: https://miro.com/app/board/uXjVHnsi-9M=/?share_link_id=239920257915
 
 <a id="25-ubiquitous-language"></a>
 ## 2.5. Ubiquitous Language.

@@ -20,7 +20,7 @@ Las decisiones que se presentan a continuación se derivan de tres fuentes: el *
 FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su identidad visual debe comunicar **confiabilidad, control y prevención**, y no velocidad, modernidad o innovación tecnológica por sí mismas. El usuario de FleetSafe —un supervisor de flota o un conductor de vehículo de carga— debe percibir que la plataforma es una herramienta de trabajo seria, no un producto experimental.
 
 <p align="center">
-  <img src="assets/brand/fleetsafe-logo.png" alt="Logotipo de FleetSafe" width="420">
+  <img src="assets/brand/logo-fleetsafe-negro.png" alt="Logotipo de FleetSafe" width="420">
 </p>
 
 | Elemento | Definición |
@@ -28,22 +28,23 @@ FleetSafe es una plataforma de seguridad y control preventivo vehicular. Su iden
 | **Nombre del producto** | FleetSafe |
 | **Startup** | BitMeisters |
 | **Concepto de marca** | La unión de los conceptos *fleet* (flota) y *safe* (seguro) sintetiza la propuesta de valor: una flota que opera de forma segura porque su condición ha sido verificada antes de operar. |
-| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo de carga— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. La palabra "Fleet" se escribe en azul `#13315C` y "Safe" en verde `#2A9D8F`, ambos de la paleta de la sección 4.1.1, con la familia tipográfica Inter en peso Bold. |
-| **Isotipo** | La marca de verificación, ubicada en la caja de carga del vehículo, representa el resultado de la inspección preoperacional: el vehículo ha sido verificado y se encuentra habilitado. El verde de la caja es el mismo que identifica el estado *habilitado* dentro de la aplicación. |
-| **Versión monocromática** | El logotipo debe contar con una versión en un solo color para su uso sobre fondos de color pleno o fotografías. Se dispone de una versión en azul `#13315C` y de una versión en blanco para fondos oscuros; en ambas, la marca de verificación se muestra como vacío en la caja de carga. |
+| **Logotipo** | Compuesto por el isotipo —una marca de verificación integrada a la silueta de un vehículo de carga— y el logotipo tipográfico "FleetSafe" en una sola palabra, con la "F" y la "S" en mayúscula. La palabra "Fleet" se escribe en azul `#13315C` y "Safe" en verde `#2A9D8F`, colores correspondientes al diseño actual del logotipo. La identidad cromática de las interfaces se define mediante la paleta de la sección 4.1.1. Se emplea la familia tipográfica Inter en peso Bold. |
+| **Isotipo** | La marca de verificación, ubicada en la caja de carga del vehículo, representa el resultado de la inspección preoperacional: el vehículo ha sido verificado. El color verde del isotipo pertenece al diseño gráfico del logotipo y es independiente del color semántico utilizado para identificar el estado *habilitado* dentro de la aplicación. |
+| **Versión monocromática** | El logotipo cuenta con versiones de un solo color para su uso sobre fondos de color pleno o fotografías. La versión oscura utiliza el azul del diseño gráfico actual (`#13315C`) y la versión clara utiliza blanco para fondos oscuros; en ambas, la marca de verificación se muestra como vacío en la caja de carga. |
 | **Área de resguardo** | El logotipo debe mantener un margen libre equivalente a la altura de la letra "F" en todos sus lados. |
 | **Tamaño mínimo** | 24 px de alto en interfaces digitales. |
 | **Usos incorrectos** | No se debe deformar, rotar, aplicar sombras, degradados ni contornos al logotipo. No se debe alterar la relación entre el isotipo y el logotipo tipográfico. |
 
 Los archivos se encuentran en `report/assets/brand/`. Se recomienda el formato SVG en las interfaces digitales por conservar la nitidez a cualquier tamaño, y el PNG con fondo transparente para documentos.
 
-| Versión | Uso | Archivos |
-|:---|:---|:---|
-| Logotipo a color | Versión principal, sobre fondo claro | [`fleetsafe-logo.svg`](assets/brand/fleetsafe-logo.svg) · [`png`](assets/brand/fleetsafe-logo.png) |
-| Isotipo a color | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`fleetsafe-isotype.svg`](assets/brand/fleetsafe-isotype.svg) · [`png`](assets/brand/fleetsafe-isotype.png) |
-| Logotipo monocromático | Un solo color, sobre fondo de color pleno o fotografías claras | [`fleetsafe-logo-mono.svg`](assets/brand/fleetsafe-logo-mono.svg) · [`png`](assets/brand/fleetsafe-logo-mono.png) |
-| Logotipo en blanco | Sobre fondos oscuros o fotografías oscuras | [`fleetsafe-logo-white.svg`](assets/brand/fleetsafe-logo-white.svg) · [`png`](assets/brand/fleetsafe-logo-white.png) |
-| Isotipo monocromático y en blanco | Mismos usos que el logotipo, en espacios cuadrados | [`fleetsafe-isotype-mono.svg`](assets/brand/fleetsafe-isotype-mono.svg) · [`fleetsafe-isotype-white.svg`](assets/brand/fleetsafe-isotype-white.svg) |
+| Versión | Vista previa | Uso | Archivo |
+|:---|:---:|:---|:---|
+| Logotipo a color | <img src="assets/brand/fleetsafe-logo.png" alt="Logotipo a color" width="160"> | Versión principal, sobre fondo claro | [`svg`](assets/brand/fleetsafe-logo.svg) · [`png`](assets/brand/fleetsafe-logo.png) |
+| Isotipo a color | <img src="assets/brand/fleetsafe-isotype.png" alt="Isotipo a color" width="56"> | Espacios cuadrados: ícono de la pestaña, avatar, aplicación | [`svg`](assets/brand/fleetsafe-isotype.svg) · [`png`](assets/brand/fleetsafe-isotype.png) |
+| Logotipo monocromático | <img src="assets/brand/fleetsafe-logo-mono.png" alt="Logotipo monocromático" width="160"> | Un solo color (azul `#13315C` del diseño gráfico actual), sobre fondos claros | [`png`](assets/brand/fleetsafe-logo-mono.png) |
+| Logotipo en blanco | <span style="display:inline-block;background:#142A27;padding:10px"><img src="assets/brand/fleetsafe-logo-white.png" alt="Logotipo en blanco" width="160"></span> | Sobre fondos oscuros o fotografías oscuras | [`png`](assets/brand/fleetsafe-logo-white.png) |
+| Isotipo monocromático | <img src="assets/brand/fleetsafe-isotype-mono.png" alt="Isotipo monocromático" width="56"> | Mismo uso que el logotipo monocromático, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-mono.png) |
+| Isotipo en blanco | <span style="display:inline-block;background:#142A27;padding:10px"><img src="assets/brand/fleetsafe-isotype-white.png" alt="Isotipo en blanco" width="56"></span> | Mismo uso que el logotipo en blanco, en espacios cuadrados | [`png`](assets/brand/fleetsafe-isotype-white.png) |
 
 ---
 
@@ -106,19 +107,33 @@ Se adopta **Inter** como familia tipográfica principal y **JetBrains Mono** com
 
 #### Colores
 
-La paleta se construye sobre un **azul profundo** como color primario, que comunica confiabilidad y control, y un **verde** como color de confirmación, asociado directamente al estado *habilitado* del vehículo. Los colores de estado se derivan directamente de los tres valores del término *Vehicle Status* del Ubiquitous Language.
+La identidad cromática de FleetSafe se construye sobre una paleta de tonos naturales y contrastantes. El **verde petróleo oscuro** representa la identidad principal de la plataforma y comunica control y confiabilidad. El **naranja intenso** funciona como color de acento para destacar llamadas a la acción y elementos relevantes. Los tonos de **verde natural y verde lima** refuerzan la asociación con prevención, seguridad y habilitación vehicular.
+
+La paleta se complementa con fondos cálidos y superficies claras que mantienen la legibilidad y reducen la dureza del contraste en las interfaces.
 
 **Colores de marca**
 
 | Token | Valor | Uso |
 |:---|:---|:---|
-| `color-primary-900` | `#0B2545` | Fondo de encabezados, texto de máximo contraste |
-| `color-primary-700` | `#13315C` | Color primario de la marca, botones principales |
-| `color-primary-500` | `#1D4E89` | Estados hover de elementos primarios |
-| `color-primary-100` | `#D6E4F0` | Fondos de énfasis suave, filas seleccionadas |
-| `color-accent-500` | `#F4A261` | Llamadas a la acción secundarias en la Landing Page |
+| `color-primary-900` | `#142A27` | Verde petróleo oscuro; fondos principales, navegación y encabezados |
+| `color-primary-700` | `#19302D` | Variación del verde petróleo para componentes y superficies oscuras |
+| `color-accent-500` | `#DD471A` | Naranja de marca; llamadas a la acción, énfasis y elementos destacados |
+| `color-secondary-700` | `#246143` | Verde natural; textos destacados, elementos secundarios e indicadores positivos |
+| `color-secondary-100` | `#DCE8DF` | Verde claro; fondos de indicadores y elementos de confirmación |
+| `color-highlight-100` | `#E2ECCD` | Verde lima pálido; detalles de confirmación y acentos suaves |
+
+**Colores de fondo y superficie**
+
+| Token | Valor | Uso |
+|:---|:---|:---|
+| `color-background-warm` | `#F4F2EC` | Fondo cálido principal de la Landing Page |
+| `color-background-soft` | `#E8EBE3` | Fondo de secciones y bloques de contenido |
+| `color-surface` | `#F9FBF7` | Tarjetas, paneles y superficies de la Web Application |
+| `color-border` | `#D7DCD3` | Bordes, divisores y separadores |
 
 **Colores de estado del vehículo**
+
+Los estados funcionales mantienen una codificación semántica diferenciada de los colores de marca. Esta distinción permite reconocer rápidamente la condición operativa de cada vehículo.
 
 | Estado | Token | Valor | Uso |
 |:---|:---|:---|:---|
@@ -128,33 +143,35 @@ La paleta se construye sobre un **azul profundo** como color primario, que comun
 
 **Colores de resultado de inspección**
 
-| Resultado | Token | Valor |
-|:---|:---|:---|
-| Conforme (`OK`) | `color-result-ok` | `#2A9D8F` |
-| Observado (`OBSERVED`) | `color-result-observed` | `#E9C46A` |
-| No conforme (`FAIL`) | `color-result-fail` | `#E76F51` |
-| No aplica (`N/A`) | `color-result-na` | `#8D99AE` |
+| Resultado | Token | Valor | Uso |
+|:---|:---|:---|:---|
+| Conforme (`OK`) | `color-result-ok` | `#2A9D8F` | Resultado satisfactorio |
+| Observado (`OBSERVED`) | `color-result-observed` | `#E9C46A` | Resultado que requiere seguimiento |
+| No conforme (`FAIL`) | `color-result-fail` | `#E76F51` | Resultado crítico |
+| No aplica (`N/A`) | `color-result-na` | `#8D99AE` | Elemento no aplicable |
 
 **Colores neutros y semánticos**
 
 | Token | Valor | Uso |
 |:---|:---|:---|
-| `color-neutral-900` | `#1A1A1A` | Texto principal |
-| `color-neutral-700` | `#4A4A4A` | Texto secundario |
-| `color-neutral-400` | `#9E9E9E` | Texto deshabilitado, bordes suaves |
-| `color-neutral-200` | `#E0E0E0` | Bordes y separadores |
-| `color-neutral-050` | `#F7F8FA` | Fondo general de la aplicación |
-| `color-surface` | `#FFFFFF` | Fondo de tarjetas y paneles |
-| `color-info` | `#3A86FF` | Mensajes informativos |
-| `color-success` | `#2A9D8F` | Confirmación de operación exitosa |
-| `color-warning` | `#E9C46A` | Advertencia que no impide continuar |
-| `color-error` | `#E76F51` | Error que impide completar la operación |
+| `color-neutral-900` | `#142A27` | Texto principal sobre fondos claros |
+| `color-neutral-700` | `#4A5B56` | Texto secundario y descripciones |
+| `color-neutral-400` | `#97A199` | Texto deshabilitado y elementos de baja jerarquía |
+| `color-neutral-200` | `#D7DCD3` | Bordes y separadores |
+| `color-info` | `#3A86FF` | Mensajes informativos puntuales |
+| `color-success` | `#246143` | Confirmación de operaciones exitosas |
+| `color-warning` | `#E9C46A` | Advertencias que no impiden continuar |
+| `color-error` | `#E76F51` | Errores que impiden completar una operación |
 
 **Reglas de aplicación:**
 
-- El color nunca es el único portador de significado. Todo indicador de estado debe acompañarse de texto o de un ícono, para no depender exclusivamente de la percepción cromática del usuario.
-- Los colores de estado del vehículo (`enabled`, `observed`, `not-enabled`) se aplican de forma consistente en todas las vistas: listados, tarjetas, detalle e historial.
-- El color `color-error` se reserva para errores que impiden completar una operación y no se emplea como color decorativo.
+- El verde petróleo oscuro y el naranja constituyen los colores principales de identidad visual de FleetSafe.
+- El naranja se reserva principalmente para llamadas a la acción y elementos que requieren atención; no debe sustituir los colores semánticos de los estados.
+- Los verdes naturales y claros se emplean para comunicar confirmación y condiciones favorables.
+- Los fondos cálidos y las superficies claras deben conservar suficiente contraste con los textos y elementos interactivos.
+- Los colores de estado del vehículo (`enabled`, `observed`, `not-enabled`) se aplican de forma consistente en listados, tarjetas, detalles e historial.
+- El color nunca es el único portador de significado. Todo indicador de estado debe acompañarse de texto o de un ícono.
+- Los colores de marca y los colores semánticos pueden coexistir, pero no deben intercambiar sus funciones.
 
 ---
 
@@ -232,7 +249,7 @@ Los recursos visuales del proyecto se organizan de la siguiente manera dentro de
 | `report/assets/team-members/` | Fotografías de los integrantes del equipo |
 | `report/assets/bigPictureEventStorming/` | Imágenes del Big Picture EventStorming (sección 2.4) |
 | `report/assets/designLevelEventStorming/` | Imágenes del Design-level Event Storming (sección 4.6.1) |
-| `report/assets/competitors/` | *(Pendiente)* Logotipos de los competidores analizados en la sección 2.1 |
+| `report/assets/logos/` | Logotipos de FleetSafe y de los competidores analizados en la sección 2.1 |
 | `report/assets/brand/` | Logotipo e isotipo de FleetSafe |
 | `report/assets/webapp/` | Wireframes y mock-ups de la Web Application (sección 4.4) |
 | `report/assets/database-design/` | Diagramas de base de datos de la sección 4.8, generados desde `report/assets/diagrams/database/` |
@@ -451,8 +468,8 @@ Se emplean los siguientes esquemas, cada uno sustentado en la naturaleza del con
 |:---|:---|:---|:---|
 | **Jerárquico** | Web Application | Navegación principal por módulos según el rol del usuario | Cada rol accede únicamente a las funcionalidades que le corresponden, conforme a los roles definidos en la sección 1.1.1 y a las User Stories de la sección 3.1. |
 | **Secuencial** | Web Application | Flujo de inspección preoperacional | La inspección es un proceso ordenado que debe completarse paso a paso: iniciar (US17), registrar elementos (US18), registrar observaciones (US19), adjuntar evidencia (US20) y finalizar (US21). |
-| **Secuencial** | Landing Page | Narrativa de presentación | La Landing Page presenta la propuesta de valor en un orden progresivo: inicio (US01), funcionalidades (US02), beneficios por segmento (US03) y contacto (US04). |
-| **Por audiencia** | Landing Page | Sección de beneficios | Los beneficios se presentan diferenciados por segmento —empresas, supervisores y conductores— conforme a US03. |
+| **Secuencial** | Landing Page | Narrativa de presentación | La Landing Page sigue el recorrido de un visitante que primero reconoce su problema, luego conoce la plataforma, comprende cómo funciona, identifica su rol y decide actuar: problema, plataforma, proceso, perfiles y llamada a la acción (US01 a US04). |
+| **Por audiencia** | Landing Page | Sección de perfiles | Los perfiles se presentan diferenciados por rol —conductores, supervisores de flota y administradores— conforme a US03. |
 | **Por tarea** | Web Application | Vistas de supervisión | El supervisor accede a las vistas en función de la tarea que debe ejecutar: registrar vehículo (US12), consultar estado (US25), gestionar incidencias (US28), consultar historial (US35). |
 | **Por estado** | Web Application | Listado de vehículos | Los vehículos se agrupan por estado operativo —habilitado, observado, no habilitado— conforme a US25, dado que el estado es la información que determina la decisión del supervisor. |
 | **Cronológico** | Web Application | Historial de inspecciones, incidencias y estados | El historial se presenta en orden cronológico descendente, conforme a US31, US35 y US37, porque el usuario necesita conocer primero lo más reciente. |
@@ -499,13 +516,18 @@ La Landing Page organiza su contenido de forma secuencial, siguiendo el recorrid
 
 | Sección | Contenido | User Story |
 |:---|:---|:---|
-| 1. Encabezado | Nombre, propuesta de valor y llamada a la acción principal | US01 |
-| 2. Funcionalidades | Inspección preoperacional, evaluación de condiciones, habilitación operativa y gestión de incidencias | US02 |
-| 3. Beneficios por segmento | Beneficios diferenciados para empresas, supervisores y conductores | US03 |
-| 4. Contacto | Formulario de solicitud de demostración | US04 |
-| 5. Pie de página | Información de contacto y redes sociales | US06 |
+| 1. Navegación | Logotipo, tres enlaces de anclaje («La plataforma», «Cómo funciona» y «Nuestro equipo») y el botón «Explorar demo» | US05 |
+| 2. Hero | Titular, texto de apoyo, botón principal, enlace secundario, ilustración y tres ventajas | US01 |
+| 3. Problema | Tres columnas: información dispersa, riesgos sin detectar y decisiones en espera | US01 |
+| 4. Plataforma | Vista de ejemplo del panel de la flota y tres capacidades: inspeccionar, evaluar y dar seguimiento | US02 |
+| 5. Proceso | Tres pasos secuenciales: inspecciona, evalúa y decide con información | US02 |
+| 6. Perfiles | Conductores, supervisores de flota y administradores, con lo que hace cada uno en la plataforma | US03 |
+| 7. Equipo | Integrantes de BitMeisters, con fotografía, nombre y carrera | — |
+| 8. Preguntas frecuentes | Cuatro preguntas desplegables | — |
+| 9. Llamada a la acción | Mensaje de cierre y botón «Conoce FleetSafe» | US04 |
+| 10. Pie de página | Logotipo, enlaces de anclaje y aviso de derechos reservados | US06 |
 
-La sección de beneficios se organiza **por audiencia**, dado que cada segmento objetivo tiene necesidades distintas respecto de la plataforma, conforme a lo establecido en la sección 1.3.
+La sección de perfiles se organiza **por audiencia**, dado que cada rol tiene necesidades distintas respecto de la plataforma, conforme a lo establecido en la sección 1.3. El detalle de cada sección se presenta en el wireframe de la sección 4.3.1.
 
 ---
 
@@ -683,12 +705,13 @@ La etiqueta **Solicitar excepción** se incorpora de forma deliberada y no se de
 
 | Etiqueta | Sección | User Story |
 |:---|:---|:---|
-| **Inicio** | Encabezado con la propuesta de valor | US01 |
-| **Funcionalidades** | Descripción de las capacidades de la plataforma | US02 |
-| **Beneficios** | Beneficios diferenciados por segmento | US03 |
-| **Contacto** | Formulario de solicitud de demostración | US04 |
-| **Solicitar demostración** | Botón de llamada a la acción principal | US04 |
-| **Conocer más** | Botón de llamada a la acción secundaria | US02 |
+| **La plataforma** | Enlace de anclaje a la sección que muestra el panel de ejemplo y las capacidades | US02 |
+| **Cómo funciona** | Enlace de anclaje a la sección de los tres pasos | US02 |
+| **Nuestro equipo** | Enlace de anclaje a la sección de integrantes de BitMeisters | US05 |
+| **Explorar demo** | Botón de llamada a la acción de la barra superior | US04 |
+| **Explorar la plataforma** | Botón principal del Hero | US01 |
+| **Así funciona** | Enlace secundario del Hero | US02 |
+| **Conoce FleetSafe** | Botón de la llamada a la acción final | US04 |
 
 ---
 
@@ -826,10 +849,14 @@ La Landing Page es un sitio de una sola página con desplazamiento entre seccion
 
 | Sección | Encabezado | Anclaje | User Story |
 |:---|:---|:---|:---|
-| Inicio | `<h1>Control preventivo y habilitación operativa de su flota</h1>` | `#inicio` | US01 |
-| Funcionalidades | `<h2>Funcionalidades de FleetSafe</h2>` | `#funcionalidades` | US02 |
-| Beneficios | `<h2>Beneficios para su organización</h2>` | `#beneficios` | US03 |
-| Contacto | `<h2>Solicite una demostración</h2>` | `#contacto` | US04 |
+| Hero | `<h1>La seguridad empieza antes de arrancar</h1>` | `#inicio` | US01 |
+| Problema | `<h2>…</h2>` | — | US01 |
+| La plataforma | `<h2>…</h2>` | `#plataforma` | US02 |
+| Cómo funciona | `<h2>…</h2>` | `#como-funciona` | US02 |
+| Perfiles | `<h2>…</h2>` | — | US03 |
+| Nuestro equipo | `<h2>…</h2>` | `#equipo` | US05 |
+| Preguntas frecuentes | `<h2>…</h2>` | — | — |
+| Llamada a la acción | `<h2>…</h2>` | — | US04 |
 
 **Regla de encabezados:** cada página debe contener exactamente un `<h1>`, y los niveles `<h2>` y `<h3>` deben respetar la jerarquía sin saltos, conforme a las buenas prácticas de accesibilidad establecidas en la sección 4.1.2.
 
@@ -1056,16 +1083,15 @@ La Landing Page es un sitio de una sola página con desplazamiento entre seccion
 |:---|:---|:---|
 | Logotipo FleetSafe | Extremo izquierdo | Regresa al inicio de la página (`#inicio`) |
 | Menú de anclas | Centro | Desplaza la vista hacia la sección seleccionada |
-| Botón "Solicitar demostración" | Extremo derecho | Desplaza la vista hacia el formulario de contacto (`#contacto`) |
+| Botón "Explorar demo" | Extremo derecho | Lleva al visitante a explorar la demostración de la plataforma |
 
 **Menú de anclas**
 
 | Etiqueta | Anclaje | User Story |
 |:---|:---|:---|
-| Inicio | `#inicio` | US01 |
-| Funcionalidades | `#funcionalidades` | US02 |
-| Beneficios | `#beneficios` | US03 |
-| Contacto | `#contacto` | US04 |
+| La plataforma | `#plataforma` | US02 |
+| Cómo funciona | `#como-funciona` | US02 |
+| Nuestro equipo | `#equipo` | US05 |
 
 **Comportamiento del encabezado**
 
@@ -1077,10 +1103,9 @@ La Landing Page es un sitio de una sola página con desplazamiento entre seccion
 
 | Elemento | Contenido |
 |:---|:---|
-| Información de contacto | Correo electrónico, teléfono y dirección |
-| Redes sociales | Enlaces a los perfiles oficiales de FleetSafe |
+| Logotipo | Logotipo de FleetSafe |
 | Enlaces internos | Anclas a las secciones de la página |
-| Aviso legal | Derechos de autor y año |
+| Aviso legal | Aviso de derechos reservados |
 
 El pie de página se documenta conforme a US06.
 
@@ -1142,7 +1167,7 @@ El tercer nivel corresponde a la vista específica de un objeto. Se accede desde
 | Ancho | 240 px en resoluciones de escritorio |
 | Visibilidad | Permanente en escritorio; colapsable en móvil, conforme a la sección 4.1.2 |
 | Contenido | Logotipo, módulos habilitados según el rol, datos del usuario autenticado |
-| Indicador de ubicación | El módulo activo se resalta con `color-primary-100` como fondo y `color-primary-700` como texto |
+| Indicador de ubicación | El módulo activo se resalta con `color-secondary-100` como fondo y `color-primary-900` como texto |
 | Acceso en móvil | Se abre mediante un botón de menú en la barra superior |
 
 **Barra superior**
@@ -1218,7 +1243,7 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 | Estado | Comportamiento |
 |:---|:---|
-| Módulo activo | Se resalta en la barra lateral con `color-primary-100` como fondo y `color-primary-700` como texto |
+| Módulo activo | Se resalta en la barra lateral con `color-secondary-100` como fondo y `color-primary-900` como texto |
 | Nivel actual | Se refleja en las migas de pan |
 | Ruta protegida | Si el usuario no está autenticado, el sistema redirige a la pantalla de inicio de sesión, conforme a US09 |
 | Ruta no autorizada | Si el usuario autenticado no tiene el rol requerido, el sistema redirige al panel y muestra un mensaje informativo |
@@ -1246,8 +1271,29 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 <a id="43-landing-page-ui-design"></a>
 ## 4.3. Landing Page UI Design.
 
+La Landing Page es un sitio estático de una sola página, con desplazamiento vertical entre secciones, cuyo propósito es presentar FleetSafe a sus tres audiencias —empresas de transporte, supervisores de flota y conductores— y llevarlas a explorar la plataforma. El diseño traduce las decisiones de arquitectura de información de la sección 4.2: el contenido sigue el recorrido de un visitante que primero reconoce su problema, luego conoce la solución, comprende cómo funciona, identifica su rol y, por último, decide actuar. Esa secuencia se refleja en diez secciones ordenadas de arriba hacia abajo, con una jerarquía visual clara: un titular de gran tamaño por sección, un texto de apoyo breve y un único elemento dominante (cifras, pasos, ejemplo de la plataforma o llamada a la acción).
+
+El diseño se elaboró en dos etapas: primero los wireframes de baja fidelidad (4.3.1), que fijan la estructura y la jerarquía sin recurrir a color ni fotografía, y luego los mock-ups (4.3.2), que incorporan la identidad visual del producto.
+
 <a id="431-landing-page-wireframe"></a>
 ### 4.3.1. Landing Page Wireframe.
+
+Los wireframes de la versión Desktop (ancho de 1440 px) muestran la estructura de cada sección en escala de grises. Las fotografías e ilustraciones se representan con recuadros rotulados («Ilustración del vehículo + estado de inspección», «Fotografía / transporte de carga», «Foto» de cada integrante), de modo que la validación se concentra en la disposición, el orden y la jerarquía del contenido, y no en el estilo visual.
+
+| Sección | Contenido y decisión de diseño |
+|:---|:---|
+| 1. Navegación | Barra superior con el logotipo, tres enlaces de anclaje —«La plataforma», «Cómo funciona» y «Nuestro equipo»— y un botón de llamada a la acción, «Explorar demo». Pocas opciones, para que el visitante no se pierda en una página corta. |
+| 2. Hero | Titular «La seguridad empieza antes de arrancar», texto de apoyo, botón principal «Explorar la plataforma», enlace secundario «Así funciona» y una ilustración a la derecha. Debajo, tres ventajas en una franja: «Inspecciones sin papel», «Evaluación con tus reglas» y «Trazabilidad por vehículo». |
+| 3. Problema | Tres columnas numeradas —información dispersa, riesgos sin detectar y decisiones en espera—, cada una con una frase de cierre que anticipa la solución, y una fotografía de transporte de carga con un mensaje de tranquilidad que da una pausa visual. Se presenta antes que el producto para que el visitante se reconozca en el problema. |
+| 4. Plataforma | Vista de ejemplo del panel «Tu flota, a la vista», con vehículos en estado habilitado, observado y no habilitado, rotulada como demostración ilustrativa, y tres capacidades: inspeccionar desde el dispositivo, evaluar con criterios claros y dar seguimiento hasta el cierre. |
+| 5. Proceso | Tres pasos secuenciales: inspecciona (conductor), evalúa (plataforma) y decide con información (supervisor). Es una organización secuencial, apropiada para explicar un flujo de trabajo. |
+| 6. Perfiles | Tres perfiles —conductores, supervisores de flota y administradores—, cada uno con una descripción de lo que hace en la plataforma. Es una organización por audiencia, que permite que cada visitante encuentre su rol. |
+| 7. Equipo | Cinco integrantes de BitMeisters, con espacio para fotografía, nombre y carrera. |
+| 8. Preguntas frecuentes | Cuatro preguntas desplegables sobre el tipo de operación, el criterio de habilitación, el uso del celular por parte de los conductores y el tratamiento de los datos de la demostración. |
+| 9. Llamada a la acción | Mensaje de cierre y botón «Conoce FleetSafe», que concentra la última acción de la página. |
+| 10. Pie de página | Logotipo, enlaces de anclaje y aviso de derechos reservados. |
+
+**Principios aplicados.** La jerarquía visual se logra con el tamaño y el peso del titular de cada sección y con abundante espacio en blanco; la alineación a una grilla de columnas mantiene un ritmo constante entre secciones; la proximidad agrupa los tres elementos de cada bloque (problema, pasos, perfiles). En cuanto a diseño inclusivo, el contenido se apoya en texto y no solo en imágenes, los estados de los vehículos se rotulan con palabras además de con color, las preguntas frecuentes reducen la carga cognitiva y los botones principales son grandes y se distinguen de los enlaces secundarios.
 
 <img src="assets/wireframe/01-navegacion.png" width="1000">
 <img src="assets/wireframe/02-hero.png" width="1000">
@@ -1262,6 +1308,18 @@ El panel es la vista inicial de la Web Application tras la autenticación. Su fu
 
 <a id="432-landing-page-mock-up"></a>
 ### 4.3.2. Landing Page Mock-up.
+
+Los mock-ups de la versión Desktop (1440 px) conservan la estructura y el orden de los wireframes de la sección 4.3.1 y añaden la identidad visual: color, tipografía, fotografía e ilustración. Se alternan fondos claros y oscuros para marcar el cambio de tema entre secciones —por ejemplo, la sección de proceso se presenta sobre fondo oscuro para destacar los tres pasos— y el color de acento se reserva para las llamadas a la acción y para las palabras clave de los titulares, como «antes de arrancar», de modo que la mirada del visitante recorra primero el mensaje y luego la acción.
+
+Cambios principales respecto de los wireframes:
+
+- **Hero.** La ilustración del vehículo sobre un panel oscuro muestra el mensaje «Cada salida. Una decisión informada.» junto con un ejemplo de inspección aprobada y vehículo habilitado, que adelanta el resultado que ofrece el producto.
+- **Plataforma.** El panel de ejemplo incorpora los indicadores de estado con su color y su texto —«Habilitado», «Observado» y «No habilitado»—, de manera que el estado nunca depende solo del color.
+- **Fotografías.** Las imágenes de transporte de carga y del conductor con su tableta reemplazan a los recuadros del wireframe; la segunda lleva una leyenda que aclara que es una escena ilustrativa generada con IA.
+- **Equipo.** Cada integrante se identifica con sus iniciales, su nombre completo y su carrera.
+- **Llamada a la acción y pie de página.** Un bloque de color claro contrasta con el pie de página oscuro y concentra la última acción de la página.
+
+El diseño inclusivo se refleja en la jerarquía tipográfica, en el contraste entre el texto y el fondo de cada sección, en el uso de texto junto con el color para comunicar el estado y en la estructura predecible de las secciones, que facilita la lectura con lector de pantalla.
 
 <img src="assets/mockup/01-navegacion.png" width="1000">
 <img src="assets/mockup/02-hero.png" width="1000">
@@ -1582,6 +1640,158 @@ Cada tipo de nodo tiene su propio color y forma, tomados de los colores definido
 <a id="45-web-applications-prototyping"></a>
 ## 4.5. Web Applications Prototyping.
 
+Los prototipos de FleetSafe se diseñaron alrededor de una pregunta central: «¿este vehículo cumple las condiciones para operar?». Las decisiones de interacción responden a ella y replican la arquitectura de información de las secciones 4.2 y 4.4. Para supervisión hay tres niveles: resumen de flota, listado y detalle. Para el conductor hay una secuencia guiada de inspección. Los recorridos coinciden con los paths de los User Flow Diagrams y se presentan en dos aplicaciones: Desktop (supervisión) y Mobile Web Browser (conductor y consulta de supervisión).
+
+**Prototipo en Figma:** [Prototyping-Web-Application](https://www.figma.com/design/zJl09gpQ5zdqiWawl4wTRf/Prototyping-Web-Application?node-id=0-1&t=4UY72g6EkTEAMUG6-1)
+
+**Cómo leer las figuras.** Cada pantalla es un *estado* de la aplicación. Las flechas indican la acción que lleva al siguiente estado; las flechas rojas discontinuas indican una variante de error o validación.
+
+**Sistema de navegación y tipos de interacción.** Desktop usa navegación jerárquica por módulos con barra lateral y ruta de contexto. Mobile usa navegación lineal por pasos, con un botón de retorno en cada pantalla. Las interacciones empleadas son formularios, filtros, tarjetas, checklist, adjuntos simulados y diálogos de confirmación.
+
+**Desktop · Supervisión de flota.**
+
+Recorrido principal: Iniciar sesión → Resumen de flota → Flota no habilitada → Detalle del vehículo → Detalle de inspección → Incidencias → Acción correctiva registrada.
+
+
+![Figura 1. Desktop · Supervisión de flota:](assets/webapp/web-app-prototyping/fig-1-desktop-supervision-flota.png)
+
+*Figura 1. Desktop · Supervisión de flota: inicio de sesión, resumen de flota, flota no habilitada y módulos de consulta (Documentos e Historial).*
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Iniciar sesión | Pulsa «Iniciar sesión» | Resumen de flota |
+| 1b | Credenciales incorrectas (variante) | Ingresa datos erróneos y ve el mensaje de error | Iniciar sesión (reintentar) |
+| 2 | Resumen de flota | Selecciona el filtro «No habilitados» | Flota no habilitada |
+| 3 | Flota no habilitada | Pulsa «Ver detalle» en FS-032 | Detalle del vehículo |
+
+
+![Figura 2-Desktop-Del bloqueo a la decisión: detalle del vehículo](assets/webapp/web-app-prototyping/fig-2-desktop-bloqueo-y-excepcion.png)
+
+*Figura 2. Desktop · Del bloqueo a la decisión: detalle del vehículo, inspección, incidencia con acción correctiva y autorización de excepción con justificación.*
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 4 | Detalle del vehículo (FS-032, no habilitado) | Pulsa «Ver inspección» | Detalle de inspección |
+| 5 | Detalle de inspección (falla crítica en frenos) | Pulsa «Gestionar incidencia» | Incidencias |
+| 6 | Incidencias (INC-032, abierta) | Pulsa «Registrar y resolver» | Acción correctiva registrada |
+
+Resolver la incidencia **no habilita** el vehículo automáticamente.
+
+Recorrido alternativo (autorizar una excepción): Detalle del vehículo → Levantar bloqueo → Justificar → Autorizar salida → Historial → Flota actualizada → Vehículo habilitado.
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| A | Detalle del vehículo | Pulsa «Levantar bloqueo» | Autorizar una excepción |
+| B | Autorizar una excepción (sin motivo) | Intenta autorizar con el campo vacío | Validación: «Escribe una justificación antes de autorizar» |
+| C | Autorizar una excepción (con motivo) | Escribe la justificación y pulsa «Autorizar salida» | Excepción registrada (Historial de inspecciones) |
+| D | Excepción registrada | Pulsa «Volver a flota» | Flota tras autorización (0 no habilitadas) |
+| E | Flota tras autorización | Pulsa «Ver vehículo» | Vehículo habilitado por excepción |
+
+La excepción queda en el historial con el nombre de quien la autorizó y la inspección original se conserva para auditoría. Los módulos Documentos e Historial de inspecciones se consultan desde la barra lateral en cualquier momento.
+
+**Mobile · Supervisión.**
+
+Recorrido: Acceso por rol → Flota → Filtro → Motivo del bloqueo.
+
+![Figura 3. Mobile  Supervisión](assets/webapp/web-app-prototyping/fig-3-mobile-supervision.png)
+
+*Figura 3. Mobile · Supervisión: acceso, flota en tarjetas, filtro «No habilitados» y motivo del bloqueo.*
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Iniciar sesión como supervisora | Pulsa «Iniciar sesión» | Mi flota (supervisión) |
+| 2 | Mi flota: tres tarjetas con su estado | Pulsa el filtro «No habilitados» | Flota filtrada |
+| 3 | Flota filtrada: una tarjeta (FS-032) | Pulsa «Ver motivo» | Detalle del bloqueo |
+| 4 | Detalle del bloqueo: falla, regla aplicada y resumen de la inspección | Pulsa «Volver a mi flota» | Mi flota |
+
+Desde cualquier pantalla se puede cambiar al recorrido del conductor.
+
+**Mobile · Inspección del conductor.**
+
+Recorrido: Acceso → Vehículo asignado → Checklist → Evidencia → Resumen → Resultado.
+
+![Figura 4. Mobile · Inspección del conductor ](assets/webapp/web-app-prototyping/fig-4-mobile-conductor-checklist-evidencia.png)
+
+*Figura 4. Mobile · Inspección del conductor (parte 1): acceso, vehículo asignado, checklist y registro de un hallazgo con observación y evidencia, con sus validaciones.*
+
+| Paso | Estado (pantalla)                         | Acción del usuario                  | Siguiente estado                                      |
+|------|-------------------------------------------|-------------------------------------|-------------------------------------------------------|
+| 1    | Iniciar sesión                            | Pulsa «Entrar con datos de ejemplo» | Vehículo asignado                                     |
+| 1b   | Validación de acceso (variante)           | Pulsa «Probar acceso incorrecto»    | Mensaje de error; reintentar                          |
+| 2    | Vehículo asignado (FS-032)                | Pulsa «Iniciar inspección»          | Checklist                                             |
+| 3    | Checklist: elemento crítico (frenos)      | Elige OK, Obs. o Falla              | Resumen (OK) u Observación y evidencia (Obs. o Falla) |
+| 3b   | Validación de envío incompleto (variante) | Pulsa «Intentar                     |                                                       |
+
+![Figura 5. Mobile · Inspección del conductor](assets/webapp/web-app-prototyping/fig-5-mobile-conductor-resultados.png))
+
+*Figura 5. Mobile · Inspección del conductor (parte 2): resumen, envío y resultado de la inspección, con las variantes Habilitado y Observado.*
+
+La inspección termina de dos formas según lo registrado en el checklist. La fila superior de la figura muestra el resultado conforme y la inferior, la observación no bloqueante.
+
+**Variante 1: resultado conforme (fila superior).** Se llega desde el checklist cuando todos los elementos están en OK.
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Revisa antes de enviar: 42 / 42 registrados, 0 no conformes | Pulsa «Enviar inspección» (o «Cambiar respuesta» para volver) | Inspección enviada |
+| 2 | Inspección enviada: **Habilitado**, cumple las condiciones para operar | Pulsa «Volver a mi vehículo» | Mi vehículo |
+| 3 | Mi vehículo: FS-032 habilitado | Pulsa «Consultar resultado» o «Cerrar sesión» | Resultado de la inspección o fin de sesión |
+
+**Variante 2: observación no bloqueante (fila inferior).** Se llega desde el checklist cuando el conductor elige «Obs.» en un elemento.
+
+| Paso | Estado (pantalla) | Acción del usuario | Siguiente estado |
+|---|---|---|---|
+| 1 | Observación y evidencia (sin adjunto) | Pulsa «Añadir datos de muestra» | Observación con evidencia adjunta |
+| 2 | Observación con evidencia (frenos-032.jpg) | Pulsa «Guardar y continuar» | Checklist con hallazgo guardado |
+| 3 | Checklist completo: 42 / 42 elementos registrados | Pulsa «Revisar resumen» | Revisa antes de enviar |
+| 4 | Revisa antes de enviar: 41 conformes · 1 observado | Pulsa «Enviar inspección» | Inspección enviada |
+| 5 | Inspección enviada: **Observado**, requiere seguimiento preventivo | Pulsa «Volver a mi vehículo» | Mi vehículo |
+| 6 | Mi vehículo: FS-032 observado, con seguimiento preventivo | Pulsa «Consultar resultado» o «Cerrar sesión» | Resultado de la inspección o fin de sesión |
+
+El resultado depende de lo registrado en el checklist. El sistema aplica la regla de mayor impacto y el conductor llega a uno de tres estados:
+
+| Condición | Estado final | Mensaje al conductor |
+|---|---|---|
+| 42 elementos conformes | **Habilitado** | Cumple las condiciones para operar |
+| Observación sin impacto bloqueante | **Observado** | Requiere seguimiento preventivo; puede operar |
+| Falla en un elemento crítico | **No habilitado** | No inicies la operación; se registra la incidencia y se notifica al supervisor |
+
+
+**Recorridos del prototipo ejecutado.**
+
+A continuación, se presentan las capturas y grabaciones de los recorridos principales de FleetSafe, que permiten visualizar la navegación y las interacciones de las interfaces Desktop y Mobile Web Browser.
+
+### Desktop · Supervisión de flota
+
+![Figura 6. Desktop · Prototipo ejecutado](assets/webapp/web-app-prototyping/desktop-prototipo.png)
+
+*Figura 6. Desktop · Captura del prototipo ejecutado de supervisión de flota.*
+
+> **Grabación del recorrido**
+>
+> [Consultar demostración de navegación — Desktop](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQAHC0cpxYoETbt_2EIK-t2KAfA8uKJfYcW7kDDxAe5Pigg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=eqK4zj)
+
+### Mobile · Inspección del conductor
+
+![Figura 7. Mobile · Prototipo ejecutado del conductor](assets/webapp/web-app-prototyping/mobile-conductor-prototipo.png)
+
+*Figura 7. Mobile · Captura del prototipo ejecutado del recorrido del conductor.*
+
+> **Grabación del recorrido**
+>
+> [Consultar demostración de navegación — Mobile · Conductor](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQDFCAbKa4PyT4IguA1acKfhAe0EZoL35V-10JOGG83vWEY?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Qco49p)
+
+### Mobile · Supervisión
+
+![Figura 8. Mobile · Prototipo ejecutado del supervisor](assets/webapp/web-app-prototyping/mobile-supervisor-prototipo.png)
+
+*Figura 8. Mobile · Captura del prototipo ejecutado del recorrido de supervisión.*
+
+> **Grabación del recorrido**
+>
+> [Consultar demostración de navegación — Mobile · Supervisor](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBwJm3UfpypQ4N__qWSFSo5AdeUMehRre8GF6glRtf3Lt4?nav=eyJyZWZlcnJhbEFwcCI6Ik9uZURyaXZlRm9yQnVzaW5lc3MiLCJyZWZlcnJhbEFwcFBsYXRmb3JtIjoiV2ViIiwicmVmZXJyYWxNb2RlIjoiVmlldyIsInJlZmVycmFsVmlldyI6Ik15RmlsZXNMaW5rQ29weSJ9&e=38Zfjf)
+
+
+---
 
 <a id="46-domain-driven-software-architecture"></a>
 ## 4.6. Domain-Driven Software Architecture.
@@ -1734,7 +1944,7 @@ El Context Diagram es el primer nivel del modelo C4 y muestra el sistema como un
 
 El diagrama se ha elaborado con **Structurizr**, la herramienta indicada para el modelo C4. El modelo completo se mantiene como código en el archivo [`workspace.dsl`](../workspace.dsl) de este repositorio, de modo que los tres niveles del modelo se generan a partir de una única fuente y no pueden quedar desincronizados entre sí. A continuación se presenta el diagrama de contexto de FleetSafe:
 
-<img src="assets/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
+<img src="assets/DDSoftwareArchitecture/c4/01-context.png" alt="Diagrama de contexto de FleetSafe" width="900">
 
 **Explicación del diagrama:**
 
@@ -1772,7 +1982,7 @@ Para FleetSafe se han identificado cinco containers, nombrados y representados s
 
 A continuación se presenta el diagrama de contenedores de FleetSafe, generado a partir del mismo modelo de Structurizr:
 
-<img src="assets/DDSoftwareArchitecture/ContainerDiagram-fleetsafe.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
+<img src="assets/DDSoftwareArchitecture/c4/containers-diagram.png" alt="Diagrama de contenedores de FleetSafe" width="1000">
 
 **Explicación del diagrama:**
 
@@ -1792,7 +2002,7 @@ Las relaciones entre los containers muestran que los usuarios acceden al Website
 <a id="464-software-architecture-components-diagrams"></a>
 ### 4.6.4. Software Architecture Components Diagrams.
 
-Los Component Diagrams son el tercer nivel del modelo C4 y descomponen cada container en los componentes que lo forman, indicando su responsabilidad, la tecnología con la que se implementa y las relaciones entre ellos. Se presenta **un diagrama por cada container de software**: Landing Page, Web Application y Backend RESTful API.
+Los Component Diagrams son el tercer nivel del modelo C4 y descomponen cada container en los componentes que lo forman, indicando su responsabilidad, la tecnología con la que se implementa y las relaciones entre ellos. Se presenta **un diagrama por cada container de software**: Website, Single-Page Application y Web Services.
 
 El container **Database** no cuenta con un diagrama de componentes propio porque no es una unidad de software descomponible en componentes, sino un almacén de datos; su estructura interna se documenta en la sección [4.8. Database Design](#48-database-design).
 
@@ -1802,7 +2012,7 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 
 #### Component Diagram: Website
 
-<img src="assets/c4/03-components-landing.png" alt="Diagrama de componentes del Website" width="900">
+<img src="assets/DDSoftwareArchitecture/c4/component-website.png" alt="Diagrama de componentes del Website" width="900">
 
 | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|
@@ -1812,13 +2022,13 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 | **Legal Pages** | HTML, CSS | Presenta los términos y condiciones y la política de privacidad, enlazados desde el pie de página. |
 | **Language Switcher** | JavaScript | Alterna el contenido entre `en_US` y `es_419` y establece el atributo de idioma correspondiente. |
 
-**Explicación del diagrama.** El Website es un sitio estático, por lo que sus componentes son secciones de contenido y no unidades de lógica de negocio. El componente con responsabilidad arquitectónica propia es **Segment Call to Action**: es el que materializa la relación entre el Landing Page y la Web Application, dirigiendo a cada segmento objetivo a la vista que le corresponde según su rol. **Language Switcher** y **Legal Pages** se representan de forma explícita porque implementan dos requisitos transversales del producto —la internacionalización en `en_US` y `es_419`, y el enlace a los documentos legales desde el pie de página— cuya ausencia afectaría al cumplimiento del producto con independencia del contenido presentado.
+**Explicación del diagrama.** El Website es un sitio estático, por lo que sus componentes son secciones de contenido y no unidades de lógica de negocio. El componente con responsabilidad arquitectónica propia es **Segment Call to Action**: es el que materializa la relación entre el Website y la Web Application Static Content, dirigiendo a cada segmento objetivo a la vista que le corresponde según su rol. **Language Switcher** y **Legal Pages** se representan de forma explícita porque implementan dos requisitos transversales del producto —la internacionalización en `en_US` y `es_419`, y el enlace a los documentos legales desde el pie de página— cuya ausencia afectaría al cumplimiento del producto con independencia del contenido presentado.
 
 ---
 
 #### Component Diagram: Single-Page Application
 
-<img src="assets/c4/04-components-webapp.png" alt="Diagrama de componentes de la Single-Page Application" width="1000">
+<img src="assets/DDSoftwareArchitecture/c4/components-WebApp.png" alt="Diagrama de componentes de la Single-Page Application" width="1000">
 
 | Componente | Tecnología | Responsabilidad | Bounded context |
 |:---|:---|:---|:---|
@@ -1834,15 +2044,15 @@ El container **Database** no cuenta con un diagrama de componentes propio porque
 | **Translation Service** | ngx-translate | Resuelve los textos de la interfaz para `en_US` y `es_419`. | transversal |
 | **Shared UI Components** | Angular Material | Provee los componentes del design system, con los atributos ARIA necesarios para la accesibilidad. | transversal |
 
-**Explicación del diagrama.** La Single-Page Application se descompone en seis módulos de funcionalidad, uno por cada bounded context, de forma que la estructura del frontend refleja la misma división del dominio que el backend y el modelo de datos. Cada módulo presenta sus vistas y delega toda comunicación en **API Client**, que concentra las peticiones al Backend RESTful API en un único punto.
+**Explicación del diagrama.** La Single-Page Application se descompone en seis módulos de funcionalidad, uno por cada bounded context, de forma que la estructura del frontend refleja la misma división del dominio que el backend y el modelo de datos. Cada módulo presenta sus vistas y delega toda comunicación en **API Client**, que concentra las peticiones a los Web Services en un único punto.
 
-Los cinco componentes transversales resuelven preocupaciones que no pertenecen a ningún contexto concreto. **Authentication Interceptor** y **Role Guard** implementan el control de acceso en el lado del cliente: el primero adjunta el token a cada petición, y el segundo impide que un usuario alcance una ruta que su rol no admite. Conviene señalar que **esta restricción es de experiencia de usuario, no de seguridad**: la autorización efectiva se resuelve en el Security Filter del Backend RESTful API, porque un control implementado únicamente en el navegador puede ser eludido. **Translation Service** y **Shared UI Components** concentran respectivamente la internacionalización y los componentes del design system con sus atributos ARIA, de modo que ambos requisitos se cumplen de forma homogénea en todas las vistas en lugar de resolverse módulo a módulo.
+Los cinco componentes transversales resuelven preocupaciones que no pertenecen a ningún contexto concreto. **Authentication Interceptor** y **Role Guard** implementan el control de acceso en el lado del cliente: el primero adjunta el token a cada petición, y el segundo impide que un usuario alcance una ruta que su rol no admite. Conviene señalar que **esta restricción es de experiencia de usuario, no de seguridad**: la autorización efectiva se resuelve en el Security Filter de los Web Services, porque un control implementado únicamente en el navegador puede ser eludido. **Translation Service** y **Shared UI Components** concentran respectivamente la internacionalización y los componentes del design system con sus atributos ARIA, de modo que ambos requisitos se cumplen de forma homogénea en todas las vistas en lugar de resolverse módulo a módulo.
 
 ---
 
 #### Component Diagram: Web Services
 
-<img src="assets/c4/05-components-api.png" alt="Diagrama de componentes de los Web Services" width="1000">
+<img src="assets/DDSoftwareArchitecture/c4/components-Api.png" alt="Diagrama de componentes de los Web Services" width="1000">
 
 | Bounded context | Componente | Tecnología | Responsabilidad |
 |:---|:---|:---|:---|
@@ -1878,7 +2088,7 @@ El recorrido que sostiene el núcleo del producto atraviesa dos contextos. **Ins
 
 Las referencias entre contextos siguen la misma regla que el modelo de datos: **dentro de un contexto se accede al repositorio propio; cruzando la frontera, se consulta al servicio o al repositorio del otro contexto únicamente para verificar la existencia del elemento referenciado**. Así, `Inspection Service` consulta a `Fleet Repository` para resolver el vehículo asignado al conductor, pero no gestiona vehículos.
 
-Los cuatro componentes de **Shared** concentran las preocupaciones transversales. **Localization Service** es el que permite que los mensajes devueltos por los Web Services cumplan el requisito de internacionalización en `en_US` y `es_419`, exigido no solo en el Landing Page y la Web Application sino también en la API. **Storage Client** y **Email Client** aíslan la comunicación con los dos sistemas externos, de modo que la elección definitiva del proveedor no afecte a los servicios de cada contexto.
+Los cuatro componentes de **Shared** concentran las preocupaciones transversales. **Localization Service** es el que permite que los mensajes devueltos por los Web Services cumplan el requisito de internacionalización en `en_US` y `es_419`, exigido no solo en el Website y la Single-Page Application sino también en los Web Services. **Storage Client** y **Email Client** aíslan la comunicación con los dos sistemas externos, de modo que la elección definitiva del proveedor no afecte a los servicios de cada contexto.
 
 <a id="47-software-object-oriented-design"></a>
 ## 4.7. Software Object-Oriented Design.

@@ -21,6 +21,14 @@
 
 5. La participación durante el Sprint 1 permitió contribuir al desarrollo y refinamiento de los artefactos de diseño y de la Landing Page, ayudando a establecer una primera versión de la interfaz y a preparar la solución para las siguientes etapas de implementación.
 
+6. El Sprint 3 permitió pasar de una Web Application con datos simulados a una plataforma con un Backend RESTful API desplegado en Azure Container Apps y una base de datos PostgreSQL, en la que cada usuario entra con su propia cuenta, lo que registra se conserva y la habilitación de cada vehículo se decide con las reglas de la empresa.
+
+7. Organizar el backend en bounded contexts que se comunican solo mediante fachadas permitió que cada integrante desarrollara su contexto en paralelo y que los contextos se integraran sin modificar el código interno de los demás.
+
+8. Las pruebas automáticas contra PostgreSQL en cada Pull Request del backend detectaron errores antes de que llegaran a producción, y el flujo GitFlow con ramas `release` y `hotfix` permitió publicar versiones y corregir fallas sin detener el trabajo en `develop`.
+
+9. La reasignación del trabajo pendiente durante el sprint mostró la importancia de integrar el avance con frecuencia, ya que los bounded contexts integrados a tiempo pudieron completarse y desplegarse sin retrasar al resto del equipo.
+
 ### Recomendaciones
 
 1. Para los siguientes sprints, se recomienda mantener una coordinación temprana entre arquitectura, diseño e implementación, de manera que los cambios realizados en un artefacto puedan reflejarse oportunamente en los demás y se reduzca el retrabajo.
@@ -32,6 +40,10 @@
 4. Se recomienda mantener actualizados los diagramas de arquitectura y diseño conforme evolucione FleetSafe, especialmente cuando se incorporen nuevas funcionalidades o se realicen modificaciones en los Bounded Contexts definidos.
 
 5. Se recomienda realizar revisiones periódicas de las interfaces y flujos diseñados antes de iniciar su implementación, con el objetivo de detectar inconsistencias de navegación o diseño y reducir modificaciones durante las etapas posteriores del desarrollo.
+
+6. Se recomienda que cada Pull Request sea revisado por otro integrante antes de integrarse, aun cuando las pruebas automáticas pasen, porque esas pruebas no cubren las llamadas entre la Web Application y el Backend RESTful API.
+
+7. Se recomienda que todo cambio en una ruta del backend actualice en el mismo sprint su contrato OpenAPI y el endpoint correspondiente de la Web Application, para que ambos productos no queden desalineados.
 
 <a id="video-about-the-team"></a>
 ## Video About-the-Team.

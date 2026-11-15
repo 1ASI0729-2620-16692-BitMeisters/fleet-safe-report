@@ -322,8 +322,8 @@ El Backend RESTful API se empaqueta como una imagen de contenedor, se publica en
 | **Sprint 1 Velocity** | 8 |
 | **Sum of Story Points** | 27 |
 
-<a id="5212-aspect-leader-and-colaborators"></a>
-#### 5.2.1.2. Aspect Leader and Colaborators.
+<a id="5212-aspect-leaders-and-collaborators"></a>
+#### 5.2.1.2. Aspect Leaders and Collaborators.
 
 Durante este sprint, el equipo BitMeisters se enfocó principalmente en consolidar la propuesta de FleetSafe, priorizando la resolución de errores y observaciones identificadas en los avances previos, el fortalecimiento de la arquitectura y el diseño del producto, así como el refinamiento de las funcionalidades planteadas para la plataforma.
 
@@ -339,8 +339,6 @@ Con el objetivo de optimizar la organización y la colaboración del equipo, se 
 
 
 <a id="5213-sprint-backlog-1"></a>
-#### 5.2.1.3. Sprint Backlog 1.
-
 #### 5.2.1.3. Sprint Backlog 1.
 
 | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
@@ -404,15 +402,15 @@ El proceso realizado durante el Sprint comprendió las siguientes actividades:
 
 **Información del despliegue**
 
-| Producto | Repositorio / Plataforma | Tecnología | Plataforma de Deployment | Estado | URL |
+| Producto | Repositorio / Plataforma | Tecnología | Plataforma de despliegue | Estado | URL |
 |---|---|---|---|---|---|
 | Landing Page | https://github.com/1ASI0729-2620-16692-BitMeisters/fleet-safe-website | HTML5, CSS3 y JavaScript | GitHub Pages | Desplegado | https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-website/ |
 
 La Landing Page fue desarrollada utilizando HTML5, CSS3 y JavaScript, tecnologías establecidas para la implementación de la primera versión del producto. Asimismo, el uso de GitHub Pages permitió centralizar el proceso de publicación y disponer de una versión accesible de la Landing Page para su revisión durante el Sprint Review.
 
 
-<a id="5218-team-colaboration-insights-during-sprint"></a>
-#### 5.2.1.8. Team Colaboration Insights during Sprint.
+<a id="5218-team-collaboration-insights-during-sprint"></a>
+#### 5.2.1.8. Team Collaboration Insights during Sprint.
 
 ![S1TCI](assets/teamCollaborationInsights/sprint1-teamCollaborationInsights.png)
 
@@ -909,7 +907,7 @@ Tablero del Sprint 3: https://trello.com/b/6WgfBLcZ/fleetsafe-sprint-3
 <a id="5234-development-evidence-for-sprint-review"></a>
 #### 5.2.3.4. Development Evidence for Sprint Review.
 
-Durante el Sprint 3 se construyó la primera versión del Backend RESTful API en el repositorio Web Services: la base compartida alineada con el proyecto de referencia del curso, el bounded context de Identity and Access con autenticación por JWT y gestión de usuarios, el de Evaluation and Authorization con sus reglas, habilitaciones y levantamiento de bloqueos, y el de Vehicle Documentation con el control de vigencia de los documentos, además de la imagen Docker y el flujo de entrega continua que la publica. En la Web Application se completó el bounded context de Fleet Management, se incorporaron el inicio y cierre de sesión contra el backend y la gestión de usuarios, y se enlazaron los términos y la política de privacidad. El Landing Page pasó a traducirse por claves, con inglés por defecto, y se le añadieron las páginas legales.
+Durante el Sprint 3 se construyó la primera versión del Backend RESTful API en el repositorio Web Services: la base compartida alineada con el proyecto de referencia del curso, el bounded context de Identity and Access con autenticación por JWT y gestión de usuarios, el de Evaluation and Authorization con sus reglas, habilitaciones y levantamiento de bloqueos, y el de Vehicle Documentation con el control de vigencia de los documentos, además de la imagen Docker y el flujo de entrega continua que la publica. En la Web Application se completó el bounded context de Fleet Management, se incorporaron el inicio y cierre de sesión contra el backend y la gestión de usuarios. Asimismo, el footer del componente `FooterContent`, ubicado en `src/app/shared/presentation/components/footer-content/footer-content.html`, enlaza los términos de uso y la política de privacidad mediante las rutas `landingPageUrl + '/terms.html'` y `landingPageUrl + '/privacy.html'`. En el Landing Page, la página `terms.html` contiene los términos de uso en español e inglés, y está enlazada desde el footer de `index.html`, junto con la página `privacy.html`. Las traducciones de estos textos se encuentran en `assets/i18n/es-419.js` y `assets/i18n/en-US.js`.
 
 En la segunda mitad del sprint se integraron los bounded contexts restantes. En el backend se incorporaron Fleet Management, con la empresa, sus flotas y sus vehículos; Pre-Operational Inspection, con el catálogo de elementos, las inspecciones, sus observaciones y sus fotografías en Azure Blob Storage; e Incident Management, con sus acciones correctivas, reparaciones y seguimientos. Al completarse una inspección, Evaluation and Authorization la evalúa a través de una fachada y actualiza el estado operativo del vehículo. En la Web Application, los módulos de inspección, flota, incidencias y documentación dejaron la API simulada y trabajan contra el backend, y se añadió el tablero del estado operativo de los vehículos.
 
@@ -1143,6 +1141,18 @@ La tabla recoge los commits del sprint integrados en los repositorios, sin los c
 #### 5.2.3.5. Execution Evidence for Sprint Review.
 
 Al cierre del Sprint 3, la Web Application está desplegada en https://1asi0729-2620-16692-bitmeisters.github.io/fleet-safe-web-application/ en su versión 0.5.1 y trabaja sobre el Backend RESTful API 0.3.0. Cada usuario entra con su propia cuenta y ve solo las opciones de su rol. El recorrido de las capturas usa los datos de demostración: el conductor Carlos Mamani inspecciona el vehículo ABC-123, encuentra desgaste en el disco de freno y lo registra con una fotografía; al enviar la inspección, las reglas de la empresa dejan el vehículo no habilitado, y la supervisora Lucía Ramos lo encuentra en el tablero de estado y registra la incidencia con su acción correctiva, su reparación y su seguimiento.
+
+**Sprint 3 Application Navigation Demo**
+
+La siguiente captura muestra la navegación de la Web Application durante la demostración de cierre del Sprint 3.
+
+![Sprint 3. Application Navigation Demo](assets/sprint3/sprint3-application-navigation-demo.png)
+
+*Figura. Captura de la demostración de navegación de la aplicación durante el Sprint 3.*
+
+> **Grabación de la demostración**
+>
+> [Consultar video completo — FleetSafe Sprint 3 Application Navigation Demo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202318309_upc_edu_pe/IQBR1trVqNIMT7Vryn42qWAlASr0szvBtfCXglX5edArsqs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=OlcCoP)
 
 **Identity and Access**
 
@@ -1378,8 +1388,93 @@ Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Aleja
 <a id="532-registro-de-entrevistas"></a>
 ### 5.3.2. Registro de Entrevistas.
 
+#### Segmento: Supervisores o encargados de flota
+
+##### Entrevista 1 — Oscar Taza Cordero
+
+* **Segmento:** Supervisores o encargados de flota
+* **Cargo / Ocupación:** Encargado de la gestión de las flotas de su empresa
+* **Edad:** 28 años
+* **Distrito de residencia:** Chaclacayo
+* **Fecha y hora:** 14 de noviembre de 2026 — 18:14 h
+* **Duración:** 6 minutos con 48 segundos
+* **Entrevistador:** Alejandro Espino Flores
+* **Elementos evaluados:** Landing Page y Web Application (Gestión de incidencias, Evaluación y autorización, Gestión de flota y Documentación vehicular), con la cuenta de demostración de supervisora de flota.
+* **URL de la grabación:** [Link de la entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202122129_upc_edu_pe/IQBUThPU9DW8QbkWqwOgjlvsAV4q-vTu5LY7vpCCmBWZ-Yo?e=vNi07G) (Timestamp: `00:00 - 06:48`)
+* **Evidencia de la sesión:**
+  <img src="assets/sprint3/validation/entrevista-oscar-taza.jpg" alt="Captura de la entrevista de validación con Oscar Taza Cordero" width="600">
+
+* **Resumen de la sesión:**
+  * *Control actual:* lleva el control de su flota en un cuaderno, con papel y lápiz.
+  * *Landing Page:* la página se mostró en inglés y pidió cambiarla a español antes de continuar. Entendió que FleetSafe sirve para gestionar vehículos y flotas y lo asoció con reportes de accidentes, sin mencionar la inspección preoperacional, que es la función principal.
+  * *Gestión de incidencias:* identificó que una incidencia es un reporte sobre un vehículo que no puede operar con normalidad. Registró un choque como incidencia crítica sin ayuda y calificó el proceso como "nada complicado".
+  * *Gestión de flota:* interpretó el resumen de flotas como "algo visual" y esperaba poder entrar a la flota desde él. Registró un vehículo sin problemas y propuso agregar un botón para regresar al panel de Gestión de flota desde la lista de vehículos.
+  * *Documentación vehicular:* relacionó los documentos con un registro de incidentes; no identificó que la sección controla el vencimiento de documentos como el SOAT o la revisión técnica.
+  * *Valoración final:* consideró la aplicación "muy fácil" de usar porque los formularios no son extensos, y la recomendaría a un dueño de flota que necesite una gestión rápida.
+
 <a id="533-evaluaciones-segun-heuristicas"></a>
 ### 5.3.3. Evaluaciones según heurísticas.
+
+La evaluación aplica el formato de evaluación heurística del proyecto a lo observado en la sesión con Oscar Taza Cordero (5.3.2). La severidad sigue la escala de 1 (problema superficial) a 4 (impide continuar usando la herramienta).
+
+| # | Problema | Escala de severidad | Heurística/Principio violada(o) |
+|:---:|:---|:---:|:---|
+| 1 | El Landing Page se muestra en inglés a un usuario cuyo navegador está en español | 2 | Inclusive Design: Ofrecer una experiencia comparable |
+| 2 | En la primera lectura del Landing Page, el entrevistado asoció el producto con reportes de accidentes y no con la inspección preoperacional | 1 | Information Architecture: Is it findable? |
+| 3 | El estado del vehículo se llama "Habilitado" en la lista de vehículos y "No habilitado" en Evaluación y autorización para el mismo vehículo | 3 | Usability: Consistencia y estándares |
+| 4 | El resumen de flotas parece una tabla navegable, pero no permite entrar a la flota | 2 | Usability: Consistencia y estándares |
+| 5 | No hay un botón para regresar al panel de Gestión de flota desde la lista de vehículos | 2 | Usability: Control y libertad del usuario |
+| 6 | El propósito de Documentación vehicular no se entiende y el tipo de documento aparece en inglés en la interfaz en español | 2 | Usability: Coincidencia entre el sistema y el mundo real |
+
+**Problema 1: El Landing Page se muestra en inglés a un usuario cuyo navegador está en español.**
+Severidad: 2. Heurística violada: Inclusive Design: Ofrecer una experiencia comparable.
+Problema: al abrir el Landing Page, el entrevistado pidió cambiarlo a español antes de leerlo. El inglés es el idioma por defecto del producto, pero un usuario de los segmentos objetivo, que en su mayoría habla español, no ve su idioma en el primer contacto.
+
+<img src="assets/sprint3/validation/problema-landing-ingles.jpg" alt="Landing Page mostrado en inglés al inicio de la sesión" width="600">
+
+Recomendación: usar el idioma del navegador cuando sea español y mantener el inglés como idioma por defecto para el resto; recordar la elección del usuario entre visitas.
+
+**Problema 2: En la primera lectura, el entrevistado asoció el producto con reportes de accidentes y no con la inspección preoperacional.**
+Severidad: 1. Heurística violada: Information Architecture: Is it findable?
+Problema: la sección principal menciona que se inspecciona y se detectan riesgos, y la sección de funciones explica "Inspecciona desde el dispositivo", pero el entrevistado respondió antes de llegar a ella y describió FleetSafe como una herramienta de reportes de accidentes. La inspección preoperacional, que es el centro de la propuesta, no fue lo primero que percibió.
+
+<img src="assets/sprint3/validation/problema-mensaje-landing.jpg" alt="Sección principal del Landing Page" width="600">
+
+Recomendación: usar el término "inspección preoperacional" en el subtítulo de la sección principal y mostrar en la ilustración el paso del conductor que inspecciona desde su teléfono.
+
+**Problema 3: El estado del vehículo se llama "Habilitado" en la lista de vehículos y "No habilitado" en Evaluación y autorización.**
+Severidad: 3. Heurística violada: Usability: Consistencia y estándares.
+Problema: durante la sesión, el resumen de flotas indicaba "2 Habilitado" y la lista de vehículos mostraba ABC-123 como "Habilitado" (vehículo activo en el registro), mientras Evaluación y autorización lo mostraba como "No habilitado" para operar. La misma palabra describe dos conceptos distintos, y un supervisor puede tomar la decisión equivocada.
+
+<img src="assets/sprint3/validation/problema-regresar-flota.jpg" alt="Lista de vehículos con todos los vehículos en estado Habilitado" width="600">
+
+Recomendación: llamar "Activo" o "Inactivo" al estado de registro del vehículo y reservar "Habilitado", "Observado" y "No habilitado" para el estado operativo.
+
+**Problema 4: El resumen de flotas parece una tabla navegable, pero no permite entrar a la flota.**
+Severidad: 2. Heurística violada: Usability: Consistencia y estándares.
+Problema: el entrevistado intentó entrar a "Flota Lima" desde el resumen y concluyó que era "algo visual, no más".
+
+<img src="assets/sprint3/validation/problema-resumen-flotas.jpg" alt="Resumen de flotas en Gestión de flota" width="600">
+
+Recomendación: hacer que cada fila del resumen lleve al detalle de la flota y sus vehículos.
+
+**Problema 5: No hay un botón para regresar al panel de Gestión de flota desde la lista de vehículos.**
+Severidad: 2. Heurística violada: Usability: Control y libertad del usuario.
+Problema: para volver al panel, el entrevistado tuvo que buscar la opción Gestión de flota en el menú lateral. Fue la mejora que propuso de forma explícita.
+
+<img src="assets/sprint3/validation/problema-regresar-flota.jpg" alt="Lista de vehículos sin botón para regresar" width="600">
+
+Recomendación: agregar un enlace de regreso o una ruta de navegación (Gestión de flota › Vehículos) en las vistas internas del módulo.
+
+**Problema 6: El propósito de Documentación vehicular no se entiende y el tipo de documento aparece en inglés.**
+Severidad: 2. Heurística violada: Usability: Coincidencia entre el sistema y el mundo real.
+Problema: el entrevistado relacionó la sección con un registro de incidentes. Además, con la interfaz en español, el tipo de documento aparece como "Technical inspection (CITV)".
+
+<img src="assets/sprint3/validation/problema-documentacion.jpg" alt="Documentación vehicular con el tipo de documento en inglés" width="600">
+
+Recomendación: explicar en el subtítulo que la sección avisa qué documentos (SOAT, revisión técnica, tarjeta de propiedad) vencen en los próximos días, y traducir el tipo de documento con las claves de i18n.
+
+**Lo que funcionó:** el registro de incidencias se completó sin ayuda y el entrevistado lo calificó como sencillo; también consideró breves los formularios de registro de vehículos.
 
 
 <a id="54-video-about-the-product"></a>
