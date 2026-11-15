@@ -1,3 +1,12 @@
 # Salida generada por Structurizr a partir de workspace.dsl
 .structurizr/
 workspace.json
+
+# Salida de la compilacion de Pandoc
+build/
+
+# Auxiliares de LaTeX
+*.aux
+*.log
+*.toc
+*.out

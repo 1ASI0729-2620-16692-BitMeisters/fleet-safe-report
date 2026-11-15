@@ -394,7 +394,6 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 15 minutos con 20 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 15:20`)
 * **Evidencia de la sesión:**
-  <img src="assets/interviews/entrevista-2.png" alt="Captura de la entrevista 2 — Fernando Quispe" width="600">
 
 * **Resumen de respuestas clave:**
   * *Control preventivo actual:* Cada chofer tiene un talonario autocopiativo de revisión básica. La copia amarilla queda en portería y la blanca va a administración a fin de mes.
@@ -417,7 +416,6 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 18 minutos con 10 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 18:10`)
 * **Evidencia de la sesión:**
-  <img src="assets/interviews/entrevista-3.png" alt="Captura de la entrevista 3 — Martín Solís" width="600">
 
 * **Resumen de respuestas clave:**
   * *Control preventivo actual:* El conductor pasa por garita y un inspector anota las observaciones en una tabla compartida en Excel.
@@ -442,7 +440,6 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 17 minutos con 30 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 17:30`)
 * **Evidencia de la sesión:**
-  <img src="assets/interviews/entrevista-4.png" alt="Captura de la entrevista 4 — Roberto Salazar" width="600">
 
 * **Resumen de respuestas clave:**
   * *Rutina diaria:* Inicia a las 06:00 h revisando qué camiones tienen servicio programado. Debe validar visualmente los formatos que los choferes dejan en la casilla de operaciones.
@@ -559,7 +556,6 @@ En esta sección se presenta el registro detallado de las entrevistas semiestruc
 * **Duración:** 16 minutos con 05 segundos
 * **URL de la grabación:** _Link pendiente_ (Timestamp: `00:00 - 16:05`)
 * **Evidencia de la sesión:**
-  <img src="assets/interviews/entrevista-9.png" alt="Captura de la entrevista 9 — Miguel Ángel Ramos" width="600">
 
 * **Resumen de respuestas clave:**
   * *Exigencias de clientes mineros:* En ruta minera los estándares son estrictos; si un extintor está despresurizado o falta una cinta reflectiva, no le permiten ingresar a mina y la empresa pierde el viaje.
