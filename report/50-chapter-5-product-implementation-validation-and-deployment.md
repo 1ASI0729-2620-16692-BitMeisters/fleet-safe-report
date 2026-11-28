@@ -1379,6 +1379,158 @@ Desde el 2026-11-07, con la reasignación descrita en la sección 5.2.3.2, Aleja
 
 ![Pull Requests integrados en el Backend RESTful API durante el sprint](assets/sprint3/collaboration-pull-requests-web-services.png)
 
+<a id="524-sprint-4"></a>
+
+### 5.2.4. Sprint 4
+
+<a id="5241-sprint-planning-4"></a>
+
+#### 5.2.4.1. Sprint Planning 4.
+
+El Sprint 4 tiene como propósito que cada segmento pueda usar FleetSafe de principio a fin, con la comparación de planes y el contacto con ventas, la suscripción de la empresa, el panel de la flota, la reevaluación de vehículos, los historiales y reportes y las correcciones de la inspección.
+
+[Completar: resumen de la reunión de planificación.]
+
+[Completar: captura de la reunión de planificación.]
+
+| Sprint 4 | Sprint 4 |
+|---|---|
+| **Sprint Planning Background** | |
+| **Date** | 2026-11-27 |
+| **Time** | 11:47 AM |
+| **Location** | Reunión virtual por Google Meet|
+| **Prepared By** | Espino Flores, Alejandro|
+| **Attendees (to planning meeting)** | Espino Flores, Alejandro / Aguilar Untiveros, Rodrigo Fabrizio / Palacin Lazo, Gerardo Valentin / Diaz Vargas, Fernanda Ysabella / Romero Veliz, Matthias Alonso / Valladolid Jimenez, Arturo Fernando |
+| **Sprint 3 Review Summary** | En el Sprint 3 se desplegó la primera versión del Backend RESTful API en Azure (0.3.0) y la Web Application (0.5.1) pasó a trabajar sobre él: cada usuario entra con su propia cuenta y ve las opciones de su rol. Los conductores y las asignaciones de vehículos siguieron en la API simulada. |
+| **Sprint 3 Retrospective Summary** | Como acierto, las pruebas automáticas contra PostgreSQL en cada Pull Request del backend detectaron errores antes de que llegaran a producción, y GitFlow permitió publicar versiones y corregir fallas sin detener el trabajo en `develop`. Como oportunidad de mejora, a cinco días de la entrega quedaba trabajo pendiente que tuvo que reasignarse, y Alejandro Espino completó las partes que faltaban de otros bounded contexts. Para el Sprint 4 se recomienda que cada Pull Request sea revisado por otro integrante antes de integrarse y que todo cambio en una ruta del backend actualice en el mismo Sprint el contrato OpenAPI y la Web Application. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 4 Goal** | **Nuestro enfoque está en** que cada segmento pueda hacer con FleetSafe lo que necesita de principio a fin: que los visitantes del sitio web comparen los planes y contacten a ventas; que las empresas de transporte de carga se suscriban a un plan y vean el estado de su flota en un panel; que los supervisores de flota sigan cada incidencia hasta reevaluar el vehículo y consulten historiales y reportes; que los conductores completen su inspección sin trabarse; que los usuarios reconozcan en la aplicación web la identidad del sitio web; y que los developers puedan integrar con otras soluciones los historiales, reportes y suscripciones. **Creemos que esto entrega** información para elegir un plan y una vía para pedir una propuesta **a** los visitantes del sitio web; claridad sobre lo contratado y el estado de su flota **a** las empresas de transporte de carga; seguimiento e información histórica para decidir sobre cada vehículo **a** los supervisores de flota; una inspección que pueden continuar y completar **a** los conductores; y la posibilidad de integrar y probar estas funciones con ayuda de la documentación **a** los developers. **Esto se confirmará cuando** en los productos publicados, un visitante compare los tres planes y envíe una solicitud a ventas en menos de 3 minutos; un administrador suscriba su empresa a un plan en menos de 3 minutos y consulte el plan, su estado y la fecha de renovación; un supervisor reevalúe un vehículo después de una acción correctiva, vea el cambio en su historial y genere el reporte de la flota para un periodo; un conductor continúe una inspección en curso y la complete con observaciones sin errores en el 100 % de las pruebas; y un developer ajeno al equipo, con una cuenta de prueba y solo la documentación publicada, consulte el historial de un vehículo y la suscripción de la empresa en menos de 15 minutos. |
+| **Sprint 4 Velocity** | 55 |
+| **Sum of Story Points** | 55 |
+
+<a id="5242-aspect-leaders-and-collaborators-4"></a>
+
+#### 5.2.4.2. Aspect Leaders and Collaborators.
+
+Los aspectos del Sprint 4 son los bounded contexts con trabajo planificado en el Backend RESTful API y en la Web Application: Evaluation and Authorization, Incident Management, Pre-Operational Inspection, Fleet Management y el nuevo Subscriptions. A ellos se suman el Landing Page, con la comparación de planes y el contacto con ventas, y la homologación del diseño de la Web Application con el sitio web. En el tablero del Sprint, las tareas planificadas todavía figuran por asignar, por lo que los líderes y colaboradores de cada aspecto se registrarán en la matriz cuando el equipo defina las responsabilidades.
+
+| Team Member (Last Name, First Name) | GitHub Username | Identity and Access Leader (L) / Collaborator (C) | Evaluation and Authorization Leader (L) / Collaborator (C) | Pre-Operational Inspection Leader (L) / Collaborator (C) | Incident Management Leader (L) / Collaborator (C) | Fleet Management Leader (L) / Collaborator (C) | Vehicle Documentation Leader (L) / Collaborator (C) | Base compartida del backend Leader (L) / Collaborator (C) | Subscriptions Leader (L) / Collaborator (C) | Landing Page Leader (L) / Collaborator (C) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Espino Flores, Alejandro | CafecitoSKR | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Aguilar Untiveros, Rodrigo Fabrizio | Rodri2712 | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Palacin Lazo, Gerardo Valentin | GeraldP03 | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Diaz Vargas, Fernanda Ysabella | Fern9901 | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Romero Veliz, Matthias Alonso | AlonsoVelizUpc | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Valladolid Jimenez, Arturo Fernando | artuvall | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+
+<a id="5243-sprint-backlog-4"></a>
+
+#### 5.2.4.3. Sprint Backlog 4.
+
+El objetivo del Sprint 4 es que cada segmento pueda hacer con FleetSafe lo que necesita de principio a fin. El alcance registrado en el tablero comprende 14 historias, que suman 55 Story Points, desglosadas en 21 tareas por producto. Las tareas se identifican en el informe de T01 a T21 según su orden en la lista *To-do*.
+
+Tablero del Sprint 4: https://trello.com/b/OUVEdBp3
+
+[Completar: captura del tablero de Trello del Sprint 4.]
+
+| Sprint # | Story Id | Story Title | Task Id | Task Title | Task Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
+|---|---|---|---|---|---|---:|---|---|
+| Sprint 4 | US26 | Reevaluar vehículo tras acción correctiva | T01 | Reevaluar vehículo tras acción correctiva — Backend | Permitir que el supervisor pida reevaluar un vehículo no habilitado cuando la acción correctiva o la reparación de su incidencia ya está completada. Recalcular el estado operativo con las reglas vigentes y guardarlo como una nueva evaluación, sin borrar la anterior. Rechazar la reevaluación si la incidencia sigue abierta, con su mensaje en inglés y español. Solo supervisor y administrador. Prueba de integración del flujo. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US26 | Reevaluar vehículo tras acción correctiva | T02 | Reevaluar vehículo tras acción correctiva — Web App | Botón "Reevaluar" en el detalle del vehículo o de la incidencia, visible solo cuando la acción correctiva o la reparación está completada. Mostrar el nuevo estado (habilitado, observado o no habilitado) y el motivo si sigue sin habilitar. Mostrar el mensaje traducido cuando el backend rechaza la reevaluación. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US29 | Actualizar estado de incidencia | T03 | Actualizar estado de incidencia — Backend | El backend ya permite cambiar el estado de una incidencia: verificar que solo acepte las transiciones válidas (registrada → en revisión → resuelta) y que responda con mensaje traducido cuando no. Registrar quién y cuándo cambió el estado, para el historial (US31). Completar la prueba de integración con un cambio inválido. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US29 | Actualizar estado de incidencia | T04 | Actualizar estado de incidencia — Web App | En el detalle de la incidencia, ofrecer solo las acciones permitidas según su estado actual (pasar a revisión, resolver). Actualizar la pantalla con el nuevo estado sin recargar y mostrar el error traducido si el cambio no se permite. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US31 | Consultar historial de incidencias por vehículo | T05 | Consultar historial de incidencias por vehículo — Backend | Consultar todas las incidencias de un vehículo, de la más reciente a la más antigua, con su estado, severidad, acciones correctivas y reparaciones. Revisar si la consulta por vehículo ya existe y completarla si falta información. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US31 | Consultar historial de incidencias por vehículo | T06 | Consultar historial de incidencias por vehículo — Web App | Sección "Historial de incidencias" en el detalle del vehículo, con fecha, tipo, severidad y estado de cada incidencia. Abrir el detalle de una incidencia desde el historial. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US35 | Consultar historial de inspecciones | T07 | Consultar historial de inspecciones — Backend | Consultar las inspecciones completadas de un vehículo con su fecha, conductor, cantidad de ítems conformes, observados y en falla, y el resultado de su evaluación. Permitir filtrar por rango de fechas. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US35 | Consultar historial de inspecciones | T08 | Consultar historial de inspecciones — Web App | Sección "Historial de inspecciones" en el detalle del vehículo, con filtro por fechas. Abrir una inspección pasada en modo lectura, con sus observaciones y fotos. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US36 | Generar reporte de estado de flota | T09 | Generar reporte de estado de flota — Backend | Armar el reporte de la flota: cantidad de vehículos por estado operativo, lista de los no habilitados con su causa, incidencias abiertas por vehículo y documentos vencidos o por vencer. Obtener los datos de los otros contextos a través de sus fachadas, sin acceder a sus repositorios. Permitir filtrar por flota. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US36 | Generar reporte de estado de flota | T10 | Generar reporte de estado de flota — Web App | Vista "Reporte de flota" con los totales por estado, la tabla de vehículos no habilitados y los documentos por vencer. Filtro por flota y opción para imprimir o descargar el reporte. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US37 | Consultar historial de estados de vehículo | T11 | Consultar historial de estados de vehículo — Backend | Guardar cada cambio de estado operativo de un vehículo (evaluación, reevaluación o levantamiento de bloqueo) con su fecha, el estado anterior, el nuevo y el motivo. Consultar ese historial por vehículo, del más reciente al más antiguo. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US37 | Consultar historial de estados de vehículo | T12 | Consultar historial de estados de vehículo — Web App | Línea de tiempo de estados en el detalle del vehículo: fecha, estado, motivo y quién lo originó (inspección, reevaluación o levantamiento de bloqueo). | [Completar] | Por asignar | To-do |
+| Sprint 4 | US45 | API de historial y reportes | T13 | API de historial y reportes — Backend | Documentar en OpenAPI las consultas de historial y el reporte de flota de US31, US35, US36 y US37. Restringir cada consulta por rol y responder con mensajes traducidos. Prueba de integración de cada consulta, incluido un rol sin permiso. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US46 | Comparar planes de suscripción | T14 | Comparar planes de suscripción — Landing Page | Convertir la sección de planes en una comparación clara de Free, Premium y Enterprise: qué incluye cada uno y para qué tamaño de flota. Botón de acción por plan: Free y Premium llevan a la Web App; Enterprise abre el contacto con ventas (US47). Textos en inglés y español, y atributos ARIA. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US47 | Contactar a ventas desde el plan Enterprise | T15 | Contactar a ventas desde el plan Enterprise — Landing Page | Formulario "Contactar ventas" (nombre, empresa, correo, tamaño de flota y mensaje) que se abre desde el plan Enterprise. Validar los campos antes de enviar y confirmar al visitante que su solicitud llegó. Definir a dónde llega la solicitud: un servicio de formularios externo o el backend. Textos en inglés y español, y atributos ARIA. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US48 | Suscribir la empresa a un plan | T16 | Suscribir la empresa a un plan — Web App | Pantalla "Planes" para el administrador, con los tres planes y el botón para suscribirse. Confirmación antes de suscribir y mensaje de éxito o de error traducido. Si se elige una pasarela de pago como integración externa, el pago en modo prueba va en este flujo. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US49 | Consultar la suscripción actual | T17 | Consultar la suscripción actual — Web App | Sección "Mi suscripción" para el administrador: plan actual, estado y fecha de renovación. Acceso desde ahí a cambiar de plan (pantalla de US48). | [Completar] | Por asignar | To-do |
+| Sprint 4 | US50 | API de suscripciones | T18 | API de suscripciones — Backend | Crear el bounded context Subscriptions con sus capas, siguiendo la base compartida. Catálogo de planes (Free, Premium y Enterprise) con lo que incluye cada uno. Suscribir la empresa a un plan, con estado (activa, cancelada) y fechas de inicio y renovación. Consultar la suscripción actual de la empresa. Solo el administrador de la empresa suscribe. Mensajes en inglés y español, OpenAPI y prueba de integración. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US51 | Panel de estado de la flota (dashboard) | T19 | Panel de estado de la flota (dashboard) — Backend | Entregar en una sola consulta el resumen que muestra el panel: vehículos habilitados, observados, no habilitados y sin inspeccionar; incidencias abiertas; documentos por vencer. Calcularlo en el backend con los datos de cada contexto a través de sus fachadas, en vez de que la Web App junte varias consultas. El resumen muestra solo los datos de la empresa del usuario. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US51 | Panel de estado de la flota (dashboard) | T20 | Panel de estado de la flota (dashboard) — Web App | Pantalla de inicio con tarjetas de totales por estado, la lista de incidencias abiertas y los documentos por vencer. Cada tarjeta lleva a la lista filtrada correspondiente. Tomar como base el dashboard del PR #81 y conectarlo al resumen del backend. | [Completar] | Por asignar | To-do |
+| Sprint 4 | US52 | Homologar el diseño de la Web App con el website | T21 | Homologar el diseño de la Web App con el website — Web App | Llevar a la Web App la paleta de colores, la tipografía y el logo del website. Unificar botones, tarjetas y encabezados con el estilo del website, manteniendo Angular Material. Revisar el contraste (WCAG AA) después del cambio. | [Completar] | Por asignar | To-do |
+
+El tablero registra además las siguientes tareas de diagnóstico y corrección en su lista *Tareas*, sin horas, Story Points ni estado del flujo de trabajo. La integración con un servicio externo desde la Web Application figura en la misma lista, con el servicio por decidir.
+
+| Tarjeta | Título | Descripción |
+|---|---|---|
+| T-D1 | Diagnosticar los flujos de punta a punta por rol | Recorrer en producción los flujos del administrador, el supervisor y el conductor, y registrar cada falla encontrada (pantalla, pasos, mensaje y respuesta del backend). Cada falla se convierte en una tarea de corrección. |
+| T-F1 | Inspección en curso: mostrar el mensaje y permitir continuarla | Al iniciar una inspección de un vehículo que ya tiene una en curso, el backend responde 409 (inspection.error.vehicle-has-ongoing-inspection) y la Web App muestra "Failed to create entity: 409". Debe mostrar el mensaje traducido y abrir la inspección existente. Pre-Operational Inspection · Web Application |
+| T-F2 | Exigir la observación de los ítems observados o en falla | Un resultado OBSERVED o FAIL sin observación impide completar la inspección (inspection.complete.error.missing-observation) y la Web App no lo indica. Debe pedir la observación antes de enviar y mostrar el error traducido. Pre-Operational Inspection · Web Application |
+| T-F3 | Publicar el backend 0.4.0 junto con la Web App | El backend 0.4.0 tiene las rutas cortas que ya usa develop de la Web App; producción sigue con el backend 0.3.0 y la Web App de main con las rutas viejas. Publicar las dos versiones a la vez para no romper Incident. |
+| T-F4 | Integrar conductores y asignaciones (US16) | La US16 está implementada en las ramas feature/fleet-fixes (backend) y feature/fleet-driver-assignments (Web App) sin PR ni integración a develop. Abrir los PR, revisarlos e integrarlos. Fleet Management |
+| T-F5 | Backend dormido en producción | El backend en Azure Container Apps tiene 0 réplicas mínimas: la primera petición después de una pausa tarda unos 30 segundos y falla con 503. Decidir réplica mínima 1 para la presentación y volver a 0 después. |
+| T-F6 | Rutas inexistentes devuelven 500 en vez de 404 | El GlobalExceptionHandler trata una ruta que no existe como error inesperado (500). Debe responder 404. Shared |
+
+<a id="5244-development-evidence-for-sprint-review-4"></a>
+
+#### 5.2.4.4. Development Evidence for Sprint Review.
+
+[Completar: resumen de lo implementado en cada producto.]
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Commited on (Date) |
+|---|---|---|---|---|---|
+| [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+
+<a id="5245-execution-evidence-for-sprint-review-4"></a>
+
+#### 5.2.4.5. Execution Evidence for Sprint Review.
+
+[Completar: qué puede hacer cada segmento al cierre del Sprint 4, con la dirección y versión de la aplicación.]
+
+[Completar: capturas de las vistas, con una explicación de cada flujo.]
+
+[Completar: enlace del video de navegación.]
+
+<a id="5246-services-documentation-evidence-for-sprint-review-4"></a>
+
+#### 5.2.4.6. Services Documentation Evidence for Sprint Review.
+
+[Completar: servicios agregados o modificados, y enlaces a la documentación y al contrato OpenAPI.]
+
+| Endpoint | Acciones implementadas | Verbo HTTP | Sintaxis de llamada | Parámetros | Response |
+|---|---|---|---|---|---|
+| [Completar] | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+
+[Completar: capturas de las pruebas en la documentación y commits relacionados.]
+
+<a id="5247-software-deployment-evidence-for-sprint-review-4"></a>
+
+#### 5.2.4.7. Software Deployment Evidence for Sprint Review.
+
+[Completar: qué se desplegó en el Sprint 4.]
+
+| Producto | Repositorio | Plataforma | Estado | URL |
+|---|---|---|---|---|
+| Landing Page | [Completar] | [Completar] | [Completar] | [Completar] |
+| Frontend Web Application | [Completar] | [Completar] | [Completar] | [Completar] |
+| Backend RESTful API | [Completar] | [Completar] | [Completar] | [Completar] |
+
+[Completar: pasos del despliegue, con capturas y su explicación.]
+
+<a id="5248-team-collaboration-insights-during-sprint-4"></a>
+
+#### 5.2.4.8. Team Collaboration Insights during Sprint.
+
+[Completar: explicación de cómo colaboró el equipo (organización, ramas, Pull Requests, revisiones y coordinación).]
+
+| Integrante | GitHub Username | Commits en el Backend RESTful API | Commits en la Web Application | Commits en el Landing Page | Commits en el informe | Aporte principal |
+|---|---|---:|---:|---:|---:|---|
+| Espino Flores, Alejandro | CafecitoSKR | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Aguilar Untiveros, Rodrigo Fabrizio | Rodri2712 | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+| Palacin Lazo, Gerardo Valentin | GeraldP03 | [Completar] | [Completar] | [Completar] | [Completar] | [Completar] |
+
+[Completar: aporte concreto de cada integrante y con quién coordinó.]
+
+[Completar: capturas de GitHub Insights, cada una acompañada de lo que demuestra.]
+
 <a id="53-validation-interviews"></a>
 ## 5.3. Validation Interviews.
 
