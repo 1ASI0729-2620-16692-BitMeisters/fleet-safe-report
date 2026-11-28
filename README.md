@@ -228,6 +228,15 @@ El informe de FleetSafe se elaboró en Markdown, dividido por capítulos dentro 
             - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5236-services-documentation-evidence-for-sprint-review">5.2.3.6. Services Documentation Evidence for Sprint Review.</a>
             - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5237-software-deployment-evidence-for-sprint-review">5.2.3.7. Software Deployment Evidence for Sprint Review.</a>
             - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5238-team-collaboration-insights-during-sprint">5.2.3.8. Team Collaboration Insights during Sprint.</a>
+        - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#524-sprint-4">5.2.4. Sprint 4</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5241-sprint-planning-4">5.2.4.1. Sprint Planning 4.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5242-aspect-leaders-and-collaborators-4">5.2.4.2. Aspect Leaders and Collaborators.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5243-sprint-backlog-4">5.2.4.3. Sprint Backlog 4.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5244-development-evidence-for-sprint-review-4">5.2.4.4. Development Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5245-execution-evidence-for-sprint-review-4">5.2.4.5. Execution Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5246-services-documentation-evidence-for-sprint-review-4">5.2.4.6. Services Documentation Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5247-software-deployment-evidence-for-sprint-review-4">5.2.4.7. Software Deployment Evidence for Sprint Review.</a>
+            - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#5248-team-collaboration-insights-during-sprint-4">5.2.4.8. Team Collaboration Insights during Sprint.</a>
     - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#53-validation-interviews">5.3. Validation Interviews.</a>
         - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#531-diseno-de-entrevistas">5.3.1. Diseño de Entrevistas.</a>
         - <a href="report/50-chapter-5-product-implementation-validation-and-deployment.md#532-registro-de-entrevistas">5.3.2. Registro de Entrevistas.</a>
